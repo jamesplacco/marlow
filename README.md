@@ -28,7 +28,7 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Diagnostic** measures all three terms of reading: oral reading (speed, accuracy, phrasing), listening comprehension, and reading comprehension, with answer, evidence, reasoning, and confidence captured on every item.
 - **Workspace** runs the 20-minute routine: oral warm-up, read, answer with evidence, claim and revise against the evidence coach, closed-book summary, vocabulary retrieval. The coach names the error and never gives the answer; students can flag feedback to a tutor.
 - **Fluency track** with a weekly oral reading checkpoint and trend, repeated reading, phrase-cued reading, echo reading, and multisyllabic word attack.
-- **Word banks** for SAT, ACT, AP Language, AP Literature, GRE, and roots, in four modes (read, flip, quiz, match).
+- **Word banks**: 283 words and terms across SAT, ACT, AP Language, AP Literature, GRE, and test verbs, each with definition, parts, near neighbor, and example; 74 root families and 26 affixes with links into the banks; a Families view grouping bank words by shared root; four modes (read, flip, quiz, match); a due-today strip tied to the review notebook.
 - **Worked examples** (ten, across SAT, ACT, AP Language, AP Literature, GRE, and GMAT Focus) with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
 - **Practice sections**: the book's two ten-item sections (Set A, nonfiction and literature; Set B, science and two texts), playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history per set.
 - **Sentence unpacking**: the book's thirty-sentence set as a three-step drill (find the load-bearing word, pick the restatement at the right rung, read the unpacking), ten per session, scored per set.
@@ -37,7 +37,7 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 
 ### The book
 
-The Book page carries the full first draft of *Reading the Hard Stuff* (about 40,000 words): 31 chapters in seven parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents; for tutors), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, thirty sentences to unpack with a key, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with full-text search, read-aloud, and adjustable text size.
+The Book page carries the full first draft of *Reading the Hard Stuff* (about 48,000 words): 31 chapters in seven parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents; for tutors), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, thirty sentences to unpack with a key, the method on one page, every question family by test, the full root table, the word banks, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with full-text search, read-aloud, and adjustable text size.
 
 ## How it works
 
