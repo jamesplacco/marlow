@@ -33,6 +33,10 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
+### The book
+
+The Book page carries the full first draft of *Reading the Hard Stuff* (about 35,000 words): 30 chapters in six parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents), plus an appendix with every drill answer, a ten-item practice section with each wrong choice explained, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with read-aloud and adjustable text size.
+
 ## How it works
 
 - `index.html` is the entire site. No build step, no framework, no server.
