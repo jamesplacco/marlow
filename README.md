@@ -29,7 +29,8 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Workspace** runs the 20-minute routine: oral warm-up, read, answer with evidence, claim and revise against the evidence coach, closed-book summary, vocabulary retrieval. The coach names the error and never gives the answer; students can flag feedback to a tutor.
 - **Fluency track** with a weekly oral reading checkpoint and trend, repeated reading, phrase-cued reading, echo reading, and multisyllabic word attack.
 - **Word banks** for SAT, ACT, AP Language, AP Literature, GRE, and roots, in four modes (read, flip, quiz, match).
-- **Worked examples** with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
+- **Worked examples** (ten, across SAT, ACT, AP Language, AP Literature, GRE, and GMAT Focus) with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
+- **Practice section**: the book's ten-item section, playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history.
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
