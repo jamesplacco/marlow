@@ -30,13 +30,13 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Fluency track** with a weekly oral reading checkpoint and trend, repeated reading, phrase-cued reading, echo reading, and multisyllabic word attack.
 - **Word banks** for SAT, ACT, AP Language, AP Literature, GRE, and roots, in four modes (read, flip, quiz, match).
 - **Worked examples** (ten, across SAT, ACT, AP Language, AP Literature, GRE, and GMAT Focus) with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
-- **Practice section**: the book's ten-item section, playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history.
+- **Practice sections**: the book's two ten-item sections (Set A, nonfiction and literature; Set B, science and two texts), playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history per set.
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
 ### The book
 
-The Book page carries the full first draft of *Reading the Hard Stuff* (about 35,000 words): 30 chapters in six parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents), plus an appendix with every drill answer, a ten-item practice section with each wrong choice explained, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with read-aloud and adjustable text size.
+The Book page carries the full first draft of *Reading the Hard Stuff* (about 37,000 words): 30 chapters in six parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with read-aloud and adjustable text size.
 
 ## How it works
 
@@ -44,7 +44,7 @@ The Book page carries the full first draft of *Reading the Hard Stuff* (about 35
 - The only external resources are two Google Fonts (Newsreader and Source Sans 3).
 - Read-aloud uses the browser's built-in speech synthesis.
 - All student progress is stored in the viewer's own browser (`localStorage`). Nothing is sent anywhere.
-- Light and dark themes, keyboard accessible, works at phone width.
+- Light and dark themes, works at phone width. Scanned with axe-core (WCAG 2.1 AA and best-practice rules) on every view: zero violations.
 
 ## Run it locally
 
