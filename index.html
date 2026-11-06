@@ -71,6 +71,7 @@ button{font:inherit;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn.sm{padding:.4rem .8rem;font-size:.9rem}
 .nav a.btn{color:var(--crimson-ink);font-weight:600}
+.apply-m{display:none}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .btn:disabled{opacity:.45;cursor:default}
 .appbar{background:var(--band);border-bottom:1px solid var(--rule)}
@@ -411,6 +412,74 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
   .skill{grid-template-columns:1fr;gap:.2rem}
   body{font-size:16px}
 }
+
+/* responsive hardening */
+.syl button,.flash,.tip,.root,.word,.cap>div,.kit>div,.tz div,.phase,.week>div{min-width:0}
+.syl button{white-space:normal}
+.syl .row{flex-wrap:wrap}
+.tabwrap{-webkit-overflow-scrolling:touch}
+.tabwrap.scrolls{padding-bottom:.2rem}
+.tabwrap.scrolls::after{content:"Scroll sideways for the rest of the table";position:sticky;left:0;display:block;font-size:.75rem;color:var(--muted);padding:.35rem 0 .1rem;letter-spacing:.04em}
+@media (pointer:coarse){
+  .nav nav a{padding:.6rem .15rem}
+  .appbar a{padding:.6rem .05rem}
+  .appbar .right button{padding:.5rem .75rem;font-size:.9rem}
+  .icon{padding:.5rem .8rem;font-size:.9rem}
+  .toc li button{padding:.45rem 0;display:block;width:100%}
+  .bk-side li button{padding:.6rem .4rem}
+  .bk-hits button{padding:.35rem 0}
+  .bk-hits li{margin:.1rem 0}
+  .lk{padding:.3rem 0;display:inline-block}
+  .conf button{padding:.6rem .9rem}
+  .tabs button{padding:.8rem .9rem}
+  .modes button{padding:.55rem .95rem}
+  .faq summary{padding:.35rem 0}
+  .root .mem span,.root .mem button{padding:.35rem .7rem;margin:.2rem .4rem .2rem 0}
+  .match button{padding:.85rem .9rem}
+  .pillars a{padding:.9rem .2rem .4rem}
+  .sent .w{padding:.15em .08em}
+  .passage .s{padding:.08em .1em}
+  .opts label{padding:.75rem .8rem}
+  .ladder button{padding:.6rem .9rem}
+  .lane label,.check label{padding:.8rem .9rem}
+  .bk-search input,.bk-search .icon{padding:.6rem .7rem}
+}
+@media (max-width:700px){
+  .nav .wrap{gap:.6rem .8rem;min-height:56px}
+  .nav nav{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:1rem;padding-bottom:.25rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav nav::-webkit-scrollbar{display:none}
+  .nav nav a{white-space:nowrap}
+  .nav nav{mask-image:linear-gradient(to right,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,#000 90%,transparent)}
+  .nav nav a.btn{display:none}
+  .apply-m{display:inline-block;margin-left:auto}
+  .nav nav .sep{flex:0 0 1px}
+  .appbar .wrap{flex-wrap:nowrap;overflow-x:auto;gap:1.1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .appbar .wrap::-webkit-scrollbar{display:none}
+  .appbar a{white-space:nowrap}
+  .appbar .right{margin-left:.4rem;flex:0 0 auto;padding-right:.5rem}
+  .appbar .right>.small{display:none}
+}
+@media (max-width:560px){
+  .roster tr{display:grid;grid-template-columns:1fr 1fr;gap:.2rem .8rem;border-bottom:2px solid var(--rule);padding:.6rem 0}
+  .roster thead{display:none}
+  .roster td{border:0;padding:.1rem .2rem}
+  .roster td[data-l="Student"],.roster td[data-l="Attention"],.roster td[data-l="Current lesson"]{grid-column:1/-1}
+  .roster td::before{content:attr(data-l);display:block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .roster td:first-child::before{display:none}
+  .roster td:first-child{font-family:var(--display);font-size:1.15rem}
+  .hero{padding-block:2.5rem 2rem}
+  .section{padding-block:2.6rem}
+  .plate{padding:1.3rem;font-size:1.3rem}
+  .quote{font-size:1.3rem}
+  .bk-main{padding:1.3rem 1rem}
+  .card{padding:1rem}
+  .desk{gap:1.5rem;padding-block:1.5rem}
+  .sent{font-size:1.3rem}
+  .timer{font-size:2rem}
+  h1{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .week{grid-template-columns:1fr 1fr}
+  .cap,.kit{grid-template-columns:1fr}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -418,6 +487,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <header class="nav"><h1 class="sr-only" id="pagetitle">Marlow</h1><div class="wrap">
   <a class="brand" href="#home"><span class="mark">M</span>Marlow</a>
+  <a class="btn sm apply-m" href="#apply">Apply</a>
   <nav id="nav">
     <a href="#method" data-v="method">Method</a>
     <a href="#how" data-v="how">How we work</a>
@@ -1794,13 +1864,15 @@ const PUBLIC=["home","method","how","training","programs","book","international"
 const APP=["diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","tips","review","report","tutor"];
 const VIEWS=PUBLIC.concat(APP);
 document.documentElement.lang="en";
+function markScroll(){ document.querySelectorAll(".tabwrap").forEach(t=>t.classList.toggle("scrolls",t.scrollWidth>t.clientWidth+2)); }
+window.addEventListener("resize",()=>{ clearTimeout(window.__ms); window.__ms=setTimeout(markScroll,150); });
 function route(){
   let h=(location.hash||"#home").slice(1); if(h==="founder") h="team"; let v=h.split("-")[0]; if(!VIEWS.includes(v)) v="home";
   VIEWS.forEach(x=>$("#v-"+x).hidden = x!==v);
   $("#appbar").hidden=!APP.includes(v);
   const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Verbal Edge for international candidates",schools:"For schools",team:"Team",apply:"Apply",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",practice:"Practice section",sentences:"Sentence unpacking",tips:"Tips and resources",review:"Review notebook",report:"Coach report",tutor:"Tutor view"};
   $("#pagetitle").textContent=PT[v]||"Marlow"; $("#pagetitle").hidden=!!$("#v-"+v).querySelector("h1"); document.title=(PT[v]&&v!=="home"?PT[v]+" · Marlow":"Marlow · Read harder texts. Prove what they say.");
-  setTimeout(()=>document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }),0);
+  setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
   document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v || (a.dataset.v==="diagnostic" && a.closest("#nav") && APP.includes(v) && v!=="tips")));
   if(v==="workspace"){ const id=h.split("-")[1]; openLesson(LESSONS[id]?id:(load("pr-current","l5"))); }
   if(v==="review") renderReview();
@@ -2999,7 +3071,7 @@ const ROSTER=[
 function renderTutor(){
   const ls=load("pr-lessons",{}); const tot=Object.values(ls); const live=tot.length?`${tot.length} lesson${tot.length>1?"s":""}, ${(tot.reduce((a,s)=>a+s.hints,0)/Math.max(1,tot.reduce((a,s)=>a+s.done,0))).toFixed(1)} hints per task`:"No lessons yet";
   const myOrf=load("pr-orf",[]); const myLast=myOrf[myOrf.length-1];
-  $("#t-roster").innerHTML=`<tr><th>Student</th><th>Grade</th><th>Current lesson</th><th>Oral reading</th><th>Independent</th><th>Hints / task</th><th>Attention</th></tr>`+ROSTER.map(r=>`<tr><td>${esc(r[0])}</td><td>${r[1]}</td><td>${esc(r[2])}</td><td class="num">${r[0]==="Your session"?(myLast?`${myLast.wpm} · ${Math.round(myLast.acc*100)}%`:"n/a"):r[3]}</td><td class="num">${r[4]}</td><td class="num">${r[5]}</td><td><span class="pill ${r[7]}">${r[7]==="good"?"OK":r[7]==="crit"?"Act":r[7]==="warn"?"Watch":"Live"}</span> ${r[0]==="Your session"?esc(live):esc(r[6])}</td></tr>`).join("");
+  $("#t-roster").innerHTML=`<thead><tr><th>Student</th><th>Grade</th><th>Current lesson</th><th>Oral reading</th><th>Independent</th><th>Hints / task</th><th>Attention</th></tr></thead>`+ROSTER.map(r=>`<tr><td data-l="Student">${esc(r[0])}</td><td data-l="Grade">${r[1]}</td><td data-l="Current lesson">${esc(r[2])}</td><td class="num" data-l="Oral reading">${r[0]==="Your session"?(myLast?`${myLast.wpm} · ${Math.round(myLast.acc*100)}%`:"n/a"):r[3]}</td><td class="num" data-l="Independent">${r[4]}</td><td class="num" data-l="Hints / task">${r[5]}</td><td data-l="Attention"><span class="pill ${r[7]}">${r[7]==="good"?"OK":r[7]==="crit"?"Act":r[7]==="warn"?"Watch":"Live"}</span> ${r[0]==="Your session"?esc(live):esc(r[6])}</td></tr>`).join("");
   const ex=[{lesson:"The later bell",task:"Write a claim with evidence",response:"The bell probably helped since absences dropped right after.",fb:"Claim stronger than the source supports",student:"Daniel K."},{lesson:"Whose view is this",task:"Whose view",response:"The author's",fb:"The author reports this; the author does not assert it",student:"Daniel K."}];
   const mine=load("pr-flags",[]).map(f=>({...f,student:"Your session"}));
   $("#t-flags").innerHTML=ex.concat(mine).map((f,i)=>`<div class="card" style="margin-bottom:.8rem"><div class="small"><b>${esc(f.student)}</b> · ${esc(f.lesson)} · ${esc(f.task)}</div><div class="sample mt1">${esc(f.response)}</div><p class="small mt1">Coach said: <b>${esc(f.fb)}</b></p><div class="row mt1"><button class="btn sm" type="button" data-d="uphold" data-i="${i}">Uphold feedback</button><button class="btn ghost sm" type="button" data-d="credit" data-i="${i}">Give credit</button><button class="btn ghost sm" type="button" data-d="discuss" data-i="${i}">Discuss in session</button></div><div class="small" id="t-dec-${i}" style="margin-top:.4rem"></div></div>`).join("");

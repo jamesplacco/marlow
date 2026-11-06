@@ -45,7 +45,7 @@ The Book page carries the full first draft of *Reading the Hard Stuff* (about 48
 - The only external resources are two Google Fonts (Newsreader and Source Sans 3).
 - Read-aloud uses the browser's built-in speech synthesis.
 - All student progress is stored in the viewer's own browser (`localStorage`). Nothing is sent anywhere.
-- Light and dark themes, works at phone width. Scanned with axe-core (WCAG 2.1 AA and best-practice rules) on every view: zero violations.
+- Light and dark themes. Checked on nine device profiles (iPhone SE through desktop 1920, portrait and landscape): no horizontal overflow, scrollable nav and app bar on phones, stacked tutor roster under 560px, 44px tap targets on touch devices. Scanned with axe-core (WCAG 2.1 AA and best-practice rules) on every view: zero violations.
 
 ## Run it locally
 
