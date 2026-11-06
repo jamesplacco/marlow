@@ -11,7 +11,7 @@ This repository holds the Marlow website and learning app as a single self-conta
 | Area | Pages |
 | --- | --- |
 | Public site | Home, Method, How we work, Training, Programs, Book, International (Verbal Edge), Schools, Team, Apply, Policies |
-| Learning app | Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Tips, Review notebook, Coach report, Tutor view |
+| Learning app | Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Tips, Review notebook, Coach report, Tutor view |
 
 ### The method
 
@@ -31,12 +31,13 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Word banks** for SAT, ACT, AP Language, AP Literature, GRE, and roots, in four modes (read, flip, quiz, match).
 - **Worked examples** (ten, across SAT, ACT, AP Language, AP Literature, GRE, and GMAT Focus) with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
 - **Practice sections**: the book's two ten-item sections (Set A, nonfiction and literature; Set B, science and two texts), playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history per set.
+- **Sentence unpacking**: the book's thirty-sentence set as a three-step drill (find the load-bearing word, pick the restatement at the right rung, read the unpacking), ten per session, scored per set.
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
 ### The book
 
-The Book page carries the full first draft of *Reading the Hard Stuff* (about 37,000 words): 30 chapters in six parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with read-aloud and adjustable text size.
+The Book page carries the full first draft of *Reading the Hard Stuff* (about 40,000 words): 31 chapters in seven parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents; for tutors), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, thirty sentences to unpack with a key, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with full-text search, read-aloud, and adjustable text size.
 
 ## How it works
 
