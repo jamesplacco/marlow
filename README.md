@@ -11,7 +11,7 @@ This repository holds the Marlow website and learning app as a single self-conta
 | Area | Pages |
 | --- | --- |
 | Public site | Home, Method, How we work, Training, Programs, Book, International (Verbal Edge), Schools, Team, Apply, Policies |
-| Learning app | Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Tips, Review notebook, Coach report, Tutor view |
+| Learning app | Today (the hub: routine, numbers, next step), Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Tips, Review notebook, Coach report, Tutor view |
 
 ### The method
 
@@ -25,6 +25,7 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 
 ### The app
 
+- **Today** is the hub: the 20-minute routine as a checklist with live status, the six numbers that matter, and one next step chosen from the student's own state (diagnostic first, weekly checkpoint when it is due, practice sets at the right point in the sequence).
 - **Diagnostic** measures all three terms of reading: oral reading (speed, accuracy, phrasing), listening comprehension, and reading comprehension, with answer, evidence, reasoning, and confidence captured on every item.
 - **Workspace** runs the 20-minute routine: oral warm-up, read, answer with evidence, claim and revise against the evidence coach, closed-book summary, vocabulary retrieval. The coach names the error and never gives the answer; students can flag feedback to a tutor.
 - **Fluency track** with a weekly oral reading checkpoint and trend, repeated reading, phrase-cued reading, echo reading, and multisyllabic word attack.
@@ -32,6 +33,8 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Worked examples** (ten, across SAT, ACT, AP Language, AP Literature, GRE, and GMAT Focus) with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
 - **Practice sections**: the book's two ten-item sections (Set A, nonfiction and literature; Set B, science and two texts), playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history per set.
 - **Sentence unpacking**: the book's thirty-sentence set as a three-step drill (find the load-bearing word, pick the restatement at the right rung, read the unpacking), ten per session, scored per set.
+- **Friday report**, built from the student's own log: this week against last week on the five numbers, the pattern the coach saw most, one accepted claim in the student's words, and one thing to ask at dinner. Prints to one page; copies as text.
+- **Progress files**: save everything to a JSON file, load it on another device, or start over. No account needed.
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
@@ -42,6 +45,7 @@ The Book page carries the full first draft of *Reading the Hard Stuff* (about 48
 ## How it works
 
 - `index.html` is the entire site. No build step, no framework, no server.
+- `manifest.webmanifest`, `sw.js`, and the icons make it installable from a phone's browser (Add to Home Screen) and usable offline; the service worker is network-first, so a push to GitHub shows up on the next online load.
 - The only external resources are two Google Fonts (Newsreader and Source Sans 3).
 - Read-aloud uses the browser's built-in speech synthesis.
 - All student progress is stored in the viewer's own browser (`localStorage`). Nothing is sent anywhere.
@@ -63,7 +67,7 @@ The checkpoint passages used to measure students are kept out of this repository
 
 ## Status
 
-Preview build. Five of 24 lessons are playable; the rest show what they teach. Figures on the Coach report and Tutor view are illustrative examples, not real students.
+Preview build. Sixteen of 24 lessons are playable (1 to 7, 9, 10, 12, 13, 16, 17, 18, 21, 23), covering every unit and every error the diagnostic can route a student to; the rest show what they teach. Figures on the Coach report and Tutor view are illustrative examples, not real students.
 
 ## License
 

@@ -10,6 +10,10 @@
 <meta property="og:description" content="A three-move reading method for SAT, ACT, AP, GRE, and GMAT verbal, measured on unfamiliar texts. Free diagnostic and the full book draft.">
 <meta property="og:url" content="https://jamesplacco.github.io/marlow/">
 <meta name="theme-color" content="#9B1B30">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Marlow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%239B1B30'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&display=swap">
 <style>
@@ -48,7 +52,7 @@ p{margin:0}
 a{color:inherit}
 button{font:inherit;cursor:pointer}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:600}
+.eyebrow{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--crimson);font-weight:600}
 .muted{color:var(--muted)}
 .num{font-variant-numeric:tabular-nums}
 .small{font-size:.9rem;color:var(--muted)}
@@ -413,9 +417,88 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
   body{font-size:16px}
 }
 
+/* hero demo */
+.demo{border-top:3px solid var(--crimson);background:var(--paper);padding:1.2rem 1.3rem 1.3rem;box-shadow:var(--shadow);align-self:stretch;display:flex;flex-direction:column;gap:.9rem}
+.demo-head{display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;color:var(--muted);flex-wrap:wrap}
+.demo-head span:last-child{font-style:italic;font-family:var(--display);font-size:1rem;color:var(--ink)}
+.demo-text{font-family:var(--display);font-size:1.25rem;line-height:1.55;margin:0}
+.demo-text .ds{transition:background .25s,color .25s;border-radius:2px;padding:0 .1em}
+.demo-text .ds.dim{color:var(--muted)}
+.demo-text .ds.lit{background:var(--hl);color:var(--hl-ink)}
+.demo-text .dq{text-decoration:underline;text-decoration-color:var(--crimson);text-decoration-thickness:2px;text-underline-offset:3px;font-weight:600}
+.demo-moves{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+.demo-moves button{border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:.6rem .5rem;font-size:.85rem;font-weight:600;display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;text-align:left;line-height:1.2}
+.demo-moves button b{font-family:var(--display);font-size:1.3rem;font-weight:500;color:var(--crimson)}
+.demo-moves button.on{border-color:var(--crimson);background:var(--crimson-tint)}
+.demo-moves button.seen:not(.on) b{color:var(--muted)}
+.demo-out{min-height:4.6rem;font-size:.97rem;line-height:1.5;border-left:3px solid var(--rule);padding:.5rem .9rem;background:var(--band)}
+.demo-out.on{border-color:var(--crimson)}
+.demo-out s{color:var(--muted)}
+.demo-out .plain{font-family:var(--display);font-size:1.1rem;display:block;margin-top:.3rem}
+.demo-more{font-size:.9rem;color:var(--ink);text-decoration:underline;text-decoration-color:var(--crimson);text-underline-offset:3px}
+.more{text-decoration:underline;text-decoration-color:var(--crimson);text-underline-offset:3px;text-decoration-thickness:1px;font-weight:600}
+.more:hover{color:var(--crimson)}
+p,li,dd{text-wrap:pretty}
+.btn{transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:#7E1527;border-color:#7E1527}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+@media (max-width:560px){.demo-moves{grid-template-columns:1fr}.demo-moves button{flex-direction:row;align-items:center;gap:.6rem}}
+/* today */
+.today-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.today-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.6rem;align-items:start}
+.routine{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.5rem}
+.routine li{display:grid;grid-template-columns:1.6rem 1fr auto;gap:.7rem;align-items:center;padding:.65rem .2rem;border-bottom:1px solid var(--rule);font-size:1rem}
+.routine li:last-child{border-bottom:0}
+.routine .mk{width:1.4rem;height:1.4rem;border:1.5px solid var(--rule);border-radius:50%;display:grid;place-items:center;font-size:.8rem;color:var(--paper)}
+.routine li.done .mk{background:var(--good);border-color:var(--good)}
+.routine li.done span.t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--rule)}
+.routine .t b{display:block;font-weight:600}
+.routine .t small{color:var(--muted);font-size:.88rem}
+.today-stats{border-top:0;grid-template-columns:repeat(3,1fr);gap:.8rem 1rem}
+.today-stats .stat{border:0;border-top:3px solid var(--rule);padding:.6rem 0 0}
+.today-stats .stat b{font-size:2rem}
+.today-stats .stat.good{border-color:var(--good)}.today-stats .stat.warn{border-color:var(--warn)}.today-stats .stat.crit{border-color:var(--crit)}
+.next{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}
+.next h3{font-size:1.5rem}
+@media (max-width:900px){.today-grid{grid-template-columns:1fr}.next{grid-template-columns:1fr}}
+@media (max-width:560px){.today-stats{grid-template-columns:1fr 1fr}}
+
+/* friday report */
+.report{padding:1.6rem clamp(1rem,3vw,2.2rem)}
+.report header{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:3px solid var(--crimson);padding-bottom:.8rem;margin-bottom:1.2rem;align-items:flex-end}
+.report header h3{font-size:1.8rem}
+.report .wk{font-size:.95rem;color:var(--muted);text-align:right}
+.report .nums{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-bottom:1.4rem}
+.report .n{border-top:2px solid var(--rule);padding-top:.5rem}
+.report .n b{display:block;font-family:var(--display);font-size:1.9rem;font-weight:500;line-height:1.1}
+.report .n span{font-size:.82rem;color:var(--muted);display:block}
+.report .n .delta{font-size:.82rem;font-weight:600;color:var(--ink)}
+.report .n.up .delta{color:var(--good)}.report .n.down .delta{color:var(--crit)}
+.report .two{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.report h4{font-family:var(--display);font-size:1.15rem;font-weight:500;margin-bottom:.4rem}
+.report .sample{margin-top:.4rem}
+.report .dinner{margin-top:1.4rem;padding:1rem 1.2rem;border-left:3px solid var(--crimson);background:var(--crimson-tint);font-family:var(--display);font-size:1.2rem;line-height:1.4}
+.report .dinner small{display:block;font-family:var(--body);font-size:.8rem;color:var(--muted);margin-bottom:.3rem}
+.report footer{border-top:1px solid var(--rule);margin-top:1.4rem;padding-top:.6rem;font-size:.8rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media (max-width:900px){.report .nums{grid-template-columns:repeat(3,1fr)}.report .two{grid-template-columns:1fr}}
+@media (max-width:560px){.report .nums{grid-template-columns:1fr 1fr}}
+@media print{
+  body{background:#fff;color:#000;font-size:12pt}
+  .nav,.appbar,.noprint,footer.site,#toast{display:none!important}
+  main[hidden]{display:none!important}
+  #v-friday .wrap{padding:0!important;max-width:none}
+  .report{border:0;padding:0;box-shadow:none}
+  .report .nums{grid-template-columns:repeat(5,1fr)}
+  .report .two{grid-template-columns:1fr 1fr}
+  .report .dinner{background:#fff;border-left:3px solid #000}
+  a{text-decoration:none;color:inherit}
+}
+
 /* responsive hardening */
 .syl button,.flash,.tip,.root,.word,.cap>div,.kit>div,.tz div,.phase,.week>div{min-width:0}
-.syl button{white-space:normal}
+.syl{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.syl button{white-space:normal;overflow:hidden}
+.syl b,.syl .small{overflow-wrap:anywhere;min-width:0}
 .syl .row{flex-wrap:wrap}
 .tabwrap{-webkit-overflow-scrolling:touch}
 .tabwrap.scrolls{padding-bottom:.2rem}
@@ -499,11 +582,12 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
     <a href="#team" data-v="team">Team</a>
     <a href="#tips" data-v="tips">Resources</a>
     <span class="sep"></span>
-    <a href="#diagnostic" data-v="diagnostic">Try the app</a>
+    <a href="#today" data-v="today">Try the app</a>
     <a class="btn sm" href="#apply">Apply</a>
   </nav>
 </div></header>
 <div class="appbar" id="appbar" hidden><nav class="wrap" aria-label="App sections">
+  <a href="#today" data-v="today">Today</a>
   <a href="#diagnostic" data-v="diagnostic">Diagnostic</a>
   <a href="#library" data-v="library">Lesson library</a>
   <a href="#workspace" data-v="workspace">Workspace</a>
@@ -514,6 +598,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
   <a href="#sentences" data-v="sentences">Sentences</a>
   <a href="#tips" data-v="tips">Tips</a>
   <a href="#review" data-v="review">Review notebook</a>
+  <a href="#friday" data-v="friday">Friday report</a>
   <a href="#report" data-v="report">Coach report</a>
   <a href="#tutor" data-v="tutor">Tutor view</a>
   <span class="right"><span class="small">Text</span><button type="button" id="t-smaller" aria-label="Smaller text">A−</button><button type="button" id="t-larger" aria-label="Larger text">A+</button><button type="button" id="t-space" aria-label="Line spacing">Spacing</button></span>
@@ -523,15 +608,21 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 <main id="v-home">
   <section class="hero"><div class="wrap grid">
     <div>
-      <div class="eyebrow">For the parent of a strong student whose scores do not match the grades · Chicago North Shore, Cambridge, Providence, and remote</div>
+      <div class="eyebrow">For strong students whose scores do not match their grades</div>
       <h1>Read harder texts. Prove what they say.</h1>
       <p class="lede">Your student reads fluently, earns A's in English, and scores a 640. The problem is not reading; it is what to do with a sentence that contains a qualifier, a turn, or someone else's view. We teach that, measure it on texts the student has never seen, and guarantee the result.</p>
       <div class="cta"><a class="btn" href="#programs">Start with the $250 Starter Kit</a><a class="btn ghost" href="#diagnostic">Take the free 10-minute diagnostic</a></div>
     </div>
-    <div class="stats">
-      <div class="stat"><b class="num">800</b><span>Founder's SAT verbal score, the ceiling of the scale</span></div>
-      <div class="stat"><b class="num">+80</b><span>Guaranteed SAT Reading and Writing gain in 20 hours, or we keep working free</span></div>
-      <div class="stat"><b class="num">10</b><span>Students per tutor. Capacity is published; we do not sell past it</span></div>
+    <div class="demo" id="demo" aria-label="The method, on one short passage">
+      <div class="demo-head"><span>Three sentences. Tap each move.</span><span id="demo-name">A fast reader comes away with "the curfew worked."</span></div>
+      <p class="demo-text"><span class="ds" data-s="0">Last spring the council adopted a nine o'clock curfew for the downtown parks.</span> <span class="ds" data-s="1">Nearly every town that has tried one reported fewer complaints, though few reported fewer incidents.</span> <span class="ds" data-s="2">The council called the results encouraging.</span></p>
+      <div class="demo-moves" role="group" aria-label="The three moves">
+        <button type="button" data-m="1"><b>1</b>Find the sentence</button>
+        <button type="button" data-m="2"><b>2</b>Ask how far it goes</button>
+        <button type="button" data-m="3"><b>3</b>Write down why</button>
+      </div>
+      <div class="demo-out" id="demo-out" aria-live="polite"></div>
+      <a class="demo-more" href="#sentences">Thirty more sentences like this one, in the app</a>
     </div>
   </div></section>
 
@@ -568,7 +659,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div class="prose">
         <p>That sentence is the whole problem. By 9th grade most strong students decode perfectly. What they have never been taught is what to do when a sentence contains a qualifier, when a paragraph turns against itself, or when a writer reports someone else's view without endorsing it. They choose plausible answers without checking the evidence, and the score stays put no matter how many practice tests they take.</p>
         <p>Test-prep classes drill question types. Generic tutors reteach grammar. Neither names the specific reasoning error, so neither fixes it. The Marlow Method does one thing on every passage: find the sentence, ask how far it goes, and write down why.</p>
-        <p><a href="#method">Read the method →</a></p>
+        <p><a class="more" href="#method">Read the method</a></p>
       </div>
     </div>
   </div></section>
@@ -604,7 +695,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
   </div></section>
 
   <section class="section band"><div class="wrap split">
-    <div><div class="eyebrow">Team</div><h2 style="margin-top:.6rem">James Placco, founder</h2><p class="muted" style="margin-top:.6rem">West Point. Army captain, battery command. Chicago Booth MBA 2028.</p><p class="mt1"><a href="#team">The record →</a></p></div>
+    <div><div class="eyebrow">Team</div><h2 style="margin-top:.6rem">James Placco, founder</h2><p class="muted" style="margin-top:.6rem">West Point. Army captain, battery command. Chicago Booth MBA 2028.</p><p class="mt1"><a class="more" href="#team">The record</a></p></div>
     <div>
       <dl class="kv" style="max-width:34rem">
         <dt>SAT verbal · writing</dt><dd class="num">800 · 760, 99th and 98th-plus percentile</dd>
@@ -624,12 +715,12 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <details><summary>Who are the tutors?</summary><p>Graduate students and professionals with a 760 or higher SAT verbal or 165 or higher GRE verbal, who have taught or coached teenagers, and who have passed a graded teach-back on the method. Every tutor records sessions; the founder reviews two per month against a checklist. You can see the roster and capacity on the Programs page.</p></details>
       <details><summary>Does the AI give my student answers?</summary><p>No. The workspace's evidence coach never supplies an answer. It names the reasoning error in what the student wrote, offers up to three hints, and logs each one so the Friday report can separate assisted from independent work. Ambiguous cases go to the tutor, and the student can flag feedback they disagree with.</p></details>
       <details><summary>Are sessions recorded?</summary><p>Yes, with written consent at enrollment. Recordings are used for tutor quality review and are deleted on request. No one-on-one session is unrecorded. The full policy is on the Policies page.</p></details>
-      <details><summary>Is there anything free?</summary><p>Yes. The <a href="#diagnostic">diagnostic</a>, five lessons in the <a href="#library">library</a>, the <a href="#vocab">word banks</a> for SAT, ACT, AP Language, AP Literature, and GRE, ten <a href="#examples">worked examples</a>, the timed <a href="#practice">practice section</a>, the <a href="#sentences">sentence drills</a>, and the <a href="#tips">tips and pacing tools</a> are open to anyone. The Starter Kit adds the tutor diagnostic, the book, and the full lesson library.</p></details>
+      <details><summary>Is there anything free?</summary><p>Yes. The <a href="#diagnostic">diagnostic</a>, sixteen lessons in the <a href="#library">library</a>, the <a href="#vocab">word banks</a> for SAT, ACT, AP Language, AP Literature, and GRE, ten <a href="#examples">worked examples</a>, the timed <a href="#practice">practice section</a>, the <a href="#sentences">sentence drills</a>, and the <a href="#tips">tips and pacing tools</a> are open to anyone. The Starter Kit adds the tutor diagnostic, the book, and the full lesson library.</p></details>
       <details><summary>Where do the reading passages come from?</summary><p>Every passage in the diagnostic, the lessons, and the book was written for this program, or is a public-domain text published before 1929 with its source named. No copyrighted material from other publishers appears anywhere in the site or the materials.</p></details>
     </div>
   </div></section>
 
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC · Chicago, Illinois</span><span><a href="#policies">Policies</a> · All passages original to this site · hello@marlowreading.com</span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC · Chicago, Illinois</span><span><a href="#policies">Policies</a> · All passages original to this site · hello@marlowreading.com</span></div></footer>
 </main>
 
 <!-- ============ METHOD ============ -->
@@ -699,7 +790,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div class="prose">
         <p>The weekly tutor session is where demonstration, discussion, and oral explanation happen: what is the main argument, what is the strongest evidence, what would a reasonable critic say, what remains uncertain. The workspace handles the repetition between sessions; the tutor handles the thinking out loud.</p>
         <p>Students also read whole things. Each unit assigns one book, essay collection, or long article from the public domain or the family's own shelf, and the tutor session opens with it.</p>
-        <p class="mt1"><a href="#library">See the 24-lesson library →</a></p>
+        <p class="mt1"><a class="more" href="#library">See the 24-lesson library</a></p>
       </div>
     </div>
   </div></section>
@@ -712,7 +803,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><h3>Say</h3><p>Forty-five seconds to explain the passage aloud, then a self-rating. If you cannot say the argument, you do not have it.</p></div>
       <div><h3>Do</h3><p>Match words to meanings, order claims by strength, flip the card before you look.</p></div>
     </div>
-    <p class="small mt2">The mode is the entry point, not the lesson. Students who rotate modes retain more than students who repeat one; the review notebook tracks which modes you use. <a href="#tips">Set a default on the Resources page →</a></p>
+    <p class="small mt2">The mode is the entry point, not the lesson. Students who rotate modes retain more than students who repeat one; the review notebook tracks which modes you use. <a class="more" href="#tips">Set a default on the Resources page</a></p>
   </div></section>
   <section class="section band"><div class="wrap">
     <div class="head"><div class="eyebrow">How we measure</div><h2>Independent performance on unfamiliar texts is the only outcome that counts.</h2></div>
@@ -722,7 +813,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><h3>Blind second scoring</h3><p>A second educator scores a sample of written responses from each cohort without knowing which came from week 1 and which from week 6.</p></div>
     </div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ HOW WE WORK ============ -->
@@ -745,12 +836,12 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
   <section class="pillar" id="how-knowledge"><div class="wrap">
     <div class="head" style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:1.6rem"><div class="eyebrow">1 · Written down</div><h2>The method exists outside the founder's head, in a book, a library, and an error taxonomy.</h2></div>
     <div class="cols">
-      <div><h3>The book</h3><p><i>Reading the Hard Stuff</i>: 31 chapters in seven parts, from the three moves to the science passage, the historical document, the poem, a part for parents, and a part for tutors, with drills, an answer key, two practice sections, and thirty sentences to unpack. The method a parent can read in a weekend and a tutor must know cold. <a href="#book">Contents →</a></p></div>
-      <div><h3>The lesson library</h3><p>Twenty-four lessons in six knowledge-building units. Each has reviewed answers, acceptable alternative readings, the errors it is built to trigger, and a three-step hint ladder. <a href="#library">Library →</a></p></div>
-      <div><h3>The error taxonomy</h3><p>Eight named reasoning errors, each with a diagnostic signature and a lesson that fixes it. The coach, the tutor, the parent report, and the student all use the same eight names. <a href="#method">The eight →</a></p></div>
+      <div><h3>The book</h3><p><i>Reading the Hard Stuff</i>: 31 chapters in seven parts, from the three moves to the science passage, the historical document, the poem, a part for parents, and a part for tutors, with drills, an answer key, two practice sections, and thirty sentences to unpack. The method a parent can read in a weekend and a tutor must know cold. <a class="more" href="#book">Contents</a></p></div>
+      <div><h3>The lesson library</h3><p>Twenty-four lessons in six knowledge-building units. Each has reviewed answers, acceptable alternative readings, the errors it is built to trigger, and a three-step hint ladder. <a class="more" href="#library">Library</a></p></div>
+      <div><h3>The error taxonomy</h3><p>Eight named reasoning errors, each with a diagnostic signature and a lesson that fixes it. The coach, the tutor, the parent report, and the student all use the same eight names. <a class="more" href="#method">The eight</a></p></div>
       <div><h3>The checkpoint bank</h3><p>Passages never used in lessons, for the weekly unfamiliar-text checks and the oral reading checkpoint. Original, leveled by syntax, retired when they leak.</p></div>
     </div>
-    <p class="small mt2">Every passage, question, hint, and example was written for this program. Public-domain works are named with author and year. Nothing is borrowed from test makers or other publishers. <a href="#policies">Content policy →</a></p>
+    <p class="small mt2">Every passage, question, hint, and example was written for this program. Public-domain works are named with author and year. Nothing is borrowed from test makers or other publishers. <a class="more" href="#policies">Content policy</a></p>
   </div></section>
 
   <section class="pillar band" id="how-recorded" style="background:var(--band)"><div class="wrap">
@@ -761,7 +852,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><h3>For quality</h3><p>The founder reviews two recordings per tutor per month against the QA checklist. One miss is coaching; two is replacement. The standard is what gets tolerated, so nothing is tolerated twice.</p></div>
       <div><h3>For the method</h3><p>Recordings are how the playbook was written and how it gets rewritten: a hint that worked three times becomes the hint; an explanation that confused two students gets cut.</p></div>
     </div>
-    <p class="small mt2">Written consent at enrollment, retained 12 months, deleted on request, never used to train anything outside the program. No unrecorded one-on-one sessions. <a href="#policies">Recording policy →</a></p>
+    <p class="small mt2">Written consent at enrollment, retained 12 months, deleted on request, never used to train anything outside the program. No unrecorded one-on-one sessions. <a class="more" href="#policies">Recording policy</a></p>
   </div></section>
 
   <section class="pillar" id="how-tools"><div class="wrap">
@@ -775,7 +866,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
         <tr><td>Passage engine</td><td>Drafts original passages built to trigger a specific error, for a human to review, edit, and approve</td><td>Publish without review; use any source text</td></tr>
         <tr><td>Tutor view</td><td>Roster, hint logs, flagged feedback, session notes</td><td>Replace the session note the tutor writes</td></tr>
       </table></div>
-      <div class="prose"><p><b>Three guardrails.</b> The coach never supplies an answer, only the name of the error and a hint. Every piece of feedback can be flagged by the student with one click and lands in the tutor's queue for a decision (uphold, credit, discuss). Any content the model drafts is reviewed by a person before a student sees it; the model is a reviewer and drafter, never an author of record.</p><p class="mt1"><b>Why rules, not just a model.</b> The coach's first version is a reviewed library of rules, not a prompt, so that it cannot hallucinate feedback to a 15-year-old. The rules are the hint sequences and error taxonomy a model is later trained to apply, and the flagged-feedback queue is the dataset that says whether it is right.</p><p class="mt1"><a href="#workspace">Try the coach →</a></p></div>
+      <div class="prose"><p><b>Three guardrails.</b> The coach never supplies an answer, only the name of the error and a hint. Every piece of feedback can be flagged by the student with one click and lands in the tutor's queue for a decision (uphold, credit, discuss). Any content the model drafts is reviewed by a person before a student sees it; the model is a reviewer and drafter, never an author of record.</p><p class="mt1"><b>Why rules, not just a model.</b> The coach's first version is a reviewed library of rules, not a prompt, so that it cannot hallucinate feedback to a 15-year-old. The rules are the hint sequences and error taxonomy a model is later trained to apply, and the flagged-feedback queue is the dataset that says whether it is right.</p><p class="mt1"><a class="more" href="#workspace">Try the coach</a></p></div>
     </div>
   </div></section>
 
@@ -851,13 +942,13 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><b>Testimonials without data</b>No quote appears on this site until the number it describes has been blind-scored.</div>
     </div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ TRAINING ============ -->
 <main id="v-training" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">Training · how high-performing teams learn, applied to reading</div>
+    <div><div class="eyebrow">Training: how high-performing teams learn, applied to reading</div>
       <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Intent, checklist, drills, scrimmage, season. The method is the playbook; this is how it is trained.</h1>
       <p class="lede">A track team, a plebe year, and an artillery battery run on the same machine: the standard is written, the reps are counted, the tape is watched, and the review is honest. Reading trains the same way, and when it does, the score stops being a mystery.</p></div>
     <div class="stats">
@@ -915,7 +1006,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><h3>What changes</h3><p>One change for next week, written down. Not five. Teams get good by running the standard, not by redesigning it weekly.</p></div>
     </div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ PROGRAMS ============ -->
@@ -977,13 +1068,13 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><b>30 days in the workspace</b>The first unit of lessons, the evidence coach, and the review notebook.</div>
     </div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ BOOK ============ -->
 <main id="v-book" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">The book · first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 31 chapters and seven parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, and a part for tutors. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the 283-word banks, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Starter Kit.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply">Get it in the Starter Kit</a></div></div>
+    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 31 chapters and seven parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, and a part for tutors. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the 283-word banks, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Starter Kit.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply">Get it in the Starter Kit</a></div></div>
     <div class="plate" style="font-size:1.3rem">"Every hard sentence has one word doing most of the work. Usually it is a small one: nearly, unless, rather than, alone. Find that word and the sentence opens."<br><span class="small" style="color:inherit;opacity:.8">From chapter 2</span></div>
   </div></section>
   <section class="section"><div class="wrap">
@@ -1010,7 +1101,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       </article>
     </div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ TEAM ============ -->
@@ -1051,13 +1142,13 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
     </div>
     <div class="row mt2"><a class="btn" href="#programs">See the programs</a><a class="btn ghost" href="#method">Read the method</a></div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ INTERNATIONAL ============ -->
 <main id="v-international" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">Verbal Edge · for international GRE and GMAT candidates</div>
+    <div><div class="eyebrow">Verbal Edge, for international GRE and GMAT candidates</div>
       <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Your quant is fine. Your verbal is the gap. Close it from Chicago, in your evening.</h1>
       <p class="lede">For candidates applying from India, China, Korea, and elsewhere in Asia to top U.S. and European programs. You read English well and still lose questions to small words, reasoning verbs, and the 45th minute. We name the pattern in your own answers and fix it, with a guaranteed band.</p>
       <div class="cta"><a class="btn" href="#apply">Request a call</a><a class="btn ghost" href="#diagnostic">Take the free diagnostic first</a></div></div>
@@ -1101,7 +1192,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
     </div>
     <p class="small mt2">For comparison, large prep companies list private GMAT tutoring from about $167 to $250 plus an hour without an outcome guarantee. We charge more because the outcome is measured and the tutor's own score is on the page.</p>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ SCHOOLS ============ -->
@@ -1122,7 +1213,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
     </div>
     <div class="notice mt2" style="max-width:44rem">Licensing opens after the founding cohorts publish outcomes. <a href="#apply">Leave your details</a> and select "School or tutoring company" to be notified first.</div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ APPLY ============ -->
@@ -1141,7 +1232,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
     </form>
     <div class="notice mt1" id="apply-done" hidden style="max-width:44rem"></div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
 
 <!-- ============ POLICIES ============ -->
@@ -1157,13 +1248,31 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
       <div><h3>Fit and referral</h3><p>The Starter Kit includes a read-aloud fluency screen. If it suggests an unresolved decoding or fluency need, we recommend a specialist instead of enrolling, and the kit fee is refunded.</p></div>
     </div>
   </div></section>
-  <footer><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span>hello@marlowreading.com</span></div></footer>
+  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span>hello@marlowreading.com</span></div></footer>
 </main>
 
 <!-- ============ DIAGNOSTIC ============ -->
+<!-- ============ FRIDAY REPORT ============ -->
+<main id="v-friday" hidden><div class="wrap" style="padding-block:2.5rem">
+  <div class="today-head noprint"><div><h2>Friday report</h2><p class="muted" style="margin-top:.3rem;max-width:44rem">One page, built from this device's log: this week against last week, the pattern the coach saw most, one piece of the student's own work, and one thing to ask at dinner. Print it or copy it for a parent or tutor.</p></div>
+    <div class="row"><label class="small" style="font-weight:600">Student <input id="fr-name" placeholder="First name" style="width:11rem;display:inline-block;margin-left:.4rem"></label><button class="btn ghost sm" type="button" id="fr-copy">Copy as text</button><button class="btn sm" type="button" id="fr-print">Print</button></div></div>
+  <article class="report card" id="fr-report"></article>
+  <div class="card mt2 noprint"><h3>Your progress, kept</h3><p class="small" style="margin:.3rem 0 .8rem">Everything the app knows about this student is stored in this browser. Save it to a file to keep it, move it to another device, or hand it to a tutor. Loading a file replaces what is here.</p><div class="row"><button class="btn ghost sm" type="button" id="fr-export">Save progress to a file</button><label class="btn ghost sm" style="cursor:pointer">Load a progress file<input type="file" id="fr-import" accept="application/json" hidden></label><button class="btn ghost sm" type="button" id="fr-reset">Start over</button></div><p class="small mt1" id="fr-io"></p></div>
+</div></main>
+
+<!-- ============ TODAY ============ -->
+<main id="v-today" hidden><div class="wrap" style="padding-block:2.5rem">
+  <div class="today-head"><div><h2 id="td-title">Today</h2><p class="muted" id="td-sub" style="margin-top:.3rem"></p></div><div class="row" id="td-cta"></div></div>
+  <div class="today-grid">
+    <section class="card"><h3>The 20-minute routine</h3><p class="small">Three times a week. The order matters: warm up, read, prove, close the book, retrieve.</p><ol class="routine" id="td-routine"></ol></section>
+    <section><h3>Your numbers</h3><p class="small" style="margin:.2rem 0 .8rem">The ones that matter, compared with your own last week. No streaks.</p><div class="stats today-stats" id="td-stats"></div><p class="small mt1" id="td-note"></p></section>
+  </div>
+  <section class="card mt2" id="td-next"></section>
+</div></main>
+
 <main id="v-diagnostic" hidden>
   <div class="wrap" id="d-choose" style="padding-block:2.5rem">
-    <div class="eyebrow">Free diagnostic · two passages · about 10 minutes each</div>
+    <div class="eyebrow">Free diagnostic: two passages, about 10 minutes each</div>
     <h2 style="margin:.5rem 0 .6rem">Pick a passage. Answer four questions. Get the profile.</h2>
     <p class="muted prose">Each question asks for an answer, the sentence that supports it, your reasoning, and your confidence. The profile names the pattern in your answers, which is what a tutor works from. Both passages were written for this diagnostic.</p>
     <div class="choose mt2">
@@ -1190,9 +1299,9 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ LIBRARY ============ -->
 <main id="v-library" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Lesson library · 24 lessons in six units</div>
+  <div class="eyebrow">Lesson library: 24 lessons in six units</div>
   <h2 style="margin:.5rem 0 .6rem">Each unit reads several texts on one subject, so vocabulary and ideas recur.</h2>
-  <p class="muted prose">Five lessons are playable in this preview. The rest show what they teach. Every lesson has reviewed answers, acceptable alternative readings, the common errors it is built to trigger, and a three-step hint ladder.</p>
+  <p class="muted prose">Sixteen lessons are playable in this preview. The rest show what they teach. Every lesson has reviewed answers, acceptable alternative readings, the common errors it is built to trigger, and a three-step hint ladder.</p>
   <div class="units mt2" id="lib-units"></div>
 </div></main>
 
@@ -1236,7 +1345,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ REPORT ============ -->
 <main id="v-report" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Coach report · Example student · Six-week cohort, grades 9 to 11</div>
+  <div class="eyebrow">Coach report for an example student in a six-week cohort, grades 9 to 11</div>
   <h2 style="margin:.5rem 0 .6rem">Maya R., grade 10</h2>
   <p class="muted" style="max-width:40rem">Example report with illustrative data. Every figure below is logged automatically from the workspace and reviewed by the tutor before it reaches a parent.</p>
   <div class="desk" style="padding-block:2rem 0">
@@ -1266,7 +1375,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ TUTOR ============ -->
 <main id="v-tutor" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Tutor view · Example roster</div>
+  <div class="eyebrow">Tutor view, example roster</div>
   <h2 style="margin:.5rem 0 .6rem">Ten seats. Who needs attention this week.</h2>
   <p class="muted prose">Illustrative roster for one tutor. Flags come from the workspace: feedback a student disagreed with, hint use above two per task, or a checkpoint due.</p>
   <div class="card mt2"><h3>Roster</h3><div class="tabwrap"><table class="roster" id="t-roster"></table></div></div>
@@ -1293,7 +1402,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ FLUENCY ============ -->
 <main id="v-fluency" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Fluency track · automaticity is the foundation</div>
+  <div class="eyebrow">Fluency track: automaticity is the foundation</div>
   <h2 style="margin:.5rem 0 .6rem">If decoding costs attention, nothing is left for meaning. We measure it weekly and build it on purpose.</h2>
   <p class="muted prose">Comprehension work only pays off once word recognition is automatic. This track measures oral reading every week (speed, accuracy, phrasing) and drills the three things that move it: repeated reading, phrase-cued reading, and multisyllabic word attack. Checkpoint passages are never used in lessons.</p>
 
@@ -1336,7 +1445,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ WORD BANKS ============ -->
 <main id="v-vocab" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Word banks · SAT, ACT, AP Language, AP Literature, GRE, test verbs, roots, affixes</div>
+  <div class="eyebrow">Word banks for the SAT, ACT, AP Language, AP Literature, and GRE, with roots and affixes</div>
   <h2 style="margin:.5rem 0 .6rem">Words in context, grouped by root, learned four ways.</h2>
   <p class="muted prose">Every definition, example sentence, and near-neighbor note was written for this site. Read the list, flip the cards, take the quiz, or match words to meanings. Add any word to your review notebook and it returns on the spaced schedule. Press ♪ to hear it.</p>
   <div class="card mt1" style="padding:.8rem 1rem"><b>How to use the banks</b> <span class="small">Ten new words a week, from the root up: read the parts first, say the meaning before you read it, then the near neighbor, then make a sentence of your own. Flip cards for retrieval, the quiz for context, match for speed. Words you miss twice go to Review. Chapter 14 of the book is the method; the Families tab is the shortcut.</span></div>
@@ -1351,7 +1460,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ WORKED EXAMPLES ============ -->
 <main id="v-examples" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Worked examples · how an expert reads the question</div>
+  <div class="eyebrow">Worked examples: how an expert reads the question</div>
   <h2 style="margin:.5rem 0 .6rem">Ten questions, each walked through one move at a time.</h2>
   <p class="muted prose">Every passage and question was written for this site in the style of the test it names. Try the question first. Then open the walkthrough, see where each wrong answer gets its plausibility, look at the argument map, and explain the answer aloud.</p>
   <div class="tabs mt2" id="ex-tabs"></div>
@@ -1360,7 +1469,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 
 <!-- ============ SENTENCES ============ -->
 <main id="v-sentences" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Sentence unpacking · thirty sentences · ten a session</div>
+  <div class="eyebrow">Sentence unpacking: thirty sentences, ten a session</div>
   <h2 style="margin:.5rem 0 .6rem">Every hard sentence has one word doing most of the work. Find it, then say what the sentence claims.</h2>
   <p class="muted prose">The set from the back of the book. Three steps per sentence: click the word or phrase carrying the load, pick the plain restatement that says exactly as much as the sentence and no more, then read the unpacking. Sentences 1 to 10 are weeks 2 and 3 of the plan; 21 to 30 are week 11, cold.</p>
   <div class="row mt2" style="gap:.4rem;align-items:center"><span class="small">Set</span><div class="conf" id="sn-sets"><button type="button" data-from="0" class="on">1 to 10</button><button type="button" data-from="10">11 to 20</button><button type="button" data-from="20">21 to 30</button></div><span class="small" id="sn-done" style="margin-left:auto"></span></div>
@@ -1372,7 +1481,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 <!-- ============ PRACTICE ============ -->
 <main id="v-practice" hidden>
   <div class="wrap" id="pt-home" style="padding-block:2.5rem">
-    <div class="eyebrow">Practice section · two passages · ten questions · 13 minutes</div>
+    <div class="eyebrow">Practice section: two passages, ten questions, 13 minutes</div>
     <h2 style="margin:.5rem 0 .6rem">The section from the back of the book, scored the way the book scores it.</h2>
     <p class="muted prose">Two original passages, ten items. For each: the answer, the sentence it depends on, and your confidence. You get two scores: answers right, and answers right with the right sentence behind them. The second predicts the next test. The book's plan: Set A untimed in week 4, Set B timed in week 7, so the timed run is on text you have never seen.</p>
     <div class="row mt2" style="gap:.4rem;align-items:center"><span class="small">Section</span><div class="conf" id="pt-sets"><button type="button" data-set="A" class="on">Set A · nonfiction and literature</button><button type="button" data-set="B">Set B · science and two texts</button></div></div>
@@ -1398,7 +1507,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 </main>
 
 <main id="v-tips" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Resources · tips for scores and for learning</div>
+  <div class="eyebrow">Resources: tips for scores and for learning</div>
   <h2 style="margin:.5rem 0 .6rem">What moves the score, what makes it stick, and how to practice in more than one mode.</h2>
   <p class="muted prose">Nothing here is a trick. Each tip names the habit, the reason it works, and where in the program it is practiced.</p>
 
@@ -1528,32 +1637,32 @@ const UNITS = [
   {name:"Unit 1 · The sentence that matters", about:"Texts about small towns making one decision: a library, a bell schedule, a bridge.", long:"Narrative of the Life of Frederick Douglass (1845), chapters 1 to 7", lessons:[
     {id:"l1",n:1,title:"Find the sentence",desc:"Pick the line that carries the claim, not the line near it.",play:true},
     {id:"l2",n:2,title:"What qualifiers do",desc:"Nearly, only, unless, at least, rather than.",play:true},
-    {id:"l3",n:3,title:"Inside the passage",desc:"Answering from the text when you know more than the text.",play:false},
-    {id:"l4",n:4,title:"Negation and reference",desc:"Not, never, neither; this, that, which, the former.",play:false}]},
+    {id:"l3",n:3,title:"Inside the passage",desc:"Answering from the text when you know more than the text.",play:true},
+    {id:"l4",n:4,title:"Negation and reference",desc:"Not, never, neither; this, that, which, the former.",play:true}]},
   {name:"Unit 2 · Cause and attribution", about:"Four texts about schools and cities that changed two things at once.", long:"Walden (1854), \"Economy\" and \"Where I Lived\"", lessons:[
     {id:"l5",n:5,title:"The later bell",desc:"After is not because. Two changes, one outcome.",play:true},
-    {id:"l6",n:6,title:"Correlation in the wild",desc:"Reading a reported study without overclaiming it.",play:false},
-    {id:"l7",n:7,title:"The missing comparison",desc:"What a claim needs that the passage does not have.",play:false},
+    {id:"l6",n:6,title:"Correlation in the wild",desc:"Reading a reported study without overclaiming it.",play:true},
+    {id:"l7",n:7,title:"The missing comparison",desc:"What a claim needs that the passage does not have.",play:true},
     {id:"l8",n:8,title:"Mechanism versus coincidence",desc:"When a passage offers a reason, and when it only offers a sequence.",play:false}]},
   {name:"Unit 3 · Whose view is this", about:"Reporting and debate: a council meeting, a review, a letter to the editor.", long:"The Federalist No. 10 and No. 51 (1787 to 1788)", lessons:[
     {id:"l9",n:9,title:"Whose view is this",desc:"Reporting verbs and the voices inside one passage.",play:true},
-    {id:"l10",n:10,title:"Reporting verbs",desc:"Credited, suggested, conceded, insisted: what each tells you.",play:false},
+    {id:"l10",n:10,title:"Reporting verbs",desc:"Credited, suggested, conceded, insisted: what each tells you.",play:true},
     {id:"l11",n:11,title:"Irony and distance",desc:"When the writer does not mean it.",play:false},
-    {id:"l12",n:12,title:"The author's own line",desc:"Finding the one sentence where the writer speaks for themselves.",play:false}]},
+    {id:"l12",n:12,title:"The author's own line",desc:"Finding the one sentence where the writer speaks for themselves.",play:true}]},
   {name:"Unit 4 · Argument", about:"Four argumentative essays on one question: should a town charge for parking downtown.", long:"The Souls of Black Folk (1903), chapters 1 and 3", lessons:[
-    {id:"l13",n:13,title:"Claim, evidence, warrant",desc:"Say what connects the quote to the claim.",play:false},
+    {id:"l13",n:13,title:"Claim, evidence, warrant",desc:"Say what connects the quote to the claim.",play:true},
     {id:"l14",n:14,title:"Counterevidence",desc:"The sentence that cuts against the argument, and what the author does with it.",play:false},
     {id:"l15",n:15,title:"Concession and rebuttal",desc:"Granting a point without losing the argument.",play:false},
-    {id:"l16",n:16,title:"How strong is the claim",desc:"Calibrating confidence to evidence, in reading and in writing.",play:false}]},
+    {id:"l16",n:16,title:"How strong is the claim",desc:"Calibrating confidence to evidence, in reading and in writing.",play:true}]},
   {name:"Unit 5 · Literature", about:"Original short fiction and public-domain stories, each read for what it argues.", long:"Pride and Prejudice (1813), volume 1", lessons:[
     {id:"l17",n:17,title:"Tone shifts",desc:"The sentence where the temperature changes.",play:true},
-    {id:"l18",n:18,title:"Character motive",desc:"What a character wants, as shown, not as stated.",play:false},
+    {id:"l18",n:18,title:"Character motive",desc:"What a character wants, as shown, not as stated.",play:true},
     {id:"l19",n:19,title:"Competing readings",desc:"Two interpretations, both supported; which support is stronger.",play:false},
     {id:"l20",n:20,title:"Imagery as argument",desc:"When a description is doing the work of a claim.",play:false}]},
   {name:"Unit 6 · Synthesis and test craft", about:"Paired passages, data with text, and the unfamiliar text under time.", long:"Up From Slavery (1901), chapters 1 to 5, read against Douglass", lessons:[
-    {id:"l21",n:21,title:"Paired passages",desc:"Where two authors agree, disagree, and talk past each other.",play:false},
+    {id:"l21",n:21,title:"Paired passages",desc:"Where two authors agree, disagree, and talk past each other.",play:true},
     {id:"l22",n:22,title:"Data with text",desc:"Reading a table against the sentence that describes it.",play:false},
-    {id:"l23",n:23,title:"Plausible wrong answers",desc:"How distractors are built, and how to see the seam.",play:false},
+    {id:"l23",n:23,title:"Plausible wrong answers",desc:"How distractors are built, and how to see the seam.",play:true},
     {id:"l24",n:24,title:"The unfamiliar text",desc:"Everything, alone, on something you have never seen.",play:false}]}
 ];
 
@@ -1835,6 +1944,613 @@ LESSONS.l1.tasks[3].overclaim = /\b(should (close|not close|keep|repair)|must|pr
 LESSONS.l17.tasks[3].overclaim = /\b(teaches us|shows us that (we|people|everyone)|life|human nature|always|everyone|proves?|clearly|definitely|moral|lesson is)\b/i;
 LESSONS.l5.tasks[3].overclaim = OVERCLAIM; LESSONS.l2.tasks[3].overclaim = /\b(worked|succeeded|proves?|proved|clearly|definitely|obviously|certainly|everyone|everywhere|all families|the whole town)\b/i; LESSONS.l9.tasks[3].overclaim = /\b(proves?|proved|clearly|definitely|obviously|certainly|simply right|was right|were right|won|wrong)\b/i;
 
+Object.assign(LESSONS,{
+  l3: { id:"l3", n:3, unit:"Unit 1 · The sentence that matters", title:"Inside the passage", session:"Session 2 of 3",
+    sentences:[
+      "Last year the town of Ashby replaced the sodium streetlights on its four main roads with LED fixtures, and the council asked the public works office for a report before deciding whether to convert the side streets.",
+      "The report measured three things: complaints about brightness, the cost of the fixtures, and the number of maintenance call-outs.",
+      "Complaints rose in the first month and fell to their old level by the third.",
+      "The fixtures cost roughly twice what the sodium lamps had, and the office expects them to last three to four times as long.",
+      "Maintenance call-outs on the four roads fell from an average of eleven a month to two.",
+      "The report did not estimate energy use or electricity costs, which the council had asked the utility to calculate separately; that figure had not arrived when the report was written.",
+      "On the basis of the maintenance numbers alone, the office recommended converting the side streets over the next two years.",
+      "Two council members said they would wait for the utility's figure before voting.",
+      "The report's last line notes that the four main roads carry more traffic than any side street, and that call-out rates elsewhere may differ."],
+    paras:[[0,1],[2,3,4],[5,6,7,8]],
+    qualifiers:{
+      "three things":"The report measured exactly these three. Anything else, including energy, is outside what it can say.",
+      "roughly":"An approximation; a question that asks for an exact ratio is reading more precision than the passage gives.",
+      "expects":"A projection, not a measurement. The lifespan is the office's expectation.",
+      "did not estimate":"The report is silent on energy. Whatever you know about LEDs and electricity, the passage does not say it.",
+      "separately":"The energy figure was someone else's job and had not arrived; absence here is not evidence of anything.",
+      "alone":"The recommendation rests on one measured thing. The office is not claiming the others support it.",
+      "may differ":"The last line limits the finding to the roads measured; side streets might not behave the same.",
+      "more traffic":"The reason the main roads might not predict the side streets: different conditions."},
+    vocab:[
+      {w:"fixture", ctx:"replaced the sodium streetlights with LED fixtures", mean:"a piece of equipment fixed in place, here the lamp unit itself", parts:"Latin fixus, fastened (fix, affix)", near:"bulb: the replaceable light source inside a fixture", use:"The fixture is the whole unit; the bulb is the part you change."},
+      {w:"estimate", ctx:"the report did not estimate energy use", mean:"to judge a quantity approximately, from available information", parts:"Latin aestimare, to value (esteem)", near:"measure: to find a quantity directly", use:"An estimate is reasoned; a measurement is observed. The passage has one of each."},
+      {w:"on the basis of", ctx:"on the basis of the maintenance numbers alone", mean:"using something as the ground for a decision", parts:"Greek basis, a step or foundation (base, basic)", near:"because of: naming a cause rather than a reason for a judgment", use:"Use it when you say what evidence a decision stood on."},
+      {w:"differ", ctx:"call-out rates elsewhere may differ", mean:"to be unlike; to vary from", parts:"Latin dis- apart + ferre, to carry (defer, transfer)", near:"disagree: to differ in opinion, used of people", use:"Numbers differ; people disagree."}],
+    retrieval:{q:"The office did not measure energy use; it ___ that the utility would calculate it.", opts:["expected","estimated","differed","measured"], ans:0, good:"Expected: the office anticipated someone else would supply the number.", bad:"The sentence says the office left the energy figure to the utility, so the blank needs a word for anticipating, not calculating."},
+    tasks:[
+      {type:"pick", title:"Find the sentence", q:"Highlight the sentence that best supports this claim: \"The recommendation rests on maintenance savings, not on energy savings.\"",
+       hints:["Which sentence tells you what the recommendation was based on?","Look for the word alone in paragraph 3.","Sentence 7 names the basis; sentence 6 says energy was not measured. Either supports the claim, and 7 is more direct."],
+       feedback:{6:{k:"good",t:"That is the basis, stated",b:"Sentence 7 says the office recommended on the maintenance numbers alone. The claim is a restatement of that sentence."},
+                 5:{k:"good",t:"That supports the second half",b:"Sentence 6 shows energy was not measured, so energy savings cannot be the basis. Sentence 7 states the basis directly; together they carry the whole claim."},
+                 4:{k:"warn",t:"That is the evidence the recommendation used, not the statement that it used it",b:"Sentence 5 gives the maintenance numbers. The claim is about what the recommendation rests on; find the sentence that says so."},
+                 3:{k:"crit",t:"Cost and lifespan, not maintenance or energy",b:"Sentence 4 is about fixture cost. The claim is about which measured thing the recommendation stood on."}},
+       other:{k:"crit",t:"This sentence does not say what the recommendation rests on",b:"Find the sentence with the word alone, or the one that says what was not measured."}},
+      {type:"free", title:"What does the passage say about energy?", q:"In one or two sentences: according to this passage, what is known about the energy savings from the new lights?", placeholder:"The passage says nothing about energy savings because...",
+       hints:["Reread sentence 6 before you answer.","If your answer includes a fact about LEDs that the passage does not state, cross it out.","The honest answer is about what was not measured and why."],
+       minWords:8,
+       rules:[{re:/\b(not (estimat|measur|includ|calculat|known|report)|nothing|no (figure|number|estimate|data)|did not|didn't|unknown|not arrived|had not arrived|separately|utility|left out|outside)\b/i,k:"good",t:"You stayed inside the passage",b:"The report did not estimate energy use; the utility's figure had not arrived. Whatever is true about LEDs in general, this passage establishes nothing about energy, and your answer says so."}],
+       fallback:{k:"crit",t:"That came from outside the passage",b:"LEDs may well save energy. This report did not measure it, and sentence 6 says so. The question asks what the passage establishes, not what you know."}},
+      {type:"mc", title:"Which claim does the passage support?", q:"Which statement is supported by the passage?",
+       opts:["The new lights will cut Ashby's electricity bill.","Maintenance call-outs on the four main roads fell sharply after the conversion.","Residents prefer the new lights to the old ones.","Converting the side streets will reduce their call-outs to two a month."], ans:1,
+       hints:["Three of these import something the passage never states. Find the one that restates a sentence.","\"Prefer\" and \"electricity bill\" appear nowhere in the passage.","The last line of the passage warns against the fourth option."],
+       feedback:{1:{k:"good",t:"Correct: that is sentence 5",b:"Eleven call-outs a month to two is a sharp fall, and the passage states it. The other three choices add energy savings, a preference, and a prediction the last sentence specifically warns against."},
+                 0:{k:"crit",t:"Outside the passage",b:"Energy was not measured (sentence 6). You may believe it; the passage does not say it."},
+                 2:{k:"crit",t:"Complaints are not preferences",b:"Sentence 3 says complaints rose and then returned to their old level. That is not evidence that residents prefer the new lights."},
+                 3:{k:"crit",t:"The last sentence rules this out",b:"Sentence 9 says call-out rates elsewhere may differ. Extending the main-road number to side streets is exactly the move the passage warns against."}},
+       other:{k:"crit",t:"Check the choice against a sentence",b:"Every supported claim has a sentence behind it. Find the sentence or eliminate the choice."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about what the report shows, then click the sentence that supports it. Keep every word of the claim inside the passage.", placeholder:"The report shows that maintenance call-outs fell on the roads measured, but it cannot say...",
+       hints:["Start with the measured result (sentence 5), then say what the report could not show.","If your claim mentions energy, electricity, or money saved, the passage has no sentence for it.","The last line gives you the limit: the side streets may differ."],
+       minWords:8, bestEv:[4,6,8], partialEv:{3:"Sentence 4 supports a claim about cost and lifespan, not about what the report recommends or shows about call-outs.",2:"Sentence 3 is about complaints. What does your claim say about them?"}, bestWhy:"Sentence 5 carries the measured result; sentence 9 carries the limit on extending it."}
+    ]},
+  l6: { id:"l6", n:6, unit:"Unit 2 · Cause and attribution", title:"Correlation in the wild", session:"Session 3 of 3",
+    sentences:[
+      "A study published last spring compared reading scores across 140 school districts and found that districts with more public library branches per capita had higher average scores.",
+      "The newspaper that reported it ran the headline \"Libraries Lift Reading Scores.\"",
+      "The researchers themselves were more careful.",
+      "They noted that districts with more branches also tended to have higher household incomes, more adults with degrees, and smaller class sizes, and that their analysis could not separate the libraries from the rest.",
+      "One district in the study, Carver, had opened two branches in the previous decade, and its scores had risen over the same period.",
+      "In those years Carver had also hired reading specialists for every elementary school and extended its school day by forty minutes.",
+      "The researchers described the Carver case as consistent with their finding and declined to call it a demonstration of it.",
+      "A librarians' association cited the study in a funding request as evidence that branches raise achievement.",
+      "The study's lead author, asked about the request, said the study showed an association and that she would like to see a district open branches and change nothing else."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "per capita":"Branches relative to population, not a raw count; a large district with many branches may still rank low.",
+      "higher average":"A difference in averages across districts, which is a correlation; nothing yet about why.",
+      "more careful":"The author's one evaluative phrase, and it sides with the researchers over the headline.",
+      "also":"The word that breaks the causal story: the districts differ in several ways at once.",
+      "could not separate":"The study's own limit, stated by the people who ran it.",
+      "consistent with":"The weakest positive rung. Carver fits the pattern; it does not prove the pattern.",
+      "declined":"The researchers refused to call Carver a demonstration. Read this as a limit they chose, not a failure.",
+      "association":"The author's word for what the study showed: two things that move together.",
+      "change nothing else":"The comparison the study lacks: one change alone, so the effect can be attributed."},
+    vocab:[
+      {w:"association", ctx:"the study showed an association", mean:"a connection in which two things tend to occur together", parts:"Latin socius, companion (social, associate)", near:"cause: one thing producing another; an association is weaker", use:"Say association when two things move together and you do not know why."},
+      {w:"consistent with", ctx:"consistent with their finding", mean:"not in conflict with; compatible", parts:"Latin consistere, to stand together", near:"confirms: shows to be true, which consistent with does not", use:"A result consistent with a theory is also consistent with others."},
+      {w:"cite", ctx:"cited the study in a funding request", mean:"to refer to as evidence or authority", parts:"Latin citare, to summon (recite, citation)", near:"quote: to repeat exact words", use:"You cite a study; you quote a sentence from it."},
+      {w:"demonstration", ctx:"declined to call it a demonstration", mean:"a clear showing that something is true", parts:"Latin monstrare, to show (demonstrate, monster, originally an omen)", near:"illustration: an example that shows what something is like, without proving it", use:"Carver illustrates the finding; it does not demonstrate it."}],
+    retrieval:{q:"The researchers said the Carver case was ___ their finding, not proof of it.", opts:["consistent with","cited by","a demonstration of","separated from"], ans:0, good:"Consistent with: fits the pattern without establishing the cause.", bad:"The sentence contrasts the blank with proof, so it needs the weaker term: compatible, not demonstrated."},
+    tasks:[
+      {type:"pick", title:"Find the sentence", q:"Highlight the sentence that best supports this claim: \"The study cannot show that libraries raise scores.\"",
+       hints:["Look for where the researchers state what their analysis could not do.","The sentence names the other differences between districts.","Sentence 4 lists the confounds and says the analysis could not separate them; sentence 9 restates the limit in the author's own word."],
+       feedback:{3:{k:"good",t:"That is the limit, in the researchers' words",b:"Sentence 4 names income, degrees, and class size as other differences and says the analysis could not separate the libraries from them. That is why the study cannot show cause."},
+                 8:{k:"good",t:"That restates the limit",b:"Association, not cause, in the lead author's words. Sentence 4 gives the reason; this gives the conclusion."},
+                 1:{k:"crit",t:"That is the headline, which overclaims",b:"Sentence 2 is the newspaper's version. The claim you are supporting is the opposite of the headline."},
+                 0:{k:"crit",t:"That is the finding, not the limit",b:"Sentence 1 reports the correlation. The claim is about what the correlation cannot show; look for the sentence that says why."},
+                 5:{k:"warn",t:"That is the Carver confound, a case of the limit",b:"Sentence 6 shows one district changed several things at once. It illustrates the problem; sentence 4 states it for the whole study."}},
+       other:{k:"crit",t:"This sentence does not address what the study can show",b:"Find where the researchers name the other differences between districts."}},
+      {type:"free", title:"Why can the study not separate the libraries?", q:"In one or two sentences, explain why the researchers could not say the libraries caused the higher scores.", placeholder:"Districts with more branches also had...",
+       hints:["Sentence 4 lists three things. Name at least one.","The word also is the whole problem.","Say what the researchers would need: a district that changed one thing and nothing else (sentence 9)."],
+       minWords:8,
+       rules:[{re:/\b(income|degree|class size|smaller class|wealth|also|other (difference|factor|change)|confound|at the same time|several things|more than one|cannot separate|can't separate|nothing else|one thing)\b/i,k:"good",t:"You found the other differences",b:"Districts with more branches also had higher incomes, more degrees, and smaller classes. Any of those could raise scores, and the study has no way to tell which did."}],
+       fallback:{k:"crit",t:"You restated the finding instead of the limit",b:"The question asks why cause cannot be assigned. Sentence 4 names the other differences between the districts; use them."}},
+      {type:"mc", title:"Whose view?", q:"Who says that branches raise achievement?",
+       opts:["The researchers","The newspaper headline and the librarians' association","The author of the passage","The lead author, in her reply"], ans:1,
+       hints:["Find each causal claim and the verb that introduces it.","\"Ran the headline\" and \"cited the study as evidence that\" are both reports of someone else's claim.","The researchers and the lead author say association; the passage's author calls them more careful."],
+       feedback:{1:{k:"good",t:"Correct: two reported views, neither endorsed",b:"The headline and the funding request both make the causal claim. The researchers refuse it, and the author's one evaluative word, careful, sides with the researchers."},
+                 0:{k:"crit",t:"The researchers said the opposite",b:"Sentence 4 and sentence 9 are the researchers limiting the claim, not making it."},
+                 2:{k:"crit",t:"The author reports the claim and calls its critics careful",b:"Nothing in the author's own voice says branches raise scores. Sentence 3 is the author's only judgment, and it favors caution."},
+                 3:{k:"crit",t:"She said association",b:"Sentence 9 is the lead author declining the causal claim and saying what evidence would support it."}},
+       other:{k:"crit",t:"Find the verb in front of the claim",b:"Reporting verbs tell you who owns a claim. Ran the headline and cited are reports."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about libraries and reading scores that this passage supports, then click the sentence that supports it.", placeholder:"Districts with more branches had higher scores, but the study cannot show that the branches caused it, because...",
+       hints:["Start with the correlation (sentence 1). Then say how far it reaches.","If your claim uses raise, lift, improve, or cause, check whether the researchers would sign it.","Sentence 4 or sentence 9 carries the limit."],
+       minWords:8, bestEv:[3,8,0], partialEv:{4:"Sentence 5 supports that Carver's scores rose after it opened branches; sentence 6 is why that is not enough.",1:"Sentence 2 is the headline, which claims more than the study does."}, bestWhy:"Sentence 4 names the other differences; sentence 9 gives the author's word for the finding."}
+    ]},
+  l10: { id:"l10", n:10, unit:"Unit 3 · Whose view is this", title:"Reporting verbs", session:"Session 2 of 3",
+    sentences:[
+      "At Tuesday's meeting the harbor commission heard an hour of comment on the proposal to close the east pier to vehicles.",
+      "The marina's manager insisted that the pier was safe, pointing to an inspection from 2023.",
+      "The town engineer acknowledged that the inspection had found no structural defect but maintained that the load limit on the pier had been set for lighter trucks than the ones now using it.",
+      "A fisherman who has sold from the pier for thirty years claimed that closing it to vehicles would end his business within a year.",
+      "The commission's chair suggested that a weight limit, rather than a closure, might address the engineer's concern.",
+      "The engineer conceded that a limit would work if it were enforced, and added that the town had never enforced one.",
+      "The manager allowed that the trucks had grown heavier.",
+      "By the end of the hour nobody at the table had proposed closing the pier to pedestrians, which is the only step the engineer's report had called urgent.",
+      "The commission will vote next month."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "insisted":"A strong assertion against resistance; the verb tells you the speaker is being contradicted and holding firm.",
+      "acknowledged":"Grants a point that cuts against the speaker's side. What follows but is the point he keeps.",
+      "maintained":"Holds a position already stated; the engineer is not conceding the main point.",
+      "claimed":"The author's most distanced verb: the fisherman's prediction is reported without support.",
+      "suggested":"A proposal offered tentatively, not a ruling.",
+      "conceded":"Admits the chair's point is right, then limits it with the enforcement problem.",
+      "allowed":"A small, reluctant concession: the manager grants one fact without giving up his position.",
+      "nobody":"The author's own observation, and the sentence where the author's view shows.",
+      "only":"Limits what the report called urgent to one step, the one nobody discussed."},
+    vocab:[
+      {w:"maintain", ctx:"maintained that the load limit had been set for lighter trucks", mean:"to continue to assert a position", parts:"Latin manu tenere, to hold in the hand (manual, tenacious)", near:"insist: to maintain forcefully against opposition", use:"Maintain is steady; insist is pushing back."},
+      {w:"concede", ctx:"conceded that a limit would work if it were enforced", mean:"to admit that a point is true, usually one against your side", parts:"Latin concedere, to yield (cede, precedent)", near:"surrender: to give up the whole position", use:"A concession gives up a point, not the argument."},
+      {w:"allow", ctx:"the manager allowed that the trucks had grown heavier", mean:"in reported speech, to admit reluctantly", parts:"Latin allaudare, to praise, via Old French; the admit sense is old", near:"permit: the everyday meaning, to let something happen", use:"In a passage about a debate, allowed that means conceded, not permitted."},
+      {w:"urgent", ctx:"the only step the report had called urgent", mean:"requiring immediate action", parts:"Latin urgere, to press (urge)", near:"important: mattering a great deal, whether or not it is time-sensitive", use:"The report's urgent step was the one nobody raised; that contrast is the author's point."}],
+    retrieval:{q:"The engineer ___ that the inspection found no defect, but held his position on the load limit.", opts:["acknowledged","insisted","claimed","suggested"], ans:0, good:"Acknowledged: granting a point against your own side before holding the rest.", bad:"The sentence has a but after the blank, so the verb must grant something. Insisted and claimed do not grant."},
+    tasks:[
+      {type:"pick", title:"The author's own line", q:"Highlight the one sentence in which the author, rather than a speaker at the meeting, makes a judgment.",
+       hints:["Most sentences have a reporting verb: insisted, claimed, conceded. Find one that does not.","The author's sentence is about what nobody said.","Sentence 8: the observation that nobody proposed the one urgent step is the author's, and its only quietly criticizes the whole hour."],
+       feedback:{7:{k:"good",t:"That is the author",b:"No reporting verb, an observation nobody at the table made, and the word only. The author is telling you the meeting missed the point."},
+                 8:{k:"crit",t:"A fact, not a judgment",b:"Sentence 9 reports a date. The author's judgment is one sentence earlier."},
+                 4:{k:"crit",t:"That is the chair, reported",b:"Suggested is the reporting verb; the proposal is the chair's."},
+                 2:{k:"crit",t:"That is the engineer, reported twice over",b:"Acknowledged and maintained both belong to the engineer. The author is only relaying."}},
+       other:{k:"crit",t:"Find the sentence without a reporting verb",b:"Every speaker's sentence has one. The author's does not."}},
+      {type:"free", title:"What does \"conceded\" tell you?", q:"In one or two sentences: what does the verb conceded in sentence 6 tell you about the engineer's position?", placeholder:"Conceded means he admitted the chair's point, but...",
+       hints:["A concession grants a point to the other side. Which point?","Then look at what the engineer adds after conceding.","He grants that a limit would work and then takes most of it back with the enforcement problem."],
+       minWords:8,
+       rules:[{re:/\b(admit|grant|gives? (up|in)|agree|accept|yield|partly|but|enforce|never enforced|takes? .*back|limit would work|point to the chair)\b/i,k:"good",t:"You read the verb and the sentence after it",b:"Conceded tells you the engineer granted the chair's point, that a limit would work. The second half of the sentence, never enforced, shows how little he gave up."}],
+       fallback:{k:"crit",t:"Say what the engineer gave up and what he kept",b:"Conceding is admitting a point against your side. Name the point, then look at the and added clause."}},
+      {type:"mc", title:"Which verb distances the author most?", q:"Which reporting verb in the passage most signals that the author is not vouching for the statement?",
+       opts:["insisted (sentence 2)","acknowledged (sentence 3)","claimed (sentence 4)","conceded (sentence 6)"], ans:2,
+       hints:["Which verb reports a statement with no evidence attached?","Acknowledged and conceded report admissions, which writers rarely doubt.","Claimed introduces a prediction about the future with nothing behind it; that is the verb writers use when they are not endorsing."],
+       feedback:{2:{k:"good",t:"Correct: claimed holds the statement at arm's length",b:"The fisherman's prediction is reported with no support, and claimed marks it as his. The author neither accepts nor denies it."},
+                 0:{k:"warn",t:"Insisted shows resistance, not doubt",b:"Insisted tells you the manager was holding firm against pushback. It does not tell you the author doubts him, though the inspection date does."},
+                 1:{k:"crit",t:"Acknowledged is an admission, and admissions are trusted",b:"When a speaker grants a point against his own side, the writer usually treats it as reliable."},
+                 3:{k:"crit",t:"Conceded is an admission too",b:"Same as acknowledged: a point given up against interest, which writers rarely distance themselves from."}},
+       other:{k:"crit",t:"Think about what each verb says about evidence",b:"Verbs of admission are trusted; verbs like claimed and alleged are not."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about what the meeting did or did not address, then click the sentence that supports it.", placeholder:"The meeting debated vehicles on the pier, but nobody addressed...",
+       hints:["The strongest claim available is about what was left out.","Sentence 8 is the author's; a claim built on it is a claim the author would sign.","If your claim says the pier is safe or unsafe, no sentence in the author's voice supports it."],
+       minWords:8, bestEv:[7,5,2], partialEv:{1:"Sentence 2 is the manager's view, reported. It supports a claim about what he said, not about the pier.",3:"Sentence 4 is the fisherman's prediction, the most distanced statement in the passage."}, bestWhy:"Sentence 8 is the author's own judgment; sentences 3 and 6 are the engineer's qualified positions."}
+    ]},
+  l13: { id:"l13", n:13, unit:"Unit 4 · Argument", title:"Claim, evidence, warrant", session:"Session 1 of 3",
+    sentences:[
+      "Downtown Brenton should charge for parking on Market Street.",
+      "For eight years the spaces have been free and full by ten in the morning, and the town's own count last June found that a third of the cars belonged to people who work on the street and park all day.",
+      "A free space that an employee occupies from nine to five is a space no customer can use, so the merchants who oppose meters are defending the arrangement that costs them the most.",
+      "Linden, a town of similar size an hour north, installed meters in 2021 and reported that turnover per space doubled within a year.",
+      "Its merchants' association, which had opposed the meters, now supports them.",
+      "Opponents in Brenton say that charging will send shoppers to the mall, where parking is free.",
+      "That is possible, and it is worth noticing that nobody has counted how many Market Street shoppers would go.",
+      "Meters would also raise about ninety thousand dollars a year, which the town could spend on the sidewalks the merchants have asked for.",
+      "A customer who cannot park does not become a customer who parks elsewhere on Market Street; there is nowhere else."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "should":"The claim. Everything else in the passage is there to support this sentence.",
+      "a third":"The measured share of all-day parkers. The argument's main piece of evidence.",
+      "so":"The warrant, made explicit: this is where the writer says why the evidence supports the claim.",
+      "similar size":"The comparison's warrant, stated in two words. Whether Linden is really comparable is the question an opponent would ask.",
+      "now supports":"A reversal, used as evidence that merchants' fears were wrong there.",
+      "possible":"The writer's concession to the mall objection: granted as possible, not as likely.",
+      "nobody has counted":"The writer turns the objection back: it is an uncounted fear, like the one Linden's merchants had.",
+      "also":"A second line of argument, revenue, independent of the first.",
+      "nowhere else":"The last sentence answers an unstated objection: that charging merely moves customers along the street."},
+    vocab:[
+      {w:"warrant", ctx:"the reason the evidence supports the claim", mean:"the usually unstated link that makes evidence count for a claim", parts:"Old French warant, protector, guarantee", near:"evidence: the fact itself; the warrant is why the fact matters", use:"A third of cars are employees is evidence; employees take spaces customers need is the warrant."},
+      {w:"turnover", ctx:"turnover per space doubled", mean:"the rate at which something is replaced or used by a succession of people", parts:"turn over, to replace in sequence", near:"traffic: the volume of movement, not the rate of replacement", use:"High turnover means more different cars in a day, not more cars at once."},
+      {w:"occupy", ctx:"a space that an employee occupies from nine to five", mean:"to take up and hold a place", parts:"Latin occupare, to seize (occupation)", near:"use: to employ for a purpose, briefly or not", use:"Occupy implies holding it; the all-day parker occupies, the shopper uses."},
+      {w:"revenue", ctx:"meters would raise about ninety thousand dollars a year", mean:"income, especially a government's", parts:"Latin revenire, to return (come back)", near:"profit: revenue minus cost", use:"The ninety thousand is revenue; the passage says nothing about what the meters cost to run."}],
+    retrieval:{q:"The sentence with the word so is the ___: it says why the evidence counts for the claim.", opts:["warrant","evidence","claim","concession"], ans:0, good:"Warrant: the link between a fact and the claim it is meant to support.", bad:"The claim is sentence 1 and the evidence is the count. The sentence that explains why the count matters is the warrant."},
+    tasks:[
+      {type:"pick", title:"Find the warrant", q:"Highlight the sentence that states the warrant linking the parking count (sentence 2) to the claim (sentence 1).",
+       hints:["The evidence is that a third of cars belong to employees. Why does that support charging?","Look for the sentence that begins with the evidence and ends with so.","Sentence 3: an employee's all-day space is a space no customer can use. That is the link."],
+       feedback:{2:{k:"good",t:"That is the warrant",b:"Sentence 3 says why a third of cars being employees matters: each is a customer's space lost. Without it the count is just a count."},
+                 1:{k:"crit",t:"That is the evidence, not the link",b:"Sentence 2 is the fact. The question asks for the sentence that says why the fact supports charging."},
+                 0:{k:"crit",t:"That is the claim",b:"Sentence 1 is what the argument is trying to establish, not why."},
+                 8:{k:"warn",t:"A warrant, but for a different piece of evidence",b:"Sentence 9 answers an objection about customers moving along the street. The question asks about the link from the employee count."}},
+       other:{k:"crit",t:"This sentence is not the link between the count and the claim",b:"Find the sentence that explains why employees parking all day is a problem for customers."}},
+      {type:"free", title:"State the missing warrant", q:"Sentence 4 offers Linden as evidence. In one or two sentences, state the warrant the writer needs for Linden to count, and say whether the passage gives it.", placeholder:"For Linden to count, the writer needs it to be true that...",
+       hints:["Evidence from another town only counts if the towns are alike in the ways that matter.","Look for the two words that assert the likeness.","Similar size is the whole warrant offered. Size is one way towns can be alike; the passage gives no others."],
+       minWords:10,
+       rules:[{re:/\b(similar|alike|comparable|like brenton|same|resembl|apply to|transfer|size|only (one|two) (way|word)|thin|weak|not (given|shown|enough)|barely|two words)\b/i,k:"good",t:"You named the comparison's warrant",b:"Linden counts only if Linden is like Brenton in the ways that affect parking. The passage asserts similar size and nothing else. That warrant is stated, and thin."}],
+       fallback:{k:"crit",t:"Say what has to be true for another town's result to transfer",b:"An example from elsewhere needs a bridge: the places are alike where it matters. Does the passage build that bridge?"}},
+      {type:"mc", title:"Which evidence has no warrant stated?", q:"Which piece of evidence does the writer present without saying why it supports the claim?",
+       opts:["The June parking count (sentence 2)","Linden's merchants now supporting meters (sentence 5)","The ninety thousand dollars in revenue (sentence 8)","The absence of other parking on Market Street (sentence 9)"], ans:1,
+       hints:["For each option, look for a sentence that says why it matters.","The revenue sentence says what the money could buy; the count has sentence 3; sentence 9 is itself an answer to an objection.","Nobody says why the Linden merchants' reversal should move Brenton's merchants. The reader is left to supply it."],
+       feedback:{1:{k:"good",t:"Correct: the reversal is offered bare",b:"The writer wants Brenton's merchants to see themselves in Linden's, but never says so. The implied warrant, merchants who feared meters were wrong to, is left for the reader."},
+                 0:{k:"crit",t:"That one has a warrant",b:"Sentence 3 explains why the count matters."},
+                 2:{k:"warn",t:"The warrant is partial but present",b:"The revenue sentence says what it could buy, which is the writer's reason it should move the merchants. Thin, but stated."},
+                 3:{k:"crit",t:"That sentence is a warrant itself",b:"Sentence 9 explains why a lost customer is really lost. It supports the first argument rather than needing support."}},
+       other:{k:"crit",t:"Look for the sentence that explains each piece",b:"Evidence with no explanation attached is the one the question wants."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about how strong this argument is, then click the sentence that supports your claim.", placeholder:"The argument's strongest support is the parking count, because sentence 3 says why it matters; its weakest is...",
+       hints:["Name one piece of evidence and say whether its warrant is stated.","A claim that the writer is right or wrong about meters is not what the question asks; it asks about the argument.","Sentence 3, 4, or 7 will carry a claim about how the argument works."],
+       minWords:10, bestEv:[2,3,6,4], partialEv:{0:"Sentence 1 is the claim being argued, not evidence of how well it is argued.",7:"Sentence 8 supports a claim about revenue; does your claim say anything about revenue?"}, bestWhy:"Sentence 3 is the stated warrant; sentence 4 is the comparison with the thin one; sentence 7 is the concession."}
+    ]},
+  l16: { id:"l16", n:16, unit:"Unit 4 · Argument", title:"How strong is the claim", session:"Session 3 of 3",
+    sentences:[
+      "Six months after Brenton installed meters on Market Street, the town released its first numbers.",
+      "Turnover per space rose from about three cars a day to nearly seven.",
+      "Sales tax receipts from Market Street businesses were two percent higher than in the same six months the year before, a change about the size of the town's year-to-year variation.",
+      "Four of the forty storefronts changed hands during the period, compared with three in the same months a year earlier.",
+      "The merchants' association, which had predicted a collapse in trade, said the numbers proved the meters were harmless.",
+      "A council member who had opposed the meters said the turnover figure demonstrated only that people were leaving sooner, not that more of them were buying.",
+      "The town's report said the turnover result was clear, the sales figure was consistent with no effect in either direction, and six months was too short to read the storefront number at all.",
+      "Both sides, the report noted, had moved from predicting disaster or triumph to arguing over which of three numbers to look at.",
+      "The report recommended keeping the meters and counting again at eighteen months."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "about":"An approximation on the starting figure; the rise is large enough that the rounding does not matter.",
+      "nearly":"Just under seven. A choice that says turnover more than doubled is right; one that says it reached seven is not.",
+      "about the size of":"The two percent is within normal variation, which is the report's reason for calling it no effect.",
+      "proved":"The association's word, and the strongest rung available. The report does not use it.",
+      "harmless":"The association reverses its own prediction and overclaims in the other direction.",
+      "demonstrated only":"The council member grants the turnover number and limits what it means.",
+      "clear":"The report's rung for turnover: the one number it is willing to call settled.",
+      "consistent with no effect":"The report's rung for sales: compatible with nothing having happened. Not evidence of harm, not evidence of benefit.",
+      "too short":"The report's rung for storefronts: no reading at all.",
+      "both sides":"The author's own observation about how the debate changed."},
+    vocab:[
+      {w:"variation", ctx:"about the size of the town's year-to-year variation", mean:"the normal range within which a figure moves on its own", parts:"Latin variare, to change (vary, various)", near:"change: any difference; variation is the expected amount of change", use:"A result inside normal variation is not yet a result."},
+      {w:"demonstrate", ctx:"the turnover figure demonstrated only that", mean:"to show clearly by evidence", parts:"Latin monstrare, to show", near:"suggest: to point toward weakly", use:"Demonstrate is a high rung. The council member uses it and then narrows what was demonstrated."},
+      {w:"consistent with", ctx:"consistent with no effect in either direction", mean:"not in conflict with", parts:"Latin consistere, to stand together", near:"shows: establishes; consistent with establishes nothing", use:"The sales figure is consistent with no effect; it is also consistent with a small one."},
+      {w:"harmless", ctx:"the numbers proved the meters were harmless", mean:"causing no damage", parts:"Old English hearm, injury, with -less", near:"beneficial: doing good, which the association does not claim", use:"Harmless is a claim about the absence of a cost; it still needs evidence."}],
+    retrieval:{q:"The report called the turnover result ___ and the sales figure consistent with no effect.", opts:["clear","proved","harmless","too short"], ans:0, good:"Clear: the one number the report was willing to call settled.", bad:"The report's word for turnover was clear. Proved is the association's word, and the report never uses it."},
+    tasks:[
+      {type:"pick", title:"The strongest claim", q:"Highlight the sentence that makes the strongest claim relative to its evidence.",
+       hints:["Look for the highest rung: proved, demonstrated, clear.","Then ask what evidence stands under it.","Sentence 5: proved and harmless rest on a two percent sales change the report calls consistent with no effect, and on six months of storefront data the report calls unreadable."],
+       feedback:{4:{k:"good",t:"That is the overclaim",b:"Proved is the top rung, harmless is a claim about all costs, and the evidence is a sales figure inside normal variation and a storefront count too short to read. The association has reversed its prediction and overclaimed in the other direction."},
+                 5:{k:"warn",t:"A strong verb, but a narrowed claim",b:"Demonstrated only is a high rung attached to a small claim: people leave sooner. The council member's sentence is calibrated; the association's is not."},
+                 6:{k:"crit",t:"That is the calibrated sentence",b:"The report gives each number its own rung. It is the model, not the overclaim."},
+                 1:{k:"crit",t:"That is a number, not a claim about it",b:"Sentence 2 reports the turnover result. The question asks about claims made from the numbers."}},
+       other:{k:"crit",t:"Look for the verbs",b:"Proved, demonstrated, clear, consistent with: each sentence that interprets a number sits on a rung. Find the highest one with the least under it."}},
+      {type:"mc", title:"Match the rung", q:"The report says the sales figure is \"consistent with no effect in either direction.\" What does that mean?",
+       opts:["The meters had no effect on sales.","The sales change is small enough to be normal variation, so it is neither evidence of harm nor of benefit.","Sales fell slightly because of the meters.","The report could not obtain the sales data."], ans:1,
+       hints:["Consistent with is the weakest positive rung. It means compatible, not shown.","Sentence 3 tells you how big the change is compared with normal variation.","Option A turns compatible with into shows. That is the promotion the rung forbids."],
+       feedback:{1:{k:"good",t:"Correct: compatible with nothing, and with small something",b:"A two percent rise inside the normal swing cannot be told from no effect. It also cannot be told from a small effect. The report refuses both readings, which is what consistent with means."},
+                 0:{k:"crit",t:"That promotes the rung",b:"Consistent with no effect does not mean no effect. It means the data cannot distinguish. Option A says more than the report says."},
+                 2:{k:"crit",t:"Sales rose, slightly, and the report assigns no cause",b:"Sentence 3 says two percent higher. Neither direction nor cause is in the report's sentence."},
+                 3:{k:"crit",t:"The data exist",b:"Sentence 3 gives the figure. The report's point is about what the figure can and cannot show."}},
+       other:{k:"crit",t:"Translate the rung",b:"Consistent with means does not contradict. Which option says only that?"}},
+      {type:"free", title:"Rewrite the claim to its evidence", q:"Rewrite the association's claim (sentence 5) so that it says exactly what the three numbers support and no more.", placeholder:"Six months in, turnover has more than doubled; sales are within normal variation; ...",
+       hints:["Take the numbers one at a time: turnover, sales, storefronts.","The report in sentence 7 has already assigned a rung to each. Borrow them.","Proved and harmless both have to go. What replaces them?"],
+       minWords:14,
+       rules:[{re:/\b(turnover|more than doubled|rose|within (normal|the) variation|consistent with|no (clear|measurable) effect|too (short|early|soon)|cannot (yet )?(say|tell|read)|not yet|so far|six months)\b/i,k:"good",t:"That is a calibrated claim",b:"Turnover rose clearly; sales are within normal variation; six months is too short for storefronts. Each number at its own rung, and nothing proved."}],
+       fallback:{k:"crit",t:"Give each number its own rung",b:"Turnover, sales, and storefronts support three different strengths of claim. The report in sentence 7 shows you which. Use its words."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about what the first six months show about the meters, then click the sentence that supports it.", placeholder:"The meters clearly raised turnover; whether they changed sales, the numbers cannot yet say, because...",
+       hints:["Start with the one thing the report calls clear.","Then say what the other two numbers cannot show.","Sentence 7 carries the whole calibrated claim; sentence 2 carries the turnover part."],
+       minWords:10, bestEv:[6,1,2], partialEv:{4:"Sentence 5 is the association's overclaim. It supports a claim about what the association said, not about the meters.",3:"Sentence 4 supports a number the report says is too short to read."}, bestWhy:"Sentence 7 assigns each number its rung; sentence 2 is the clear result."}
+    ]},
+  l21: { id:"l21", n:21, unit:"Unit 6 · Synthesis and test craft", title:"Paired passages", session:"Session 1 of 3",
+    labels:["Text 1, from a letter to the regional paper","Text 2, from the transit authority's annual review"],
+    sentences:[
+      "The authority wants to end the Harlow ferry because it loses money, and that is the wrong test.",
+      "The ferry carries nine hundred people a day across a river that the bridge crosses eleven miles upstream, and every one of them who moves to a car adds twenty-two miles to a round trip.",
+      "Nobody asks the bridge to turn a profit.",
+      "A ferry is a road that floats, and roads are judged by what they carry, not by what they earn.",
+      "If the authority counted the ferry the way it counts the bridge, the question of closing it would not come up.",
+      "The Harlow ferry costs the authority 4.1 million dollars a year against 1.3 million in fares, and ridership has fallen for six consecutive years.",
+      "Supporters compare it to the upstream bridge, which is fair as far as it goes: both are infrastructure, and neither is expected to pay for itself.",
+      "But the bridge carries thirty thousand vehicles a day, and the ferry's nine hundred riders could be carried by a bus over that bridge at a quarter of the cost.",
+      "The question is not whether the ferry should earn money.",
+      "It is whether this is the cheapest way to move these people, and on present numbers it is not."],
+    paras:[[0,1,2,3,4],[5,6,7,8,9]],
+    qualifiers:{
+      "wrong test":"Text 1's claim is about the standard being used, not about the dollars.",
+      "every one":"A strong assumption: that each displaced rider drives. Text 1 does not support it.",
+      "nobody":"The comparison with the bridge, stated as a rhetorical point.",
+      "not by what they earn":"Text 1's principle. Text 2 will accept it and then change the question.",
+      "consecutive":"Six years in a row: Text 2's evidence that the problem is a trend, not a bad year.",
+      "as far as it goes":"Text 2 grants the comparison and signals it will limit it.",
+      "neither":"The overlap: Text 2 agrees that infrastructure need not pay for itself.",
+      "but":"The turn: the bridge comparison fails on scale and alternatives, not on principle.",
+      "a quarter of the cost":"Text 2's key number: the bus is the alternative Text 1 never considers.",
+      "cheapest way":"Text 2's reframed question, which replaces profit with cost per rider."},
+    vocab:[
+      {w:"infrastructure", ctx:"both are infrastructure", mean:"the basic physical systems a place runs on: roads, bridges, pipes, transit", parts:"Latin infra, below + structure", near:"facility: one building or installation", use:"Both writers agree the ferry is infrastructure; they disagree about what follows."},
+      {w:"consecutive", ctx:"fallen for six consecutive years", mean:"following one after another without a gap", parts:"Latin consequi, to follow closely (sequence, consequence)", near:"recent: close in time, not necessarily in a row", use:"Six consecutive years is a trend; six recent years might not be."},
+      {w:"ridership", ctx:"ridership has fallen", mean:"the number of people using a transit service", parts:"ride plus -ship, the state or body of", near:"capacity: how many a service could carry", use:"Falling ridership on a fixed-cost service raises the cost per rider."},
+      {w:"reframe", ctx:"Text 2 changes the question from profit to cost per rider", mean:"to present the same situation under a different question", parts:"frame, the border that decides what is in the picture", near:"refute: to prove wrong; reframing does not refute, it redirects", use:"Text 2 does not deny Text 1's principle; it reframes the decision."}],
+    retrieval:{q:"Text 2 grants that infrastructure need not pay for itself and then ___ the question to cost per rider.", opts:["reframes","refutes","concedes","compares"], ans:0, good:"Reframes: the same facts under a different question.", bad:"Text 2 does not prove Text 1 wrong about profit; it accepts that point and changes what is being asked."},
+    tasks:[
+      {type:"pick", title:"The response", q:"Highlight the sentence in Text 2 that most directly answers Text 1's bridge comparison.",
+       hints:["Text 1's comparison is in sentences 3 and 4: the bridge is not asked to earn.","Text 2 first grants the comparison, then limits it. Find the limit.","Sentence 8: the bridge carries thirty thousand and the ferry's riders could go by bus. Scale and an alternative, which Text 1 never mentions."],
+       feedback:{7:{k:"good",t:"That is the answer to the comparison",b:"Text 2 grants that both are infrastructure (sentence 7) and then says why the comparison fails: scale, and a cheaper alternative that moves the same people."},
+                 6:{k:"warn",t:"That is the concession before the answer",b:"Sentence 7 grants the comparison as far as it goes. The answer is the next sentence, after but."},
+                 9:{k:"warn",t:"That is the conclusion, not the response to the bridge",b:"Sentence 10 states Text 2's reframed question. The direct reply to the bridge comparison is sentence 8."},
+                 5:{k:"crit",t:"That is Text 2's evidence about the ferry, not about the bridge",b:"Sentence 6 gives the ferry's numbers. The question asks which sentence answers the comparison with the bridge."}},
+       other:{k:"crit",t:"Find where Text 2 talks about the bridge",b:"Text 2 mentions the bridge twice. The second time is the answer."}},
+      {type:"mc", title:"Where they agree", q:"Both authors would agree that",
+       opts:["the ferry should be replaced by a bus.","infrastructure should not be judged by whether it earns a profit.","ridership will recover if fares are cut.","the bridge is more important than the ferry."], ans:1,
+       hints:["The overlap is a principle, not a conclusion.","Text 1 states it in sentence 4; Text 2 accepts it in sentence 7 and sentence 9.","The other three choices are either one text's view or neither's."],
+       feedback:{1:{k:"good",t:"Correct: the shared principle",b:"Text 1 says roads are judged by what they carry, not what they earn. Text 2 says neither is expected to pay for itself and that profit is not the question. They disagree about what follows, not about this."},
+                 0:{k:"crit",t:"Text 2's conclusion only",b:"Text 1 never mentions a bus; it would likely object. Agreement questions want what both texts say."},
+                 2:{k:"crit",t:"Neither text says this",b:"Fares are mentioned once, as revenue. Nobody predicts ridership."},
+                 3:{k:"crit",t:"Neither ranks them",b:"Text 2 says the bridge carries more; Text 1 says the bridge is not asked to earn. Neither says one matters more."}},
+       other:{k:"crit",t:"Find the sentence in each text",b:"A point of agreement needs a sentence in Text 1 and a sentence in Text 2. Check both."}},
+      {type:"free", title:"Where they talk past each other", q:"In one or two sentences, name the question Text 1 answers and the question Text 2 answers, and say why they are different.", placeholder:"Text 1 answers whether the ferry should have to earn money; Text 2 answers whether...",
+       hints:["Each text ends on its question. Read sentences 5 and 10.","Text 1: should it be judged by profit? Text 2: is it the cheapest way to move these people?","They are different because one is about the standard and the other is about the alternative."],
+       minWords:12,
+       rules:[{re:/\b(cheapest|cost per rider|alternative|bus|different question|standard|profit|earn|move (these|the) people|what to compare|reframe|not the same question|talk(s)? past)\b/i,k:"good",t:"You separated the two questions",b:"Text 1 asks whether a ferry should have to earn money and says no. Text 2 agrees and asks a different question: whether a ferry is the cheapest way to move nine hundred people. Text 1 never considers the bus, so it never answers Text 2."}],
+       fallback:{k:"crit",t:"Name each text's question",b:"Look at the last sentence of each text. Each states what it thinks the real question is. Write both down and compare them."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about the relationship between the two texts, then click the sentence that supports it.", placeholder:"Text 2 accepts Text 1's principle that infrastructure need not earn, but argues that...",
+       hints:["A relationship claim names what Text 2 does with Text 1: accepts, rejects, reframes.","If your claim says one text is right, no sentence supports it; the passage gives you two arguments, not a verdict.","Sentence 7 shows the acceptance; sentence 8 or 10 shows the reframing."],
+       minWords:10, bestEv:[6,7,9,3], partialEv:{1:"Sentence 2 is Text 1's evidence about miles driven. It supports a claim about Text 1's argument, not about how the texts relate.",5:"Sentence 6 is Text 2's cost figure. What does your claim say about the relationship between the texts?"}, bestWhy:"Sentence 7 is Text 2 accepting the principle; sentences 8 and 10 are the reframing."}
+    ]},
+  l23: { id:"l23", n:23, unit:"Unit 6 · Synthesis and test craft", title:"Plausible wrong answers", session:"Session 3 of 3",
+    sentences:[
+      "Along the county's rural roads, the highway department mows the verges three times a summer, and for years beekeepers have asked it to mow once instead.",
+      "In 2023 the department agreed to a trial: forty miles of verge were mowed once, in September, and a matching forty miles were mowed on the usual schedule.",
+      "A university team counted flowering plants and visiting insects on both stretches through the summer.",
+      "On the once-mowed verges, flowering plants were about four times as abundant by July, and bee visits were roughly three times as frequent.",
+      "Butterfly counts did not differ between the two stretches.",
+      "Drivers filed eleven complaints about sightlines on the once-mowed roads and two on the others.",
+      "The department's safety officer reviewed the complaints and found that nine concerned a single curve where the verge is unusually wide.",
+      "The team cautioned that one summer in one county cannot say what the schedule would do elsewhere, and that it had not measured whether the extra bees produced more honey or pollinated more crops.",
+      "The department will extend the trial to a second county next year and mow the wide curve on the old schedule."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "matching":"The comparison group: a second forty miles, mowed as usual. Without it, the flower count means little.",
+      "about four times":"An approximation on a large effect; the size is clear, the exact ratio is not.",
+      "did not differ":"A null result stated plainly. A choice that says all pollinators increased is wrong.",
+      "eleven":"A count of complaints, not of hazards; sentence 7 tells you where they came from.",
+      "single curve":"Nine of eleven complaints came from one place, which is why the trial can continue with one exception.",
+      "cautioned":"The team limits its own result: one county, one summer, outcomes not measured.",
+      "had not measured":"Honey and crops are outside the study. Any choice about them is outside the passage.",
+      "extend":"The department's response: more data, not a decision."},
+    vocab:[
+      {w:"verge", ctx:"mows the verges three times a summer", mean:"the grass strip along the edge of a road", parts:"Latin virga, rod; the edge sense came through border", near:"shoulder: the paved or gravel strip for stopping", use:"The verge is grass; the shoulder is for cars."},
+      {w:"abundant", ctx:"flowering plants were about four times as abundant", mean:"present in large quantity", parts:"Latin abundare, to overflow (abound)", near:"diverse: of many kinds; abundant is about quantity", use:"Four times as abundant says nothing about how many species there were."},
+      {w:"sightline", ctx:"complaints about sightlines", mean:"the unobstructed line of view from one point to another", parts:"sight plus line", near:"visibility: how far one can see in the conditions, as in fog", use:"Tall grass blocks a sightline; fog reduces visibility."},
+      {w:"null result", ctx:"butterfly counts did not differ", mean:"a finding of no difference between groups", parts:"Latin nullus, none", near:"negative result: sometimes used the same way, sometimes meaning a harmful one", use:"A null result is still a result; the butterflies are evidence that not everything changed."}],
+    retrieval:{q:"The team ___ that one summer in one county could not say what the schedule would do elsewhere.", opts:["cautioned","complained","extended","matched"], ans:0, good:"Cautioned: warned against reading too much into the result.", bad:"The sentence limits the finding. The verb for a researcher limiting a finding is cautioned."},
+    tasks:[
+      {type:"mc", title:"The question", q:"Which choice best states the main finding of the trial?",
+       opts:["Mowing once a summer increases pollinators and should be adopted statewide.","On the trial stretch, mowing once produced far more flowers and bee visits, no change in butterflies, and a sightline problem concentrated at one curve.","Mowing once improves crop pollination.","The highway department's mowing schedule was endangering drivers."], ans:1,
+       hints:["Check each choice against a sentence. The right one restates several.","Statewide, crop pollination, and endangering drivers each come from outside the passage or from a rung the passage does not reach.","The right answer includes the butterflies and the curve, because a main finding is the whole finding."],
+       feedback:{1:{k:"good",t:"Correct: the whole result, at its own rung",b:"Flowers and bees up, butterflies unchanged, complaints from one curve. Every clause has a sentence behind it, and nothing reaches past the trial."},
+                 0:{k:"crit",t:"Too strong, twice",b:"Pollinators is broader than bees (the butterflies did not change), and statewide is what sentence 8 says the trial cannot support."},
+                 2:{k:"crit",t:"Outside the study",b:"Sentence 8 says crops were not measured. This choice is built from what you would expect, not what was found."},
+                 3:{k:"crit",t:"Wrong direction and too strong",b:"Eleven complaints, nine from one curve, is not endangering drivers, and the complaints concerned the new schedule, not the old one."}},
+       other:{k:"crit",t:"Check each clause against a sentence",b:"The main finding is the one every sentence of results agrees with."}},
+      {type:"mc", title:"Name the build", q:"A test writes this wrong answer: \"The trial showed that mowing once makes roads unsafe.\" Which build is it?",
+       opts:["Too strong: a count of complaints promoted to a finding about safety","Wrong speaker: a driver's view presented as the team's","Outside: safety is never mentioned in the passage","Reversed: the passage says mowing once made roads safer"], ans:0,
+       hints:["Does the passage mention safety? Yes, in sentences 6 and 7. So it is not outside.","Does it say roads became unsafe? It says complaints were filed, mostly about one curve.","Complaints to a finding of unsafe is a promotion up the ladder. That is the too strong build."],
+       feedback:{0:{k:"good",t:"Correct: a promotion",b:"Eleven complaints about sightlines, nine from one curve, became roads unsafe. The topic is in the passage; the rung is not."},
+                 1:{k:"warn",t:"Partly, but no driver is quoted claiming the roads are unsafe",b:"The complaints are reported as filed, not as a claim about safety. The main seam is the jump from complaints to unsafe."},
+                 2:{k:"crit",t:"Safety is in the passage",b:"Sentences 6 and 7 are about sightline complaints and a safety officer. The choice is not outside; it is too strong."},
+                 3:{k:"crit",t:"The passage does not say that either",b:"Nothing in the passage says mowing once made roads safer. Reversed would need the passage to assert the opposite."}},
+       other:{k:"crit",t:"Find the seam",b:"Ask: is the topic in the passage, and is the strength in the passage? Those two questions sort most builds."}},
+      {type:"free", title:"Find the seam", q:"A classmate chose this answer to a question about the team's conclusion: \"The team concluded that once-a-summer mowing is better for bees everywhere.\" In one or two sentences, name the seam and the sentence that exposes it.", placeholder:"The seam is the word everywhere, because sentence 8 says...",
+       hints:["Which single word in the answer reaches past the passage?","Sentence 8 is the team's own limit.","Everywhere is the seam; one summer in one county cannot say what the schedule would do elsewhere."],
+       minWords:10,
+       rules:[{re:/\b(everywhere|elsewhere|one county|one summer|generaliz|too strong|overclaim|beyond|cautioned|cannot say|limit|sentence 8|only (one|this) county)\b/i,k:"good",t:"You found the seam",b:"Everywhere is the word that leaves the passage. Sentence 8 is the team saying so themselves: one summer in one county cannot speak for elsewhere."}],
+       fallback:{k:"crit",t:"Find the one word that reaches too far",b:"Compare the classmate's sentence with sentence 8 word by word. One word in the answer is denied by the passage."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about what the trial showed that has no seam in it, then click the sentence that supports it.", placeholder:"On forty miles in one county, mowing once produced far more flowers and bee visits; whether that holds elsewhere...",
+       hints:["Keep the scope: forty miles, one summer, one county.","Say bees, not pollinators; the butterflies did not change.","Sentence 4 carries the result; sentence 8 carries the limit."],
+       minWords:10, bestEv:[3,7,4], partialEv:{5:"Sentence 6 supports a claim about complaints. Does your claim mention them, and does it say where they came from (sentence 7)?",8:"Sentence 9 is the department's next step, not what the trial showed."}, bestWhy:"Sentence 4 is the measured result; sentence 8 is the limit the team put on it."}
+    ]}
+});
+LESSONS.l3.tasks[3].overclaim = /\b(energy|electricity|power bill|save[sd]? money|cheaper to run|environment|carbon|greener|residents (like|prefer)|side streets will|proves?|clearly|definitely|all of ashby)\b/i;
+LESSONS.l6.tasks[3].overclaim = /\b(caus|lift|rais|improv|lead to|led to|boost|because of the (libraries|branches)|proves?|clearly|definitely|demonstrat)\w*\b/i;
+LESSONS.l10.tasks[3].overclaim = /\b(is safe|is unsafe|is dangerous|should (close|stay open)|proves?|clearly|definitely|obviously|was right|were right|lying|wrong)\b/i;
+LESSONS.l13.tasks[3].overclaim = /\b(should (charge|not charge)|meters (will|would) work|proves?|proved|clearly|definitely|obviously|the writer is (right|wrong)|certainly)\b/i;
+LESSONS.l16.tasks[3].overclaim = /\b(prove[sd]?|harmless|harmful|hurt sales|helped sales|raised sales|no effect on sales|businesses (failed|closed) because|clearly (helped|hurt)|definitely|obviously|certainly)\b/i;
+LESSONS.l21.tasks[3].overclaim = /\b(is right|is wrong|wins|loses|should (close|keep|end)|proves?|clearly|definitely|obviously|better argument|correct)\b/i;
+LESSONS.l23.tasks[3].overclaim = /\b(everywhere|statewide|all (roads|counties)|pollinators|honey|crops?|unsafe|dangerous|should (adopt|switch|mow)|proves?|clearly|definitely|obviously)\b/i;
+
+Object.assign(LESSONS,{
+  l4: { id:"l4", n:4, unit:"Unit 1 · The sentence that matters", title:"Negation and reference", session:"Session 3 of 3",
+    sentences:[
+      "The county's review of its twelve rural bridges did not find any of them unsafe.",
+      "It did find that four had never been inspected underwater, which the state has required since 2019, and that the inspection records for two others could not be located.",
+      "Neither gap means a bridge is failing; it means the county cannot show that it is not.",
+      "The engineer who led the review recommended closing none of the twelve and inspecting the four this year.",
+      "The board accepted the first recommendation and deferred the second to the next budget, citing cost.",
+      "That decision, not the review, is what the newspaper's editorial called reckless.",
+      "The editorial did not claim the bridges were unsafe; it claimed the county had chosen not to find out.",
+      "The board chair replied that the former was the only question that mattered to drivers.",
+      "The engineer, asked which of the two she agreed with, said the latter."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "did not find any":"The review found no unsafe bridge. That is not the same as finding every bridge safe; sentence 3 makes the difference explicit.",
+      "never":"Four bridges have had no underwater inspection at all, not a late one.",
+      "could not be located":"Missing records, not missing inspections; the passage does not say whether those two were inspected.",
+      "neither":"Both gaps together: the sentence applies the same limit to each.",
+      "cannot show that it is not":"The double negative is the point: absence of evidence of safety, not evidence of danger.",
+      "none":"Zero closures recommended; the engineer's position on safety is clear.",
+      "deferred":"Postponed, not refused. The inspections are delayed, not cancelled.",
+      "that decision, not the review":"The editorial's target is the board's deferral. A reader who thinks the editorial attacked the review has lost the reference.",
+      "did not claim":"The editorial's claim is narrower than it sounds: not unsafe, but unchecked.",
+      "the former":"Refers back to the first of two things: whether the bridges are unsafe.",
+      "the latter":"The second of the two: whether the county chose not to find out. The engineer sides with the editorial."},
+    vocab:[
+      {w:"defer", ctx:"deferred the second to the next budget", mean:"to put off to a later time", parts:"Latin differre, to carry apart or delay (differ)", near:"deny: to refuse outright", use:"A deferred inspection is still owed."},
+      {w:"the former, the latter", ctx:"the former was the only question", mean:"the first and the second of two things just mentioned", parts:"Old English forma, first; Old English laet, late", near:"the first, the last: used for lists longer than two", use:"When you meet these words, go back and number the two things."},
+      {w:"reckless", ctx:"what the editorial called reckless", mean:"heedless of consequences; careless of danger", parts:"Old English reccan, to care, with -less", near:"negligent: failing a duty of care, a legal term", use:"The editorial's word is about attitude; negligent would be about liability."},
+      {w:"cite", ctx:"citing cost", mean:"to give as a reason or authority", parts:"Latin citare, to summon", near:"blame: to assign fault", use:"The board cites cost; it does not blame anyone."}],
+    retrieval:{q:"The engineer agreed with ___: that the county had chosen not to find out.", opts:["the latter","the former","neither","the board"], ans:0, good:"The latter: the second of the two questions, which was the editorial's.", bad:"Number the two questions in sentence 7. The engineer picked the second one."},
+    tasks:[
+      {type:"pick", title:"Find the sentence", q:"Highlight the sentence that best supports this claim: \"The review did not establish that the bridges are safe.\"",
+       hints:["Not unsafe and safe are different findings. Which sentence says so?","Look for the double negative.","Sentence 3: the county cannot show that a bridge is not failing. That is the gap between not unsafe and safe."],
+       feedback:{2:{k:"good",t:"That is the distinction",b:"Sentence 3 says the gaps do not mean failure and do mean the county cannot show safety. The claim lives in that second half."},
+                 0:{k:"crit",t:"That says the opposite of what it seems to",b:"Sentence 1 says the review found no bridge unsafe. The claim is that it also did not establish safety. Sentence 3 draws that line."},
+                 1:{k:"warn",t:"That is the evidence for the gap, not the statement of it",b:"Sentence 2 lists the missing inspections and records. Sentence 3 says what they mean."},
+                 6:{k:"warn",t:"That is the editorial's version of the same point",b:"Sentence 7 is a reported claim. The passage's own statement of the gap is sentence 3."}},
+       other:{k:"crit",t:"This sentence does not address what the review established",b:"Find the sentence with the double negative."}},
+      {type:"mc", title:"Follow the reference", q:"In sentence 8, \"the former\" refers to",
+       opts:["whether the bridges were unsafe","whether the county had chosen not to find out","the review","the next budget"], ans:0,
+       hints:["The former is the first of two things just mentioned. Find the two.","Sentence 7 names them: not unsafe; chose not to find out.","The first is whether the bridges are unsafe. The chair says only that one matters to drivers."],
+       feedback:{0:{k:"good",t:"Correct",b:"Sentence 7 sets up two claims; the former is the first, whether the bridges are unsafe. The chair narrows the debate to that question, and the engineer, in sentence 9, picks the other."},
+                 1:{k:"crit",t:"That is the latter",b:"The second of the two things is what the engineer chose in sentence 9. The chair chose the first."},
+                 2:{k:"crit",t:"The review is not one of the two things",b:"The former and the latter point back to the two claims in sentence 7, not to earlier nouns in the passage."},
+                 3:{k:"crit",t:"Too far back",b:"Reference words point to the nearest pair that fits. Sentence 7 has the pair."}},
+       other:{k:"crit",t:"Find the pair",b:"The former and the latter always need two things. Find them in the sentence before."}},
+      {type:"free", title:"Unpack the negation", q:"In one or two sentences, explain the difference between what the review found (sentence 1) and what the editorial claimed (sentence 7).", placeholder:"The review found no bridge unsafe; the editorial did not dispute that. It claimed...",
+       hints:["Each sentence has a not in it. Say what each not rules out.","The review's not is about the bridges; the editorial's not is about its own claim.","The review found none unsafe. The editorial did not say they were unsafe; it said the county chose not to check."],
+       minWords:12,
+       rules:[{re:/\b(not (dispute|claim|say)|did not say|never said|chose not|chosen not|find out|unchecked|not (inspected|checked)|cannot show|different (claim|question)|two (different )?(things|questions|claims)|safety (is|was) not)\b/i,k:"good",t:"You kept the two negatives apart",b:"The review found no bridge unsafe. The editorial accepted that and made a different claim: the county chose not to find out. A reader who merges them thinks the editorial called the bridges dangerous, which it did not."}],
+       fallback:{k:"crit",t:"Say what each not rules out",b:"Sentence 1: the review did not find any unsafe. Sentence 7: the editorial did not claim they were unsafe. Those are different sentences about different things. Write both."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about what the editorial argued, then click the sentence that supports it.", placeholder:"The editorial did not say the bridges were unsafe; it criticized the board for deferring the inspections, because...",
+       hints:["Keep the editorial's claim as narrow as sentence 7 makes it.","Its target is in sentence 6: the decision, not the review.","If your claim says the bridges are dangerous, no sentence supports it."],
+       minWords:10, bestEv:[6,5,8], partialEv:{0:"Sentence 1 is the review's finding, not the editorial's argument.",4:"Sentence 5 is what the board did. It is the editorial's target, but the editorial's claim is in sentence 7."}, bestWhy:"Sentence 7 states the editorial's claim; sentence 6 names its target."}
+    ]},
+  l7: { id:"l7", n:7, unit:"Unit 2 · Cause and attribution", title:"The missing comparison", session:"Session 2 of 3",
+    sentences:[
+      "In September the Ridgeway school district began serving breakfast in classrooms instead of in the cafeteria before the bell.",
+      "By December, the share of students eating breakfast at school had risen from 31 percent to 72 percent.",
+      "Tardiness fell by a quarter over the same months.",
+      "The superintendent told the board that the program had cut tardiness, and the local paper reported it that way.",
+      "The district's data analyst, in a memo the paper did not quote, pointed out that tardiness falls every year between September and December as new students learn the bus routes.",
+      "Last year, with breakfast still in the cafeteria, it fell by a fifth over the same months.",
+      "The memo said the program might account for the difference between a fifth and a quarter, and that even that could not be separated from a new late-bus policy that began in October.",
+      "It recommended comparing this year's spring numbers with last year's before claiming anything.",
+      "The board voted to continue the program and to ask for the spring comparison."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "instead of":"One change in how breakfast was served; participation is the direct effect.",
+      "over the same months":"The tardiness drop and the breakfast rise share a window, which is why they get linked.",
+      "had cut":"The superintendent's causal verb. The analyst's memo is a reply to this word.",
+      "did not quote":"The reader of the paper never saw the comparison; you are seeing it here.",
+      "every year":"The baseline: tardiness falls in the fall regardless. This is the comparison the superintendent lacked.",
+      "a fifth":"Last year's drop with no program. The honest effect, if any, is a quarter minus a fifth.",
+      "might account for":"The analyst's rung: possible, not shown.",
+      "even that":"The remaining difference has a second candidate cause, the late bus.",
+      "before claiming anything":"The analyst's standard: a comparison first, a claim after."},
+    vocab:[
+      {w:"baseline", ctx:"tardiness falls every year between September and December", mean:"the level something would have had without the change being studied", parts:"base plus line, from surveying", near:"average: the typical level, which may not be the right comparison", use:"Last year's fall drop is the baseline; this year's is measured against it."},
+      {w:"account for", ctx:"the program might account for the difference", mean:"to be the explanation of", parts:"Old French aconter, to reckon", near:"correlate with: to move together with, without explaining", use:"Account for is a causal verb; the analyst hedges it with might."},
+      {w:"tardiness", ctx:"tardiness fell by a quarter", mean:"lateness; the rate of arriving late", parts:"Latin tardus, slow (retard, tardy)", near:"absence: not arriving at all", use:"The passage is about late arrivals, not missing students."},
+      {w:"memo", ctx:"in a memo the paper did not quote", mean:"a short written message inside an organization", parts:"Latin memorandum, a thing to be remembered", near:"report: a longer, formal account", use:"The memo is where the comparison lives; the report of the meeting left it out."}],
+    retrieval:{q:"Tardiness fell every fall anyway; the analyst called last year's drop the ___.", opts:["baseline","program","memo","exception"], ans:0, good:"Baseline: what happens without the change.", bad:"The word for the level you compare against is baseline. Last year is the comparison, not an exception."},
+    tasks:[
+      {type:"pick", title:"Find the comparison", q:"Highlight the sentence that gives the comparison the superintendent's claim was missing.",
+       hints:["The superintendent compared December with September. What else could you compare?","The analyst compares this year with last year.","Sentence 6: last year, same months, no program, tardiness still fell by a fifth. That is the missing comparison."],
+       feedback:{5:{k:"good",t:"That is the baseline",b:"Without the program, tardiness fell by a fifth over the same months last year. The superintendent's quarter has to be measured against that, not against zero."},
+                 4:{k:"good",t:"That states the pattern; the next sentence gives the number",b:"Sentence 5 says tardiness falls every fall. Sentence 6 quantifies it. Either one supplies what the superintendent left out."},
+                 2:{k:"crit",t:"That is the superintendent's number, not the comparison",b:"Sentence 3 is the drop that needs explaining. The question asks what it should be compared with."},
+                 6:{k:"warn",t:"That uses the comparison; the comparison itself is a sentence earlier",b:"Sentence 7 computes a quarter minus a fifth. The baseline it uses is sentence 6."}},
+       other:{k:"crit",t:"Look for last year",b:"A comparison needs a case without the change. Find it."}},
+      {type:"free", title:"How big is the effect?", q:"In one or two sentences, say how much of the drop in tardiness the program could account for, and why even that is uncertain.", placeholder:"At most the difference between a quarter and a fifth, because...",
+       hints:["Subtract: this year's drop minus last year's.","Then read sentence 7's second half.","A quarter minus a fifth, and the late-bus policy could explain that too."],
+       minWords:10,
+       rules:[{re:/\b(quarter|fifth|five percent|5 percent|the difference|at most|small|late[- ]bus|bus policy|second change|cannot be separated|another change|october)\b/i,k:"good",t:"You sized it and limited it",b:"The program's share is at most the gap between a quarter and a fifth, and the late-bus policy began in the same window, so even that gap has two candidates. The honest claim is small and uncertain."}],
+       fallback:{k:"crit",t:"Use the two numbers",b:"This year a quarter, last year a fifth. The program can claim no more than the difference, and sentence 7 says why it cannot claim all of that."}},
+      {type:"mc", title:"Whose view?", q:"Who says the program cut tardiness?",
+       opts:["The data analyst","The superintendent, and the paper reporting him","The board","The author of the passage"], ans:1,
+       hints:["Find the causal verb and the person it is attributed to.","Told the board that and reported it that way are both reports.","The analyst's memo argues against the claim; the board asked for more data; the author reports all of it."],
+       feedback:{1:{k:"good",t:"Correct: a reported claim, repeated by the paper",b:"Sentence 4 attributes had cut to the superintendent and says the paper passed it on. The analyst disputes it, the board defers, and the author endorses nobody."},
+                 0:{k:"crit",t:"The analyst says the opposite",b:"Sentences 5 to 8 are the analyst limiting the claim and asking for a comparison first."},
+                 2:{k:"crit",t:"The board asked for the comparison",b:"Sentence 9: continue the program and get the spring numbers. That is not a claim that it worked."},
+                 3:{k:"crit",t:"The author reports; the author does not claim",b:"Every causal statement in the passage has a speaker in front of it."}},
+       other:{k:"crit",t:"Find the verb and its owner",b:"Had cut belongs to someone. Who?"}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about the breakfast program and tardiness that the passage supports, then click the sentence that supports it.", placeholder:"Tardiness fell by a quarter after the program began, but it fell by a fifth last year without it, so the program can account for at most...",
+       hints:["Start with both numbers, this year's and last year's.","Say the most the program could explain, and name the other change in the window.","Sentence 6 or 7 carries the limit."],
+       minWords:10, bestEv:[5,6,4], partialEv:{2:"Sentence 3 supports that tardiness fell. The claim needs the comparison that says how much of that was the program.",1:"Sentence 2 is about breakfast participation, which the program clearly changed; your claim is about tardiness."}, bestWhy:"Sentence 6 is the baseline; sentence 7 sizes and limits the program's share."}
+    ]},
+  l12: { id:"l12", n:12, unit:"Unit 3 · Whose view is this", title:"The author's own line", session:"Session 3 of 3",
+    sentences:[
+      "When the Pell Street bakery closed in March after forty years, the explanations arrived before the ovens had cooled.",
+      "The owner blamed the new rent, which had risen by half in two years.",
+      "The landlord's agent said the rent was in line with the block and that the bakery's hours, which had shrunk to five mornings a week, told the real story.",
+      "A food writer for the regional magazine attributed the closing to a change in taste, noting that three cafes selling the same pastries at twice the price had opened within four blocks.",
+      "Customers interviewed on the sidewalk mostly said they had not been in for a year or more, and were sorry.",
+      "Each explanation is probably partly right, and each is offered by someone with a reason to prefer it.",
+      "The owner's rent is a cause the owner did not control; the agent's hours are one the owner did; the writer's story is one that flatters the writer's readers.",
+      "The customers, who had stopped coming, are the only witnesses with nothing to defend, and their account is the least dramatic.",
+      "A bakery that people loved and did not visit closed; the rest is the explanation each person needed."],
+    paras:[[0,1,2],[3,4],[5,6,7,8]],
+    qualifiers:{
+      "blamed":"The owner's causal claim, with the reporting verb that marks it as hers.",
+      "in line with":"The agent's defense: the rent is normal. A reported view, with an interest behind it.",
+      "told the real story":"The agent's counter-explanation, in the agent's words.",
+      "attributed":"The writer's causal claim; attributed marks it as reported.",
+      "mostly":"Most customers, not all; the passage keeps the count honest.",
+      "probably partly":"The author's first judgment, hedged twice: likely, and only in part.",
+      "a reason to prefer":"The author's method: look at who gains from each explanation.",
+      "nothing to defend":"The author's standard for a witness, and the reason the customers' account carries weight.",
+      "the rest is the explanation each person needed":"The author's own line. Everything before it was reported; this is concluded."},
+    vocab:[
+      {w:"attribute", ctx:"attributed the closing to a change in taste", mean:"to name as the cause of", parts:"Latin attribuere, to assign", near:"blame: to attribute something bad to someone, with fault", use:"The writer attributes; the owner blames. Same move, different charge."},
+      {w:"flatter", ctx:"a story that flatters the writer's readers", mean:"to please by suggesting something favorable", parts:"Old French flater, to stroke", near:"persuade: to convince by reasons", use:"An explanation that flatters its audience is suspect for that reason."},
+      {w:"witness", ctx:"the only witnesses with nothing to defend", mean:"someone whose account of events is offered as evidence", parts:"Old English witnes, knowledge, testimony", near:"source: anyone information comes from, interested or not", use:"The author ranks witnesses by what they stand to lose."},
+      {w:"dramatic", ctx:"their account is the least dramatic", mean:"striking, exciting, like something staged", parts:"Greek drama, a deed or play", near:"important: mattering; the least dramatic account here matters most", use:"Dramatic is about effect on an audience, not about truth."}],
+    retrieval:{q:"The author ranks the customers' account highest because they have nothing to ___.", opts:["defend","sell","remember","explain"], ans:0, good:"Defend: no interest in which explanation wins.", bad:"Sentence 8 gives the standard: a witness with nothing to defend. The customers gain from no explanation."},
+    tasks:[
+      {type:"pick", title:"The author's own line", q:"Highlight the one sentence in which the author states a conclusion in the author's own voice, with no one else's view reported in it.",
+       hints:["Paragraphs 1 and 2 are all reported views. Look at paragraph 3.","Sentence 6 and 7 are the author weighing the views. Which sentence concludes?","Sentence 9: a plain fact and the author's verdict on all the explanations at once."],
+       feedback:{8:{k:"good",t:"That is the author",b:"No reporting verb, no one else's view inside it. The author states what happened in nine words and then judges the explanations as needs rather than findings."},
+                 5:{k:"warn",t:"The author's method, not the conclusion",b:"Sentence 6 is the author's own voice too, but it is the setup: probably partly right, each with an interest. The conclusion is three sentences later."},
+                 6:{k:"warn",t:"The author weighing the views",b:"Sentence 7 is in the author's voice and still handles three reported views one by one. The question asks for the sentence with no reported view inside it."},
+                 7:{k:"warn",t:"Close: the author's judgment of the customers",b:"Sentence 8 is the author ranking a witness. The conclusion about the bakery and all the explanations is sentence 9."},
+                 1:{k:"crit",t:"That is the owner",b:"Blamed is the reporting verb. This is the owner's explanation."}},
+       other:{k:"crit",t:"Look for a sentence with no reporting verb and no one else's view",b:"The author speaks in paragraph 3. Find the sentence that concludes."}},
+      {type:"mc", title:"Whose view?", q:"Which explanation does the author treat as most trustworthy, and why?",
+       opts:["The owner's, because rent rose by half","The agent's, because the hours had shrunk","The customers', because they have no reason to prefer any explanation","The writer's, because three cafes had opened nearby"], ans:2,
+       hints:["The author's standard is in sentence 8.","Each of the other three is tied to an interest in sentence 7.","Nothing to defend is the author's test, and only the customers pass it."],
+       feedback:{2:{k:"good",t:"Correct: the author's standard is interest",b:"Sentence 7 assigns a motive to each of the three explanations; sentence 8 says the customers alone have nothing to defend. The author trusts the dullest account for that reason."},
+                 0:{k:"crit",t:"The author notes the owner's interest",b:"Sentence 7: the rent is a cause the owner did not control. That is why the owner prefers it, and why the author discounts it."},
+                 1:{k:"crit",t:"The agent has an interest too",b:"Sentence 7 pairs the agent's explanation with the owner's as the cause the owner did control. Both are interested parties."},
+                 3:{k:"crit",t:"The writer's story flatters the writer's readers",b:"Sentence 7 names the interest. The author does not call the writer wrong; the author calls the writer motivated."}},
+       other:{k:"crit",t:"Find the author's test for a witness",b:"Sentence 8 states it. Apply it to each explanation."}},
+      {type:"free", title:"Name the method", q:"In one or two sentences, describe the method the author uses to weigh the four explanations, in your own words.", placeholder:"The author asks who benefits from each explanation and...",
+       hints:["Look at what sentence 7 does to each explanation.","It is not checking the facts; it is checking something about the speakers.","The author asks what each speaker has to gain from their own explanation, and trusts the one with nothing to gain."],
+       minWords:10,
+       rules:[{re:/\b(benefit|gain|interest|motive|reason to prefer|stand to|defend|who (says|offers|gives)|speaker|source|flatter|nothing to (lose|defend|gain)|self-?serving|bias)\b/i,k:"good",t:"That is the method",b:"The author does not test the explanations against evidence; the author tests the explainers against their interests. Each explanation is the one its speaker needed, and the witnesses with no need are believed."}],
+       fallback:{k:"crit",t:"Look at the speakers, not the facts",b:"Sentence 7 says something about each person who offered an explanation. What does it say about all of them?"}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about why the bakery closed that the author would sign, then click the sentence that supports it.", placeholder:"The passage does not settle why the bakery closed; it shows that each explanation serves the person offering it, and that the customers...",
+       hints:["The author's claim is about the explanations, not about the rent or the cafes.","Sentence 9 is the author's conclusion; sentence 8 is the author's standard.","A claim that picks the rent or the hours as the cause has left the author's voice for someone else's."],
+       minWords:10, bestEv:[8,5,7], partialEv:{1:"Sentence 2 is the owner's explanation, reported. The author does not endorse it.",3:"Sentence 4 is the writer's explanation. The author calls it flattering, not true."}, bestWhy:"Sentence 9 is the author's conclusion; sentence 6 is the author's judgment of all four; sentence 8 is the standard."}
+    ]},
+  l18: { id:"l18", n:18, unit:"Unit 5 · Literature", title:"Character motive", session:"Session 2 of 3",
+    sentences:[
+      "Every Sunday for eleven years Ruth drove forty minutes to her brother's farm, and every Sunday she told him she could not stay long.",
+      "She would stand in the kitchen doorway with her keys in her hand while he made the coffee she said she did not want, and she would drink it.",
+      "When he talked about the fences, she asked about the fences.",
+      "When he did not talk, she read the labels on the jars above the stove, which had not changed in eleven years.",
+      "Her husband asked her once why she went at all, since she came home tired and short with everyone.",
+      "She said someone had to, which was not an answer to the question he had asked.",
+      "The Sunday after her brother sold the farm she drove the forty minutes anyway, parked at the end of the lane, and sat for most of an hour with the engine off.",
+      "She told her husband she had been to the store.",
+      "The farm was never mentioned in her house again, and the drive was never explained."],
+    paras:[[0,1,2],[3,4,5],[6,7,8]],
+    qualifiers:{
+      "every Sunday":"Eleven years of the same act. Repetition is evidence of motive that words are not.",
+      "could not stay long":"What she says. The sentences that follow show what she does instead.",
+      "keys in her hand":"The gesture of leaving, held through a cup of coffee. The body says one thing, the staying says another.",
+      "said she did not want":"Her words, contradicted in the same sentence by her act.",
+      "which had not changed":"The labels, and the visits, and the brother: the detail stands for the whole routine.",
+      "which was not an answer":"The narrator's one direct judgment: her stated reason is a deflection.",
+      "anyway":"The farm is sold and she goes. Whatever drew her was not an errand.",
+      "engine off":"An hour of staying, with nothing to stay for. The strongest evidence in the passage.",
+      "never explained":"The narrator refuses to supply the motive. The reader has the acts and nothing else."},
+    vocab:[
+      {w:"motive", ctx:"what a character wants, as shown", mean:"the reason behind an action, often unstated", parts:"Latin movere, to move (motion, emotion)", near:"intention: a plan to act, which may be stated", use:"Ruth's motive is never stated; the passage shows it through what she does."},
+      {w:"deflect", ctx:"which was not an answer to the question", mean:"to turn aside, especially a question", parts:"Latin deflectere, to bend away", near:"deny: to say no; a deflection avoids the question instead", use:"Someone had to is a deflection, and the narrator says so."},
+      {w:"routine", ctx:"the labels on the jars, which had not changed", mean:"a fixed sequence of actions, repeated", parts:"French route, road", near:"habit: a routine one is not fully aware of", use:"The visits are a routine she keeps on purpose; that is what makes them evidence."},
+      {w:"short with", ctx:"came home tired and short with everyone", mean:"curt, irritable toward", parts:"Old English scort; the temper sense is figurative", near:"brief: short in time, with no irritation", use:"The husband's complaint is about her mood, not her hours."}],
+    retrieval:{q:"Her answer, someone had to, ___ the question instead of answering it.", opts:["deflected","denied","explained","repeated"], ans:0, good:"Deflected: turned the question aside.", bad:"She did not say no and she did not explain. The narrator says it was not an answer, which is what deflecting means."},
+    tasks:[
+      {type:"pick", title:"Find the evidence", q:"Highlight the sentence that most strongly shows that Ruth wanted to be at the farm, whatever she said.",
+       hints:["Her words say one thing. Which act is hardest to explain any other way?","After the farm is sold there is no brother, no coffee, and no errand.","Sentence 7: she drives forty minutes to a sold farm and sits for an hour with the engine off. Nothing required that."],
+       feedback:{6:{k:"good",t:"That is the act that cannot be explained away",b:"No duty, no brother, no reason to be there, and she goes and stays. Every earlier act could be obligation; this one cannot."},
+                 1:{k:"warn",t:"Good evidence, but obligation could still explain it",b:"Keys in hand, drinking the coffee she refused: that shows the split between her words and her acts. Sentence 7 shows it after every obligation is gone."},
+                 5:{k:"warn",t:"That is the narrator calling her answer a deflection",b:"Sentence 6 tells you her stated reason is not the real one. It does not show what the real one is; sentence 7 does."},
+                 0:{k:"crit",t:"That is what she said",b:"Sentence 1 reports eleven years of could not stay long. The question asks for what she did."}},
+       other:{k:"crit",t:"Point to an act, not a statement",b:"Motive in fiction is shown by what a character does when nothing requires it."}},
+      {type:"mc", title:"Whose judgment?", q:"\"Which was not an answer to the question he had asked\" (sentence 6) is",
+       opts:["Ruth's own admission","the husband's complaint","the narrator's judgment, the only direct one in the passage","the brother's view"], ans:2,
+       hints:["Who is speaking in the second half of sentence 6?","Ruth said someone had to. The clause after the comma evaluates what she said.","The narrator steps in once, here, to tell you her reason is a deflection."],
+       feedback:{2:{k:"good",t:"Correct: the narrator, once",b:"The passage otherwise reports acts without comment. This clause is the narrator's single intervention, and it tells the reader not to take her stated reason as her motive."},
+                 0:{k:"crit",t:"Ruth does not evaluate her own answer",b:"She says someone had to. The judgment on that sentence is made by someone else."},
+                 1:{k:"crit",t:"The husband asked; he does not comment",b:"His question is in sentence 5. The evaluation of her answer is the narrator's."},
+                 3:{k:"crit",t:"The brother is not in the scene",b:"Sentence 5 and 6 take place at home."}},
+       other:{k:"crit",t:"Find who is evaluating the sentence",b:"The clause judges Ruth's words. Only the narrator can do that here."}},
+      {type:"free", title:"State the motive from the acts", q:"In one or two sentences, say what Ruth wanted, and name two acts that show it. Do not use anything she said.", placeholder:"She wanted to be at the farm, or near her brother; she drank the coffee she refused, and...",
+       hints:["List her acts: the keys, the coffee, the fences, the labels, the hour in the lane.","Pick the two that would make no sense if she did not want to be there.","Drinking the refused coffee and sitting an hour at the sold farm are the two that words cannot explain."],
+       minWords:12,
+       rules:[{re:/\b(coffee|engine|lane|sat|hour|sold|drove anyway|went anyway|labels|jars|fences|keys)\b/i,k:"good",t:"You read the acts",b:"She wanted to be there, or near him, and could not say so. The coffee she refused and drank, and the hour at the end of the lane after the farm was sold, are the acts that her words cannot cover."}],
+       fallback:{k:"crit",t:"Use acts, not words",b:"Name two things Ruth does in the passage. Then say what someone who did those things must have wanted."}},
+      {type:"claim", title:"Write a claim with evidence", q:"Write one claim about Ruth's motive, grounded in an act, then click the sentence that shows it.", placeholder:"Ruth wanted the farm and her brother more than she could admit; after the farm was sold she drove there and sat for an hour with nothing to do...",
+       hints:["Point to an act, not a statement. Her words are the claim under test.","If your claim says what the story teaches about families, it has left the story. Keep it about Ruth.","Sentence 7 is the act; sentence 2 is the earlier version of it."],
+       minWords:10, noHedge:true, bestEv:[6,1,3], partialEv:{0:"Sentence 1 is what she said for eleven years. That is the claim being tested, not evidence for what she wanted.",5:"Sentence 6 is the narrator telling you her reason was a deflection. What act shows the real one?"}, bestWhy:"Sentence 7 is the act with no obligation behind it; sentence 2 is the coffee."}
+    ]}
+});
+LESSONS.l4.tasks[3].overclaim = /\b(unsafe|dangerous|will (collapse|fail)|should close|proves?|clearly|definitely|obviously|certainly|the review was wrong|negligent)\b/i;
+LESSONS.l7.tasks[3].overclaim = /\b(cut tardiness|reduced tardiness|caused|works|worked|proves?|clearly|definitely|obviously|certainly|because of the program|the program (made|led))\b/i;
+LESSONS.l12.tasks[3].overclaim = /\b(closed because|the (rent|hours|cafes) (caused|killed|closed)|the real reason (is|was)|proves?|clearly|definitely|obviously|certainly)\b/i;
+LESSONS.l18.tasks[3].overclaim = /\b(teaches us|shows us that (we|people|families|everyone)|life|human nature|always|everyone|proves?|clearly|definitely|moral|lesson is)\b/i;
+
 /* ---------- helpers ---------- */
 const $ = s => document.querySelector(s);
 const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e; };
@@ -1861,7 +2577,7 @@ applyPrefs();
 
 /* ---------- routing ---------- */
 const PUBLIC=["home","method","how","training","programs","book","international","schools","team","apply","policies"];
-const APP=["diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","tips","review","report","tutor"];
+const APP=["today","friday","diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","tips","review","report","tutor"];
 const VIEWS=PUBLIC.concat(APP);
 document.documentElement.lang="en";
 function markScroll(){ document.querySelectorAll(".tabwrap").forEach(t=>t.classList.toggle("scrolls",t.scrollWidth>t.clientWidth+2)); }
@@ -1870,15 +2586,17 @@ function route(){
   let h=(location.hash||"#home").slice(1); if(h==="founder") h="team"; let v=h.split("-")[0]; if(!VIEWS.includes(v)) v="home";
   VIEWS.forEach(x=>$("#v-"+x).hidden = x!==v);
   $("#appbar").hidden=!APP.includes(v);
-  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Verbal Edge for international candidates",schools:"For schools",team:"Team",apply:"Apply",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",practice:"Practice section",sentences:"Sentence unpacking",tips:"Tips and resources",review:"Review notebook",report:"Coach report",tutor:"Tutor view"};
+  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Verbal Edge for international candidates",schools:"For schools",team:"Team",apply:"Apply",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",tips:"Tips and resources",review:"Review notebook",report:"Coach report",tutor:"Tutor view"};
   $("#pagetitle").textContent=PT[v]||"Marlow"; $("#pagetitle").hidden=!!$("#v-"+v).querySelector("h1"); document.title=(PT[v]&&v!=="home"?PT[v]+" · Marlow":"Marlow · Read harder texts. Prove what they say.");
   setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
-  document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v || (a.dataset.v==="diagnostic" && a.closest("#nav") && APP.includes(v) && v!=="tips")));
+  document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips")));
   if(v==="workspace"){ const id=h.split("-")[1]; openLesson(LESSONS[id]?id:(load("pr-current","l5"))); }
   if(v==="review") renderReview();
   if(v==="report") renderLive();
   if(v==="tutor") renderTutor();
   if(v==="diagnostic") renderDiagHome();
+  if(v==="today") renderToday();
+  if(v==="friday") renderFriday();
   if(v==="vocab") renderVocabBank();
   if(v==="fluency") renderFluency();
   if(v==="examples") renderExamples();
@@ -2398,9 +3116,9 @@ function planPeriods(dateStr){
   return {days,phases:out};
 }
 (function(){ const btn=$("#pp-go"); if(!btn) return; const d=new Date(); d.setDate(d.getDate()+84); $("#pp-date").value=d.toISOString().slice(0,10);
-  const run=()=>{ const r=planPeriods($("#pp-date").value); const out=$("#pp-out"); if(!r){ out.innerHTML=`<p class="small mt1">Pick a date.</p>`; return; } if(r.short){ out.innerHTML=fbHtml({k:"warn",t:`${r.days} days is a taper, not a plan`,b:"Under a week out, the right move is one short timed section, vocabulary due, and sleep. Book the next test date for the real plan."}); return; }
-    out.innerHTML=`<p class="small mt1">${r.days} days. ${r.days<42?"Compressed: base and build overlap; fluency checkpoints weekly regardless.":r.days>120?"Long runway: the base phase includes two long reads and a second diagnostic at the midpoint.":"A standard 12-week cycle."}</p><div class="phases">${r.phases.map(p=>`<div class="phase ${p.now?"now":""}"><b>${esc(p.name)}</b><div class="dates">${esc(p.label)}</div><div><b style="font-family:var(--body);font-size:.9rem">${esc(p.focus)}</b></div><div class="small" style="margin-top:.3rem">${esc(p.do)}</div></div>`).join("")}</div>`; store("pr-plan",{date:$("#pp-date").value,at:Date.now()}); };
-  btn.addEventListener("click",run); const saved=load("pr-plan",null); if(saved&&saved.date){ $("#pp-date").value=saved.date; } run(); })();
+  const run=(save)=>{ const r=planPeriods($("#pp-date").value); const out=$("#pp-out"); if(!r){ out.innerHTML=`<p class="small mt1">Pick a date.</p>`; return; } if(r.short){ out.innerHTML=fbHtml({k:"warn",t:`${r.days} days is a taper, not a plan`,b:"Under a week out, the right move is one short timed section, vocabulary due, and sleep. Book the next test date for the real plan."}); return; }
+    out.innerHTML=`<p class="small mt1">${r.days} days. ${r.days<42?"Compressed: base and build overlap; fluency checkpoints weekly regardless.":r.days>120?"Long runway: the base phase includes two long reads and a second diagnostic at the midpoint.":"A standard 12-week cycle."}</p><div class="phases">${r.phases.map(p=>`<div class="phase ${p.now?"now":""}"><b>${esc(p.name)}</b><div class="dates">${esc(p.label)}</div><div><b style="font-family:var(--body);font-size:.9rem">${esc(p.focus)}</b></div><div class="small" style="margin-top:.3rem">${esc(p.do)}</div></div>`).join("")}</div>`; if(save) store("pr-plan",{date:$("#pp-date").value,at:Date.now()}); };
+  btn.addEventListener("click",()=>run(true)); const saved=load("pr-plan",null); if(saved&&saved.date){ $("#pp-date").value=saved.date; } run(false); })();
 
 
 /* ---------- book reader ---------- */
@@ -2751,6 +3469,8 @@ function renderWarmup(root){
     $("#wu-save").addEventListener("click",()=>{ const err=Math.min(wc,Math.max(0,+$("#wu-err").value||0)); const acc=(wc-err)/wc; const e={wpm,acc,pros:null,at:Date.now(),src:"warmup",lesson:L.id}; const all=load("pr-orf",[]); all.push(e); store("pr-orf",all.slice(-60)); const band=orfBand(e); toast(`${wpm} wpm at ${Math.round(acc*100)}%: ${band.name}.${acc<0.9?" This text may be too hard today; tell your tutor.":""}`); wState.warm=true; wRoot.querySelectorAll(".s").forEach(s=>s.classList.remove("focus")); renderTasks(); }); });
 }
 const KEYTERMS={l5:["bell","outreach","counselor","call","two","separate","both"],l2:["fee","fees","holds","registration","families","return"],l9:["council","lane","merchant","engineer","evidence","both"],l1:["bridge","bridges","county","towns","budget","repair","close","aging","together"],l17:["nadia","envelope","prize","brother","river","drawer","care","want"]};
+Object.assign(KEYTERMS,{l4:["bridge","bridges","county","inspect","inspection","inspections","records","board","editorial","engineer","unsafe"],l7:["breakfast","tardiness","program","september","december","last year","fifth","quarter","bus","analyst"],l12:["bakery","rent","hours","cafes","customers","owner","landlord","agent","writer","explanation"],l18:["ruth","farm","brother","sunday","coffee","keys","lane","husband","engine","labels"]});
+Object.assign(KEYTERMS,{l3:["light","lights","led","maintenance","call-out","call-outs","energy","report","side street","side streets","utility"],l6:["librar","branch","branches","scores","income","carver","association","district","districts"],l10:["pier","engineer","manager","truck","trucks","limit","pedestrian","commission","fisherman","vehicles"],l13:["parking","market street","meters","employee","employees","linden","merchants","customer","customers","warrant"],l16:["meters","turnover","sales","storefront","storefronts","report","association","six months","variation"],l21:["ferry","bridge","bus","riders","ridership","cost","authority","profit","infrastructure"],l23:["mow","mowing","verge","verges","bees","bee","flowers","butterfl","complaints","curve","county"]});
 function renderSummary(root){
   wRoot.classList.add("blur"); $("#w-unpack").innerHTML=`<p class="small">Hidden for the closed-book summary.</p>`;
   root.innerHTML=`<div class="card"><div class="eyebrow">Closed-book summary · production, not rereading</div><p class="q" style="margin-top:.4rem">The passage is hidden. In two sentences: what did it show, and what could it not show?</p><p class="small" style="margin-bottom:.6rem">Fifteen to sixty words. This is the step that turns reading into memory; rereading would feel better and do less.</p><textarea id="w-sum" placeholder="It showed... It could not show..."></textarea><div class="row mt1"><button class="btn sm" type="button" id="w-sum-check">Check</button></div><div id="w-sum-fb"></div></div>`;
@@ -2762,7 +3482,7 @@ function renderSummary(root){
 function renderVocab(root){
   wRoot.classList.remove("blur");
   const hintsTotal=wState.hints.reduce((a,b)=>a+b,0);
-  const session={done:L.tasks.length,hints:hintsTotal,passed:wState.log.filter(l=>l.result==="good").length,flagged:wState.log.filter(l=>l.flagged).length,at:Date.now(),title:L.title,n:L.n};
+  const session={done:L.tasks.length,hints:hintsTotal,passed:wState.log.filter(l=>l.result==="good").length,flagged:wState.log.filter(l=>l.flagged).length,misses:wState.log.filter(l=>l.result&&l.result!=="good"&&l.fb).map(l=>l.fb).slice(0,12),at:Date.now(),title:L.title,n:L.n};
   const all=load("pr-lessons",{}); all[L.id]=session; store("pr-lessons",all);
   const bank=load("pr-vocab",{}); L.vocab.forEach(v=>{ if(!bank[v.w]) bank[v.w]={lesson:L.id,learned:Date.now(),reviews:0,next:Date.now()+864e5}; }); store("pr-vocab",bank);
   root.innerHTML=`<div class="card"><div class="eyebrow">Lesson complete</div><h3 style="margin-top:.4rem">Vocabulary from this passage</h3><p class="small" style="margin-bottom:1rem">Four words, each met in context above. They come back in the review notebook on day 1, 3, 7, and 14.</p>
@@ -2789,7 +3509,7 @@ function renderReview(){
   else d.innerHTML=(due.length?due.map(([w,b])=>{ const v=VOCAB_INDEX[w]; return `<div><div><b>${esc(w)}</b><div class="small" style="font-style:italic">"${esc(v.ctx)}"</div><div class="small" id="rv-mean-${esc(w).replace(/\W/g,"_")}" hidden>${esc(v.mean)} · not the same as ${esc(v.near)}</div></div><div class="row"><button class="btn ghost sm" type="button" data-show="${esc(w)}">Show</button><button class="btn sm" type="button" data-got="${esc(w)}">Got it</button><button class="btn ghost sm" type="button" data-miss="${esc(w)}">Missed</button></div></div>`; }).join(""):`<p class="small">Nothing due right now.</p>`)+(upcoming.length?`<p class="small mt1">Coming up: ${upcoming.slice(0,6).map(([w,b])=>`${esc(w)} in ${Math.max(1,Math.ceil((b.next-now)/864e5))}d`).join(" · ")}</p>`:"");
   d.querySelectorAll("[data-show]").forEach(b=>b.addEventListener("click",()=>{ const m=document.getElementById("rv-mean-"+b.dataset.show.replace(/\W/g,"_")); m.hidden=!m.hidden; }));
   const sched=[1,3,7,14,30];
-  d.querySelectorAll("[data-got]").forEach(b=>b.addEventListener("click",()=>{ const e=bank[b.dataset.got]; e.reviews=Math.min(e.reviews+1,sched.length-1); e.next=now+sched[e.reviews]*864e5; store("pr-vocab",bank); renderReview(); }));
+  d.querySelectorAll("[data-got]").forEach(b=>b.addEventListener("click",()=>{ const e=bank[b.dataset.got]; e.reviews=Math.min(e.reviews+1,sched.length-1); e.lastReview=now; e.next=now+sched[e.reviews]*864e5; store("pr-vocab",bank); renderReview(); }));
   d.querySelectorAll("[data-miss]").forEach(b=>b.addEventListener("click",()=>{ const e=bank[b.dataset.miss]; e.reviews=0; e.next=now+864e5; store("pr-vocab",bank); toast("Back tomorrow."); renderReview(); }));
   const diag=load("pr-diag",null); const lessons=load("pr-lessons",{}); const flagsFromLessons={};
   const errs=$("#rv-errors"); const rows=[];
@@ -3059,6 +3779,105 @@ function sentenceSummary(){
   const nx=$("#sn-nextset"); if(nx) nx.addEventListener("click",()=>{ snFrom+=10; snI=0; renderSentences(); });
 }
 
+
+/* ---------- hero demo ---------- */
+(function(){ const d=$("#demo"); if(!d) return; const out=$("#demo-out"), name=$("#demo-name"); const ss=[...d.querySelectorAll(".ds")]; const S1="Nearly every town that has tried one reported fewer complaints, though few reported fewer incidents.";
+  const steps={
+    1:{name:"The sentence that matters is the second one.",html:`The claim about curfews rests on sentence 2. Sentence 1 is the event; sentence 3 is the council's opinion of it. Everything a question will ask lives in the middle sentence.`,render:()=>{ ss.forEach(x=>x.classList.toggle("lit",x.dataset.s==="1")); ss.forEach(x=>x.classList.toggle("dim",x.dataset.s!=="1")); ss[1].innerHTML=esc(S1); }},
+    2:{name:"Three small words set how far it goes.",html:`<b>nearly</b> every: most towns, not all. <b>though</b>: the catch is coming. <b>few</b> reported fewer incidents: complaints fell; incidents, for most towns, did not.`,render:()=>{ ss.forEach(x=>x.classList.toggle("lit",x.dataset.s==="1")); ss.forEach(x=>x.classList.toggle("dim",x.dataset.s!=="1")); ss[1].innerHTML=esc(S1).replace(/^Nearly/,'<span class="dq">Nearly</span>').replace(/though/,'<span class="dq">though</span>').replace(/ few /,' <span class="dq">few</span> '); }},
+    3:{name:"Now the claim fits the sentence.",html:`<s>The curfew made the parks safer.</s> <span class="plain">Most towns that tried a curfew got fewer complaints; most did not get fewer incidents. The council's word for that was encouraging.</span>`,render:()=>{ ss.forEach(x=>x.classList.remove("dim")); ss[1].classList.add("lit"); ss[1].innerHTML=esc(S1).replace(/^Nearly/,'<span class="dq">Nearly</span>').replace(/though/,'<span class="dq">though</span>').replace(/ few /,' <span class="dq">few</span> '); }}};
+  d.querySelectorAll(".demo-moves button").forEach(b=>b.addEventListener("click",()=>{ const m=b.dataset.m; d.querySelectorAll(".demo-moves button").forEach(x=>{ x.classList.toggle("on",x===b); if(x===b) x.classList.add("seen"); }); steps[m].render(); name.textContent=steps[m].name; out.innerHTML=steps[m].html; out.classList.add("on"); }));
+  out.innerHTML=`Read the three sentences once. Then tap <b>1</b>.`;
+})();
+
+/* ---------- today ---------- */
+function renderToday(){
+  const now=Date.now(), day0=new Date(); day0.setHours(0,0,0,0); const today=t=>t>=day0.getTime();
+  const diag=load("pr-diag",null), lessons=load("pr-lessons",{}), cur=load("pr-current","l1"), vocab=load("pr-vocab",{}), orf=load("pr-orf",[]), prac=load("pr-practice",[]), sents=load("pr-sentences",{}), claims=load("pr-claims",[]), plan=load("pr-plan",null);
+  const playable=UNITS.flatMap(u=>u.lessons).filter(l=>l.play); const doneIds=Object.keys(lessons); const curL=UNITS.flatMap(u=>u.lessons).find(l=>l.id===cur)||playable[0];
+  const due=Object.values(vocab).filter(v=>v.next<=now).length;
+  const warmToday=orf.some(e=>today(e.at)); const lessonToday=Object.values(lessons).some(l=>today(l.at)); const claimToday=claims.some(c=>today(c.at)&&!/\(summary\)/.test(c.title||"")); const sumToday=claims.some(c=>today(c.at)&&/\(summary\)/.test(c.title||""));
+  const dateStr=new Date().toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"});
+  let phase=""; if(plan&&plan.date){ const r=planPeriods(plan.date); if(r&&!r.short){ const p=r.phases.find(x=>x.now); if(p) phase=`${p.name} phase, ${r.days} days to the test. `; } else if(r&&r.short) phase=`${r.days} days to the test: taper. `; }
+  const nm=load("pr-name",""); $("#td-title").textContent=nm?`Today, ${nm}`:"Today"; $("#td-sub").textContent=`${dateStr}. ${phase}${doneIds.length?`${doneIds.length} of ${playable.length} playable lessons done.`:"Nothing done yet, which is the right place to start."}`;
+  $("#td-cta").innerHTML=(curL?`<a class="btn" href="#workspace-${curL.id}">${doneIds.includes(curL.id)?"Repeat":doneIds.length?"Continue":"Start"} Lesson ${curL.n}: ${esc(curL.title)}</a>`:"")+`<a class="btn ghost" href="#friday">Friday report</a>`;
+  const items=[
+    {t:"Warm up aloud",s:"Paragraph 1 of today's lesson, timed. Sixty seconds.",done:warmToday,href:`#workspace-${curL.id}`,cta:"Start"},
+    {t:`Lesson ${curL.n}: ${curL.title}`,s:"Four tasks: find the sentence, say how far it goes, whose view, your claim.",done:lessonToday,href:`#workspace-${curL.id}`,cta:lessonToday?"Open":"Start"},
+    {t:"One claim with evidence",s:"The coach names one error. Revise once.",done:claimToday,href:`#workspace-${curL.id}`,cta:"Write"},
+    {t:"Closed-book summary",s:"Two sentences: what it showed, what it could not show.",done:sumToday,href:`#workspace-${curL.id}`,cta:"Write"},
+    {t:due?`Vocabulary due: ${due} word${due===1?"":"s"}`:"Vocabulary due: none",s:due?"Retrieve before you look.":"Add words from the banks and they come back on schedule.",done:!due&&Object.keys(vocab).length>0,href:due?"#review":"#vocab",cta:due?"Review":"Add words"}];
+  $("#td-routine").innerHTML=items.map(i=>`<li class="${i.done?"done":""}"><span class="mk">${i.done?"✓":""}</span><span class="t"><b>${esc(i.t)}</b><small>${esc(i.s)}</small></span><a class="btn ghost sm" href="${i.href}">${i.cta}</a></li>`).join("");
+  const tot=Object.values(lessons); const tasks=tot.reduce((a,s)=>a+s.done,0), passed=tot.reduce((a,s)=>a+s.passed,0), hints=tot.reduce((a,s)=>a+s.hints,0);
+  const cps=orf.filter(e=>e.src==="checkpoint"); const lastCp=cps[cps.length-1]||orf[orf.length-1]; const lastPr=prac[prac.length-1]; const sn=Object.keys(sents).length;
+  const stat=(v,l,k)=>`<div class="stat ${k||""}"><b class="num">${v}</b><span>${l}</span></div>`;
+  const evRate=tasks?Math.round(passed/tasks*100):null;
+  $("#td-stats").innerHTML=stat(doneIds.length+`<span style="font-size:1rem;color:var(--muted)"> of ${playable.length}</span>`,"Lessons completed")+
+    stat(evRate===null?"n/a":evRate+"%","Checks passed first time",evRate===null?"":evRate>=75?"good":evRate>=50?"warn":"crit")+
+    stat(tasks?(hints/tasks).toFixed(1):"n/a","Hints per task",tasks?(hints/tasks<1?"good":hints/tasks<2?"warn":"crit"):"")+
+    stat(lastCp?`${lastCp.wpm}<span style="font-size:1rem;color:var(--muted)"> wpm</span>`:"n/a","Oral reading, last check"+(lastCp?` (${Math.round(lastCp.acc*100)}%)`:""),lastCp?orfBand(lastCp).k:"")+
+    stat(lastPr?`${lastPr.evScore}<span style="font-size:1rem;color:var(--muted)"> of 10</span>`:"n/a","Practice, with evidence"+(lastPr?` (${lastPr.set||"A"})`:""),lastPr?(lastPr.evScore>=8?"good":lastPr.evScore>=6?"warn":"crit"):"")+
+    stat(sn+`<span style="font-size:1rem;color:var(--muted)"> of 30</span>`,"Sentences unpacked");
+  $("#td-note").textContent=diag?`Diagnostic priority: ${diag.priority}.`:"Take the diagnostic first; it picks your starting lesson.";
+  let nx;
+  if(!diag) nx={h:"Take the free diagnostic",p:"Two passages, ten minutes. It names the pattern in your answers and picks the first lesson.",href:"#diagnostic",cta:"Start the diagnostic"};
+  else if(!cps.length||now-(cps[cps.length-1].at)>7*864e5) nx={h:"Weekly oral reading checkpoint",p:"One minute aloud on a fresh passage. Speed and accuracy are the first numbers on the Friday report, and it has been more than a week.",href:"#fluency",cta:"Run the checkpoint"};
+  else if(doneIds.length>=4&&!prac.length) nx={h:"Practice Set A, untimed",p:"Four lessons in, it is time to see the method hold on text you have never seen. Score it twice: answers, and answers with the right sentence.",href:"#practice",cta:"Open the practice section"};
+  else if(prac.length&&!prac.some(p=>p.mode==="timed")) nx={h:"Practice Set B, timed",p:"You have done a set untimed. The timed run is the checkpoint condition, on passages you have not read.",href:"#practice",cta:"Open the practice section"};
+  else if(sn<10) nx={h:"Ten sentences to unpack",p:"The load-bearing word, then the restatement at the right rung. Ten takes about fifteen minutes.",href:"#sentences",cta:"Open the sentences"};
+  else nx={h:`Continue Lesson ${curL.n}: ${curL.title}`,p:"The routine, with today's passage. Twenty minutes.",href:`#workspace-${curL.id}`,cta:"Open the lesson"};
+  $("#td-next").innerHTML=`<div class="next"><div><div class="eyebrow">Next</div><h3 style="margin-top:.3rem">${esc(nx.h)}</h3><p class="muted" style="margin-top:.4rem;max-width:40rem">${esc(nx.p)}</p></div><a class="btn" href="${nx.href}">${esc(nx.cta)}</a></div>`;
+}
+
+
+/* ---------- friday report, from this device's log ---------- */
+const DINNER={l1:"Ask which bridges the engineer wanted to close, and what cost the county had not counted.",l2:"Ask what the library gained when it dropped late fees, and what it lost.",l3:"Ask what the Ashby streetlight report measured, and what it left to the utility.",l5:"Ask why the school cannot say the later bell improved attendance.",l6:"Ask why districts with more libraries might score higher for reasons other than the libraries.",l9:"Ask which side at the council meeting had counts, and which had estimates.",l10:"Ask what the harbor meeting never discussed, and why the engineer's report had called it urgent.",l13:"Ask what makes the employee parking count matter for the meters, and what Linden has to be for its example to count.",l16:"Ask which of the three parking numbers was clear, and which could not be read yet.",l17:"Ask what Nadia did with the spice drawer, and what that showed that her words did not.",l21:"Ask what both writers agreed about the ferry, and what question the second one changed.",l23:"Ask what the mowing trial found about bees, and what it could not say about other counties.",l4:"Ask what the bridge review did not find, and what the editorial actually accused the board of.",l7:"Ask how much tardiness fell last fall with no breakfast program, and what that does to this year's number.",l12:"Ask who gave each explanation for the bakery closing, and what each of them had to gain from it.",l18:"Ask what Ruth did the Sunday after the farm was sold, and what that showed that her words did not."};
+function weekWindow(){ const now=Date.now(); return {a0:now-7*864e5,a1:now,b0:now-14*864e5,b1:now-7*864e5}; }
+function fridayData(){
+  const W=weekWindow(); const inA=t=>t>=W.a0&&t<=W.a1, inB=t=>t>=W.b0&&t<W.b1;
+  const lessons=Object.values(load("pr-lessons",{})), orf=load("pr-orf",[]), prac=load("pr-practice",[]), claims=load("pr-claims",[]), vocab=load("pr-vocab",{}), diag=load("pr-diag",null), sents=load("pr-sentences",{});
+  const agg=ls=>{ const t=ls.reduce((a,s)=>a+s.done,0), p=ls.reduce((a,s)=>a+s.passed,0), h=ls.reduce((a,s)=>a+s.hints,0); return {n:ls.length,tasks:t,passRate:t?Math.round(p/t*100):null,hpt:t?+(h/t).toFixed(1):null}; };
+  const LA=agg(lessons.filter(l=>inA(l.at))), LB=agg(lessons.filter(l=>inB(l.at)));
+  const cp=orf.filter(e=>e.src==="checkpoint"||e.src==="warmup"); const cA=cp.filter(e=>inA(e.at)).slice(-1)[0], cB=cp.filter(e=>inB(e.at)).slice(-1)[0];
+  const pA=prac.filter(p=>inA(p.at)).slice(-1)[0], pB=prac.filter(p=>inB(p.at)).slice(-1)[0];
+  const vA=Object.values(vocab).filter(v=>v.reviews&&v.lastReview&&inA(v.lastReview)).length; const learnedA=Object.values(vocab).filter(v=>inA(v.learned)).length;
+  const misses={}; lessons.filter(l=>inA(l.at)).forEach(l=>(l.misses||[]).forEach(m=>misses[m]=(misses[m]||0)+1)); if(pA&&pA.flags) Object.entries(pA.flags).forEach(([k,n])=>{ const nm=PATTERNS[k]?PATTERNS[k].name:k; misses[nm]=(misses[nm]||0)+n; });
+  const topMiss=Object.entries(misses).sort((a,b)=>b[1]-a[1])[0];
+  const lastLesson=[...lessons].sort((a,b)=>b.at-a.at)[0]; const lastId=lastLesson?Object.keys(load("pr-lessons",{})).find(k=>load("pr-lessons",{})[k].at===lastLesson.at):null;
+  const sample=claims.find(c=>inA(c.at)&&!/\(summary\)/.test(c.title||""))||claims.find(c=>!/\(summary\)/.test(c.title||""));
+  return {W,LA,LB,cA,cB,pA,pB,vA,learnedA,topMiss,lastLesson,lastId,sample,diag,sentsA:Object.keys(sents).length,any:lessons.length||orf.length||prac.length||!!diag};
+}
+function renderFriday(){
+  const name=load("pr-name",""); const inp=$("#fr-name"); inp.value=name; inp.oninput=()=>{ store("pr-name",inp.value.trim()); draw(); };
+  const draw=()=>{ const D=fridayData(); const who=load("pr-name","")||"This student"; const end=new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
+    const num=(v,l,delta,dir)=>`<div class="n ${dir||""}"><b class="num">${v}</b><span>${l}</span>${delta?`<span class="delta">${delta}</span>`:""}</div>`;
+    const d=(a,b,unit,higherBetter=true)=>{ if(a==null||b==null) return ["",""]; const x=+(a-b).toFixed(1); if(!x) return ["same as last week",""]; return [`${x>0?"+":""}${x}${unit||""} vs last week`, (x>0)===higherBetter?"up":"down"]; };
+    const r1=d(D.cA?D.cA.wpm:null,D.cB?D.cB.wpm:null," wpm"); const r2=d(D.pA?D.pA.evScore:null,D.pB?D.pB.evScore:null,""); const r3=d(D.LA.hpt,D.LB.hpt,"",false); const r4=d(D.LA.passRate,D.LB.passRate,"%"); const r5=d(D.LA.n,D.LB.n,"");
+    const R=$("#fr-report");
+    if(!D.any){ R.innerHTML=`<header><div><h3>${esc(who)}</h3><span class="small">Week ending ${end}</span></div></header><p class="muted">Nothing logged yet. The report fills in from the diagnostic, lessons, checkpoints, and practice sections; the first one is worth reading after one week of the routine.</p><p class="mt1"><a class="btn" href="#today">Open Today</a></p>`; return; }
+    R.innerHTML=`<header><div><div class="eyebrow">Marlow Friday report</div><h3>${esc(who)}</h3></div><div class="wk">Week ending ${end}<br>${D.LA.n} lesson${D.LA.n===1?"":"s"} this week, ${D.LB.n} last week</div></header>
+      <div class="nums">
+        ${num(D.cA?D.cA.wpm:"n/a","Oral reading, words per minute"+(D.cA?` at ${Math.round(D.cA.acc*100)}%`:""),r1[0],r1[1])}
+        ${num(D.pA?`${D.pA.evScore}/10`:(D.diag?`${Object.values(D.diag.passages).reduce((a,p)=>a+p.correct,0)}/${Object.keys(D.diag.passages).length*4}`:"n/a"),D.pA?"Independent: right with the right sentence":"Independent: diagnostic score",r2[0],r2[1])}
+        ${num(D.LA.hpt==null?"n/a":D.LA.hpt,"Hints per task",r3[0],r3[1])}
+        ${num(D.LA.passRate==null?"n/a":D.LA.passRate+"%","Checks passed first time",r4[0],r4[1])}
+        ${num(D.learnedA,"New words this week",r5[0]?"":"","")}
+      </div>
+      <div class="two">
+        <div><h4>The pattern the coach saw most</h4>${D.topMiss?`<p><b>${esc(D.topMiss[0])}</b> (${D.topMiss[1]} time${D.topMiss[1]===1?"":"s"}). ${D.diag&&D.diag.priority&&D.topMiss[0]!==D.diag.priority?`At intake the priority was ${esc(D.diag.priority)}.`:"This was also the priority at intake, so it is the one to keep working."}</p>`:`<p>No misses logged this week${D.LA.n?`, which with ${D.LA.n} lesson${D.LA.n===1?"":"s"} done is a good week`:""}.${D.diag?` The intake priority was ${esc(D.diag.priority)}.`:""}</p>`}
+          <h4 class="mt1">What to watch</h4><p class="small">${D.cA&&D.cA.acc<0.95?"Oral reading accuracy under 95%: the texts may be too hard this week; tell the tutor. ":""}${D.LA.hpt!=null&&D.LA.hpt>=2?"Two or more hints per task means the student is leaning on the coach; next session the tutor holds the first hint longer. ":""}${D.pA&&D.pA.cw>=2?`${D.pA.cw} items certain and wrong on the last practice section: the seams are not yet visible; chapter 11. `:""}${(!D.cA)?"No oral reading check this week; one minute aloud on a fresh passage is the first number we want. ":""}${D.LA.n===0?"No lessons this week. The routine is three twenty-minute sessions; one is better than none. ":""}${(D.cA&&D.cA.acc>=0.95&&D.LA.hpt!=null&&D.LA.hpt<2&&D.LA.n>0&&!(D.pA&&D.pA.cw>=2))?"Nothing flagged. Keep the routine as it is.":""}</p></div>
+        <div><h4>In the student's own words</h4>${D.sample?`<div class="sample">${esc(D.sample.text)}</div><p class="small" style="margin-top:.4rem">Claim from ${esc(D.sample.title)}, evidence: sentence ${esc(String(D.sample.ev))}. Accepted by the coach as matching its evidence.</p>`:`<p class="small">No accepted claim yet. The claim task in every lesson produces one.</p>`}</div>
+      </div>
+      <div class="dinner"><small>One thing to ask at dinner</small>${esc(D.lastId&&DINNER[D.lastId]?DINNER[D.lastId]:"Ask what the last passage showed, and what it could not show.")}</div>
+      <footer><span>Logged automatically by the workspace on this device. Figures compare the last seven days with the seven before.</span><span>Marlow Reading</span></footer>`; };
+  draw();
+  $("#fr-print").onclick=()=>window.print();
+  $("#fr-copy").onclick=async()=>{ const t=$("#fr-report").innerText.replace(/\n{3,}/g,"\n\n"); try{ await navigator.clipboard.writeText(t); toast("Report copied as text."); }catch(e){ toast("Copy is not available here; select the report and copy it."); } };
+  $("#fr-export").onclick=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } const blob=new Blob([JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`marlow-progress-${(load("pr-name","student")||"student").toLowerCase().replace(/[^a-z0-9]+/g,"-")}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); $("#fr-io").textContent="Saved. Keep the file; load it on any device to continue."; };
+  $("#fr-import").onchange=e=>{ const file=e.target.files[0]; if(!file) return; const rd=new FileReader(); rd.onload=()=>{ try{ const j=JSON.parse(rd.result); if(!j||j.app!=="marlow"||!j.data) throw new Error("not a Marlow file"); if(!confirm("Replace the progress on this device with the file's? This cannot be undone.")) return; Object.keys(localStorage).filter(k=>k.startsWith("pr-")).forEach(k=>localStorage.removeItem(k)); Object.entries(j.data).forEach(([k,v])=>store(k,v)); $("#fr-io").textContent=`Loaded ${Object.keys(j.data).length} records from ${file.name}.`; renderFriday(); }catch(err){ $("#fr-io").textContent="That file is not a Marlow progress file."; } }; rd.readAsText(file); e.target.value=""; };
+  $("#fr-reset").onclick=()=>{ if(!confirm("Erase all progress on this device? Save a file first if you want to keep it.")) return; Object.keys(localStorage).filter(k=>k.startsWith("pr-")).forEach(k=>localStorage.removeItem(k)); $("#fr-io").textContent="Cleared."; renderFriday(); toast("Progress cleared."); };
+}
+
 /* ---------- tutor view ---------- */
 const ROSTER=[
   ["Maya R.","10","L10 Reporting verbs","163 · 98%","3.4 / 4","0.3","Checkpoint due Fri","good"],
@@ -3081,5 +3900,6 @@ function renderTutor(){
 route();
 </script>
 
+<script>if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
 </body>
 </html>
