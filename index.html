@@ -440,7 +440,7 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 .more:hover{color:var(--crimson)}
 p,li,dd{text-wrap:pretty}
 .btn{transition:background .15s,border-color .15s,color .15s}
-.btn:hover{background:#7E1527;border-color:#7E1527}
+.btn:hover{filter:brightness(.92)}
 .btn.ghost:hover{background:var(--ink);color:var(--paper)}
 @media (max-width:560px){.demo-moves{grid-template-columns:1fr}.demo-moves button{flex-direction:row;align-items:center;gap:.6rem}}
 /* today */
@@ -458,6 +458,8 @@ p,li,dd{text-wrap:pretty}
 .today-stats .stat{border:0;border-top:3px solid var(--rule);padding:.6rem 0 0}
 .today-stats .stat b{font-size:2rem}
 .today-stats .stat.good{border-color:var(--good)}.today-stats .stat.warn{border-color:var(--warn)}.today-stats .stat.crit{border-color:var(--crit)}
+.wkdots{display:inline-flex;gap:.25rem;vertical-align:middle;margin:0 .2rem}.wkdots i{width:.6rem;height:.6rem;border-radius:50%;border:1.5px solid var(--rule);display:inline-block}.wkdots i.on{background:var(--crimson);border-color:var(--crimson)}
+.routine li.orient{background:var(--band);padding:.8rem .6rem;border-bottom:0;margin-bottom:.3rem}.routine li.orient .mk{background:var(--crimson);border-color:var(--crimson);font-weight:600}
 .next{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}
 .next h3{font-size:1.5rem}
 @media (max-width:900px){.today-grid{grid-template-columns:1fr}.next{grid-template-columns:1fr}}
@@ -599,7 +601,7 @@ p,li,dd{text-wrap:pretty}
   <a href="#tips" data-v="tips">Tips</a>
   <a href="#review" data-v="review">Review notebook</a>
   <a href="#friday" data-v="friday">Friday report</a>
-  <a href="#report" data-v="report">Coach report</a>
+  <a href="#report" data-v="report">Example report</a>
   <a href="#tutor" data-v="tutor">Tutor view</a>
   <span class="right"><span class="small">Text</span><button type="button" id="t-smaller" aria-label="Smaller text">A−</button><button type="button" id="t-larger" aria-label="Larger text">A+</button><button type="button" id="t-space" aria-label="Line spacing">Spacing</button></span>
 </nav></div>
@@ -715,7 +717,7 @@ p,li,dd{text-wrap:pretty}
       <details><summary>Who are the tutors?</summary><p>Graduate students and professionals with a 760 or higher SAT verbal or 165 or higher GRE verbal, who have taught or coached teenagers, and who have passed a graded teach-back on the method. Every tutor records sessions; the founder reviews two per month against a checklist. You can see the roster and capacity on the Programs page.</p></details>
       <details><summary>Does the AI give my student answers?</summary><p>No. The workspace's evidence coach never supplies an answer. It names the reasoning error in what the student wrote, offers up to three hints, and logs each one so the Friday report can separate assisted from independent work. Ambiguous cases go to the tutor, and the student can flag feedback they disagree with.</p></details>
       <details><summary>Are sessions recorded?</summary><p>Yes, with written consent at enrollment. Recordings are used for tutor quality review and are deleted on request. No one-on-one session is unrecorded. The full policy is on the Policies page.</p></details>
-      <details><summary>Is there anything free?</summary><p>Yes. The <a href="#diagnostic">diagnostic</a>, sixteen lessons in the <a href="#library">library</a>, the <a href="#vocab">word banks</a> for SAT, ACT, AP Language, AP Literature, and GRE, ten <a href="#examples">worked examples</a>, the timed <a href="#practice">practice section</a>, the <a href="#sentences">sentence drills</a>, and the <a href="#tips">tips and pacing tools</a> are open to anyone. The Starter Kit adds the tutor diagnostic, the book, and the full lesson library.</p></details>
+      <details><summary>Is there anything free?</summary><p>Yes. The <a href="#diagnostic">diagnostic</a>, sixteen lessons in the <a href="#library">library</a>, the <a href="#vocab">word banks</a> for SAT, ACT, AP Language, AP Literature, and GRE, ten <a href="#examples">worked examples</a>, the timed <a href="#practice">practice section</a>, the <a href="#sentences">sentence drills</a>, the <a href="#friday">Friday report</a> on your own work, and the <a href="#tips">tips and pacing tools</a> are open to anyone. The Starter Kit adds the tutor diagnostic, the book, and the full lesson library.</p></details>
       <details><summary>Where do the reading passages come from?</summary><p>Every passage in the diagnostic, the lessons, and the book was written for this program, or is a public-domain text published before 1929 with its source named. No copyrighted material from other publishers appears anywhere in the site or the materials.</p></details>
     </div>
   </div></section>
@@ -1268,6 +1270,7 @@ p,li,dd{text-wrap:pretty}
     <section><h3>Your numbers</h3><p class="small" style="margin:.2rem 0 .8rem">The ones that matter, compared with your own last week. No streaks.</p><div class="stats today-stats" id="td-stats"></div><p class="small mt1" id="td-note"></p></section>
   </div>
   <section class="card mt2" id="td-next"></section>
+  <p class="small mt2" id="td-a2hs" hidden>Keep Marlow on your home screen: in your browser's share or menu, choose Add to Home Screen. It opens straight to this page and works offline. <button type="button" class="lk">Hide this</button></p>
 </div></main>
 
 <main id="v-diagnostic" hidden>
@@ -1301,7 +1304,7 @@ p,li,dd{text-wrap:pretty}
 <main id="v-library" hidden><div class="wrap" style="padding-block:2.5rem">
   <div class="eyebrow">Lesson library: 24 lessons in six units</div>
   <h2 style="margin:.5rem 0 .6rem">Each unit reads several texts on one subject, so vocabulary and ideas recur.</h2>
-  <p class="muted prose">Sixteen lessons are playable in this preview. The rest show what they teach. Every lesson has reviewed answers, acceptable alternative readings, the common errors it is built to trigger, and a three-step hint ladder.</p>
+  <p class="muted prose">Sixteen of the 24 lessons are ready to play; the eight marked Coming show what they will teach. Start with the one your diagnostic picked, or at Lesson 1. Every lesson has reviewed answers, acceptable alternative readings, the common errors it is built to trigger, and a three-step hint ladder.</p>
   <div class="units mt2" id="lib-units"></div>
 </div></main>
 
@@ -1345,9 +1348,9 @@ p,li,dd{text-wrap:pretty}
 
 <!-- ============ REPORT ============ -->
 <main id="v-report" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Coach report for an example student in a six-week cohort, grades 9 to 11</div>
-  <h2 style="margin:.5rem 0 .6rem">Maya R., grade 10</h2>
-  <p class="muted" style="max-width:40rem">Example report with illustrative data. Every figure below is logged automatically from the workspace and reviewed by the tutor before it reaches a parent.</p>
+  <div class="eyebrow">What a six-week report looks like</div>
+  <h2 style="margin:.5rem 0 .6rem">Maya R., grade 10 (an illustration)</h2>
+  <p class="muted" style="max-width:44rem">Invented data, shown so a family can see what the tutor sends at the end of a block. Your own numbers are on the <a class="more" href="#friday">Friday report</a>, built from this device's log.</p>
   <div class="desk" style="padding-block:2rem 0">
     <div>
       <div class="card"><h3>Independent performance on unfamiliar texts</h3><div class="skills" id="r-skills"></div><p class="small mt1">Grey: week 1. Crimson: week 6. Scored out of 4 on texts the student had not seen, no hints available.</p></div>
@@ -2586,7 +2589,7 @@ function route(){
   let h=(location.hash||"#home").slice(1); if(h==="founder") h="team"; let v=h.split("-")[0]; if(!VIEWS.includes(v)) v="home";
   VIEWS.forEach(x=>$("#v-"+x).hidden = x!==v);
   $("#appbar").hidden=!APP.includes(v);
-  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Verbal Edge for international candidates",schools:"For schools",team:"Team",apply:"Apply",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",tips:"Tips and resources",review:"Review notebook",report:"Coach report",tutor:"Tutor view"};
+  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Verbal Edge for international candidates",schools:"For schools",team:"Team",apply:"Apply",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",tips:"Tips and resources",review:"Review notebook",report:"Example report",tutor:"Tutor view"};
   $("#pagetitle").textContent=PT[v]||"Marlow"; $("#pagetitle").hidden=!!$("#v-"+v).querySelector("h1"); document.title=(PT[v]&&v!=="home"?PT[v]+" · Marlow":"Marlow · Read harder texts. Prove what they say.");
   setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
   document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips")));
@@ -3382,10 +3385,10 @@ function finishDiag(){
 
 /* ---------- library ---------- */
 function renderLibrary(){
-  const done=load("pr-lessons",{}); const diag=load("pr-diag",null);
+  const done=load("pr-lessons",{}); const diag=load("pr-diag",null); const cur=load("pr-current",null);
   $("#lib-units").innerHTML=UNITS.map(u=>`<div class="unit"><h3>${esc(u.name)}</h3><p class="small" style="margin-bottom:.4rem">${esc(u.about)}</p><p class="small" style="margin-bottom:.8rem"><b>Long read (public domain):</b> ${esc(u.long)}. Read whole, no question set; the tutor session opens with it.</p><div class="lessons">${u.lessons.map(l=>{
-    const st=done[l.id]?`<span class="pill good">Done · ${done[l.id].hints} hints</span>`:(l.play?`<span class="pill" style="color:var(--crimson)">Playable</span>`:`<span class="pill quiet">Preview</span>`);
-    const rec=diag&&diag.nextLesson===l.id?` · <span class="small" style="color:var(--crimson)">recommended for you</span>`:"";
+    const st=done[l.id]?`<span class="pill good">Done, ${done[l.id].hints} hint${done[l.id].hints===1?"":"s"}</span>`:(l.play?(cur===l.id?`<span class="pill" style="color:var(--crimson)">Up next</span>`:`<span class="pill" style="color:var(--crimson)">Ready</span>`):`<span class="pill quiet">Coming</span>`);
+    const rec=diag&&diag.nextLesson===l.id&&!done[l.id]?` <span class="small" style="color:var(--crimson)">(your diagnostic picked this)</span>`:"";
     return l.play?`<a class="lesson play" href="#workspace-${l.id}"><span class="n">Lesson ${l.n}${rec}</span><b>${esc(l.title)}</b><span class="small">${esc(l.desc)}</span><span class="st">${st}</span></a>`:`<div class="lesson"><span class="n">Lesson ${l.n}${rec}</span><b>${esc(l.title)}</b><span class="small">${esc(l.desc)}</span><span class="st">${st}</span></div>`; }).join("")}</div></div>`).join("");
 }
 renderLibrary();
@@ -3485,13 +3488,13 @@ function renderVocab(root){
   const session={done:L.tasks.length,hints:hintsTotal,passed:wState.log.filter(l=>l.result==="good").length,flagged:wState.log.filter(l=>l.flagged).length,misses:wState.log.filter(l=>l.result&&l.result!=="good"&&l.fb).map(l=>l.fb).slice(0,12),at:Date.now(),title:L.title,n:L.n};
   const all=load("pr-lessons",{}); all[L.id]=session; store("pr-lessons",all);
   const bank=load("pr-vocab",{}); L.vocab.forEach(v=>{ if(!bank[v.w]) bank[v.w]={lesson:L.id,learned:Date.now(),reviews:0,next:Date.now()+864e5}; }); store("pr-vocab",bank);
-  root.innerHTML=`<div class="card"><div class="eyebrow">Lesson complete</div><h3 style="margin-top:.4rem">Vocabulary from this passage</h3><p class="small" style="margin-bottom:1rem">Four words, each met in context above. They come back in the review notebook on day 1, 3, 7, and 14.</p>
-    <div class="vocab">${L.vocab.map(v=>`<div class="w"><b>${esc(v.w)}</b><p class="small" style="font-style:italic;margin:.3rem 0">"${esc(v.ctx)}"</p><p><b>Means</b> ${esc(v.mean)}</p><p class="small"><b>Parts</b> ${esc(v.parts)}</p><p class="small"><b>Not the same as</b> ${esc(v.near)}</p><p class="small"><b>Use it</b> ${esc(v.use)}</p></div>`).join("")}</div>
+  root.innerHTML=`<div class="card"><div class="eyebrow">Lesson complete</div><h3 style="margin-top:.4rem">Vocabulary from this passage</h3><p class="small" style="margin-bottom:1rem">Four words from this passage or about it. They come back in the review notebook on day 1, 3, 7, and 14.</p>
+    <div class="vocab">${L.vocab.map(v=>{ const verbatim=L.sentences.join(" ").toLowerCase().includes(v.ctx.toLowerCase().slice(0,24)); return `<div class="w"><b>${esc(v.w)}</b><p class="small" style="font-style:italic;margin:.3rem 0">${verbatim?`In the passage: "${esc(v.ctx)}"`:`In this lesson: ${esc(v.ctx)}`}</p><p><b>Means</b> ${esc(v.mean)}</p><p class="small"><b>Parts</b> ${esc(v.parts)}</p><p class="small"><b>Not the same as</b> ${esc(v.near)}</p><p class="small"><b>Use it</b> ${esc(v.use)}</p></div>`; }).join("")}</div>
     <h3 class="mt2">Retrieval</h3><p class="q">${esc(L.retrieval.q)}</p>
     <div class="opts">${L.retrieval.opts.map((o,i)=>`<label><input type="radio" name="w-retr" value="${i}">${esc(o)}</label>`).join("")}</div>
     <div class="row"><button class="btn sm" id="w-retr-check" type="button">Check</button></div><div id="w-retr-fb"></div>
     <div class="card mt2" style="background:var(--band)"><div class="eyebrow">Session log</div><dl class="kv" style="margin-top:.5rem"><dt>Tasks completed</dt><dd class="num">${session.done} of ${L.tasks.length}</dd><dt>Hints used</dt><dd class="num">${hintsTotal}</dd><dt>Checks passed</dt><dd class="num">${session.passed}</dd><dt>Feedback flagged for tutor</dt><dd class="num">${session.flagged}</dd></dl><p class="small" style="margin-top:.6rem">Hints are logged so the coach report can separate assisted from independent work.</p></div>
-    <div class="row mt1"><a class="btn" href="#library">Back to the library</a><a class="btn ghost" href="#review">Review notebook</a><button class="btn ghost" id="w-again" type="button">Restart lesson</button></div></div>`;
+    ${(()=>{ const all=UNITS.flatMap(u=>u.lessons); const i=all.findIndex(l=>l.id===L.id); const nx=all.slice(i+1).find(l=>l.play)||all.find(l=>l.play&&l.id!==L.id); if(nx) store("pr-current",nx.id); return `<div class="card mt2"><div class="eyebrow">Next</div><h3 style="margin-top:.3rem">${nx?`Lesson ${nx.n}: ${esc(nx.title)}`:"All playable lessons done"}</h3><p class="small">${nx?esc(nx.desc):"Run a practice set, or repeat the lesson you found hardest with the hints off."}</p><div class="row mt1">${nx?`<a class="btn" href="#workspace-${nx.id}">Start Lesson ${nx.n}</a>`:`<a class="btn" href="#practice">Practice section</a>`}<a class="btn ghost" href="#today">Back to Today</a><a class="btn ghost" href="#review">Review notebook</a><button class="btn ghost" id="w-again" type="button">Restart this lesson</button></div></div></div>`; })()}`;
   $("#w-retr-check").addEventListener("click",()=>{ const o=root.querySelector("input[name=w-retr]:checked"); if(!o) return toast("Pick one."); const ok=+o.value===L.retrieval.ans; $("#w-retr-fb").innerHTML=fbHtml(ok?{k:"good",t:"Correct",b:L.retrieval.good}:{k:"crit",t:"Not this one",b:L.retrieval.bad}); });
   $("#w-again").addEventListener("click",()=>{ const id=L.id; L=null; $("#w-tasks").innerHTML=""; openLesson(id); });
   renderLibrary();
@@ -3799,7 +3802,8 @@ function renderToday(){
   const warmToday=orf.some(e=>today(e.at)); const lessonToday=Object.values(lessons).some(l=>today(l.at)); const claimToday=claims.some(c=>today(c.at)&&!/\(summary\)/.test(c.title||"")); const sumToday=claims.some(c=>today(c.at)&&/\(summary\)/.test(c.title||""));
   const dateStr=new Date().toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"});
   let phase=""; if(plan&&plan.date){ const r=planPeriods(plan.date); if(r&&!r.short){ const p=r.phases.find(x=>x.now); if(p) phase=`${p.name} phase, ${r.days} days to the test. `; } else if(r&&r.short) phase=`${r.days} days to the test: taper. `; }
-  const nm=load("pr-name",""); $("#td-title").textContent=nm?`Today, ${nm}`:"Today"; $("#td-sub").textContent=`${dateStr}. ${phase}${doneIds.length?`${doneIds.length} of ${playable.length} playable lessons done.`:"Nothing done yet, which is the right place to start."}`;
+  const nm=load("pr-name",""); $("#td-title").textContent=nm?`Today, ${nm}`:"Today";
+  const wk=Object.values(lessons).filter(l=>now-l.at<7*864e5).length+prac.filter(p=>now-p.at<7*864e5).length; const dots=[0,1,2].map(i=>`<i class="${i<wk?"on":""}"></i>`).join(""); $("#td-sub").innerHTML=`${esc(dateStr)}. ${esc(phase)}${doneIds.length?`${doneIds.length} of ${playable.length} lessons done. `:""}<span class="wkdots" title="Sessions this week, of three">${dots}</span> ${wk>=3?"Three sessions this week; that is the standard.":`${wk} of 3 sessions this week.`}`;
   $("#td-cta").innerHTML=(curL?`<a class="btn" href="#workspace-${curL.id}">${doneIds.includes(curL.id)?"Repeat":doneIds.length?"Continue":"Start"} Lesson ${curL.n}: ${esc(curL.title)}</a>`:"")+`<a class="btn ghost" href="#friday">Friday report</a>`;
   const items=[
     {t:"Warm up aloud",s:"Paragraph 1 of today's lesson, timed. Sixty seconds.",done:warmToday,href:`#workspace-${curL.id}`,cta:"Start"},
@@ -3807,7 +3811,8 @@ function renderToday(){
     {t:"One claim with evidence",s:"The coach names one error. Revise once.",done:claimToday,href:`#workspace-${curL.id}`,cta:"Write"},
     {t:"Closed-book summary",s:"Two sentences: what it showed, what it could not show.",done:sumToday,href:`#workspace-${curL.id}`,cta:"Write"},
     {t:due?`Vocabulary due: ${due} word${due===1?"":"s"}`:"Vocabulary due: none",s:due?"Retrieve before you look.":"Add words from the banks and they come back on schedule.",done:!due&&Object.keys(vocab).length>0,href:due?"#review":"#vocab",cta:due?"Review":"Add words"}];
-  $("#td-routine").innerHTML=items.map(i=>`<li class="${i.done?"done":""}"><span class="mk">${i.done?"✓":""}</span><span class="t"><b>${esc(i.t)}</b><small>${esc(i.s)}</small></span><a class="btn ghost sm" href="${i.href}">${i.cta}</a></li>`).join("");
+  const orient=!diag&&!doneIds.length?`<li class="orient"><span class="mk">1</span><span class="t"><b>How this works</b><small>Take the ten-minute diagnostic. It picks your first lesson. Do the routine three times a week. Read your Friday report.</small></span><a class="btn sm" href="#diagnostic">Start</a></li>`:"";
+  $("#td-routine").innerHTML=orient+items.map(i=>`<li class="${i.done?"done":""}"><span class="mk">${i.done?"✓":""}</span><span class="t"><b>${esc(i.t)}</b><small>${esc(i.s)}</small></span><a class="btn ghost sm" href="${i.href}">${i.cta}</a></li>`).join("");
   const tot=Object.values(lessons); const tasks=tot.reduce((a,s)=>a+s.done,0), passed=tot.reduce((a,s)=>a+s.passed,0), hints=tot.reduce((a,s)=>a+s.hints,0);
   const cps=orf.filter(e=>e.src==="checkpoint"); const lastCp=cps[cps.length-1]||orf[orf.length-1]; const lastPr=prac[prac.length-1]; const sn=Object.keys(sents).length;
   const stat=(v,l,k)=>`<div class="stat ${k||""}"><b class="num">${v}</b><span>${l}</span></div>`;
@@ -3819,6 +3824,7 @@ function renderToday(){
     stat(lastPr?`${lastPr.evScore}<span style="font-size:1rem;color:var(--muted)"> of 10</span>`:"n/a","Practice, with evidence"+(lastPr?` (${lastPr.set||"A"})`:""),lastPr?(lastPr.evScore>=8?"good":lastPr.evScore>=6?"warn":"crit"):"")+
     stat(sn+`<span style="font-size:1rem;color:var(--muted)"> of 30</span>`,"Sentences unpacked");
   $("#td-note").textContent=diag?`Diagnostic priority: ${diag.priority}.`:"Take the diagnostic first; it picks your starting lesson.";
+  const a2hs=$("#td-a2hs"); if(a2hs){ const prefs=load("pr-prefs",{}); const standalone=window.matchMedia&&window.matchMedia("(display-mode: standalone)").matches||navigator.standalone; const phone=/iPhone|iPad|Android/i.test(navigator.userAgent); a2hs.hidden=!(phone&&!standalone&&!prefs.a2hs&&location.protocol==="https:"&&!/claude\.ai|claudeusercontent/.test(location.host)); a2hs.querySelector("button").onclick=()=>{ prefs.a2hs=true; store("pr-prefs",prefs); a2hs.hidden=true; }; }
   let nx;
   if(!diag) nx={h:"Take the free diagnostic",p:"Two passages, ten minutes. It names the pattern in your answers and picks the first lesson.",href:"#diagnostic",cta:"Start the diagnostic"};
   else if(!cps.length||now-(cps[cps.length-1].at)>7*864e5) nx={h:"Weekly oral reading checkpoint",p:"One minute aloud on a fresh passage. Speed and accuracy are the first numbers on the Friday report, and it has been more than a week.",href:"#fluency",cta:"Run the checkpoint"};

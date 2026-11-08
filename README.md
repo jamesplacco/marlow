@@ -11,7 +11,7 @@ This repository holds the Marlow website and learning app as a single self-conta
 | Area | Pages |
 | --- | --- |
 | Public site | Home, Method, How we work, Training, Programs, Book, International (Verbal Edge), Schools, Team, Apply, Policies |
-| Learning app | Today (the hub: routine, numbers, next step), Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Tips, Review notebook, Coach report, Tutor view |
+| Learning app | Today (the hub: routine, numbers, next step), Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Tips, Review notebook, Example report, Tutor view |
 
 ### The method
 
