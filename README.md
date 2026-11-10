@@ -11,7 +11,7 @@ This repository holds the Marlow website and learning app as a single self-conta
 | Area | Pages |
 | --- | --- |
 | Public site | Home, Method, How we work, Training, Programs, Book, International (Verbal Edge), Schools, Team, Apply, Policies |
-| Learning app | Today (the hub: routine, numbers, next step), Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Tips, Review notebook, Example report, Tutor view |
+| Learning app | Today (the hub: routine, numbers, next step), Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Transitions and grammar drills, Long reads, Tips, Review notebook, Example report, Tutor view |
 
 ### The method
 
@@ -33,14 +33,16 @@ Eight named errors (overlooked qualifiers, inference beyond the evidence, confus
 - **Worked examples** (ten, across SAT, ACT, AP Language, AP Literature, GRE, and GMAT Focus) with step-by-step walkthroughs, the seam in every wrong answer, and an argument map.
 - **Practice sections**: the book's two ten-item sections (Set A, nonfiction and literature; Set B, science and two texts), playable timed (13 minutes) or untimed, scored twice (answers, and answers with the right sentence behind them), with the build of every wrong choice and attempt history per set.
 - **Sentence unpacking**: the book's thirty-sentence set as a three-step drill (find the load-bearing word, pick the restatement at the right rung, read the unpacking), ten per session, scored per set.
-- **Friday report**, built from the student's own log: this week against last week on the five numbers, the pattern the coach saw most, one accepted claim in the student's words, and one thing to ask at dinner. Prints to one page; copies as text.
+- **Transitions and grammar drills**: thirty items in three sets for the half of the SAT's Reading and Writing section that is not passages (transitions, sentence boundaries, notes with a goal). Each item asks for the deciding move first (name the relationship, make the stand-alone test, say what the goal needs) and keeps the choices covered until it is made; scored twice, answers and moves, with a link to the chapter that teaches it.
+- **Long reads**: one whole book at the edge, 150 minutes a week. Six free public-domain books (Douglass, Washington, Du Bois, Madison, Thoreau, Austen) or your own, each with what to read, what to watch for, and three questions answered with a quoted line; a session log with a two-sentence closed-book close; a one-line map per chapter; a weekly minutes bar that feeds Today and the Friday report.
+- **Friday report**, built from the student's own log: this week against last week on six numbers (whole-book reading minutes among them), the pattern the coach saw most, one accepted claim in the student's words, and one thing to ask at dinner. Prints to one page; copies as text.
 - **Progress files**: save everything to a JSON file, load it on another device, or start over. No account needed.
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
 ### The book
 
-The Book page carries the full first draft of *Reading the Hard Stuff* (about 48,000 words): 31 chapters in seven parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents; for tutors), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, thirty sentences to unpack with a key, the method on one page, every question family by test, the full root table, the word banks, a 12-week self-study plan, a glossary, and sources. It has a chapter reader with full-text search, read-aloud, and adjustable text size.
+The Book page carries the full first draft of *Reading the Hard Stuff* (about 58,000 words): 37 chapters in nine parts (the moves; what moves the needle; applications; structure and voice; reading by domain; for parents; for tutors; the digital SAT, closely; the long reads), plus an appendix with every drill answer, two ten-item practice sections with each wrong choice explained, thirty sentences to unpack with a key, the method on one page, every question family by test, the full root table, the word banks, a 12-week self-study plan, a glossary, and sources. Part Eight covers what most SAT books skip: reading on a screen (stem first, the 90-second rule, scratch paper as a calibration log, the adaptive second module), transitions (ten relationships and the four confusions), rhetorical synthesis (the goal decides, not the facts), and sentence boundaries. Part Nine is how to read a whole hard book, and a reading guide to six public-domain books (Douglass, Washington, Du Bois, Madison, Thoreau, Austen) with what to watch for and three questions each. Chapter 37's quotations were checked against the Project Gutenberg and Avalon Project texts. It has a chapter reader with full-text search, read-aloud, adjustable text size, and a Where to start panel for five kinds of reader.
 
 ## How it works
 
