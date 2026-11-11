@@ -15,6 +15,7 @@ This repository holds the Marlow website and learning app as a single self-conta
 | The learning app (diagnostic, 19 of 24 lessons, drills, word banks, reports) | Working, and stored only in the visitor's own browser |
 | The book, *Reading the Hard Stuff* | Full first draft, readable on the Book page |
 | The evidence coach | Rules, not a reader. It is tested against a scoring fixture (see below), it says so when it is unsure, and it can miss a good paraphrase |
+| Checkout | Off. Paste a payment link into `CHECKOUT` in `index.html` and that offer's button on the Programs page becomes a pay button |
 | The application form | Does not send anything by itself. It prepares an email for the visitor to send, and says so. Set `APPLY_ENDPOINT` in `index.html` to a form service or backend to turn on real delivery |
 | Tutor view and the example six-week report | Illustrations with invented data, labeled as such |
 | Results | None published. The founding cohort has not run; no outcome on this site is a measured result |
@@ -62,7 +63,7 @@ The Book page carries the full first draft of *Reading the Hard Stuff* (about 58
 
 ## How it works
 
-- `index.html` is the entire site. No build step, no framework, no server.
+- `index.html` is the site and the app. `content/book.js` is the text of the book, one chapter per line, loaded with a plain script tag. No build step, no framework, no server. Keep the two files together.
 - `manifest.webmanifest`, `sw.js`, and the icons make it installable from a phone's browser (Add to Home Screen) and usable offline; the service worker is network-first, so a push to GitHub shows up on the next online load.
 - The only external resources are two Google Fonts (Newsreader and Source Sans 3).
 - Read-aloud uses the browser's built-in speech synthesis.
