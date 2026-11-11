@@ -2,9 +2,22 @@
 
 **Read harder texts. Prove what they say.**
 
-Marlow teaches fluent readers who are stuck at a 640 to read the hard stuff: a three-move method, measured on texts they have never seen, guaranteed.
+**Live demo:** https://jamesplacco.github.io/marlow/
 
-This repository holds the Marlow website and learning app as a single self-contained page.
+Marlow is for the student who reads fluently, earns A's in English, and is stuck at a 640. That student is not a weak reader. They lose points in three specific ways: they read a qualified claim as an absolute one, they pick the right answer for the wrong sentence, or they take a view the author reports for the author's own. Marlow teaches three moves that fix those errors, and measures the result on texts the student has never seen.
+
+This repository holds the Marlow website and learning app as a single self-contained page, with the checks that test it.
+
+## What is real, and what is not yet
+
+| | Status |
+| --- | --- |
+| The learning app (diagnostic, 19 of 24 lessons, drills, word banks, reports) | Working, and stored only in the visitor's own browser |
+| The book, *Reading the Hard Stuff* | Full first draft, readable on the Book page |
+| The evidence coach | Rules, not a reader. It is tested against a scoring fixture (see below), it says so when it is unsure, and it can miss a good paraphrase |
+| The application form | Does not send anything by itself. It prepares an email for the visitor to send, and says so. Set `APPLY_ENDPOINT` in `index.html` to a form service or backend to turn on real delivery |
+| Tutor view and the example six-week report | Illustrations with invented data, labeled as such |
+| Results | None published. The founding cohort has not run; no outcome on this site is a measured result |
 
 ## What is in it
 
@@ -37,8 +50,9 @@ The app bar is grouped into Today, Learn, Practice, Build, Track, and More; each
 - **Sentence unpacking**: the book's thirty-sentence set as a three-step drill (find the load-bearing word, pick the restatement at the right rung, read the unpacking), ten per session, scored per set.
 - **Transitions and grammar drills**: thirty items in three sets for the half of the SAT's Reading and Writing section that is not passages (transitions, sentence boundaries, notes with a goal). Each item asks for the deciding move first (name the relationship, make the stand-alone test, say what the goal needs) and keeps the choices covered until it is made; scored twice, answers and moves, with a link to the chapter that teaches it.
 - **Long reads**: one whole book at the edge, 150 minutes a week. Six free public-domain books (Douglass, Washington, Du Bois, Madison, Thoreau, Austen) or your own, each with what to read, what to watch for, and three questions answered with a quoted line; a session log with a two-sentence closed-book close; a one-line map per chapter; a weekly minutes bar that feeds Today and the Friday report.
+- **Since the start**: an outcome log on the Friday report page that sets each student's first measurement beside the latest (oral reading, practice sections, hints per task, first-time pass rate), marks which figures are assisted and which independent, and copies without the name.
 - **Friday report**, built from the student's own log: this week against last week on six numbers (whole-book reading minutes among them), the pattern the coach saw most, one accepted claim in the student's words, and one thing to ask at dinner. Prints to one page; copies as text.
-- **Progress files**: save everything to a JSON file, load it on another device, or start over. No account needed.
+- **Progress files**: save everything to a JSON file, load it on another device, or start over. No account needed. A file is validated before anything on the device is touched, the previous state is kept as a backup with an undo, and a failed save shows as "Not saving" in the app bar.
 - **Review notebook** with spaced vocabulary review, saved claims and summaries, and a reading log.
 - **Multimodal**: listen with sentence highlighting, qualifier and argument maps, explain-it-aloud drills, and hands-on matching and ordering.
 
@@ -53,7 +67,25 @@ The Book page carries the full first draft of *Reading the Hard Stuff* (about 58
 - The only external resources are two Google Fonts (Newsreader and Source Sans 3).
 - Read-aloud uses the browser's built-in speech synthesis.
 - All student progress is stored in the viewer's own browser (`localStorage`). Nothing is sent anywhere.
-- Light and dark themes. Checked on nine device profiles (iPhone SE through desktop 1920, portrait and landscape): no horizontal overflow, scrollable nav and app bar on phones, stacked tutor roster under 560px, 44px tap targets on touch devices. Scanned with axe-core (WCAG 2.1 AA and best-practice rules) on every view: zero violations.
+- Light and dark themes. Device and accessibility checks are the scripts above, not a claim.
+
+## Checks you can run
+
+```
+npm install
+npx playwright install chromium
+npm test
+```
+
+| Script | What it establishes |
+| --- | --- |
+| `tests/coach.js` | The evidence coach against `tests/coach-fixture.json`: 28 labeled student responses (correct, paraphrase, keyword stuffing, negation, endorsement of the error, wrong evidence, outside knowledge, instructions aimed at the grader). False acceptances and false rejections are reported separately. Two cases are marked as known limits of a rule-based coach |
+| `tests/progress.js` | A bad progress file changes nothing; a good one can be undone; a failed save is visible; the application form never claims receipt; the outcome log compares first against latest |
+| `tests/flows.js` | Every public page, the diagnostic, all 19 playable lessons, and each app page, end to end in a real browser |
+| `tests/a11y.js` | axe-core (WCAG 2.1 AA and best-practice rules) on every view. An automated scan is not a full accessibility audit; keyboard and screen-reader checks are manual |
+| `tests/devices.js` | Nine device profiles, iPhone SE to desktop 1920; fails on horizontal overflow (`npm run test:devices`) |
+
+The same checks run on every push (`.github/workflows/checks.yml`). The fixture's labels were written during development; they should be replaced and extended with real pilot responses, and a second educator should score a sample before they are treated as ground truth.
 
 ## Run it locally
 

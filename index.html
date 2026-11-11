@@ -566,6 +566,10 @@ p,li,dd{text-wrap:pretty}
   .cap,.kit{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.savestate{font-size:.8rem;color:var(--muted);text-decoration:none;margin-right:.6rem;white-space:nowrap;font-weight:500}
+.savestate::before{content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:var(--good);margin-right:.35rem;vertical-align:middle}
+.savestate.bad{color:var(--crit);font-weight:700}.savestate.bad::before{background:var(--crit)}
+@media (max-width:820px){.savestate{display:none}.savestate.bad{display:inline}}
 .appbar .wrap{display:block;overflow:visible;min-height:0}
 .ab-top,.ab-sub{display:flex;gap:1.4rem;align-items:center;min-height:44px}
 .ab-top a{font-size:.95rem;font-weight:600;padding:.55rem 0;border-bottom:2px solid transparent}
@@ -631,7 +635,7 @@ p,li,dd{text-wrap:pretty}
     <a href="#fluency" data-g="build">Build</a>
     <a href="#review" data-g="track">Track</a>
     <a href="#tips" data-g="more">More</a>
-    <span class="right"><span class="small">Text</span><button type="button" id="t-smaller" aria-label="Smaller text">A−</button><button type="button" id="t-larger" aria-label="Larger text">A+</button><button type="button" id="t-space" aria-label="Line spacing">Spacing</button></span>
+    <span class="right"><a href="#friday-keep" id="savestate" class="savestate" title="Progress is kept in this browser only. Save a file from the Friday report to keep it or move it.">Saved on this device</a><span class="small">Text</span><button type="button" id="t-smaller" aria-label="Smaller text">A−</button><button type="button" id="t-larger" aria-label="Larger text">A+</button><button type="button" id="t-space" aria-label="Line spacing">Spacing</button></span>
   </div>
   <div class="ab-sub" data-g="learn" hidden><span class="ab-lab">Learn</span><a href="#diagnostic" data-v="diagnostic">Diagnostic</a><a href="#library" data-v="library">Lesson library</a><a href="#workspace" data-v="workspace">Workspace</a><a href="#examples" data-v="examples">Worked examples</a></div>
   <div class="ab-sub" data-g="practice" hidden><span class="ab-lab">Practice</span><a href="#practice" data-v="practice">Practice section</a><a href="#sentences" data-v="sentences">Sentences</a><a href="#writing" data-v="writing">Grammar</a></div>
@@ -1265,9 +1269,9 @@ p,li,dd{text-wrap:pretty}
       <label>Location<select id="a-loc"><option>Remote, U.S.</option><option>Chicago North Shore or Loop</option><option>Cambridge or Greater Boston</option><option>Providence or Rhode Island</option><option>Remote, India</option><option>Remote, China, Singapore, or Hong Kong</option><option>Remote, Korea or Japan</option><option>Remote, elsewhere</option></select></label>
       <label>Most recent score, if any<input id="a-score" placeholder="e.g. 640 SAT R&W, 28 ACT Reading"></label>
       <label class="full">What happens when the student reads something hard?<textarea id="a-note" placeholder="Finishes the passage but cannot say the main point. Picks the answer that sounds right. Scores well in class, not on tests."></textarea></label>
-      <div class="full row"><button class="btn" type="submit">Send application</button><span class="small">No payment is taken at this step. This demo stores the form in your browser only.</span></div>
+      <div class="full row"><button class="btn" type="submit">Send application</button><span class="small">No payment is taken at this step. Nothing leaves this page until you send it.</span></div>
     </form>
-    <div class="notice mt1" id="apply-done" hidden style="max-width:44rem"></div>
+    <div class="notice mt1" id="apply-done" role="status" aria-live="polite" hidden style="max-width:44rem"></div>
   </div></section>
   <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
 </main>
@@ -1294,7 +1298,8 @@ p,li,dd{text-wrap:pretty}
   <div class="today-head noprint"><div><h2>Friday report</h2><p class="muted" style="margin-top:.3rem;max-width:44rem">One page, built from this device's log: this week against last week, the pattern the coach saw most, one piece of the student's own work, and one thing to ask at dinner. Print it or copy it for a parent or tutor.</p></div>
     <div class="row"><label class="small" style="font-weight:600">Student <input id="fr-name" placeholder="First name" style="width:11rem;display:inline-block;margin-left:.4rem"></label><button class="btn ghost sm" type="button" id="fr-copy">Copy as text</button><button class="btn sm" type="button" id="fr-print">Print</button></div></div>
   <article class="report card" id="fr-report"></article>
-  <div class="card mt2 noprint"><h3>Your progress, kept</h3><p class="small" style="margin:.3rem 0 .8rem">Everything the app knows about this student is stored in this browser. Save it to a file to keep it, move it to another device, or hand it to a tutor. Loading a file replaces what is here.</p><div class="row"><button class="btn ghost sm" type="button" id="fr-export">Save progress to a file</button><label class="btn ghost sm" style="cursor:pointer">Load a progress file<input type="file" id="fr-import" accept="application/json" hidden></label><button class="btn ghost sm" type="button" id="fr-reset">Start over</button></div><p class="small mt1" id="fr-io"></p></div>
+  <div class="card mt2 noprint"><h3>Since the start</h3><p class="small" style="margin:.3rem 0 .8rem">The first measurement against the latest, on the same measure. This is the evidence that the method is working for this student, or is not.</p><div id="fr-out"></div></div>
+  <div class="card mt2 noprint" id="friday-keep"><h3>Your progress, kept</h3><p class="small" style="margin:.3rem 0 .8rem">Everything the app knows about this student is stored in this browser, on this device, and nowhere else. Clearing the browser's data erases it. Save it to a file to keep it, move it to another device, or hand it to a tutor. A file is checked before it is loaded, and what was here is kept as a backup you can restore.</p><p class="small" id="fr-saved" style="margin-bottom:.6rem"></p><div class="row"><button class="btn ghost sm" type="button" id="fr-export">Save progress to a file</button><label class="btn ghost sm" style="cursor:pointer">Load a progress file<input type="file" id="fr-import" accept="application/json" hidden></label><button class="btn ghost sm" type="button" id="fr-reset">Start over</button></div><p class="small mt1" id="fr-io"></p></div>
 </div></main>
 
 <!-- ============ TODAY ============ -->
@@ -2785,7 +2790,9 @@ const $ = s => document.querySelector(s);
 const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h !== undefined) e.innerHTML = h; return e; };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function toast(m){ const t=$("#toast"); t.textContent=m; t.hidden=false; clearTimeout(t._t); t._t=setTimeout(()=>t.hidden=true,2800); }
-function store(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+const SAVE={ok:true,at:0};
+function saveState(){ const el=document.getElementById("savestate"); if(!el) return; el.textContent=SAVE.ok?"Saved on this device":"Not saving"; el.classList.toggle("bad",!SAVE.ok); el.title=SAVE.ok?"Progress is kept in this browser only. Save a file from the Friday report to keep it or move it.":"This browser is refusing to store progress. Save a progress file from the Friday report before closing this page."; }
+function store(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); if(!SAVE.ok){ SAVE.ok=true; saveState(); } SAVE.at=Date.now(); return true; }catch(e){ if(SAVE.ok){ SAVE.ok=false; saveState(); toast("This browser could not save your progress. Your work is still on this page: save a progress file from the Friday report before you close it."); } return false; } }
 function load(k,d){ try{ const v=JSON.parse(localStorage.getItem(k)); return v===null||v===undefined?d:v; }catch(e){ return d; } }
 function words(v){ return String(v||"").split(/\s+/).filter(Boolean).length; }
 function renderPassage(root, data, onPick){
@@ -3513,13 +3520,29 @@ function renderTips(){
 $("#m-patterns").innerHTML=Object.entries(PATTERNS).map(([k,p])=>`<div class="pattern"><b>${esc(p.name)}</b><span class="small">Fixed in lesson ${LESSONS[LESSON_FOR[k]]?LESSONS[LESSON_FOR[k]].n:UNITS.flatMap(u=>u.lessons).find(l=>l.id===LESSON_FOR[k]).n}</span><div class="ex">${esc(p.ex)}</div></div>`).join("");
 const CAP=[["James Placco · founder","Chicago, in person and remote",0],["Tutor 1 · hiring","Chicago, remote",0],["Tutor 2 · 2028","Cambridge",0],["Tutor 3 · 2028","Providence, remote",0]];
 $("#p-cap").innerHTML=CAP.map(([n,w,used])=>`<div><b>${esc(n)}</b><div class="small">${esc(w)}</div><div class="bar"><i style="width:${used*10}%"></i></div><div class="small num">${used?`${used} of 10 seats filled`:"10 seats open"}${used>=10?" · waitlist":""}</div></div>`).join("");
-$("#apply").addEventListener("submit",e=>{
-  e.preventDefault();
-  const name=$("#a-name").value.trim(), email=$("#a-email").value.trim(), g=$("#a-grade").value, i=$("#a-int").value, loc=$("#a-loc").value;
-  const d=$("#apply-done"); d.hidden=false;
-  d.innerHTML=`<b>Application received.</b> Thank you, ${esc(name||"there")}. We will reply to ${esc(email||"your email")} within two business days about ${esc(i)} (${esc(g)}, ${esc(loc)}). In the meantime, the diagnostic takes 10 minutes: <a href="#diagnostic">start it here</a>.`;
-  store("pr-apply",{name,email,g,i,loc,at:Date.now()});
-});
+/* The application form. APPLY_ENDPOINT is a form service or backend URL that accepts a JSON POST and answers 2xx only when it has stored the application.
+   While it is empty, the page says plainly that it cannot send anything and hands the visitor an email to send instead. */
+const APPLY_ENDPOINT="";
+const APPLY_EMAIL="hello@marlowreading.com";
+function applyFields(){ const g=id=>($("#"+id).value||"").trim(); return {name:g("a-name"),email:g("a-email"),reader:g("a-grade"),interest:g("a-int"),location:g("a-loc"),score:g("a-score"),note:g("a-note")}; }
+function applyText(f){ return `Marlow application\n\nName: ${f.name}\nEmail: ${f.email}\nReader: ${f.reader}\nInterest: ${f.interest}\nLocation: ${f.location}\nMost recent score: ${f.score||"none given"}\n\nWhat happens when the student reads something hard:\n${f.note||"(left blank)"}\n`; }
+function applyMailto(f){ return `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Marlow application: "+f.interest)}&body=${encodeURIComponent(applyText(f))}`; }
+function applyFallback(f,lead){ const d=$("#apply-done"); d.hidden=false;
+  d.innerHTML=`<b>${esc(lead)}</b> Your answers are still in the form above. To apply, send them to <a href="${applyMailto(f)}">${esc(APPLY_EMAIL)}</a>: the button opens an email with everything filled in, and it is sent only when you press send in your own mail app. We reply within two business days of receiving it.<div class="row mt1"><a class="btn sm" id="apply-mail" href="${applyMailto(f)}">Open the email, ready to send</a><button class="btn ghost sm" type="button" id="apply-copy">Copy my answers</button></div><p class="small mt1">While you wait, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.</p>`;
+  $("#apply-copy").onclick=async()=>{ try{ await navigator.clipboard.writeText(applyText(f)); toast("Copied. Paste it into an email to "+APPLY_EMAIL+"."); }catch(e){ toast("Copy is blocked here. Use the email button."); } }; }
+{ const b=document.querySelector("#apply button[type=submit]"); if(b&&!APPLY_ENDPOINT) b.textContent="Prepare my application"; }
+$("#apply").addEventListener("submit",async e=>{
+  e.preventDefault(); const f=applyFields(); const d=$("#apply-done"); const btn=document.querySelector("#apply button[type=submit]");
+  store("pr-apply",{...f,at:Date.now()});
+  if(!APPLY_ENDPOINT) return applyFallback(f,"This page cannot send your application by itself yet, and nothing has been sent.");
+  let id=""; try{ const key="marlow-apply-id:"+f.email+"|"+f.interest; id=sessionStorage.getItem(key)||(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)); sessionStorage.setItem(key,id); }catch(err){ id=String(Date.now()); }
+  d.hidden=false; d.textContent="Sending your application. Please keep this page open."; btn.disabled=true;
+  const ctl=new AbortController(); const timer=setTimeout(()=>ctl.abort(),15000);
+  try{ const r=await fetch(APPLY_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({...f,submissionId:id,sentAt:new Date().toISOString()}),signal:ctl.signal});
+    if(!r.ok) throw new Error("status "+r.status);
+    d.innerHTML=`<b>Application received.</b> Thank you, ${esc(f.name||"there")}. Your reference is <span class="num">${esc(id.slice(0,8))}</span>. We will reply to ${esc(f.email)} within two business days about ${esc(f.interest)}. In the meantime, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.`;
+  }catch(err){ applyFallback(f,err.name==="AbortError"?"We could not confirm that your application arrived. It may or may not have been received.":"Your application did not go through."); }
+  finally{ clearTimeout(timer); btn.disabled=false; } });
 $("#lane-go").addEventListener("click",()=>{
   const on=[...document.querySelectorAll("#lane input:checked")].map(i=>i.value); const out=$("#lane-out"); let r;
   if(on.includes("decode")) r={k:"warn",t:"Probably not us, and we would rather say so now",b:"Slow or effortful word reading points to a decoding or fluency need. This program starts after decoding. Book a Starter Kit only if you want the fluency screen done live and a referral to a specialist; the kit fee is refunded if we refer you out."};
@@ -3653,15 +3676,28 @@ function unpack(i,s){
   $("#w-unpack-say").addEventListener("click",()=>say(L.sentences[i]));
   if(found.length){ const modes=load("pr-modes",{}); modes.see=(modes.see||0)+1; store("pr-modes",modes); }
 }
+/* The coach is rules, not a reader. These checks keep it from rewarding an answer that only contains the right words:
+   a clause that asserts a strong claim (proved, everywhere) with no word of criticism is treated as endorsing it,
+   and a list of terms with no sentence around it is not treated as an answer. When unsure, the coach says so. */
+const STRONG=/\b(prove[sd]?|proof|proven|establish(es|ed)?|demonstrat(es|ed)|confirm(s|ed)?|definitely|certainly|obviously|undoubtedly|without (a )?doubt|always|guarantee[sd]?|everywhere|every (county|town|school|case|street|student)|all (counties|towns|schools|cases|streets|students))\b/i;
+const CRITIC=/\b(not|no|never|none|cannot|can't|couldn't|didn't|doesn't|don't|won't|isn't|wasn't|aren't|without|too (strong|far|broad|much)|overclaim\w*|overstat\w*|overreach\w*|overgeneral\w*|generaliz\w*|exaggerat\w*|stretch\w*|beyond|unsupported|unwarranted|unjustified|only|limit\w*|rather than|instead of|wrong|mistake\w*|error|seam|reaches|denied|denies|fails?|does not follow|shouldn't|should not|whether|unclear|consistent with|suggests?|may|might|narrow\w*|hedg\w*|qualif\w*|the word|the claim|the answer|classmate)\b/i;
+const STOPW=/^(the|a|an|is|are|was|were|be|been|it|its|that|this|these|those|which|who|because|so|but|and|or|not|no|of|in|on|to|for|from|with|by|as|at|does|do|did|has|have|had|can|cannot|could|would|will|may|might|says?|said|shows?|than|then|their|they|he|she|his|her|what|whether|if|only|one|about|there)$/i;
+const AGREES=/\b(is|was|are|were) (right|correct|true|accurate|justified|fine|good)\b|\bi agree\b|\bagrees? with\b|\bcorrectly\b/i;
+const MENTION=/\b(classmate|answer|choice|claim|association|merchants?|newspaper|headline)\b[^,]*\b(wrote|writes|chose|chooses|says|said|claims?|claimed|uses?|used|calls?|called)\b|\bthe word\b|["“”]/i;
+function endorsesStrong(v){ return String(v).split(/[.;!?]+|,\s*(?=(?:though|although|but|and|while|whereas|yet|so)\b)/i).map(c=>c.trim()).filter(Boolean).some(c=>STRONG.test(c)&&(AGREES.test(c)||!(CRITIC.test(c)||MENTION.test(c)))); }
+function isTermList(v){ const w=String(v).toLowerCase().replace(/[^a-z0-9' ]+/g," ").split(/\s+/).filter(Boolean); return w.length>=6&&w.filter(x=>STOPW.test(x)).length/w.length<0.2; }
+const UNSURE_ENDORSE={k:"warn",t:"This reads as agreeing with the claim",b:"Your answer uses the claim's strongest words without saying what is wrong with them. If you meant to criticize the claim, say what the passage does not show. If the coach has misread you, flag it and your tutor will read it."};
+const UNSURE_LIST={k:"warn",t:"A list of terms is not an answer",b:"The right words are here, but not in a sentence that says something. Write it as a claim: what is true, and why."};
 function checkTask(T, v){
   const p=wState.pick;
   if(T.type==="pick"){ if(p===null) return {k:"warn",t:"Pick a sentence first",b:"Click one sentence in the passage."}; return T.feedback[p]||T.other; }
   if(T.type==="mc"){ return T.feedback[v]||T.other; }
-  if(T.type==="free"){ if(words(v)<T.minWords) return {k:"warn",t:"Too short to assess",b:"Say what came before and what changed. Two sentences is enough."}; const hit=T.rules.find(r=>r.re.test(v)); return hit?{k:hit.k,t:hit.t,b:hit.b}:T.fallback; }
+  if(T.type==="free"){ if(words(v)<T.minWords) return {k:"warn",t:"Too short to assess",b:"Say what came before and what changed. Two sentences is enough."}; if(isTermList(v)) return UNSURE_LIST; if(endorsesStrong(v)) return UNSURE_ENDORSE; const hit=T.rules.find(r=>r.re.test(v)); return hit?{k:hit.k,t:hit.t,b:hit.b}:{k:"warn",t:T.fallback.t,b:T.fallback.b+" If your answer says this in other words, flag it and your tutor will read it; the coach matches patterns and can miss a good paraphrase."}; }
   if(T.type==="claim"){
     if(words(v)<T.minWords) return {k:"warn",t:"Too short to assess",b:"A claim needs a subject, a position, and a reason."};
     if(OUTSIDE.test(v)) return {k:"crit",t:"Outside knowledge substituted for the passage",b:"That idea does not appear in the text. The question asks what this passage supports."};
-    if(T.overclaim.test(v)&&!HEDGED.test(v)) return {k:"crit",t:"Claim stronger than the source supports",b:"Find the sentence that limits what can be said and let your claim stop where it stops."};
+    if(isTermList(v)) return UNSURE_LIST;
+    if((T.overclaim.test(v)&&!HEDGED.test(v))||endorsesStrong(v)) return {k:"crit",t:"Claim stronger than the source supports",b:"Find the sentence that limits what can be said and let your claim stop where it stops."};
     if(p===null) return {k:"warn",t:"Now click your evidence",b:"Pick the sentence that supports this claim."};
     if(T.partialEv[p]&&!HEDGED.test(v)) return {k:"warn",t:"Your quotation supports part of your claim",b:T.partialEv[p]};
     if(T.noHedge&&T.bestEv.includes(p)) return {k:"good",t:"Claim grounded in an action, not a statement",b:`Sentence ${p+1} shows it rather than says it, which is what a literary claim needs.`};
@@ -4270,13 +4306,65 @@ function renderFriday(){
       </div>
       <div class="dinner"><small>One thing to ask at dinner</small>${esc(D.lastId&&DINNER[D.lastId]?DINNER[D.lastId]:D.rLast?`Ask what ${(READS.find(b=>b.id===D.rLast.book&&b.id!=="own")||{a:"the author"}).a} wants the reader of ${D.rLast.title} to believe, and whether your reader does.`:"Ask what the last passage showed, and what it could not show.")}</div>
       <footer><span>Logged automatically by the workspace on this device. Figures compare the last seven days with the seven before.</span><span>Marlow Reading</span></footer>`; };
-  draw();
+  draw(); renderOutcomes();
+  { const fs=$("#fr-saved"); if(fs) fs.textContent=!SAVE.ok?"This browser is refusing to store progress. Save a file now.":SAVE.at?`Last saved on this device at ${new Date(SAVE.at).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}.`:"Nothing has been saved in this visit yet."; }
   $("#fr-print").onclick=()=>window.print();
   $("#fr-copy").onclick=async()=>{ const t=$("#fr-report").innerText.replace(/\n{3,}/g,"\n\n"); try{ await navigator.clipboard.writeText(t); toast("Report copied as text."); }catch(e){ toast("Copy is not available here; select the report and copy it."); } };
   $("#fr-export").onclick=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } const blob=new Blob([JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`marlow-progress-${(load("pr-name","student")||"student").toLowerCase().replace(/[^a-z0-9]+/g,"-")}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); $("#fr-io").textContent="Saved. Keep the file; load it on any device to continue."; };
-  $("#fr-import").onchange=e=>{ const file=e.target.files[0]; if(!file) return; const rd=new FileReader(); rd.onload=()=>{ try{ const j=JSON.parse(rd.result); if(!j||j.app!=="marlow"||!j.data) throw new Error("not a Marlow file"); if(!confirm("Replace the progress on this device with the file's? This cannot be undone.")) return; Object.keys(localStorage).filter(k=>k.startsWith("pr-")).forEach(k=>localStorage.removeItem(k)); Object.entries(j.data).forEach(([k,v])=>store(k,v)); $("#fr-io").textContent=`Loaded ${Object.keys(j.data).length} records from ${file.name}.`; renderFriday(); }catch(err){ $("#fr-io").textContent="That file is not a Marlow progress file."; } }; rd.readAsText(file); e.target.value=""; };
+  $("#fr-import").onchange=e=>{ const file=e.target.files[0]; e.target.value=""; if(!file) return; const io=$("#fr-io");
+    if(file.size>3e6){ io.textContent="That file is larger than any Marlow progress file. Nothing was changed."; return; }
+    const rd=new FileReader(); rd.onerror=()=>{ io.textContent="The file could not be read. Nothing was changed."; };
+    rd.onload=()=>{ let j; try{ j=JSON.parse(rd.result); }catch(err){ io.textContent="That file is not valid JSON, so it is not a Marlow progress file. Nothing was changed."; return; }
+      const errs=validateProgress(j); if(errs.length){ io.innerHTML=`<b>Not loaded. Nothing on this device was changed.</b> ${esc(errs.slice(0,3).join(" "))}`; return; }
+      const sm=progressSummary(j.data); if(!confirm(`Replace the progress on this device with this file?\n\nThe file holds: ${sm}${j.saved?"\nSaved: "+new Date(j.saved).toLocaleString():""}\n\nWhat is here now is kept as a backup, and you can undo this.`)) return;
+      const r=applyProgress(j.data); if(!r.ok){ io.innerHTML=`<b>Not loaded.</b> This browser could not store the file's records, so the progress that was here has been put back.`; renderFriday(); return; }
+      renderFriday(); $("#fr-io").innerHTML=`Loaded ${Object.keys(j.data).length} records from ${esc(file.name)}: ${esc(sm)}. <button type="button" class="lk" id="fr-undo">Undo, and put back what was here</button>`;
+      $("#fr-undo").onclick=()=>{ const ok=restoreBackup(); renderFriday(); $("#fr-io").textContent=ok?"Undone. The progress that was on this device is back.":"The backup could not be restored."; }; };
+    rd.readAsText(file); };
   $("#fr-reset").onclick=()=>{ if(!confirm("Erase all progress on this device? Save a file first if you want to keep it.")) return; Object.keys(localStorage).filter(k=>k.startsWith("pr-")).forEach(k=>localStorage.removeItem(k)); $("#fr-io").textContent="Cleared."; renderFriday(); toast("Progress cleared."); };
 }
+
+/* ---------- progress files: validate first, back up, verify, undo ---------- */
+const PR_LIST=["pr-orf","pr-practice","pr-claims","pr-readlog"], PR_RECORD=["pr-lessons","pr-vocab","pr-sentences","pr-writing","pr-read","pr-prefs","pr-modes"];
+function validateProgress(j){ const errs=[];
+  if(!j||typeof j!=="object"||Array.isArray(j)) return ["The file does not hold a progress record."];
+  if(j.app!=="marlow") errs.push("It was not saved by Marlow.");
+  if(j.version!==1) errs.push(`It is format version ${esc(String(j.version))}, and this app reads version 1; open the newest Marlow and save the file again.`);
+  const d=j.data; if(!d||typeof d!=="object"||Array.isArray(d)){ errs.push("It contains no progress records."); return errs; }
+  const keys=Object.keys(d); if(!keys.length) errs.push("It contains no progress records."); if(keys.length>60) errs.push("It contains more records than Marlow writes.");
+  for(const k of keys){ const v=d[k];
+    if(!/^pr-[a-z0-9-]{1,24}$/.test(k)){ errs.push(`It has a record Marlow does not write (${k.slice(0,24)}).`); continue; }
+    if(PR_LIST.includes(k)&&!Array.isArray(v)) errs.push(`${k} should be a list and is not.`);
+    if(PR_RECORD.includes(k)&&(v===null||typeof v!=="object"||Array.isArray(v))) errs.push(`${k} should be a record and is not.`);
+    if(k==="pr-orf"&&Array.isArray(v)&&v.some(e=>!e||typeof e.wpm!=="number"||typeof e.at!=="number")) errs.push("Its oral reading entries are missing a speed or a date.");
+    if(k==="pr-lessons"&&v&&typeof v==="object"&&Object.values(v).some(e=>!e||typeof e.done!=="number"||typeof e.at!=="number")) errs.push("Its lesson entries are missing a task count or a date."); }
+  return errs; }
+function progressSummary(d){ const n=k=>Array.isArray(d[k])?d[k].length:d[k]&&typeof d[k]==="object"?Object.keys(d[k]).length:0; return `${n("pr-lessons")} lessons, ${n("pr-orf")} oral readings, ${n("pr-practice")} practice sections, ${n("pr-vocab")} words${d["pr-diag"]?", a diagnostic":""}`; }
+function currentProgress(){ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")) out[k]=localStorage.getItem(k); } return out; }
+function writeRaw(obj){ try{ Object.keys(localStorage).filter(k=>k.startsWith("pr-")).forEach(k=>localStorage.removeItem(k)); for(const [k,v] of Object.entries(obj)) localStorage.setItem(k,v); return Object.keys(obj).every(k=>localStorage.getItem(k)===obj[k]); }catch(e){ return false; } }
+let progressBackup=null;
+function applyProgress(d){ const before=currentProgress(); progressBackup=before; try{ localStorage.setItem("marlow-backup",JSON.stringify({at:Date.now(),data:before})); }catch(e){}
+  const incoming={}; for(const [k,v] of Object.entries(d)) incoming[k]=JSON.stringify(v);
+  if(writeRaw(incoming)){ SAVE.ok=true; SAVE.at=Date.now(); saveState(); return {ok:true}; }
+  writeRaw(before); return {ok:false}; }
+function restoreBackup(){ let b=progressBackup; if(!b){ try{ const j=JSON.parse(localStorage.getItem("marlow-backup")); b=j&&j.data; }catch(e){} } if(!b) return false; const ok=writeRaw(b); if(ok) progressBackup=null; return ok; }
+
+/* ---------- since the start: the outcome log ---------- */
+function outcomeRows(){
+  const lessons=Object.values(load("pr-lessons",{})).filter(l=>l&&l.at).sort((a,b)=>a.at-b.at), orf=load("pr-orf",[]).filter(e=>e&&e.at).sort((a,b)=>a.at-b.at), prac=load("pr-practice",[]).filter(e=>e&&e.at).sort((a,b)=>a.at-b.at), diag=load("pr-diag",null);
+  const rows=[]; const day=t=>new Date(t).toLocaleDateString("en-US",{month:"short",day:"numeric"});
+  const agg=ls=>{ const t=ls.reduce((a,s)=>a+s.done,0); return t?{hpt:+(ls.reduce((a,s)=>a+s.hints,0)/t).toFixed(1),pass:Math.round(ls.reduce((a,s)=>a+s.passed,0)/t*100)}:null; };
+  if(diag&&diag.passages){ const c=Object.values(diag.passages).reduce((a,p)=>a+(p.correct||0),0), n=Object.keys(diag.passages).length*4; rows.push(["Diagnostic, reading items",`${c} of ${n}`,"","The baseline; taken once"]); }
+  if(orf.length){ const a=orf[0], b=orf[orf.length-1]; rows.push(["Oral reading, words per minute",`${a.wpm} (${day(a.at)})`,orf.length>1?`${b.wpm} (${day(b.at)})`:"",orf.length>1?`${b.wpm-a.wpm>=0?"+":""}${b.wpm-a.wpm} over ${orf.length} readings`:"One reading so far"]);
+    rows.push(["Oral reading, accuracy",`${Math.round(a.acc*100)}%`,orf.length>1?`${Math.round(b.acc*100)}%`:"",orf.length>1?`${Math.round((b.acc-a.acc)*100)>=0?"+":""}${Math.round((b.acc-a.acc)*100)} points`:""]); }
+  if(prac.length){ const a=prac[0], b=prac[prac.length-1]; rows.push(["Practice section, right with the right sentence",`${a.evScore} of 10 (Set ${a.set||"A"}, ${day(a.at)})`,prac.length>1?`${b.evScore} of 10 (Set ${b.set||"A"}, ${day(b.at)})`:"",prac.length>1?`${b.evScore-a.evScore>=0?"+":""}${b.evScore-a.evScore}${a.set===b.set?"; same set, so partly memory":"; a different set, never seen"}`:"One section so far"]); }
+  if(lessons.length>=2){ const k=Math.min(3,Math.floor(lessons.length/2)); const A=agg(lessons.slice(0,k)), B=agg(lessons.slice(-k)); if(A&&B){ rows.push([`Hints per task, first ${k} lesson${k>1?"s":""} against last ${k}`,String(A.hpt),String(B.hpt),`${B.hpt-A.hpt<=0?"":"+"}${(B.hpt-A.hpt).toFixed(1)}; lower is better`]); rows.push([`Checks passed first time, first ${k} against last ${k}`,A.pass+"%",B.pass+"%",`${B.pass-A.pass>=0?"+":""}${B.pass-A.pass} points`]); } }
+  else if(lessons.length===1) rows.push(["Lessons","1 done","","Two lessons are needed before a comparison means anything"]);
+  return rows; }
+function renderOutcomes(){ const box=$("#fr-out"); if(!box) return; const rows=outcomeRows();
+  if(!rows.length){ box.innerHTML=`<p class="small">Nothing to compare yet. This fills in from the diagnostic, the weekly oral reading, the practice sections, and the lessons, and it always compares the student with their own start.</p>`; return; }
+  box.innerHTML=`<div class="tabwrap"><table><tr><th>Measure</th><th>At the start</th><th>Now</th><th>Change</th></tr>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td class="num">${esc(r[1])}</td><td class="num">${esc(r[2])}</td><td class="small">${esc(r[3])}</td></tr>`).join("")}</table></div><p class="small mt1">Lesson figures are assisted work, with hints available. The practice section and the tutor's weekly checkpoint are the independent measures; only those count toward the guarantee.</p><div class="row mt1"><button class="btn ghost sm" type="button" id="fr-outcopy">Copy this log, without the name</button></div>`;
+  $("#fr-outcopy").onclick=async()=>{ const t="Marlow outcome log, "+new Date().toISOString().slice(0,10)+"\n"+rows.map(r=>`${r[0]}: start ${r[1]||"n/a"}; now ${r[2]||"n/a"}; ${r[3]}`).join("\n"); try{ await navigator.clipboard.writeText(t); toast("Outcome log copied."); }catch(e){ toast("Copy is blocked here. Select the table and copy it."); } }; }
 
 /* ---------- tutor view ---------- */
 const ROSTER=[
