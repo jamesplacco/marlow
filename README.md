@@ -12,9 +12,11 @@ This repository holds the Marlow website and learning app as a single self-conta
 
 | | Status |
 | --- | --- |
-| The learning app (diagnostic, 19 of 24 lessons, drills, word banks, reports) | Working, and stored only in the visitor's own browser |
+| The learning app (diagnostic, all 24 lessons, drills, word banks, reports) | Working, and stored only in the visitor's own browser |
 | The book, *Reading the Hard Stuff* | Full first draft, readable on the Book page |
-| The evidence coach | Rules, not a reader. It is tested against a scoring fixture (see below), it says so when it is unsure, and it can miss a good paraphrase |
+| The evidence coach | Rules, not a reader. The sentence pick and the multiple choice in each lesson are scored outright. The two written answers are matched by pattern and labeled provisional: the coach checks that an answer is about the passage, does not assert the cause the task questions, and does not reverse the verb it is about, and when it is unsure the student can continue with the answer saved for a tutor and not counted as passed |
+| Tutor review | There is no tutor inbox. A flagged answer is saved on the student's device and travels in the progress file the student sends. The app never says an answer was sent |
+| The free diagnostic | A provisional screen of answer, evidence sentence, and confidence. It saves the written reasons and does not score them |
 | Checkout | Off. Paste a payment link into `CHECKOUT` in `index.html` and that offer's button on the Programs page becomes a pay button |
 | The application form | Does not send anything by itself. It prepares an email for the visitor to send, and says so. Set `APPLY_ENDPOINT` in `index.html` to a form service or backend to turn on real delivery |
 | Tutor view and the example six-week report | Illustrations with invented data, labeled as such |
@@ -63,7 +65,7 @@ The Book page carries the full first draft of *Reading the Hard Stuff* (about 58
 
 ## How it works
 
-- `index.html` is the site and the app. `content/book.js` is the text of the book, one chapter per line, loaded with a plain script tag. No build step, no framework, no server. Keep the two files together.
+- `index.html` is the site and the app. `content/book.js` is the text of the book, one chapter per line, fetched the first time someone opens the Book page. No build step, no framework, no server. Keep the two files together.
 - `manifest.webmanifest`, `sw.js`, and the icons make it installable from a phone's browser (Add to Home Screen) and usable offline; the service worker is network-first, so a push to GitHub shows up on the next online load.
 - The only external resources are two Google Fonts (Newsreader and Source Sans 3).
 - Read-aloud uses the browser's built-in speech synthesis.
@@ -80,11 +82,12 @@ npm test
 
 | Script | What it establishes |
 | --- | --- |
-| `tests/coach.js` | The evidence coach against `tests/coach-fixture.json`: 28 labeled student responses (correct, paraphrase, keyword stuffing, negation, endorsement of the error, wrong evidence, outside knowledge, instructions aimed at the grader). False acceptances and false rejections are reported separately. Two cases are marked as known limits of a rule-based coach |
+| `tests/coach.js` | The evidence coach against `tests/coach-fixture.json`: 45 labeled student responses (correct, paraphrase, correct firm claim, keyword stuffing, negation, endorsement of the error, wrong evidence, irrelevant hedge, outside knowledge, instructions aimed at the grader), including the three false acceptances an outside audit reproduced. False acceptances and false rejections are reported separately. One case is marked as a known limit of a rule-based coach |
+| `tests/integrity.js` | The app does not claim more than its code can establish: a retry is never a first check; a repeated lesson adds a session; a repeated practice set is never called unseen; an untimed section keeps its real time; the diagnostic can be completed by keyboard alone, survives a reload, saves every response, and flags a nonsense reason; malformed progress files are refused; a saved file leaves out the application form; erase removes the undo backup; a record the browser refused to save still reaches the file; the service worker leaves other projects' caches alone |
 | `tests/progress.js` | A bad progress file changes nothing; a good one can be undone; a failed save is visible; the application form never claims receipt; the outcome log compares first against latest |
-| `tests/flows.js` | Every public page, the diagnostic, all 19 playable lessons, and each app page, end to end in a real browser |
+| `tests/flows.js` | Every public page, the diagnostic, all 24 lessons, and each app page, end to end in a real browser |
 | `tests/a11y.js` | axe-core (WCAG 2.1 AA and best-practice rules) on every view. An automated scan is not a full accessibility audit; keyboard and screen-reader checks are manual |
-| `tests/devices.js` | Nine device profiles, iPhone SE to desktop 1920; fails on horizontal overflow (`npm run test:devices`) |
+| `tests/devices.js` | Nine device profiles, iPhone SE to desktop 1920; fails on horizontal overflow |
 
 The same checks run on every push (`.github/workflows/checks.yml`). The fixture's labels were written during development; they should be replaced and extended with real pilot responses, and a second educator should score a sample before they are treated as ground truth.
 
@@ -104,7 +107,7 @@ The checkpoint passages used to measure students are kept out of this repository
 
 ## Status
 
-Preview build. Nineteen of 24 lessons are playable (1 to 7, 9, 10, 12 to 18, 21, 23, 24), with at least two playable lessons for every error the diagnostic can route a student to; the rest show what they teach. Figures on the Coach report and Tutor view are illustrative examples, not real students.
+Preview build. All 24 lessons are playable, with at least two for every error the diagnostic can route a student to. Answer keys sit in balanced positions in the diagnostic, the lessons, and both practice sets, and the practice sets match the book letter for letter. The book's text is fetched the first time the Book page is opened. Figures on the Coach report and Tutor view are illustrative examples, not real students.
 
 ## License
 

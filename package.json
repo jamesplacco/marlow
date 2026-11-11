@@ -3,7 +3,8 @@
   "private": true,
   "description": "Checks for the Marlow site and learning app. The site itself has no build step; these only test it.",
   "scripts": {
-    "test": "node tests/coach.js && node tests/progress.js && node tests/flows.js && node tests/a11y.js",
+    "test": "node tests/coach.js && node tests/integrity.js && node tests/progress.js && node tests/flows.js && node tests/a11y.js && node tests/devices.js",
+    "test:integrity": "node tests/integrity.js",
     "test:coach": "node tests/coach.js",
     "test:progress": "node tests/progress.js",
     "test:flows": "node tests/flows.js",
