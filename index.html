@@ -9,6 +9,12 @@
 <meta property="og:title" content="Marlow · Read harder texts. Prove what they say.">
 <meta property="og:description" content="A three-move reading method for SAT, ACT, AP, GRE, and GMAT verbal, measured on unfamiliar texts. Free diagnostic and the full book draft.">
 <meta property="og:url" content="https://jamesplacco.github.io/marlow/">
+<meta property="og:image" content="https://jamesplacco.github.io/marlow/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marlow. Read harder texts. Prove what they say.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jamesplacco.github.io/marlow/">
 <meta name="theme-color" content="#9B1B30">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -206,6 +212,27 @@ table{border-collapse:collapse;width:100%;font-size:1rem}
 th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
 th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .tabwrap{overflow-x:auto}
+.t-rev h4{margin:1.6rem 0 .5rem}
+.t-rev .t-item{border-top:1px solid var(--rule);padding:.9rem 0}
+.t-rev .t-item:first-of-type{border-top:0}
+.t-rev .t-dec button[aria-pressed="true"]{background:var(--crimson);color:var(--crimson-ink);border-color:var(--crimson)}
+.t-rev td{font-size:.92rem}
+.t-rev .why{font-family:var(--display);font-size:1rem;min-width:14rem}
+.t-rev .t-sum{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:.8rem 0 0;font-size:.95rem}
+.t-rev .t-sum b{font-family:var(--display);font-size:1.25rem;font-weight:500;margin-right:.3rem}
+.fb-old{margin-top:.9rem;font-size:.92rem}
+.fb-old summary{cursor:pointer;color:var(--muted);padding:.3rem 0}
+.fb-old .fb{opacity:.85}
+.ws-bar{display:none}
+@media (max-width:900px){
+  #v-workspace{padding-bottom:4.4rem}
+  #w-tasks{min-height:calc(100vh - 13rem)} /* so the question can reach the top of the screen */
+  .ws-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--paper);border-top:1px solid var(--rule);padding:.5rem .8rem calc(.5rem + env(safe-area-inset-bottom,0px));gap:.6rem;align-items:center;justify-content:space-between;box-shadow:0 -2px 10px rgba(0,0,0,.06)}
+  .ws-bar button{border:1px solid var(--rule);background:var(--paper);color:var(--ink);font-weight:600;font-size:.95rem;padding:.55rem .95rem;min-height:44px}
+  .ws-bar button[aria-pressed="true"]{border-color:var(--crimson);border-width:2px;color:var(--ink);background:var(--crimson-tint)}
+  .ws-bar span{font-size:.85rem;color:var(--muted);text-align:center;flex:1;min-width:0}
+  #v-workspace:not([hidden])~.toast{bottom:calc(5rem + env(safe-area-inset-bottom,0px))}}
+h1:focus,h2:focus{outline:none}
 .toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:.7rem 1.1rem;border-radius:2px;font-size:.95rem;z-index:20;max-width:90vw}
 .units{display:grid;gap:1.6rem}
 .unit h3{margin-bottom:.6rem}
@@ -217,6 +244,8 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 .lesson b{font-family:var(--display);font-size:1.1rem;font-weight:500}
 .lesson .st{margin-top:auto;font-size:.8rem}
 .choose{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.choose.choose3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.choose.choose3{grid-template-columns:1fr}}
 .choose button{text-align:left;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:1.2rem;display:flex;flex-direction:column;gap:.3rem}
 .choose button:hover{border-color:var(--crimson)}
 .choose b{font-family:var(--display);font-size:1.3rem;font-weight:500}
@@ -442,6 +471,68 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 .demo-out.on{border-color:var(--crimson)}
 .demo-out s{color:var(--muted)}
 .demo-out .plain{font-family:var(--display);font-size:1.1rem;display:block;margin-top:.3rem}
+.hero-home{padding-block:3.4rem 3rem}
+.hh-top{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;margin-bottom:2.2rem}
+.hero-home p.lede{margin-top:0;font-size:1.12rem;max-width:36rem}
+.hero-home .cta{margin-top:1.3rem}
+.demo-wide{padding:1.5rem 1.7rem 1.6rem;gap:1.1rem}
+.demo-wide .demo-body{display:grid;grid-template-columns:1.2fr 1fr;gap:2.4rem;align-items:start}
+.demo-wide .demo-body>*{min-width:0}
+.demo-wide .demo-text{font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.5}
+.demo-side{display:flex;flex-direction:column;gap:.9rem}
+.demo-ask{font-size:.97rem;line-height:1.45}
+.demo-ask.done{border-left:3px solid var(--crimson);padding:.1rem 0 .1rem .8rem}
+.demo-q{display:flex;flex-direction:column;gap:.4rem;margin-top:.6rem}
+.demo-q button{text-align:left;border:1px solid var(--rule);background:var(--paper);color:var(--ink);padding:.6rem .8rem;font-family:var(--display);font-size:1.02rem;line-height:1.35}
+.demo-q button:hover{border-color:var(--crimson);background:var(--crimson-tint)}
+.demo-moves button.next{border-color:var(--crimson);box-shadow:0 0 0 2px var(--crimson-tint)}
+@media (max-width:900px){.demo-wide .demo-body{grid-template-columns:1fr;gap:1.3rem}.hero-home{padding-block:2rem 2.2rem}.demo-wide{padding:1.1rem 1.1rem 1.2rem}
+  /* on a phone the passage comes straight after the headline; the pitch and the buttons follow it */
+  .hero-home .wrap{display:flex;flex-direction:column;gap:1.4rem}.hh-top{display:contents}.hh-top>div:first-child{order:1}.hero-home .demo{order:2}.hh-top>div:last-child{order:3}}
+.prof{display:grid;grid-template-columns:1fr 1.25fr;gap:3rem;align-items:center;margin-top:3rem}
+.prof>*{min-width:0}
+.prof-say h3{font-size:clamp(1.5rem,2.4vw,2rem);margin:.5rem 0 1rem}
+.prof-say ul{margin:0 0 1rem;padding-left:1.1rem;display:grid;gap:.55rem}
+.prof-page{margin:0;background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--crimson);box-shadow:var(--shadow);padding:1.4rem 1.6rem 1.5rem}
+.prof-page header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;padding-bottom:.9rem;border-bottom:1px solid var(--rule)}
+.prof-page header h3{margin-top:.3rem;font-size:1.5rem}
+.prof-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1rem 0 .4rem;font-size:.85rem;color:var(--muted)}
+.prof-nums b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:500;color:var(--ink);line-height:1.15}
+.prof-page dl{display:grid;grid-template-columns:6.2rem 1fr;gap:0;margin:.6rem 0 0;font-size:.95rem}
+.prof-page dt,.prof-page dd{padding:.7rem 0;border-top:1px solid var(--rule);margin:0}
+.prof-page dt{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--crimson);font-weight:600;padding-top:.85rem}
+.prof-q{display:block;font-family:var(--display);font-size:1.02rem;line-height:1.45;margin-top:.3rem}
+.prof-q mark{background:var(--hl);color:var(--hl-ink);padding:0 .15em}
+@media (max-width:900px){.prof{grid-template-columns:1fr;gap:1.6rem;margin-top:2.2rem}.prof-page{padding:1.1rem 1rem 1.2rem}.prof-page dl{grid-template-columns:1fr}.prof-page dt{padding-bottom:0;border-top:1px solid var(--rule)}.prof-page dd{border-top:0;padding-top:.25rem}}
+.mfig{margin:2.6rem 0 0;border:1px solid var(--rule);background:var(--paper);padding:1.5rem 1.6rem 1.3rem}
+#method-fig .mfig{margin-top:2rem}
+.mfig-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:1.2rem;align-items:stretch;margin-top:1rem}
+.mfig-grid>*{min-width:0}
+.mfig-pass p{font-family:var(--display);font-size:1.22rem;line-height:1.75;margin:0}
+.mf-s.key{background:var(--hl);color:var(--hl-ink);padding:.12em .2em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mf-n{display:inline-flex;align-items:center;justify-content:center;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--crimson);color:var(--crimson-ink);font-family:var(--body);font-size:.78rem;font-weight:700;margin-right:.4rem;vertical-align:.12em;line-height:1}
+.mf-w{border-bottom:2px solid var(--crimson);font-weight:600}
+.mfig sup{color:var(--crimson);font-family:var(--body);font-size:.68rem;font-weight:700;margin-left:.08em}
+.mf-s.key sup{color:inherit}
+.mf-key{list-style:none;margin:1.1rem 0 0;padding:0;font-size:.92rem;display:grid;gap:.3rem}
+.mf-key li b{margin:0 .45rem 0 .25rem}
+.mf-key .mf-keyh{font-weight:600;margin-bottom:.15rem}
+.mf-key .mf-keyh .mf-n{margin-left:0}
+.mf-paths{display:grid;grid-template-rows:1fr 1fr;gap:1rem}
+.mf-path{display:flex;align-items:center;gap:.9rem}
+.mf-arrow{--dir:90deg;position:relative;flex:0 0 8rem;height:2px;background:var(--crimson);color:var(--crimson)}
+.mf-arrow.dashed{background:repeating-linear-gradient(var(--dir),var(--muted) 0 6px,transparent 6px 11px);color:var(--muted)}
+.mf-arrow::after{content:"";position:absolute;right:-2px;top:-5px;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.mf-arrow span{position:absolute;left:0;right:.7rem;bottom:.5rem;font-size:.8rem;line-height:1.25;font-weight:600}
+.mf-out{flex:1;min-width:0;border:1px solid var(--rule);padding:.9rem 1rem;background:var(--band);align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:.3rem}
+.mf-path.sure .mf-out{border-color:var(--crimson);background:var(--paper);border-left-width:3px}
+.mf-claim{font-family:var(--display);font-size:1.15rem;line-height:1.4;margin:0}
+.mf-claim s{color:var(--muted)}
+.mf-out .small{margin:0}
+.mfig figcaption{margin-top:1.1rem;font-size:.92rem;color:var(--muted);max-width:52rem}
+@media (max-width:900px){.mfig{padding:1.1rem 1rem}.mfig-grid{grid-template-columns:1fr}.mf-paths{grid-template-rows:auto}.mf-path{flex-direction:column;align-items:stretch;gap:.3rem}
+  .mf-arrow{--dir:180deg;flex:none;width:2px;height:2.4rem;margin:.1rem 0 .5rem 1.1rem}.mf-arrow::after{right:auto;top:auto;left:-5px;bottom:-2px;border-top:9px solid currentColor;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:0}
+  .mf-arrow span{left:1rem;right:auto;bottom:auto;top:50%;transform:translateY(-50%);white-space:nowrap}}
 .demo-more{font-size:.9rem;color:var(--ink);text-decoration:underline;text-decoration-color:var(--crimson);text-underline-offset:3px}
 .more{text-decoration:underline;text-decoration-color:var(--crimson);text-underline-offset:3px;text-decoration-thickness:1px;font-weight:600}
 .more:hover{color:var(--crimson)}
@@ -653,22 +744,32 @@ p,li,dd{text-wrap:pretty}
 
 <!-- ============ HOME ============ -->
 <main id="v-home">
-  <section class="hero"><div class="wrap grid">
-    <div>
-      <div class="eyebrow">For strong students whose scores do not match their grades</div>
-      <h1>Read harder texts. Prove what they say.</h1>
-      <p class="lede">Your student reads fluently, earns A's in English, and scores a 640. The problem is not reading; it is what to do with a sentence that contains a qualifier, a turn, or someone else's view. We teach that, measure it on texts the student has never seen, and guarantee the result.</p>
-      <div class="cta"><a class="btn" href="#programs">Start with the $250 Starter Kit</a><a class="btn ghost" href="#diagnostic">Take the free 10-minute diagnostic</a></div>
-    </div>
-    <div class="demo" id="demo" aria-label="The method, on one short passage">
-      <div class="demo-head"><span>Three sentences. Tap each move.</span><span id="demo-name">A fast reader comes away with "the curfew worked."</span></div>
-      <p class="demo-text"><span class="ds" data-s="0">Last spring the council adopted a nine o'clock curfew for the downtown parks.</span> <span class="ds" data-s="1">Nearly every town that has tried one reported fewer complaints, though few reported fewer incidents.</span> <span class="ds" data-s="2">The council called the results encouraging.</span></p>
-      <div class="demo-moves" role="group" aria-label="The three moves">
-        <button type="button" data-m="1"><b>1</b>Find the sentence</button>
-        <button type="button" data-m="2"><b>2</b>Ask how far it goes</button>
-        <button type="button" data-m="3"><b>3</b>Write down why</button>
+  <section class="hero hero-home"><div class="wrap">
+    <div class="hh-top">
+      <div>
+        <div class="eyebrow">For strong students whose scores do not match their grades</div>
+        <h1>Read harder texts. Prove what they say.</h1>
       </div>
-      <div class="demo-out" id="demo-out" aria-live="polite"></div>
+      <div>
+        <p class="lede">Your student reads fluently, earns A's in English, and scores a 640. The problem is not reading; it is what to do with a sentence that contains a qualifier, a turn, or someone else's view. We teach that, measure it on texts the student has never seen, and guarantee the result.</p>
+        <div class="cta"><a class="btn" href="#programs">Start with the $250 Starter Kit</a><a class="btn ghost" href="#diagnostic">Take the free 10-minute diagnostic</a></div>
+      </div>
+    </div>
+    <div class="demo demo-wide" id="demo" aria-label="The method, on one short passage">
+      <div class="demo-head"><span>Three sentences. Try it before you read anything else.</span><span id="demo-name">A fast reader comes away with "the curfew worked."</span></div>
+      <div class="demo-body">
+        <p class="demo-text"><span class="ds" data-s="0">Last spring the council adopted a nine o'clock curfew for the downtown parks.</span> <span class="ds" data-s="1">Nearly every town that has tried one reported fewer complaints, though few reported fewer incidents.</span> <span class="ds" data-s="2">The council called the results encouraging.</span></p>
+        <div class="demo-side">
+          <div class="demo-ask" id="demo-ask"><b>Read it once. What does it tell you about curfews like this one?</b>
+            <div class="demo-q"><button type="button" data-a="0">They work: the parks get safer.</button><button type="button" data-a="1">Towns mostly reported fewer complaints, and few reported fewer incidents.</button><button type="button" data-a="2">They do little, and the council is overselling its own.</button></div></div>
+          <div class="demo-moves" role="group" aria-label="The three moves">
+            <button type="button" data-m="1"><b>1</b>Find the sentence</button>
+            <button type="button" data-m="2"><b>2</b>Ask how far it goes</button>
+            <button type="button" data-m="3"><b>3</b>Write down why</button>
+          </div>
+          <div class="demo-out" id="demo-out" aria-live="polite"></div>
+        </div>
+      </div>
       <a class="demo-more" href="#sentences">Thirty more sentences like this one, in the app</a>
     </div>
   </div></section>
@@ -709,6 +810,20 @@ p,li,dd{text-wrap:pretty}
         <p><a class="more" href="#method">Read the method</a></p>
       </div>
     </div>
+    <figure class="mfig" id="mfig">
+      <div class="eyebrow">The same three sentences, read two ways</div>
+      <div class="mfig-grid">
+        <div class="mfig-pass">
+          <p><span class="mf-s">A district moved its high school start from 7:30 to 8:30.</span> <span class="mf-s key"><b class="mf-n">1</b>In the year that <span class="mf-w">followed<sup>a</sup></span>, attendance rose, <span class="mf-w">though<sup>b</sup></span> the district had <span class="mf-w">also<sup>c</sup></span> hired two attendance counselors that fall.</span> <span class="mf-s">The superintendent called the later bell a success.</span></p>
+          <ul class="mf-key"><li class="mf-keyh"><b class="mf-n">2</b>How far the sentence goes</li><li><sup>a</sup><b>followed</b> after, which is not because</li><li><sup>b</sup><b>though</b> the sentence turns here</li><li><sup>c</sup><b>also</b> a second thing changed that year</li></ul>
+        </div>
+        <div class="mf-paths">
+          <div class="mf-path fast"><div class="mf-arrow dashed"><span>reads for the gist</span></div><div class="mf-out"><div class="eyebrow">The fast reader</div><p class="mf-claim"><s>The later bell raised attendance.</s></p><p class="small">It sounds right. No sentence says it; the superintendent does.</p></div></div>
+          <div class="mf-path sure"><div class="mf-arrow"><span>reads the small words</span></div><div class="mf-out"><div class="eyebrow"><b class="mf-n">3</b>Writes down why</div><p class="mf-claim">Attendance rose after the later bell, but counselors were hired the same year, so the passage cannot say which did it.</p><p class="small">Evidence: sentence 2.</p></div></div>
+        </div>
+      </div>
+      <figcaption>The first answer comes from the superintendent's sentence. The second comes from the one sentence that carries the evidence, and it stops where that sentence's small words stop. That difference is the method: find the sentence, ask how far it goes, write down why.</figcaption>
+    </figure>
   </div></section>
 
   <section class="section"><div class="wrap">
@@ -718,6 +833,28 @@ p,li,dd{text-wrap:pretty}
       <div><h3>The block</h3><p class="small">Ten or twenty hours with a trained tutor, remote or in person, in weekly sessions plus three 20-minute workspace sessions between. Practice test at hour 0, 10, and 20.</p></div>
       <div><h3>Friday report</h3><p class="small">One page every Friday: oral reading speed and accuracy, the independent score on an unfamiliar text, hints used, and one thing to ask at dinner. No badges, no streaks.</p></div>
       <div><h3>Membership</h3><p class="small">After the block, a weekly small-group session and the workspace keep the gains. Most families stay four months; cancel any time.</p></div>
+    </div>
+    <div class="prof">
+      <div class="prof-say">
+        <div class="eyebrow">What step 1 produces</div>
+        <h3>One page that names the pattern, in your student's own answers.</h3>
+        <ul>
+          <li><b>The pattern, named.</b> Not "careless" or "rushes": which of eight errors, and on how many items.</li>
+          <li><b>The evidence for each line.</b> The answer chosen, the sentence pointed to, and what the passage said.</li>
+          <li><b>Where the work starts.</b> The first lesson, the weekly rhythm, and what the checkpoint will measure.</li>
+        </ul>
+        <p><a class="more" href="#programs">What is in the Starter Kit</a></p>
+      </div>
+      <figure class="prof-page">
+        <header><div><div class="eyebrow">Reading profile · Starter Kit diagnostic</div><h3>Maya R., grade 10</h3></div><span class="pill quiet">Example · invented student</span></header>
+        <div class="prof-nums"><div><b>5 of 8</b>right answers</div><div><b>3 of 8</b>with the right sentence</div><div><b>2</b>misses marked certain</div></div>
+        <dl>
+          <dt>Pattern 1</dt><dd><b>Overlooks qualifying language</b> · 3 items<span class="prof-q">The sentence: "<mark>Most</mark> of the clinics reported shorter waits." Her answer: "Waits fell at every clinic."</span></dd>
+          <dt>Pattern 2</dt><dd><b>Right answer, wrong sentence</b> · 2 items<span class="prof-q">Chose the right main idea and pointed to the opening sentence, which only sets the scene.</span></dd>
+          <dt>Oral reading</dt><dd>164 words a minute at 98%. Automatic, so the whole session goes to comprehension.</dd>
+          <dt>Start with</dt><dd>Lesson 2, What qualifiers do, then Lesson 4. Three 20-minute sessions a week; a checkpoint each week on a passage she has not seen.</dd>
+        </dl>
+      </figure>
     </div>
   </div></section>
 
@@ -776,6 +913,7 @@ p,li,dd{text-wrap:pretty}
     <div class="eyebrow">The Marlow Method</div>
     <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Find the sentence. Ask how far it goes. Write down why.</h1>
     <p class="lede">Three moves, four skills, eight named errors, one 20-minute routine. The method is what every tutor teaches and what the workspace coaches, so a family gets the same session from any of us.</p>
+    <div id="method-fig"></div>
   </div></section>
   <section class="section band"><div class="wrap">
     <div class="head"><div class="eyebrow">Reading, from first principles</div><h2>Reading is two skills multiplied together. We make the first one automatic and teach the second one.</h2></div>
@@ -1322,12 +1460,13 @@ p,li,dd{text-wrap:pretty}
 
 <main id="v-diagnostic" hidden>
   <div class="wrap" id="d-choose" style="padding-block:2.5rem">
-    <div class="eyebrow">Free diagnostic: two passages, about 10 minutes each</div>
+    <div class="eyebrow">Free diagnostic: one passage to start, three in all, about 10 minutes each</div>
     <h2 style="margin:.5rem 0 .6rem">Pick a passage. Answer four questions. Get the profile.</h2>
-    <p class="muted prose">Each question asks for an answer, the sentence that supports it, your reasoning, and your confidence. The profile names the pattern in your answers, which is what a tutor works from. Both passages were written for this diagnostic.</p>
-    <div class="choose mt2">
+    <p class="muted prose">Each question asks for an answer, the sentence that supports it, your reasoning, and your confidence. The profile names the pattern in your answers, which is what a tutor works from. All three passages were written for this diagnostic. One passage gives a first profile; each one you add brings four more items, so a pattern that shows up three times is a pattern and not one miss.</p>
+    <div class="choose choose3 mt2">
       <button type="button" data-p="trees"><span class="eyebrow">Nonfiction · science and policy</span><b>Street trees and the night</b><span class="small">Eight sentences. Main idea, qualifiers, whose view, inference.</span></button>
-      <button type="button" data-p="prize"><span class="eyebrow">Literature · original fiction</span><b>The second envelope</b><span class="small">Nine sentences. Tone, motive, perspective shift, vocabulary in context.</span></button>
+      <button type="button" data-p="prize"><span class="eyebrow">Literature · original fiction</span><b>The second envelope</b><span class="small">Nine sentences. Motive, qualifiers, whose view, inference.</span></button>
+      <button type="button" data-p="canal"><span class="eyebrow">History · a company and its records</span><b>The canal ledger</b><span class="small">Eight sentences. Main idea, qualifiers, whose view, inference.</span></button>
     </div>
     <div class="card mt2" id="d-prev" hidden></div>
   </div>
@@ -1356,7 +1495,7 @@ p,li,dd{text-wrap:pretty}
 </div></main>
 
 <!-- ============ WORKSPACE ============ -->
-<main id="v-workspace" hidden><div class="wrap desk">
+<main id="v-workspace" hidden><div class="ws-bar noprint" id="ws-bar" role="group" aria-label="Move between the passage and the question"><button type="button" data-p="p" aria-pressed="true">Passage</button><span id="ws-sel" aria-live="polite"></span><button type="button" data-p="q" aria-pressed="false">Question</button></div><div class="wrap desk">
   <div>
     <div class="eyebrow" id="w-eyebrow"></div>
     <h2 style="margin:.5rem 0 1.4rem" id="w-title"></h2>
@@ -1428,6 +1567,10 @@ p,li,dd{text-wrap:pretty}
   <div class="eyebrow">Tutor view, example roster</div>
   <h2 style="margin:.5rem 0 .6rem">Ten seats. Who needs attention this week.</h2>
   <p class="muted prose">Illustrative roster for one tutor. Flags come from the workspace: feedback a student disagreed with, hint use above two per task, or a checkpoint due.</p>
+  <div class="card mt2" id="t-open"><h3>Review a student's work</h3>
+    <p class="small" style="margin:.4rem 0 .8rem;max-width:46rem">A student saves a progress file on the Friday page and sends it to you. Open it here to read the written reasons from the diagnostic, the answers saved for you, and the record of every lesson. The file is only read: nothing is added to this device's own progress, and nothing is sent anywhere.</p>
+    <div class="row"><button class="btn sm" type="button" id="t-pick">Open a progress file</button><input type="file" id="t-file" accept="application/json" hidden><button class="btn ghost sm" type="button" id="t-own">Try it with the work on this device</button></div>
+    <div id="t-review" class="t-rev" aria-live="polite"></div></div>
   <div class="card mt2"><h3>Roster</h3><div class="tabwrap"><table class="roster" id="t-roster"></table></div></div>
   <div class="desk" style="padding-block:1rem 0">
     <div>
@@ -1529,10 +1672,10 @@ p,li,dd{text-wrap:pretty}
 
 <!-- ============ WRITING ============ -->
 <main id="v-writing" hidden><div class="wrap" style="padding-block:2.5rem">
-  <div class="eyebrow">Transitions, grammar, and notes: thirty items in three sets</div>
+  <div class="eyebrow">Transitions, grammar, and notes: forty items in four sets</div>
   <h2 style="margin:.5rem 0 .6rem">Make the move before you look at the choices.</h2>
-  <p class="muted prose">Close to half of the SAT's Reading and Writing questions are not passages. They are transitions, sentence boundaries, and notes with a goal, and each type has one move that decides it. Every item here asks for the move first and keeps the choices covered until you have made it, because four choices that all sound right are how these items are built. Chapters 33 to 35 of the book teach the moves.</p>
-  <div class="row mt2" style="gap:.4rem;align-items:center"><span class="small">Set</span><div class="conf" id="wr-sets"><button type="button" data-set="t" class="on">Transitions</button><button type="button" data-set="b">Boundaries</button><button type="button" data-set="n">Notes and goals</button></div><span class="small" id="wr-done" style="margin-left:auto"></span></div>
+  <p class="muted prose">Close to half of the SAT's Reading and Writing questions are not passages. They are transitions, sentence boundaries, agreement and form, and notes with a goal, and each type has one move that decides it. Every item here asks for the move first and keeps the choices covered until you have made it, because four choices that all sound right are how these items are built. Chapters 33 to 35 of the book teach the moves.</p>
+  <div class="row mt2" style="gap:.4rem;align-items:center"><span class="small">Set</span><div class="conf" id="wr-sets"><button type="button" data-set="t" class="on">Transitions</button><button type="button" data-set="b">Boundaries</button><button type="button" data-set="n">Notes and goals</button><button type="button" data-set="f">Agreement and form</button></div><span class="small" id="wr-done" style="margin-left:auto"></span></div>
   <div class="card mt1" id="wr-card"></div>
   <div class="card mt2" id="wr-summary" hidden></div>
 </div></main>
@@ -1555,11 +1698,11 @@ p,li,dd{text-wrap:pretty}
 <main id="v-practice" hidden>
   <div class="wrap" id="pt-home" style="padding-block:2.5rem">
     <div class="eyebrow">Practice section: two passages, ten questions, 13 minutes</div>
-    <h2 style="margin:.5rem 0 .6rem">The section from the back of the book, scored the way the book scores it.</h2>
-    <p class="muted prose">Two original passages, ten items. For each: the answer, the sentence it depends on, and your confidence. You get two scores: answers right, and answers right with the right sentence behind them. The second is the one to watch: a right answer on the wrong sentence was recognized, not reasoned. The book's plan: Set A untimed in week 4, Set B timed in week 7, so the timed run is on text you have not practiced on. Both sets and their keys are printed in the book; if you have read them there, the score is practice and not a check.</p>
-    <div class="row mt2" style="gap:.4rem;align-items:center"><span class="small">Section</span><div class="conf" id="pt-sets"><button type="button" data-set="A" class="on">Set A · nonfiction and literature</button><button type="button" data-set="B">Set B · science and two texts</button></div></div>
+    <h2 style="margin:.5rem 0 .6rem">Three practice sections, scored the way the book scores them.</h2>
+    <p class="muted prose">Two original passages, ten items. For each: the answer, the sentence it depends on, and your confidence. You get two scores: answers right, and answers right with the right sentence behind them. The second is the one to watch: a right answer on the wrong sentence was recognized, not reasoned. The book's plan: Set A untimed in week 4, Set B timed in week 7, so the timed run is on text you have not practiced on. Both sets and their keys are printed in the book; if you have read them there, the score is practice and not a check. Set C is in the digital SAT's own format, ten short passages with one question each, and it is not in the book, so a first attempt is a first look. Several of its right answers are firm: where a passage settles its point, the hedged choice is the wrong one.</p>
+    <div class="row mt2" style="gap:.4rem;align-items:center"><span class="small">Section</span><div class="conf" id="pt-sets"><button type="button" data-set="A" class="on">Set A · nonfiction and literature</button><button type="button" data-set="B">Set B · science and two texts</button><button type="button" data-set="C">Set C · digital SAT format</button></div></div>
     <div class="choose mt1">
-      <button type="button" data-mode="timed"><span class="eyebrow">Timed · 13 minutes</span><b>Game speed</b><span class="small">The clock runs. Unanswered items score as misses.</span></button>
+      <button type="button" data-mode="timed"><span class="eyebrow" id="pt-tlabel">Timed · 13 minutes</span><b>Game speed</b><span class="small">The clock runs. Unanswered items score as misses.</span></button>
       <button type="button" data-mode="untimed"><span class="eyebrow">Untimed</span><b>First pass</b><span class="small">No clock. Same scoring, same key.</span></button>
     </div>
     <div class="card mt2" id="pt-prev" hidden></div>
@@ -1683,6 +1826,32 @@ const DIAG = {
       {skill:"Inference", q:"Which inference is best supported by the ending?",
        opts:["Nadia won the prize.","Nadia now allows herself to want what she earlier claimed not to want.","Nadia has stopped writing.","Her brother disapproves of the walks."],
        ans:1, ev:[7,8], wrong:{0:"overclaim",2:"unsupported",3:"unsupported"}}]
+  },
+  canal: {
+    title:"The canal ledger", eyebrow:"Diagnostic · History · about 10 minutes",
+    sentences:[
+      "In 1846 the Lyle Canal Company told its shareholders that the new canal had paid for itself in four years.",
+      "The company's own ledgers, rediscovered in 2019, tell a more complicated story.",
+      "Tolls did rise sharply in the canal's first four years, but most of the increase came from a single customer, a quarry that shipped stone for a railway bridge.",
+      "When the bridge was finished in 1847, the quarry's shipments stopped, and toll income fell by nearly half.",
+      "Historian Grace Mbeki, who studied the ledgers, argues that the 1846 report was accurate as far as it went.",
+      "What it left out, she writes, was that the canal's success depended almost entirely on one contract that was about to end.",
+      "Some local historians have taken the ledgers as proof that the company's directors deliberately misled investors.",
+      "Mbeki does not go that far; she notes that the directors may not have known when the bridge would be finished."],
+    paras:[[0,1],[2,3],[4,5],[6,7]],
+    items:[
+      {skill:"Main idea", q:"Which choice best states the main point of the passage?",
+       opts:["The canal never earned money.","The 1846 report was accurate but incomplete, because the canal's early income rested on one customer whose business was about to end.","The company's directors deliberately misled investors.","Canals were less profitable than railways in the 1840s."],
+       ans:1, ev:[4,5,2], wrong:{0:"overclaim",2:"reported-view",3:"unsupported"}},
+      {skill:"Qualifiers", q:"In sentence 4, \"by nearly half\" tells the reader that toll income",
+       opts:["fell to almost nothing.","fell by somewhat less than half.","fell by more than half.","held steady after 1847."],
+       ans:1, ev:[3], wrong:{0:"qualifier",2:"qualifier",3:"qualifier"}},
+      {skill:"Whose view", q:"The claim that the directors \"deliberately misled investors\" is presented as the view of",
+       opts:["Grace Mbeki.","the author of the passage.","some local historians.","the company's shareholders."],
+       ans:2, ev:[6,7], wrong:{0:"reported-view",1:"reported-view",3:"reported-view"}},
+      {skill:"Inference", q:"Which inference is best supported by the passage?",
+       opts:["The directors knew in 1846 that the quarry's shipments would end the next year.","Without the quarry's shipments, the canal's early toll income would have been considerably lower.","The railway bridge was built to take traffic away from the canal.","The canal closed when the bridge was finished."],
+       ans:1, ev:[2,3], wrong:{0:"overclaim",2:"unsupported",3:"unsupported"}}]
   }
 };
 
@@ -1693,8 +1862,8 @@ const LISTEN = {
     {q:"According to the passage, the log mostly records", opts:["family events and personal notes.","weather, ships, and the price of lamp oil.","storms that damaged the lighthouse.","the daughter's training."], ans:1},
     {q:"The passage suggests that the two personal entries mark", opts:["the keeper's growing dislike of record keeping.","the daughter becoming able to do the work without him.","the two worst storms in sixty years.","the years the lighthouse nearly closed."], ans:1}]
 };
-/* Key positions are balanced so that position carries no information: each letter is the key twice across the eight items. */
-[["trees",[0,2,3,1]],["prize",[2,0,1,3]]].forEach(([key,pos])=>{ if(!DIAG[key]) return; DIAG[key].items.forEach((it,i)=>{ const to=pos[i], from=it.ans; if(to===from||to>=it.opts.length) return; [it.opts[from],it.opts[to]]=[it.opts[to],it.opts[from]]; const w={}; Object.entries(it.wrong).forEach(([j,p])=>{ w[+j===to?from:+j]=p; }); it.wrong=w; it.ans=to; }); });
+/* Key positions are balanced so that position carries no information: each letter is the key three times across the twelve items. */
+[["trees",[0,2,3,1]],["prize",[2,0,1,3]],["canal",[3,1,0,2]]].forEach(([key,pos])=>{ if(!DIAG[key]) return; DIAG[key].items.forEach((it,i)=>{ const to=pos[i], from=it.ans; if(to===from||to>=it.opts.length) return; [it.opts[from],it.opts[to]]=[it.opts[to],it.opts[from]]; const w={}; Object.entries(it.wrong).forEach(([j,p])=>{ w[+j===to?from:+j]=p; }); it.wrong=w; it.ans=to; }); });
 function svProfile(d){
   const f=d.fluency, l=d.listening, passages=Object.values(d.passages||{}); if(!passages.length) return null;
   const readPct=passages.reduce((a,p)=>a+p.correct,0)/(4*passages.length);
@@ -3065,6 +3234,17 @@ LESSONS.l4.tasks[3].overclaim = /\b(unsafe|dangerous|will (collapse|fail)|should
 LESSONS.l7.tasks[3].overclaim = /\b(cut tardiness|reduced tardiness|caused|works|worked|proves?|clearly|definitely|obviously|certainly|because of the program|the program (made|led))\b/i;
 LESSONS.l12.tasks[3].overclaim = /\b(closed because|the (rent|hours|cafes) (caused|killed|closed)|the real reason (is|was)|proves?|clearly|definitely|obviously|certainly)\b/i;
 LESSONS.l18.tasks[3].overclaim = /\b(teaches us|shows us that (we|people|families|everyone)|life|human nature|always|everyone|proves?|clearly|definitely|moral|lesson is)\b/i;
+/* Calibration runs both ways. Where a passage states something outright, a claim that says it plainly is right without a hedge. */
+LESSONS.l3.tasks[3].firm=[{re:/\b(call-?outs?|maintenance (calls?|visits?))\b[\s\S]*\b(fell|dropped|declined|went down|fewer|from (eleven|11)|to (two|2))\b/i,ev:[4]}];
+LESSONS.l4.tasks[3].firm=[{re:/\b(chose|chosen|choosing|decided|decision) not to (find out|inspect|check|look|know)\b|\bdid not (claim|say|argue|state) (that )?the bridges (were|are) unsafe\b|\b(deferr\w+|postpon\w+|put off) (the |its )?inspections?\b/i,ev:[6, 5, 8]}];
+LESSONS.l6.tasks[3].firm=[{re:/\b(association|associated|correlat\w+)\b|\bmore (public )?(library )?branches\b[\s\S]*\b(had|have) higher\b/i,ev:[0, 8, 3]}];
+LESSONS.l7.tasks[3].firm=[{re:/\b(fell|dropped|declined|down) by a fifth\b[\s\S]*\b(last year|year before|without|cafeteria)\b|\b(last year|year before)\b[\s\S]*\ba fifth\b/i,ev:[5]}];
+LESSONS.l10.tasks[3].firm=[{re:/\b(nobody|no one|none of them|never|did not|didn't)\b[\s\S]*\b(clos\w+ (the pier )?to pedestrians|pedestrians)\b/i,ev:[7]}];
+LESSONS.l15.tasks[3].firm=[{re:/\bhow to (set|design)\b|\bnot (an argument )?against meters\b|\bbadly designed\b/i,ev:[3, 7, 8]}];
+LESSONS.l16.tasks[3].firm=[{re:/\bturnover\b[\s\S]*\b(rose|doubled|more than doubled|increased|went up|clear)\b/i,ev:[1, 6]}];
+LESSONS.l23.tasks[3].firm=[{re:/^(?=[\s\S]*\b(trial|verges?|stretch\w*|county|forty miles|once-mowed|that summer|by july)\b)(?=[\s\S]*\b((four|4) times|(three|3) times)\b)/i,ev:[3]}];
+LESSONS.l24.tasks[3].firm=[{re:/\bnine of (the )?eleven\b|\bfelled between 1395 and 1410\b/i,ev:[3]}];
+
 /* ---------- key positions ---------- */
 /* Where the right answer sits must carry no information. The items were written with the key second more often than not,
    so each bank is put into a fixed, balanced order here, once, before anything renders. The order is the same on every load. */
@@ -3147,6 +3327,8 @@ function route(){
   stopSpeech();
   const anchor=h!==v&&!LESSONS[h.split("-")[1]]?document.getElementById(h):null;
   if(anchor){ setTimeout(()=>anchor.scrollIntoView({behavior:"smooth"}),30); } else window.scrollTo(0,0);
+  /* a new page starts at its heading for keyboard and screen-reader users, not wherever focus was left */
+  if(route.last&&route.last!==v){ const hd=$("#v-"+v).querySelector("h1,h2"); if(hd){ hd.tabIndex=-1; hd.focus({preventScroll:true}); } } route.last=v;
 }
 window.addEventListener("hashchange",route);
 
@@ -3992,9 +4174,13 @@ const wRoot=$("#w-passage");
 function openLesson(id){
   if(L&&L.id===id&&$("#w-tasks").innerHTML) return;
   L=LESSONS[id]; store("pr-current",id);
-  Object.assign(wState,{t:0,pick:null,hints:L.tasks.map(()=>0),done:[],log:[],summary:null,warm:false,saved:false,session:null}); wRoot.classList.remove("blur");
+  Object.assign(wState,{t:0,pick:null,hints:L.tasks.map(()=>0),done:[],log:[],summary:null,warm:false,saved:false,session:null,draft:"",pick0:null}); wRoot.classList.remove("blur");
+  /* A lesson left half done is picked up where it stopped: the task, the attempts so far, the hints shown, and whatever was typed. */
+  { const w=load("pr-work",null); if(w&&w.id===id&&Array.isArray(w.done)&&Array.isArray(w.log)&&Array.isArray(w.hints)&&w.hints.length===L.tasks.length&&Date.now()-(+w.at||0)<14*864e5&&((w.t|0)>0||w.warm||w.log.length)){
+      Object.assign(wState,{t:Math.max(0,Math.min(L.tasks.length,w.t|0)),done:w.done.filter(k=>Number.isInteger(k)&&k>=0&&k<L.tasks.length),log:w.log.filter(x=>x&&typeof x==="object").slice(-80),hints:w.hints.map(x=>Math.max(0,Math.min(3,x|0))),summary:typeof w.summary==="string"?w.summary:null,warm:!!w.warm,draft:typeof w.draft==="string"?w.draft.slice(0,4000):"",pick0:Number.isInteger(w.pick)&&w.pick>=0&&w.pick<L.sentences.length?w.pick:null});
+      if(wState.t>0||wState.log.length) toast("Picked up where you left off."); } }
   { const U=UNITS.find(u=>u.lessons.some(l=>l.id===L.id)); const k=U?U.lessons.findIndex(l=>l.id===L.id)+1:0; $("#w-eyebrow").textContent=`Lesson ${L.n} of 24 · ${L.unit}${U?` · ${k} of ${U.lessons.length} in this unit`:""}`; } $("#w-title").textContent=L.title;
-  renderPassage(wRoot,L,(i,s)=>{ unpack(i,s); const T=L.tasks[wState.t]; if(T&&(T.type==="pick"||T.type==="claim")){ clearPicks(wRoot); s.classList.add("pick","focus"); wState.pick=i; const n=$("#w-pickn"); if(n) n.textContent="Sentence "+(i+1); } });
+  renderPassage(wRoot,L,(i,s)=>{ unpack(i,s); const T=L.tasks[wState.t]; if(T&&(T.type==="pick"||T.type==="claim")){ clearPicks(wRoot); s.classList.add("pick","focus"); wState.pick=i; const n=$("#w-pickn"); if(n) n.textContent="Sentence "+(i+1); if(window.wsSel) wsSel(`Task ${wState.t+1}: sentence ${i+1}`); saveWork(); } });
   $("#w-unpack").innerHTML=`<p class="small">Click any sentence in the passage to see what its qualifiers do.</p>`;
   renderTasks();
 }
@@ -4024,6 +4210,7 @@ function lessonOf(T){ return (L&&L.tasks.includes(T))?L:(Object.values(LESSONS).
 function onPassage(v, LL, need){ const b=LL._stems||(LL._stems=stems(LL.sentences.join(" ")+" "+(LL.table?JSON.stringify(LL.table):""))); let n=0; stems(v).forEach(x=>{ if(b.has(x)) n++; }); return n>=need; }
 const CAUSAL=/\b(caused|causes|causing|led to|leads to|resulted in|responsible for|(is|are|was|were) the (cause|reason))\b/i, NONASSERT=/\b(would need|needs? to|ha(ve|s) to|must show|if|whether|how|why|could|would)\b/i;
 function assertsCause(v){ return clauses(v).some(c=>CAUSAL.test(c)&&!CRITIC.test(c)&&!MENTION.test(c)&&!HEDGED.test(c)&&!NONASSERT.test(c)); }
+const NEGATED=/\b(not|never|no|cannot|can't|didn't|doesn't|isn't|wasn't|neither|nor|without)\b/i;
 const TEXTREF=/\b(writer|author|narrator|passage|story|poem|text|essay|report|review|letter|editorial|speaker)\b/i;
 const PERSONAL=/\b(i|we) (also |really |just )?(like|love|enjoy|hate|prefer)\b|\bin my (opinion|experience)\b/i;
 const REVERSAL=/\b(refus\w+ to|declin\w+ to|fail\w+ to|never|did not|didn't|does not|doesn't|would not|wouldn't|will not|won't|not)\s+(?:even\s+|ever\s+|really\s+)?(admit|conced|grant|acknowledg|agree)\w*/i;
@@ -4044,7 +4231,8 @@ function checkTask(T, v){
     if(OUTSIDE.test(v)||PERSONAL.test(v)) return {k:"crit",t:"Outside knowledge substituted for the passage",b:"That idea does not appear in the text. The question asks what this passage supports."};
     if(isTermList(v)) return UNSURE_LIST;
     const fm=T.firm&&T.firm.find(x=>x.re.test(v));
-    if((T.overclaim.test(v)&&!HEDGED.test(v))||(!T.strongOk&&!fm&&endorsesStrong(v))) return {k:"crit",t:"Claim stronger than the source supports",b:"Find the sentence that limits what can be said and let your claim stop where it stops."};
+    const over=clauses(v).some(c=>T.overclaim.test(c)&&!NEGATED.test(c))&&!HEDGED.test(v);
+    if(over||(!T.strongOk&&!fm&&endorsesStrong(v))) return {k:"crit",t:"Claim stronger than the source supports",b:"Find the sentence that limits what can be said and let your claim stop where it stops."};
     /* a claim about how the writer works may use few of the passage's nouns, so one is enough when the claim names the text itself */
     if(!(onPassage(v,LL,3)||(TEXTREF.test(v)&&onPassage(v,LL,1)))) return {k:"warn",review:true,t:"The coach cannot tell that this is a claim about this passage",b:"A hedge is not a claim. Name what the passage is about, in its own people, places, and numbers, and say what it shows. If it already does, in other words, continue and your tutor will read it."};
     if(p===null) return {k:"warn",t:"Now click your evidence",b:"Pick the sentence that supports this claim."};
@@ -4057,11 +4245,14 @@ function checkTask(T, v){
     return {k:"warn",t:"Say how far the evidence lets you go",b:"Your claim takes no position on how strong the evidence is. The passage's point is that it is limited; say so."};
   }
 }
+function saveWork(){ if(!L||wState.saved) return; const ta=$("#w-free"); store("pr-work",{id:L.id,t:wState.t,done:wState.done,log:wState.log.slice(-80),hints:wState.hints,summary:wState.summary,warm:wState.warm,draft:ta?ta.value:"",pick:wState.pick,at:Date.now()}); }
+document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="hidden"&&L&&!$("#v-workspace").hidden) saveWork(); });
 function renderTasks(focus){
   const prog=$("#w-progress"); prog.innerHTML=""; L.tasks.forEach((_,k)=>prog.appendChild(el("i",wState.done.includes(k)?"done":"")));
   const root=$("#w-tasks"); root.innerHTML="";
-  if(!wState.warm) return renderWarmup(root);
-  if(wState.t>=L.tasks.length) return wState.summary?renderVocab(root):renderSummary(root);
+  if(window.wsSel) wsSel(wState.warm&&wState.t<L.tasks.length?`Task ${wState.t+1} of ${L.tasks.length}`:"");
+  if(!wState.warm){ saveWork(); return renderWarmup(root); }
+  if(wState.t>=L.tasks.length){ saveWork(); return wState.summary?renderVocab(root):renderSummary(root); }
   const T=L.tasks[wState.t], k=wState.t;
   if(T.type!=="pick"&&T.type!=="claim"){ clearPicks(wRoot); wState.pick=null; } else { clearPicks(wRoot); wState.pick=null; }
   const c=el("div","card");
@@ -4070,20 +4261,26 @@ function renderTasks(focus){
     ${(T.type==="free"||T.type==="claim")?`<textarea id="w-free" placeholder="${esc(T.placeholder)}"></textarea>`:""}
     ${(T.type==="pick"||T.type==="claim")?`<p class="small" style="margin-top:.5rem">Selected: <b id="w-pickn">none yet</b></p>`:""}
     <div class="row" style="margin-top:.9rem"><button class="btn" id="w-check" type="button">Check</button><button class="btn ghost sm" id="w-hint" type="button">Hint (${wState.hints[k]} of 3 used)</button></div>
-    <div id="w-fb"></div>`;
+    <div id="w-fb" aria-live="polite"></div>`;
   root.appendChild(c); if(focus) $("#w-q").focus({preventScroll:true});
-  $("#w-hint").addEventListener("click",()=>{ const n=wState.hints[k]; if(n>=3){ toast("No more hints. Try, then check."); return; } wState.hints[k]=n+1; $("#w-hint").textContent=`Hint (${n+1} of 3 used)`; $("#w-fb").insertAdjacentHTML("beforeend",`<div class="fb"><b>Hint ${n+1}</b>${esc(T.hints[n])}</div>`); });
+  for(let n=0;n<wState.hints[k];n++) $("#w-fb").insertAdjacentHTML("beforeend",`<div class="fb"><b>Hint ${n+1}</b>${esc(T.hints[n])}</div>`);
+  if($("#w-free")){ if(wState.draft) $("#w-free").value=wState.draft; let tm=null; $("#w-free").addEventListener("input",()=>{ clearTimeout(tm); tm=setTimeout(saveWork,600); }); }
+  if(wState.pick0!=null&&(T.type==="pick"||T.type==="claim")){ const sp=wRoot.querySelector(`.s[data-i="${wState.pick0}"]`); if(sp){ sp.classList.add("pick"); wState.pick=wState.pick0; $("#w-pickn").textContent="Sentence "+(wState.pick0+1); } }
+  wState.draft=""; wState.pick0=null; saveWork();
+  if(window.wsSel&&(T.type==="pick"||T.type==="claim")) wsSel(wState.pick==null?`Task ${k+1}: no sentence chosen`:`Task ${k+1}: sentence ${wState.pick+1}`);
+  $("#w-hint").addEventListener("click",()=>{ const n=wState.hints[k]; if(n>=3){ toast("No more hints. Try, then check."); return; } wState.hints[k]=n+1; $("#w-hint").textContent=`Hint (${n+1} of 3 used)`; $("#w-fb").insertAdjacentHTML("beforeend",`<div class="fb"><b>Hint ${n+1}</b>${esc(T.hints[n])}</div>`); saveWork(); });
   $("#w-check").addEventListener("click",()=>{
     let v=null; if(T.type==="mc"){ const o=c.querySelector("input[name=w-opt]:checked"); if(!o){ toast("Choose an answer."); return; } v=+o.value; } if(T.type==="free"||T.type==="claim"){ v=$("#w-free").value.trim(); }
     const r=checkTask(T,v); const f=$("#w-fb"); const last=k===L.tasks.length-1;
     const open=T.type==="free"||T.type==="claim"; const tries=wState.log.filter(l=>l.task===k&&l.result).length+1;
     const canReview=open&&r.k!=="good"&&words(v)>=T.minWords&&(r.review||tries>=2);
+    { const olds=[...f.children].filter(x=>x.classList.contains("fb")&&x.querySelector("[data-act]")); if(olds.length){ let dt=f.querySelector("details.fb-old"); if(!dt){ dt=document.createElement("details"); dt.className="fb-old"; dt.appendChild(document.createElement("summary")); f.prepend(dt); } olds.forEach(x=>dt.appendChild(x)); const nn=dt.querySelectorAll(".fb").length; dt.querySelector("summary").textContent=`Earlier ${nn===1?"try":"tries"} (${nn})`; } }
     const note=open&&r.k==="good"?`<div class="small" style="margin-top:.5rem">Checked by pattern, so this is provisional. A written answer is confirmed when a tutor has read it.</div>`:"";
     f.insertAdjacentHTML("beforeend",fbHtml(r,`${note}<div class="row" style="margin-top:.6rem">${r.k==="good"?`<button class="btn sm" type="button" data-act="next">${last?"Finish lesson":"Next task"}</button>`:`<button class="btn sm" type="button" data-act="revise">Revise</button>`}${canReview?`<button class="btn ghost sm" type="button" data-act="review">Continue, and save this for tutor review</button>`:""}<button class="btn ghost sm" type="button" data-act="disagree">I disagree with this feedback</button></div>`));
     wState.log.push({task:k,type:T.type,result:r.k,hints:wState.hints[k],response:v,pick:wState.pick,fb:r.t,n:tries,at:Date.now()});
     const flag=kind=>{ const fl=load("pr-flags",[]); fl.unshift({kind,lesson:L.title,lessonId:L.id,task:T.title,response:T.type==="mc"?T.opts[v]:(v||("Sentence "+(wState.pick+1))),pick:wState.pick,fb:r.t,at:Date.now()}); store("pr-flags",fl.slice(0,40)); };
     if(T.type==="claim"&&r.k==="good"){ const cl=load("pr-claims",[]); cl.unshift({lesson:L.id,title:L.title,text:v,ev:wState.pick+1,at:Date.now()}); store("pr-claims",cl.slice(0,20)); }
-    const node=f.lastElementChild;
+    const node=f.lastElementChild; saveWork();
     node.querySelector("[data-act=next]")?.addEventListener("click",()=>{ wState.done.push(k); wState.t++; renderTasks(true); });
     node.querySelector("[data-act=review]")?.addEventListener("click",()=>{ flag("review"); wState.log.push({task:k,review:true}); wState.done.push(k); wState.t++; toast("Saved on this device for tutor review. It is not counted as passed."); renderTasks(true); });
     node.querySelector("[data-act=revise]")?.addEventListener("click",()=>{ ($("#w-free")||c).scrollIntoView({behavior:"smooth",block:"center"}); $("#w-free")?.focus(); });
@@ -4125,7 +4322,7 @@ function renderVocab(root){
   const per=L.tasks.map((T,k)=>{ const ch=wState.log.filter(l=>l.task===k&&l.result); const first=ch[0]; return {keyed:T.type==="pick"||T.type==="mc",first:!!first&&first.result==="good",clean:!!first&&first.result==="good"&&!first.hints,ok:ch.some(l=>l.result==="good"),review:wState.log.some(l=>l.task===k&&l.review)}; });
   const cnt=fn=>per.filter(fn).length;
   const session=wState.session||(wState.session={v:2,id:L.id,done:L.tasks.length,hints:hintsTotal,passed:cnt(x=>x.ok),first:cnt(x=>x.first),clean:cnt(x=>x.clean),keyed:cnt(x=>x.keyed),keyedFirst:cnt(x=>x.keyed&&x.first),open:cnt(x=>!x.keyed),openOk:cnt(x=>!x.keyed&&x.ok),review:cnt(x=>x.review),flagged:wState.log.filter(l=>l.flagged).length,misses:wState.log.filter(l=>l.result&&l.result!=="good"&&l.fb).map(l=>l.fb).slice(0,12),at:Date.now(),title:L.title,n:L.n});
-  if(!wState.saved){ wState.saved=true; const all=load("pr-lessons",{}); const log=sessions(); all[L.id]=session; store("pr-lessons",all); log.push(session); store("pr-lessonlog",log.slice(-300)); }
+  if(!wState.saved){ wState.saved=true; try{ localStorage.removeItem("pr-work"); }catch(e){} delete UNSAVED["pr-work"]; const all=load("pr-lessons",{}); const log=sessions(); all[L.id]=session; store("pr-lessons",all); log.push(session); store("pr-lessonlog",log.slice(-300)); }
   const bank=load("pr-vocab",{}); L.vocab.forEach(v=>{ if(!bank[v.w]) bank[v.w]={lesson:L.id,learned:Date.now(),reviews:0,next:Date.now()+864e5}; }); store("pr-vocab",bank);
   root.innerHTML=`<div class="card"><div class="eyebrow">Lesson complete</div><h3 style="margin-top:.4rem">Vocabulary from this passage</h3><p class="small" style="margin-bottom:1rem">Four words from this passage or about it. They come back in the review notebook after 1 day, then at gaps of 3, 7, 14, and 30 days.</p>
     <div class="vocab">${L.vocab.map(v=>{ const verbatim=L.sentences.join(" ").toLowerCase().includes(v.ctx.toLowerCase().slice(0,24)); return `<div class="w"><b>${esc(v.w)}</b><p class="small" style="font-style:italic;margin:.3rem 0">${verbatim?`In the passage: "${esc(v.ctx)}"`:`In this lesson: ${esc(v.ctx)}`}</p><p><b>Means</b> ${esc(v.mean)}</p><p class="small"><b>Parts</b> ${esc(v.parts)}</p><p class="small"><b>Not the same as</b> ${esc(v.near)}</p><p class="small"><b>Use it</b> ${esc(v.use)}</p></div>`; }).join("")}</div>
@@ -4301,9 +4498,89 @@ const PRACTICE={
   ]
 };
 const SEAM_FLAG={"too strong":"overclaim","outside":"unsupported","wrong speaker":"reported-view"};
-const PRACTICE_SETS={A:{label:"Set A",sub:"Nonfiction and literature",passages:PRACTICE.passages,items:PRACTICE.items},B:{label:"Set B",sub:"Science and two texts",passages:PRACTICE_B.passages,items:PRACTICE_B.items}};
+/* Set C: the digital SAT's format. Ten short passages, one question each, twelve minutes timed (about 71 seconds a question).
+   It is not printed in the book, so a first attempt is a first look. Several right answers here are firm: where a passage settles
+   its point, the hedged choice is the wrong one. */
+const PRACTICE_C={
+  minutes:12,
+  passages:[
+    {key:"C1",title:"The Arden strike",eyebrow:"Question 1 · Craft and structure",paras:[[0,1,2]],sentences:[
+      "Most accounts of the 1911 strike at the Arden mills describe the owners as unyielding.",
+      "In her study of the company's letters, historian Ana Ruiz offers a more qualified picture.",
+      "The owners refused the union's main demand, a shorter week, but within a month they quietly granted two smaller ones: a second break and paid sick days."]},
+    {key:"C2",title:"The spillway cracks",eyebrow:"Question 2 · Craft and structure",paras:[[0,1,2]],sentences:[
+      "For years, engineers assumed that the cracks in the Morrow Dam's spillway were caused by water freezing and expanding inside the concrete.",
+      "A 2023 inspection found the same cracks on the dam's south face, which never freezes.",
+      "The inspectors now attribute the cracking to a slow reaction between the cement and a mineral in the local gravel, a process that needs moisture but not cold."]},
+    {key:"C3",title:"Railroad time",eyebrow:"Question 3 · Craft and structure",paras:[[0,1,2]],sentences:[
+      "Before 1883, most American towns kept their own time, set by the sun's position at noon.",
+      "When it was noon in Chicago, it was already about half past twelve in Pittsburgh.",
+      "Railroads, which ran trains through dozens of these local times, found the arrangement unworkable, and in November 1883 they adopted a system of standard time zones."]},
+    {key:"C4",title:"The bakery at five",eyebrow:"Question 4 · Craft and structure",paras:[[0,1,2]],sentences:[
+      "For thirty years Mrs. Okafor had opened the bakery at five.",
+      "On the morning after the sale was signed, she was there at five again, though the new owners had told her there was no need.",
+      "She did not bake anything; she sat at the counter in her coat and watched the street get light."]},
+    {key:"C5",title:"The four-day week",eyebrow:"Question 5 · Craft and structure",labels:["Text 1","Text 2"],paras:[[0,1],[2,3]],sentences:[
+      "Economist Dara Fenn argues that four-day school weeks save money, pointing to savings of 5 to 7 percent on transportation and heating in districts that adopted them.",
+      "She concludes that small rural districts facing budget gaps should consider the schedule.",
+      "A study of several hundred districts found that four-day weeks saved less than 2 percent of total budgets, because most costs, such as salaries, did not change.",
+      "The same study found small declines in math scores in the districts that switched."]},
+    {key:"C6",title:"The wildflower strips",eyebrow:"Question 6 · Information and ideas",paras:[[0,1,2]],sentences:[
+      "In a ten-year study of 412 beehives, entomologist Rui Tanaka found that colonies placed within 500 meters of a wildflower strip produced about 30 percent more honey than colonies farther away.",
+      "The difference appeared in every year of the study and at all six of the farms she studied.",
+      "Hives near the strips also lost fewer workers over the winter."]},
+    {key:"C7",title:"The Ledger",eyebrow:"Question 7 · Information and ideas",paras:[[0,1]],sentences:[
+      "In \"The Ledger,\" a story written for this set, the shopkeeper Mr. Abbott is more generous than he lets his customers see.",
+      "A student writing about the story claims that Abbott hides his kindness behind strict rules."]},
+    {key:"C8",title:"Protected lanes",eyebrow:"Question 8 · Information and ideas",paras:[[0,1]],table:{caption:"Protected lane built, 2019 to 2024, and share of commuters who bike",head:["City","Lane built","2019","2024"],rows:[["Asford","40 miles","4%","9%"],["Carran","25 miles","3%","7%"],["Belmont","3 miles","5%","6%"]]},sentences:[
+      "Three cities of similar size built protected bike lanes between 2019 and 2024, in very different amounts.",
+      "A transportation researcher argues that the amount of protected lane a city builds is associated with how much its cycling grows."]},
+    {key:"C9",title:"The barley at Tell Kara",eyebrow:"Question 9 · Information and ideas",paras:[[0,1,2]],sentences:[
+      "Archaeologists at the Tell Kara site found barley grains in storage jars from about 3000 BCE.",
+      "Barley does not grow wild in the region today, and the team found no sickles or grinding stones at the site.",
+      "The team suggests that the barley may have been brought from elsewhere, though they note that tools could have been made of materials that did not survive."]},
+    {key:"C10",title:"The lending rule",eyebrow:"Question 10 · Information and ideas",paras:[[0,1,2]],sentences:[
+      "The Harlow Museum lends a painting to another museum only if the museum's conservator has examined it within the previous twelve months.",
+      "The museum's records show that its portrait of Elena Voss was last examined in 2019.",
+      "It follows that, under the current rule, the portrait ______"]}
+  ],
+  items:[
+    {p:0,skill:"Words in context",q:"As used in sentence 2, \"qualified\" most nearly means",
+     opts:["officially certified.","less absolute.","well trained.","openly approving."],
+     ans:1,ev:[1,2],seams:{0:["near miss","The everyday sense of the word; nothing is being certified."],2:["off","Training has nothing to do with the sentence."],3:["off","Ruiz does not approve of the owners; she complicates the usual description of them."]}},
+    {p:1,skill:"Text structure",q:"Which choice best describes the overall structure of the text?",
+     opts:["It presents an assumption, gives evidence against it, and reports the explanation that replaced it.","It describes a problem and proposes a repair.","It compares two dams built in different climates.","It argues that dams should be inspected more often."],
+     ans:0,ev:[0,1,2],seams:{1:["off","No repair is proposed."],2:["outside","One dam throughout."],3:["outside","Nothing is said about how often to inspect."]}},
+    {p:2,skill:"Main purpose",q:"Which choice best states the main purpose of the text?",
+     opts:["To explain why railroads replaced local sun time with standard time zones.","To argue that local sun time was more accurate than standard time.","To suggest that railroads may possibly have had some reason to think about time.","To compare Chicago and Pittsburgh as railroad cities."],
+     ans:0,ev:[2],seams:{1:["outside","The text never judges which system was more accurate."],2:["too weak","The text states the reason plainly: the arrangement was unworkable. Doubt the text does not express is a misreading, not caution."],3:["wrong part","The two cities are an example of the problem, not the subject."]}},
+    {p:3,skill:"Function of a sentence",q:"Which choice best describes the function of the third sentence in the text as a whole?",
+     opts:["It reveals that Mrs. Okafor has forgotten about the sale.","It shows, through what she does and does not do, that her habit has outlived its purpose.","It suggests that the new owners have treated her unkindly.","It describes the bakery's procedure for opening each morning."],
+     ans:1,ev:[1,2],seams:{0:["outside","Sentence 2 says the owners told her there was no need; she knows."],2:["outside","Nothing in the text faults the owners."],3:["off","She does not bake; the sentence is about her, not the procedure."]}},
+    {p:4,skill:"Cross-text connections",q:"Based on the texts, how would the authors of the study in Text 2 most likely respond to Fenn's conclusion in Text 1?",
+     opts:["By agreeing that some costs fall, while arguing that the savings are small against the whole budget and come with a cost in math scores.","By denying that four-day weeks reduce transportation costs at all.","By agreeing that every small rural district should adopt the schedule.","By arguing that salaries rise when districts switch to four-day weeks."],
+     ans:0,ev:[2,3],seams:{1:["too strong","The study found savings; it found them small."],2:["inverted","The study's findings cut against the recommendation."],3:["outside","Text 2 says salaries did not change."]}},
+    {p:5,skill:"Central idea",q:"Which choice best states the main idea of the text?",
+     opts:["Wildflower strips may possibly have some effect on bees, though no conclusion can be drawn.","Bees prefer wildflowers to crops.","In Tanaka's study, hives near wildflower strips were consistently more productive and survived the winter better than hives farther away.","Wildflower strips would raise honey production on any farm."],
+     ans:2,ev:[0,1,2],seams:{0:["too weak","Ten years, six farms, every year: the text reports a consistent result. Calling it inconclusive is as wrong as calling it universal."],1:["outside","The study measured honey and winter losses, not what bees prefer."],3:["too strong","Six farms are not any farm."]}},
+    {p:6,skill:"Command of evidence: quotation",q:"Which quotation from the story would best support the student's claim?",
+     opts:["\"Abbott posted a sign that read NO CREDIT, and at night he wrote the Dunns' groceries into a ledger he never showed them.\"","\"Abbott was a tall man who kept the shop's windows spotless.\"","\"The Dunns came in every Thursday and paid in coins.\"","\"Abbott gave every child who came in a peppermint, and said so to anyone who asked.\""],
+     ans:0,ev:[1],seams:{1:["off","Says nothing about kindness or rules."],2:["off","About the Dunns, not Abbott's kindness."],3:["near miss","Generous, but in the open; the claim is that he hides it."]}},
+    {p:7,skill:"Command of evidence: data",q:"Which choice uses data from the table to most effectively support the researcher's claim?",
+     opts:["Belmont had the highest share of cyclists in 2019.","Asford, which built the most protected lane, more than doubled its cycling share, while Belmont, which built the least, rose by one point.","Every city's cycling share was higher in 2024 than in 2019.","Carran's share rose by four points, which proves that protected lanes caused the rise."],
+     ans:1,ev:[1],seams:{0:["off","True, and it says nothing about how much each city built."],2:["near miss","True, but it does not link the growth to the amount built, which is the claim."],3:["too strong","The researcher claims an association; one city cannot prove a cause."]}},
+    {p:8,skill:"Inference",q:"Based on the text, what can most reasonably be inferred about the barley?",
+     opts:["It was grown at Tell Kara using tools that archaeologists have since recovered.","It may not have been grown at the site, but the absence of tools does not settle the question.","It was traded from a city about 50 kilometers away.","It proves that the people of Tell Kara were farmers."],
+     ans:1,ev:[1,2],seams:{0:["inverted","Sentence 2 says no tools were found."],2:["outside","No source or distance is given."],3:["too strong","The text leaves open whether the barley was grown there at all."]}},
+    {p:9,skill:"Logical completion",q:"Which choice most logically completes the text?",
+     opts:["is in poor condition.","may perhaps be lent if conditions allow.","will be examined before the end of the year.","cannot be lent to another museum this year."],
+     ans:3,ev:[0,1],seams:{0:["outside","An old examination says nothing about condition."],1:["too weak","The rule settles it: no examination in twelve months, no loan. A hedge contradicts the rule."],2:["outside","Nothing says an examination is planned."]}}
+  ]
+};
+const PRACTICE_SETS={A:{label:"Set A",sub:"Nonfiction and literature",passages:PRACTICE.passages,items:PRACTICE.items,inBook:true},B:{label:"Set B",sub:"Science and two texts",passages:PRACTICE_B.passages,items:PRACTICE_B.items,inBook:true},C:{label:"Set C",sub:"Digital SAT format",passages:PRACTICE_C.passages,items:PRACTICE_C.items,minutes:PRACTICE_C.minutes}};
+const setMinutes=k=>(PRACTICE_SETS[k]&&PRACTICE_SETS[k].minutes)||PRACTICE.minutes;
 /* The same order as the two sets printed in the book, so an item and its key carry the same letter in both places. */
-[["A",[1,3,0,2,3,0,1,0,2,3]],["B",[2,1,3,0,1,2,3,1,0,2]]].forEach(([k,pos])=>PRACTICE_SETS[k].items.forEach((it,i)=>rekey(it,pos[i],["seams"])));
+[["A",[1,3,0,2,3,0,1,0,2,3]],["B",[2,1,3,0,1,2,3,1,0,2]],["C",[1,3,0,2,3,2,0,1,3,2]]].forEach(([k,pos])=>PRACTICE_SETS[k].items.forEach((it,i)=>rekey(it,pos[i],["seams"])));
 let ptState=null, ptTimer=null, ptSet="A"; const ptRoot=$("#pt-passage");
 function renderPracticeHome(){
   $("#pt-home").hidden=false; $("#pt-desk").hidden=true; $("#pt-result").hidden=true; if(ptTimer){ clearInterval(ptTimer); ptTimer=null; }
@@ -4312,13 +4589,13 @@ function renderPracticeHome(){
   else box.hidden=true;
 }
 document.querySelectorAll("#pt-home .choose button").forEach(b=>b.addEventListener("click",()=>startPractice(b.dataset.mode)));
-document.querySelectorAll("#pt-sets button").forEach(b=>b.addEventListener("click",()=>{ ptSet=b.dataset.set; document.querySelectorAll("#pt-sets button").forEach(x=>x.classList.toggle("on",x===b)); }));
+document.querySelectorAll("#pt-sets button").forEach(b=>b.addEventListener("click",()=>{ ptSet=b.dataset.set; document.querySelectorAll("#pt-sets button").forEach(x=>{ x.classList.toggle("on",x===b); x.setAttribute("aria-pressed",String(x===b)); }); $("#pt-tlabel").textContent=`Timed · ${setMinutes(ptSet)} minutes`; }));
 function startPractice(mode){
   ptState={mode,set:ptSet,i:0,picks:{},answers:[],start:Date.now(),p:-1};
   $("#pt-home").hidden=true; $("#pt-desk").hidden=false; $("#pt-result").hidden=true;
   if(ptTimer) clearInterval(ptTimer);
   const clock=$("#pt-clock");
-  const tick=()=>{ const used=Math.floor((Date.now()-ptState.start)/1000); if(mode==="timed"){ const left=PRACTICE.minutes*60-used; clock.textContent=`${Math.floor(Math.max(0,left)/60)}:${String(Math.max(0,left)%60).padStart(2,"0")}`; clock.style.color=left<120?"var(--crit)":""; if(left<=0) finishPractice(true); } else clock.textContent=`${Math.floor(used/60)}:${String(used%60).padStart(2,"0")}`; };
+  const tick=()=>{ const used=Math.floor((Date.now()-ptState.start)/1000); if(mode==="timed"){ const left=setMinutes(ptState.set)*60-used; clock.textContent=`${Math.floor(Math.max(0,left)/60)}:${String(Math.max(0,left)%60).padStart(2,"0")}`; clock.style.color=left<120?"var(--crit)":""; if(left<=0) finishPractice(true); } else clock.textContent=`${Math.floor(used/60)}:${String(used%60).padStart(2,"0")}`; };
   tick(); ptTimer=setInterval(tick,1000);
   renderPracticeItem();
 }
@@ -4351,7 +4628,7 @@ function renderPracticeItem(){
 }
 function finishPractice(timeout){
   if(!ptState) return; if(ptTimer){ clearInterval(ptTimer); ptTimer=null; }
-  const elapsed=Math.floor((Date.now()-ptState.start)/1000); const secs=ptState.mode==="timed"?Math.min(PRACTICE.minutes*60,elapsed):elapsed;
+  const elapsed=Math.floor((Date.now()-ptState.start)/1000); const secs=ptState.mode==="timed"?Math.min(setMinutes(ptState.set)*60,elapsed):elapsed;
   const S=PRACTICE_SETS[ptState.set]; let score=0, evScore=0, cw=0; const flags={}; const rows=S.items.map((it,k)=>{
     const a=ptState.answers[k]; const right=!!a&&a.choice===it.ans; const evOk=!!a&&a.ev.some(e=>it.ev.includes(e));
     if(right) score++; if(right&&evOk) evScore++; if(a&&!right&&a.conf>=4) cw++;
@@ -4361,7 +4638,7 @@ function finishPractice(timeout){
     return {k,it,a,right,evOk};
   });
   const hist=load("pr-practice",[]); const prevAll=hist.filter(a=>(a.set||"A")===ptState.set); const prev=prevAll.length?prevAll[prevAll.length-1]:null;
-  const bookSeen=!!load("pr-exposure",{}).practiceKey; const repeat=prevAll.length>0;
+  const bookSeen=!!load("pr-exposure",{}).practiceKey&&!!S.inBook; const repeat=prevAll.length>0; /* only the sets printed in the book can have been seen there */
   hist.push({set:ptState.set,mode:ptState.mode,score,evScore,cw,secs,flags,at:Date.now(),attempt:prevAll.length+1,exposed:bookSeen}); store("pr-practice",hist);
   const top=Object.entries(flags).sort((a,b)=>b[1]-a[1])[0];
   const nextId=top?LESSON_FOR[top[0]]:null; const nextL=nextId?UNITS.flatMap(u=>u.lessons).find(l=>l.id===nextId):null;
@@ -4370,11 +4647,11 @@ function finishPractice(timeout){
   R.innerHTML=`<div class="eyebrow">Practice section · ${S.label} · ${ptState.mode==="timed"?"timed":"untimed"}${timeout?" · time expired":""}</div>
     <h2 style="margin:.5rem 0 1rem">Two scores. Read the second one first.</h2>
     <div class="stats" style="margin-bottom:1.5rem"><div class="stat"><b class="num">${score}<span style="font-size:1.2rem;color:var(--muted)"> / 10</span></b><span>Answers right${delta(score,prev&&prev.score)}</span></div><div class="stat"><b class="num">${evScore}<span style="font-size:1.2rem;color:var(--muted)"> / 10</span></b><span>Right, with the right sentence${delta(evScore,prev&&prev.evScore)}</span></div><div class="stat"><b class="num">${cw}</b><span>Certain and wrong${delta(cw,prev&&prev.cw)}</span></div></div>
-    ${fbHtml(evScore>=8?{k:"good",t:"The evidence score is where it should be",b:repeat?`Eight or more with the right sentence. You have attempted ${S.label} before, so part of this is memory; the other set is the cleaner check.`:bookSeen?"Eight or more with the right sentence. The book's key to these sets has been opened on this device, so treat this as practice and not as a check.":"Eight or more with the right sentence, on a first recorded attempt at this set. That is what the lessons are meant to produce. It is a practice score, not a test score."}:evScore>=score-1?{k:"warn",t:"Your answers rest on the right sentences; the misses are reasoning misses",b:"Read the seam on each missed item below. The pattern, not the count, is what to train next."}:{k:"crit",t:`${score-evScore} right answer${score-evScore===1?"":"s"} with the wrong sentence behind ${score-evScore===1?"it":"them"}`,b:"Those are recognized, not reasoned, and they will not survive a harder passage. Lesson 1 and chapter 1 train exactly this."})}
+    ${fbHtml(evScore>=8?{k:"good",t:"The evidence score is where it should be",b:repeat?`Eight or more with the right sentence. You have attempted ${S.label} before, so part of this is memory; a set you have not done is the cleaner check.`:bookSeen?"Eight or more with the right sentence. The book's key to these sets has been opened on this device, so treat this as practice and not as a check.":"Eight or more with the right sentence, on a first recorded attempt at this set. That is what the lessons are meant to produce. It is a practice score, not a test score."}:evScore>=score-1?{k:"warn",t:"Your answers rest on the right sentences; the misses are reasoning misses",b:"Read the seam on each missed item below. The pattern, not the count, is what to train next."}:{k:"crit",t:`${score-evScore} right answer${score-evScore===1?"":"s"} with the wrong sentence behind ${score-evScore===1?"it":"them"}`,b:"Those are recognized, not reasoned, and they will not survive a harder passage. Lesson 1 and chapter 1 train exactly this."})}
     ${top?`<p class="mt1"><b>Most common pattern:</b> ${esc(PATTERNS[top[0]].name)}${nextL?`. <a href="#workspace-${nextId}">Lesson ${nextL.n}: ${esc(nextL.title)}</a> is built for it.`:"."}</p>`:""}
     <div class="tabwrap mt2"><table><tr><th>#</th><th>Skill</th><th>You</th><th>Key</th><th>Sentence</th><th>Confidence</th><th>The seam</th></tr>${rows.map(r=>{ const ch=r.a?String.fromCharCode(65+r.a.choice):"blank"; const sm=r.a&&!r.right?r.it.seams[r.a.choice]:null; return `<tr><td class="num">${r.k+1}</td><td>${esc(r.it.skill)}</td><td style="color:${r.right?"var(--good)":"var(--crit)"};font-weight:600">${ch}</td><td>${String.fromCharCode(65+r.it.ans)}</td><td>${r.a?(r.evOk?`✓ ${r.a.ev.map(x=>x+1).join(", ")}`:`✗ ${r.a.ev.map(x=>x+1).join(", ")} (key: ${r.it.ev.map(x=>x+1).join(", ")})`):""}</td><td>${r.a?["","Guess","Unsure","Fairly sure","Certain"][r.a.conf]:""}</td><td>${sm?`<b>${esc(sm[0])}</b>: ${esc(sm[1])}`:r.right?"":"No answer"}</td></tr>`; }).join("")}</table></div>
     <p class="small mt1">Sentence numbers refer to the passage in which the question appears. The key accepts any sentence that establishes the answer, so a different number is not always wrong; a sentence that establishes something else is.</p>
-    <div class="row mt2"><button class="btn" type="button" id="pt-again">Run it again</button><a class="btn ghost" href="#book">Read the key in the book</a><a class="btn ghost" href="#review">Review notebook</a></div>`;
+    <div class="row mt2"><button class="btn" type="button" id="pt-again">Run it again</button>${S.inBook?`<a class="btn ghost" href="#book">Read the key in the book</a>`:""}<a class="btn ghost" href="#review">Review notebook</a></div>`;
   $("#pt-again").addEventListener("click",renderPracticeHome);
   ptState=null; window.scrollTo(0,0);
 }
@@ -4433,7 +4710,14 @@ function sentenceSummary(){
     2:{name:"Three small words set how far it goes.",html:`<b>nearly</b> every: most towns, not all. <b>though</b>: the catch is coming. <b>few</b> reported fewer incidents: most towns reported fewer complaints, and only a few reported fewer incidents.`,render:()=>{ ss.forEach(x=>x.classList.toggle("lit",x.dataset.s==="1")); ss.forEach(x=>x.classList.toggle("dim",x.dataset.s!=="1")); ss[1].innerHTML=esc(S1).replace(/^Nearly/,'<span class="dq">Nearly</span>').replace(/though/,'<span class="dq">though</span>').replace(/ few /,' <span class="dq">few</span> '); }},
     3:{name:"Now the claim fits the sentence.",html:`<s>The curfew made the parks safer.</s> <span class="plain">Most towns that tried a curfew reported fewer complaints; few reported fewer incidents. The council's word for that was encouraging.</span>`,render:()=>{ ss.forEach(x=>x.classList.remove("dim")); ss[1].classList.add("lit"); ss[1].innerHTML=esc(S1).replace(/^Nearly/,'<span class="dq">Nearly</span>').replace(/though/,'<span class="dq">though</span>').replace(/ few /,' <span class="dq">few</span> '); }}};
   d.querySelectorAll(".demo-moves button").forEach(b=>b.addEventListener("click",()=>{ const m=b.dataset.m; d.querySelectorAll(".demo-moves button").forEach(x=>{ x.classList.toggle("on",x===b); if(x===b) x.classList.add("seen"); }); steps[m].render(); name.textContent=steps[m].name; out.innerHTML=steps[m].html; out.classList.add("on"); }));
-  out.innerHTML=`Read the three sentences once. Then tap <b>1</b>.`;
+  out.innerHTML=`Answer the question above, or tap <b>1</b> to go straight to the method.`;
+  const ask=$("#demo-ask"); const SAID=[
+    `<b>That is the answer that sounds right.</b> One sentence takes it back. Tap <b>1</b> to find it.`,
+    `<b>Right, and it is the least exciting answer of the three.</b> A test asks you to show which sentence and which words. Tap <b>1</b>.`,
+    `<b>The passage never judges the council.</b> "Encouraging" is the council's word, reported. Tap <b>1</b> to see what the passage does say.`];
+  if(ask) ask.querySelectorAll(".demo-q button").forEach(b=>b.addEventListener("click",()=>{ ask.innerHTML=SAID[+b.dataset.a]; ask.classList.add("done"); const one=d.querySelector('.demo-moves button[data-m="1"]'); one.classList.add("next"); one.focus({preventScroll:true}); }));
+  d.querySelectorAll(".demo-moves button").forEach(b=>b.addEventListener("click",()=>d.querySelectorAll(".demo-moves button.next").forEach(x=>x.classList.remove("next"))));
+  const mf=$("#mfig"), slot=$("#method-fig"); if(mf&&slot){ const c=mf.cloneNode(true); c.removeAttribute("id"); slot.appendChild(c); }
 })();
 
 /* ---------- today ---------- */
@@ -4476,10 +4760,11 @@ function renderToday(){
   if(!diag) nx={h:"Take the free diagnostic",p:"One passage, four questions, about ten minutes. It names the pattern in your answers and picks the first lesson.",href:"#diagnostic",cta:"Start the diagnostic"};
   else if(!cps.length||now-(cps[cps.length-1].at)>7*864e5) nx={h:"Weekly oral reading checkpoint",p:"One minute aloud on a fresh passage. Speed and accuracy are the first numbers on the Friday report, and it has been more than a week.",href:"#fluency",cta:"Run the checkpoint"};
   else if(doneIds.length>=4&&!prac.length) nx={h:"Practice Set A, untimed",p:"Four lessons in, it is time to see the method hold on text you have never seen. Score it twice: answers, and answers with the right sentence.",href:"#practice",cta:"Open the practice section"};
+  else if(prac.length>=2&&prac.some(p=>p.mode==="timed")&&!prac.some(p=>p.set==="C")) nx={h:"Practice Set C, the digital SAT format",p:"Ten short passages, one question each, twelve minutes. It is not in the book, so it is a first look, and several of its answers are firm rather than hedged.",href:"#practice",cta:"Open the practice section"};
   else if(prac.length&&!prac.some(p=>p.mode==="timed")) nx={h:"Practice Set B, timed",p:"You have done a set untimed. The timed run is the checkpoint condition, on passages you have not read.",href:"#practice",cta:"Open the practice section"};
   else if(sn<10) nx={h:"Ten sentences to unpack",p:"The load-bearing word, then the restatement at the right rung. Ten takes about fifteen minutes.",href:"#sentences",cta:"Open the sentences"};
   else if(doneIds.length>=2&&!load("pr-readlog",[]).length) nx={h:"Start a long read",p:"One whole book at the edge, 150 minutes a week. Six free ones come with a guide and three questions each, and your own counts too.",href:"#reads",cta:"Choose a book"};
-  else if(doneIds.length>=6&&wrC<10) nx={h:"Transitions, twelve items",p:"Close to half the SAT's Reading and Writing questions are transitions, boundaries, and notes. Name the relationship before the choices appear.",href:"#writing",cta:"Open the drills"};
+  else if(doneIds.length>=6&&wrC<10) nx={h:"Transitions, twelve items",p:"Close to half the SAT's Reading and Writing questions test grammar, transitions, and notes rather than reading. Name the relationship before the choices appear.",href:"#writing",cta:"Open the drills"};
   else nx={h:`Continue Lesson ${curL.n}: ${curL.title}`,p:"The routine, with today's passage. Twenty minutes.",href:`#workspace-${curL.id}`,cta:"Open the lesson"};
   $("#td-next").innerHTML=`<div class="next"><div><div class="eyebrow">Next</div><h3 style="margin-top:.3rem">${esc(nx.h)}</h3><p class="muted" style="margin-top:.4rem;max-width:40rem">${esc(nx.p)}</p></div><a class="btn" href="${nx.href}">${esc(nx.cta)}</a></div>`;
 }
@@ -4534,7 +4819,18 @@ const WRITING={
   {notes:["In 2014, botanist Rui Tanaka measured leaf size in alpine buttercups at 2,000 meters.","Tanaka found that leaves were smaller on windier slopes.","In 2019, botanist Elin Dahl measured leaf size in alpine sorrel at 2,400 meters.","Dahl also found smaller leaves on windier slopes.","Tanaka measured wind with fixed gauges; Dahl used handheld meters."],goal:"The student wants to emphasize a difference in how the two botanists measured wind.",pre:{q:"What must the right sentence contain?",opts:["Both botanists, each with a method, and a contrast word","The finding the two studies share","The plants and elevations studied"]},opts:["Whereas Tanaka measured wind with fixed gauges, Dahl used handheld meters.","Both Tanaka and Dahl found smaller leaves on windier slopes.","Dahl's 2019 study used handheld meters to measure wind.","Tanaka and Dahl studied different plants at different elevations."],why:"The goal names the feature: how wind was measured. The last choice is a real difference, but in the wrong feature; the third gives one method only; the second is the similarity."},
   {notes:["The Lantern Float is held each August in the town of Port Hollis.","Residents set paper lanterns on the river at dusk.","The first float, in 1953, honored fishermen lost in a storm that year.","About 3,000 lanterns were floated last year.","The lanterns are now made of paper that dissolves in water."],goal:"The student wants to explain how the tradition began.",pre:{q:"What must the right sentence contain?",opts:["When it began and why","How many lanterns are floated today","What happens at the event each August"]},opts:["The Lantern Float began in 1953 to honor fishermen lost in a storm that year.","Each August, residents of Port Hollis set paper lanterns on the river at dusk.","About 3,000 lanterns were floated last year.","The lanterns are now made of paper that dissolves in water."],why:"An origin needs a beginning and a reason. The other three describe the event as it is today, accurately, and never say how it started."},
   {notes:["The Lantern Float is held each August in the town of Port Hollis.","Residents set paper lanterns on the river at dusk.","The first float, in 1953, honored fishermen lost in a storm that year.","About 3,000 lanterns were floated last year.","The lanterns are now made of paper that dissolves in water."],goal:"The student wants to make a generalization about how the event has changed over time.",pre:{q:"What must the right sentence contain?",opts:["A then and a now","One fact about last year","Where the event is held"]},opts:["What began in 1953 as a memorial for lost fishermen has grown into an annual event of about 3,000 lanterns.","The first float honored fishermen lost in a storm.","Last year, about 3,000 lanterns were floated.","Residents set paper lanterns on the river at dusk each August."],why:"Change over time needs two points in time in one sentence. Each wrong answer gives a single moment: the beginning alone, last year alone, or the event as it always is."}
- ]}
+ ]},
+ f:{name:"Agreement and form",ch:"35. Boundaries",chn:35,items:[
+  {s:"The collection of letters that the historians found in the attic ____ the only record of the mill's first decade.",pre:{q:"What is the subject of the verb?",opts:["collection","letters","historians","attic"]},opts:["is","are","have been","were"],why:"Cover the phrases that describe the subject (of letters, that the historians found in the attic) and what is left is collection, which is singular. Letters is the trap: it is plural and it sits right before the blank."},
+  {s:"Each of the three bridges was closed for a month while engineers replaced ____ deck.",pre:{q:"What does the pronoun point back to, and how many?",opts:["Each bridge: one","The three bridges: several","The engineers: several","The month: one"]},opts:["its","their","it's","they're"],why:"Each makes the bridges one at a time, so the pronoun is singular and possessive: its. It's means it is, and their would point to more than one."},
+  {s:"In 1909 the expedition reached the coast, and by the end of that year it ____ a map of two hundred miles of shoreline.",pre:{q:"What time does the sentence set?",opts:["The past, with one event finished before a later point","The present","The future","No particular time"]},opts:["had completed","completes","will complete","is completing"],why:"The sentence is set in 1909, and by the end of that year marks a point in the past by which the map was done. That is had completed. The present and future forms move the clock with nothing in the sentence to move it."},
+  {s:"The two ____ findings disagreed on only one point: the age of the lower layer.",pre:{q:"Is the word owning something, and is it one or more than one?",opts:["Owning, more than one","Owning, one","Not owning, more than one","Not owning, one"]},opts:["laboratories'","laboratory's","laboratories","laboratorys'"],why:"Two laboratories own the findings, so the word is plural and possessive: laboratories'. Turn it around to check: the findings of the laboratories."},
+  {s:"Built in 1820 and restored twice, ____.",pre:{q:"Who or what was built in 1820?",opts:["The lighthouse","The ships","The reef","The town"]},opts:["the lighthouse still guides ships past the reef","ships are still guided past the reef by the lighthouse","the reef is still marked by the lighthouse","the town's ships still rely on the lighthouse"],why:"An opening phrase describes whatever comes right after the comma. Only the lighthouse was built and restored, so it has to come first. The other choices say the ships, the reef, or the town's ships were built in 1820."},
+  {s:"Neither the mayor nor the council members ____ willing to delay the vote.",pre:{q:"With neither ... nor, which noun does the verb agree with?",opts:["The nearer one: members","The first one: mayor","Both together","Whichever is more important"]},opts:["were","was","is","has been"],why:"With neither ... nor and either ... or, the verb agrees with the nearer noun. Council members is plural, so were. Swap the order and it would be was: neither the council members nor the mayor was."},
+  {s:"The researchers, who had spent three summers counting the birds on the island, ____ their results in 2024.",pre:{q:"Does the sentence have a main verb yet?",opts:["No: had spent belongs to the who clause, so the researchers still need a verb","Yes: counting is the main verb","Yes: had spent is the main verb","The sentence does not need one"]},opts:["published","publishing","having published","to publish"],why:"Cover the clause between the commas and read what is left: The researchers ____ their results. It needs a finite verb, and only published is one. The other three leave a fragment."},
+  {s:"The orchestra announced that ____ season would open with a work by a living composer.",pre:{q:"Is the orchestra one group or several people here?",opts:["One group, so it","Several people, so they","Both at once","Neither"]},opts:["its","their","it's","there"],why:"A group acting as one, like an orchestra, a council, or a company, takes a singular pronoun: its season. Their treats it as several people, it's means it is, and there is a place."},
+  {s:"The grant paid for repairing the roof, replacing the windows, and ____ the old boiler.",pre:{q:"What form do the other items in the list take?",opts:["A verb ending in -ing","A verb with to","A noun","A past-tense verb"]},opts:["removing","to remove","the removal of","removed"],why:"Items in a list take the same form. The first two are repairing and replacing, so the third is removing."},
+  {s:"A number of the samples ____ contaminated before they reached the lab.",pre:{q:"Does \"a number of the samples\" mean one count or several samples?",opts:["Several samples, so plural","One count, so singular","It could be either","Neither"]},opts:["were","was","has been","is"],why:"A number of means several and takes a plural verb: were. The number of names one count and takes a singular verb: the number of contaminated samples was small."}]},
 };
 const WR_TOTAL=Object.values(WRITING).reduce((a,s)=>a+s.items.length,0);
 const WR_LABEL={";":"A semicolon ( ; )",",":"A comma ( , )",":":"A colon ( : )",".":"A period ( . )","":"No punctuation"};
@@ -4550,13 +4846,13 @@ function renderWriting(){
 document.querySelectorAll("#wr-sets button").forEach(b=>b.addEventListener("click",()=>{ wrSet=b.dataset.set; wrI=0; renderWriting(); }));
 function renderWrItem(){
   const S=WRITING[wrSet], it=S.items[wrI], n=S.items.length; wrStage=0;
-  const seed=wrI*3+({t:1,b:17,n:31})[wrSet];
+  const seed=wrI*3+({t:1,b:17,n:31,f:43})[wrSet];
   const blank=txt=>esc(txt).replace("____",`<span class="blank" id="wr-blank">&nbsp;</span>`);
   const stem=wrSet==="n"?`<p class="small" style="margin-top:.6rem">While researching a topic, a student has taken the following notes:</p><ul class="wr-notes">${it.notes.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="wr-goal">${esc(it.goal)}</p>`:`<p class="sent wr">${blank(it.s)}</p>`;
   const pre=wrSet==="t"?{q:"Step 1. The choices are covered. How does the second sentence stand to the first?",opts:REL,ans:REL.indexOf(it.rel),order:REL.map((_,i)=>i),chips:true}:{q:"Step 1. "+it.pre.q,opts:it.pre.opts,ans:0,order:wrOrder(it.pre.opts.length,seed+5)};
   const order=wrOrder(it.opts.length,seed);
-  const lab=o=>wrSet==="b"&&WR_LABEL[o]!==undefined?WR_LABEL[o]:wrSet==="b"&&o.length<14?`“${o.trim()}”`:o.trim();
-  const q2=wrSet==="t"?"Step 2. Now the choices. Which word names that relationship?":wrSet==="b"?"Step 2. Which choice completes the sentence correctly?":"Step 2. Which choice does what the goal asks?";
+  const lab=o=>wrSet==="b"&&WR_LABEL[o]!==undefined?WR_LABEL[o]:(wrSet==="b"||wrSet==="f")&&o.length<16?`“${o.trim()}”`:o.trim();
+  const q2=wrSet==="t"?"Step 2. Now the choices. Which word names that relationship?":wrSet==="b"?"Step 2. Which choice completes the sentence correctly?":wrSet==="f"?"Step 2. Which choice completes the sentence so that it follows the conventions of Standard English?":"Step 2. Which choice does what the goal asks?";
   $("#wr-card").innerHTML=`<div class="eyebrow">${esc(S.name)} · item ${wrI+1} of ${n}</div>${stem}
     <div id="wr-step1"><p class="q">${esc(pre.q)}</p><div class="${pre.chips?"chips":"opts"}">${pre.order.map(i=>`<label><input type="radio" name="wr-pre" value="${i}">${esc(pre.opts[i])}</label>`).join("")}</div><div class="row"><button class="btn sm" type="button" id="wr-check1">Check</button></div><div id="wr-fb1" aria-live="polite"></div></div>
     <div id="wr-step2" hidden><p class="q" style="margin-top:1.1rem">${q2}</p><div class="opts">${order.map(i=>`<label><input type="radio" name="wr-opt" value="${i}">${esc(lab(it.opts[i]))}</label>`).join("")}</div><div class="row"><button class="btn sm" type="button" id="wr-check2">Check</button></div><div id="wr-fb2" aria-live="polite"></div></div>
@@ -4564,7 +4860,7 @@ function renderWrItem(){
   const card=$("#wr-card"); const d=load("pr-writing",{}); d[wrSet]=d[wrSet]||{}; const rec=d[wrSet][wrI]={at:Date.now()};
   $("#wr-check1").addEventListener("click",()=>{ const o=card.querySelector("input[name=wr-pre]:checked"); if(!o) return toast("Pick one."); if(wrStage!==0) return; wrStage=1; const ok=+o.value===pre.ans; rec.pre=ok; store("pr-writing",d);
     card.querySelectorAll("input[name=wr-pre]").forEach(x=>x.disabled=true);
-    const right=pre.opts[pre.ans];
+    const right=wrSet==="t"?pre.opts[pre.ans]:pre.opts[pre.ans].charAt(0).toUpperCase()+pre.opts[pre.ans].slice(1);
     $("#wr-fb1").innerHTML=fbHtml(wrSet==="t"?(ok?{k:"good",t:right,b:"Yes: "+REL_TEST[right]}:{k:"warn",t:"It is "+right.toLowerCase(),b:"Here "+REL_TEST[right]+" Keep that word in mind and look at the choices."}):(ok?{k:"good",t:"That is the move",b:right+". Now find the choice that fits it."}:{k:"warn",t:"Not quite",b:"The answer is: "+right+". Hold on to that and look at the choices."}));
     $("#wr-step2").hidden=false; });
   $("#wr-check2").addEventListener("click",()=>{ const o=card.querySelector("input[name=wr-opt]:checked"); if(!o) return toast("Pick one."); if(wrStage!==1) return; wrStage=2; const ok=+o.value===0; rec.ans=ok; store("pr-writing",d);
@@ -4677,7 +4973,7 @@ function renderFriday(){
   { const fs=$("#fr-saved"); if(fs) fs.textContent=!SAVE.ok?"This browser is refusing to store progress. Save a file now.":SAVE.at?`Last saved on this device at ${new Date(SAVE.at).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}.`:"Nothing has been saved in this visit yet."; }
   $("#fr-print").onclick=()=>window.print();
   $("#fr-copy").onclick=async()=>{ const t=$("#fr-report").innerText.replace(/\n{3,}/g,"\n\n"); try{ await navigator.clipboard.writeText(t); toast("Report copied as text."); }catch(e){ toast("Copy is not available here; select the report and copy it."); } };
-  $("#fr-export").onclick=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&k!=="pr-diagdraft"){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } Object.entries(UNSAVED).forEach(([k,v])=>{ if(k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&k!=="pr-diagdraft") out[k]=v; }); const blob=new Blob([JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`marlow-progress-${(load("pr-name","student")||"student").toLowerCase().replace(/[^a-z0-9]+/g,"-")}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); $("#fr-io").textContent="Saved. The file holds learning records only; an application form you filled in is not in it. Keep the file; load it on any device to continue."; };
+  $("#fr-export").onclick=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } Object.entries(UNSAVED).forEach(([k,v])=>{ if(k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)) out[k]=v; }); const blob=new Blob([JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`marlow-progress-${(load("pr-name","student")||"student").toLowerCase().replace(/[^a-z0-9]+/g,"-")}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); $("#fr-io").textContent="Saved. The file holds learning records only; an application form you filled in is not in it. Keep the file; load it on any device to continue."; };
   $("#fr-import").onchange=e=>{ const file=e.target.files[0]; e.target.value=""; if(!file) return; const io=$("#fr-io");
     if(file.size>3e6){ io.textContent="That file is larger than any Marlow progress file. Nothing was changed."; return; }
     const rd=new FileReader(); rd.onerror=()=>{ io.textContent="The file could not be read. Nothing was changed."; };
@@ -4694,7 +4990,7 @@ function renderFriday(){
 /* ---------- progress files: validate first, back up, verify, undo ---------- */
 const PR_LIST=["pr-orf","pr-practice","pr-claims","pr-readlog","pr-lessonlog","pr-flags"], PR_RECORD=["pr-lessons","pr-vocab","pr-sentences","pr-writing","pr-read","pr-prefs","pr-modes","pr-exposure"];
 /* A progress file is untrusted input. Every number must be finite and inside the range the app can produce, every identifier must be one the app knows, and nothing may be deeper or longer than the app writes. */
-const LEAD_KEYS=["pr-apply"];
+const LEAD_KEYS=["pr-apply"], DRAFT_KEYS=["pr-diagdraft","pr-work"]; /* contact data and unfinished work: neither travels in a progress file */
 function deepOk(v,depth){ if(depth>8) return false; if(typeof v==="number") return Number.isFinite(v); if(typeof v==="string") return v.length<=20000; if(v===null||typeof v==="boolean") return true; if(Array.isArray(v)) return v.length<=5000&&v.every(x=>deepOk(x,depth+1)); if(typeof v==="object") return Object.keys(v).length<=5000&&Object.entries(v).every(([k,x])=>k!=="__proto__"&&k!=="constructor"&&deepOk(x,depth+1)); return false; }
 const inR=(x,a,b)=>typeof x==="number"&&Number.isFinite(x)&&x>=a&&x<=b, isAt=x=>inR(x,1e11,1e14), optR=(x,a,b)=>x===undefined||x===null||inR(x,a,b);
 function lessonOk(e,needId){ return !!e&&typeof e==="object"&&inR(e.done,0,12)&&inR(e.hints,0,60)&&inR(e.passed,0,60)&&isAt(e.at)&&optR(e.n,1,24)&&(e.title===undefined||typeof e.title==="string")&&optR(e.first,0,12)&&optR(e.keyed,0,12)&&optR(e.keyedFirst,0,12)&&optR(e.review,0,12)&&optR(e.flagged,0,60)&&(!needId||e.id===undefined||(typeof e.id==="string"&&!!LESSONS[e.id])); }
@@ -4703,7 +4999,7 @@ function validateProgress(j){ const errs=[];
   if(j.app!=="marlow") errs.push("It was not saved by Marlow.");
   if(j.version!==1) errs.push(`It is format version ${esc(String(j.version))}, and this app reads version 1; open the newest Marlow and save the file again.`);
   const d=j.data; if(!d||typeof d!=="object"||Array.isArray(d)){ errs.push("It contains no progress records."); return errs; }
-  const keys=Object.keys(d); if(!keys.filter(k=>!LEAD_KEYS.includes(k)&&k!=="pr-diagdraft").length) errs.push("It contains no progress records."); if(keys.length>60) errs.push("It contains more records than Marlow writes.");
+  const keys=Object.keys(d); if(!keys.filter(k=>!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)).length) errs.push("It contains no progress records."); if(keys.length>60) errs.push("It contains more records than Marlow writes.");
   for(const k of keys){ const v=d[k];
     if(!/^pr-[a-z0-9-]{1,24}$/.test(k)){ errs.push(`It has a record Marlow does not write (${k.slice(0,24)}).`); continue; }
     if(PR_LIST.includes(k)&&!Array.isArray(v)) errs.push(`${k} should be a list and is not.`);
@@ -4712,7 +5008,7 @@ function validateProgress(j){ const errs=[];
     if(k==="pr-orf"&&Array.isArray(v)&&v.some(e=>!e||typeof e!=="object"||!inR(e.wpm,1,600)||!inR(e.acc,0,1)||!isAt(e.at)||!optR(e.pros,0,4)||(e.src!==undefined&&!/^[a-z0-9-]{1,24}$/.test(String(e.src))))) errs.push("Its oral reading entries have a speed, accuracy, or date outside what the app can record.");
     if(k==="pr-lessons"&&v&&typeof v==="object"&&!Array.isArray(v)&&Object.entries(v).some(([id,e])=>!LESSONS[id]||!lessonOk(e))) errs.push("Its lesson entries name a lesson this app does not have, or hold a count outside what a lesson can produce.");
     if(k==="pr-lessonlog"&&Array.isArray(v)&&v.some(e=>!lessonOk(e,true))) errs.push("Its lesson log holds an entry outside what a lesson can produce.");
-    if(k==="pr-practice"&&Array.isArray(v)&&v.some(e=>!e||typeof e!=="object"||!["A","B",undefined].includes(e.set)||!["timed","untimed"].includes(e.mode)||!inR(e.score,0,10)||!inR(e.evScore,0,10)||!inR(e.cw,0,10)||!inR(e.secs,0,86400)||!isAt(e.at)||(e.flags!==undefined&&(e.flags===null||typeof e.flags!=="object"||Object.entries(e.flags).some(([p,n])=>!PATTERNS[p]||!inR(n,0,10)))))) errs.push("Its practice sections hold a set, mode, score, or time the app cannot produce.");
+    if(k==="pr-practice"&&Array.isArray(v)&&v.some(e=>!e||typeof e!=="object"||!["A","B","C",undefined].includes(e.set)||!["timed","untimed"].includes(e.mode)||!inR(e.score,0,10)||!inR(e.evScore,0,10)||!inR(e.cw,0,10)||!inR(e.secs,0,86400)||!isAt(e.at)||(e.flags!==undefined&&(e.flags===null||typeof e.flags!=="object"||Object.entries(e.flags).some(([p,n])=>!PATTERNS[p]||!inR(n,0,10)))))) errs.push("Its practice sections hold a set, mode, score, or time the app cannot produce.");
     if(k==="pr-diag"&&(v===null||typeof v!=="object"||Array.isArray(v)||(v.passages!==undefined&&(v.passages===null||typeof v.passages!=="object"||Object.entries(v.passages).some(([p,e])=>!DIAG[p]||!e||!inR(e.correct,0,4)))))) errs.push("Its diagnostic names a passage this app does not have, or a score outside 0 to 4.");
     if(k==="pr-claims"&&Array.isArray(v)&&v.some(e=>!e||typeof e!=="object"||typeof e.text!=="string"||!isAt(e.at))) errs.push("Its saved claims are missing their text or a date.");
     if(k==="pr-vocab"&&v&&typeof v==="object"&&!Array.isArray(v)&&Object.values(v).some(e=>!e||typeof e!=="object"||!inR(e.next,0,1e14)||!optR(e.reviews,0,10))) errs.push("Its word list holds a review date or count the app cannot produce."); }
@@ -4735,7 +5031,7 @@ function outcomeRows(){
   if(diag&&diag.passages){ const c=Object.values(diag.passages).reduce((a,p)=>a+(p.correct||0),0), n=Object.keys(diag.passages).length*4; rows.push(["Diagnostic, reading items",`${c} of ${n}`,"","The baseline; taken once"]); }
   if(orf.length){ const a=orf[0], b=orf[orf.length-1]; rows.push([orfName+", words per minute",`${a.wpm} (${day(a.at)})`,orf.length>1?`${b.wpm} (${day(b.at)})`:"",orf.length>1?`${b.wpm-a.wpm>=0?"+":""}${b.wpm-a.wpm} over ${orf.length} readings${cps.length?"":"; different passages, so not a controlled comparison"}`:"One reading so far"]);
     rows.push([orfName+", accuracy",`${Math.round(a.acc*100)}%`,orf.length>1?`${Math.round(b.acc*100)}%`:"",orf.length>1?`${Math.round((b.acc-a.acc)*100)>=0?"+":""}${Math.round((b.acc-a.acc)*100)} points`:""]); }
-  if(prac.length){ const a=prac[0], b=prac[prac.length-1]; rows.push(["Practice section, right with the right sentence",`${a.evScore} of 10 (Set ${a.set||"A"}, ${day(a.at)})`,prac.length>1?`${b.evScore} of 10 (Set ${b.set||"A"}, ${day(b.at)})`:"",prac.length>1?`${b.evScore-a.evScore>=0?"+":""}${b.evScore-a.evScore}${prac.slice(0,-1).some(x=>(x.set||"A")===(b.set||"A"))?`; Set ${b.set||"A"} was attempted before, so partly memory`:`; first recorded attempt at Set ${b.set||"A"}`}${b.exposed?"; the book's key had been opened":""}${(a.mode||"")!==(b.mode||"")?`; ${a.mode==="timed"?"timed":"untimed"} against ${b.mode==="timed"?"timed":"untimed"}, so the conditions changed too`:""}`:"One section so far"]); }
+  if(prac.length){ const a=prac[0], b=prac[prac.length-1]; rows.push(["Practice section, right with the right sentence",`${a.evScore} of 10 (Set ${a.set||"A"}, ${day(a.at)})`,prac.length>1?`${b.evScore} of 10 (Set ${b.set||"A"}, ${day(b.at)})`:"",prac.length>1?`${b.evScore-a.evScore>=0?"+":""}${b.evScore-a.evScore}${prac.slice(0,-1).some(x=>(x.set||"A")===(b.set||"A"))?`; Set ${b.set||"A"} was attempted before, so partly memory`:`; first recorded attempt at Set ${b.set||"A"}`}${b.exposed?"; the book's key had been opened":""}${((a.set||"A")==="C")!==((b.set||"A")==="C")?"; one is the digital SAT format and the other is not":""}${(a.mode||"")!==(b.mode||"")?`; ${a.mode==="timed"?"timed":"untimed"} against ${b.mode==="timed"?"timed":"untimed"}, so the conditions changed too`:""}`:"One section so far"]); }
   if(lessons.length>=2){ const k=Math.min(3,Math.floor(lessons.length/2)); const A=agg(lessons.slice(0,k)), B=agg(lessons.slice(-k)); if(A&&B){ rows.push([`Hints per task, first ${k} lesson${k>1?"s":""} against last ${k}`,String(A.hpt),String(B.hpt),`${B.hpt-A.hpt<=0?"":"+"}${(B.hpt-A.hpt).toFixed(1)}; lower is better`]); rows.push([`Right on the first check, first ${k} against last ${k}`,A.pass==null?"not recorded":A.pass+"%",B.pass==null?"not recorded":B.pass+"%",A.pass==null||B.pass==null?"Earlier lessons did not record the order of attempts, so no comparison is made":`${B.pass-A.pass>=0?"+":""}${B.pass-A.pass} points`]); } }
   else if(lessons.length===1) rows.push(["Lessons","1 done","","Two lessons are needed before a comparison means anything"]);
   return rows; }
@@ -4764,6 +5060,47 @@ function renderTutor(){
     if(f.mi===undefined){ o.textContent="Example only: nothing is saved or sent. "+DEC[b.dataset.d]; return; }
     const fl=load("pr-flags",[]); if(fl[f.mi]){ fl[f.mi].decision={d:b.dataset.d,at:Date.now()}; store("pr-flags",fl); } o.textContent="Decision saved on this device: "+DEC[b.dataset.d]; }));
 }
+
+/* ---------- tutor: read a student's progress file ---------- */
+/* There is no tutor inbox. The working path is a file the student sends, so the tutor's side has to be able to read one:
+   everything is rendered from the file in memory, every value is escaped, and nothing is written to this device's records. */
+function renderStudentFile(d,label){
+  const A=x=>Array.isArray(x)?x:[], O=x=>x&&typeof x==="object"&&!Array.isArray(x)?x:{}, N=x=>Number.isFinite(+x)?+x:0, day=t=>N(t)?new Date(N(t)).toLocaleDateString():"", S=x=>esc(String(x==null?"":x));
+  const name=typeof d["pr-name"]==="string"&&d["pr-name"].trim()?d["pr-name"].trim():"this student";
+  const flags=A(d["pr-flags"]).filter(x=>x&&typeof x==="object"), diag=O(d["pr-diag"]), prac=A(d["pr-practice"]), claims=A(d["pr-claims"]), orf=A(d["pr-orf"]);
+  const log=A(d["pr-lessonlog"]).length?A(d["pr-lessonlog"]):Object.entries(O(d["pr-lessons"])).map(([id,x])=>({id,...O(x)}));
+  const passages=Object.entries(O(diag.passages)).filter(([k])=>DIAG[k]); const CONF=["","Guess","Unsure","Fairly sure","Certain"];
+  const open=flags.filter(x=>!x.decision);
+  let h=`<div class="eyebrow" style="margin-top:1.4rem">Reading ${S(name)}'s file${label?` · ${S(label)}`:""}</div>
+    <div class="t-sum"><span><b>${open.length}</b>answer${open.length===1?"":"s"} waiting for you</span><span><b>${passages.length}</b>diagnostic passage${passages.length===1?"":"s"}</span><span><b>${log.length}</b>lesson session${log.length===1?"":"s"}</span><span><b>${prac.length}</b>practice section${prac.length===1?"":"s"}</span><span><b>${claims.length}</b>saved claim${claims.length===1?"":"s"}</span></div>`;
+  h+=`<h4>Waiting for you</h4>`+(flags.length?flags.map((x,i)=>`<div class="t-item" data-f="${i}"><div class="small"><span class="pill">${x.kind==="review"?"Saved for review":"Disagreed with feedback"}</span> ${S(x.lesson)} · ${S(x.task)}${x.at?` · ${day(x.at)}`:""}</div><div class="sample mt1">${S(x.response)}</div><p class="small mt1">Coach said: <b>${S(x.fb)}</b>${x.decision&&x.decision.d?` · decided earlier: ${S(x.decision.d)}`:""}</p><div class="row mt1 t-dec"><button class="btn ghost sm" type="button" data-d="Give credit" aria-pressed="false">Give credit</button><button class="btn ghost sm" type="button" data-d="Uphold the feedback" aria-pressed="false">Uphold the feedback</button><button class="btn ghost sm" type="button" data-d="Discuss in session" aria-pressed="false">Discuss in session</button></div></div>`).join("")+`<div class="row mt1"><button class="btn sm" type="button" id="t-copy">Copy my notes for ${S(name)}</button><span class="small" id="t-copied"></span></div><textarea id="t-notes" class="mt1" rows="6" hidden readonly aria-label="Review notes"></textarea>`:`<p class="small">Nothing was saved for review, and no feedback was disputed.</p>`);
+  h+=`<h4>Diagnostic: the written reasons</h4>`+(passages.length?passages.map(([k,p])=>{ const P=DIAG[k]; const items=A(O(p).items); const fl=Object.entries(O(O(p).flags)).filter(([q])=>PATTERNS[q]).map(([q,n])=>`${S(PATTERNS[q].name)} (${N(n)})`).join("; ");
+      return `<p class="small"><b>${S(P.title)}</b> · ${N(p.correct)} of 4${p.at?` · ${day(p.at)}`:""}${fl?` · flagged: ${fl}`:""}</p>`+(items.length?`<div class="tabwrap"><table><tr><th>Question</th><th>Answer</th><th>Evidence</th><th>Confidence</th><th>Written reason</th></tr>${items.map(it=>{ it=O(it); return `<tr><td>${S(it.skill)}</td><td>${S(it.choiceText)} <span class="pill ${it.right?"good":"crit"}">${it.right?"Right":"Wrong"}</span></td><td>${A(it.ev).map(e=>N(e)+1).join(", ")||"none"} <span class="pill ${it.evOk?"good":"warn"}">${it.evOk?"Matches":"Does not match"}</span></td><td>${S(CONF[N(it.conf)]||"")}</td><td class="why">${S(it.why)||"<span class=\"muted\">none written</span>"}</td></tr>`; }).join("")}</table></div>`:`<p class="small">Taken before the app saved each response, so only the score is in the file.</p>`); }).join(""):`<p class="small">No diagnostic in this file.</p>`);
+  h+=`<h4>Lessons</h4>`+(log.length?`<div class="tabwrap"><table><tr><th>Date</th><th>Lesson</th><th>Hints</th><th>First check</th><th>In the end</th><th>For review</th></tr>${log.slice(-30).reverse().map(x=>{ x=O(x); return `<tr><td>${day(x.at)}</td><td>${N(x.n)}. ${S(x.title)}</td><td class="num">${N(x.hints)}</td><td class="num">${x.v===2?`${N(x.first)} of ${N(x.done)}`:"not recorded"}</td><td class="num">${Math.min(N(x.passed),N(x.done))} of ${N(x.done)}</td><td class="num">${N(x.review)+N(x.flagged)}</td></tr>`; }).join("")}</table></div><p class="small mt1">First check counts a task only when the first answer was right. Written answers are matched by pattern, so read a sample of them in the claims below.</p>`:`<p class="small">No lessons finished yet.</p>`);
+  h+=`<h4>Practice sections</h4>`+(prac.length?`<div class="tabwrap"><table><tr><th>Date</th><th>Set</th><th>Mode</th><th>Score</th><th>With evidence</th><th>Certain and wrong</th><th>Time</th><th>Conditions</th></tr>${prac.slice(-12).reverse().map(x=>{ x=O(x); const sec=N(x.secs); return `<tr><td>${day(x.at)}</td><td>${S(x.set||"A")}</td><td>${x.mode==="timed"?"Timed":"Untimed"}</td><td class="num">${N(x.score)} of 10</td><td class="num">${N(x.evScore)} of 10</td><td class="num">${N(x.cw)}</td><td class="num">${Math.floor(sec/60)}:${String(sec%60).padStart(2,"0")}</td><td>${N(x.attempt)>1?`attempt ${N(x.attempt)} at this set`:"first recorded attempt"}${x.exposed?"; the book's key had been opened":""}</td></tr>`; }).join("")}</table></div>`:`<p class="small">No practice sections yet.</p>`);
+  h+=`<h4>Recent claims and summaries</h4>`+(claims.length?claims.slice(0,8).map(x=>{ x=O(x); return `<div class="t-item"><div class="small">${S(x.title)}${x.at?` · ${day(x.at)}`:""}${x.ev?` · evidence: ${S(typeof x.ev==="number"?"sentence "+x.ev:x.ev)}`:""}</div><div class="sample mt1">${S(x.text)}</div></div>`; }).join(""):`<p class="small">No accepted claims yet.</p>`);
+  h+=`<h4>Oral reading</h4>`+(orf.length?`<div class="tabwrap"><table><tr><th>Date</th><th>Source</th><th>Words a minute</th><th>Accuracy</th></tr>${orf.slice(-6).reverse().map(x=>{ x=O(x); return `<tr><td>${day(x.at)}</td><td>${S({checkpoint:"Checkpoint",warmup:"Lesson warm-up",diagnostic:"Diagnostic screen"}[x.src]||"Reading")}</td><td class="num">${N(x.wpm)}</td><td class="num">${Math.round(N(x.acc)*100)}%</td></tr>`; }).join("")}</table></div><p class="small mt1">Self-timed and self-scored unless you ran the checkpoint yourself.</p>`:`<p class="small">No readings recorded.</p>`);
+  const box=$("#t-review"); box.innerHTML=h; const dec={};
+  box.querySelectorAll(".t-dec button").forEach(b=>b.addEventListener("click",()=>{ const i=b.closest(".t-item").dataset.f; const on=b.getAttribute("aria-pressed")==="true"; b.parentNode.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false")); if(on) delete dec[i]; else { b.setAttribute("aria-pressed","true"); dec[i]=b.dataset.d; } }));
+  const cp=$("#t-copy"); if(cp) cp.addEventListener("click",()=>{ const lines=flags.map((x,i)=>`${x.lesson||"Lesson"} · ${x.task||"task"}: ${dec[i]||"not yet decided"}.\n  You wrote: "${String(x.response||"").slice(0,400)}"\n  The coach said: ${x.fb||""}`); const txt=`Review notes for ${name}, ${new Date().toLocaleDateString()}\n\n${lines.join("\n\n")}`; const ta=$("#t-notes"); ta.hidden=false; ta.value=txt; const done=()=>{ $("#t-copied").textContent="Copied. Paste it into your reply to the student."; }; if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done,()=>{ ta.select(); $("#t-copied").textContent="Select the text below and copy it."; }); else { ta.select(); $("#t-copied").textContent="Select the text below and copy it."; } });
+}
+(function(){ const pick=$("#t-pick"), file=$("#t-file"), box=$("#t-review"); if(!pick) return; const say=t=>{ box.innerHTML=`<div class="fb warn mt1"><b>Not opened</b>${esc(t)}</div>`; };
+  pick.addEventListener("click",()=>file.click());
+  file.addEventListener("change",e=>{ const fl=e.target.files[0]; e.target.value=""; if(!fl) return; if(fl.size>3e6) return say("That file is larger than any Marlow progress file.");
+    const rd=new FileReader(); rd.onerror=()=>say("The file could not be read."); rd.onload=()=>{ let j; try{ j=JSON.parse(rd.result); }catch(err){ return say("That file is not valid JSON, so it is not a Marlow progress file."); } const errs=validateProgress(j); if(errs.length) return say(errs.join(" ")); renderStudentFile(j.data,(j.saved?"saved "+new Date(j.saved).toLocaleDateString():fl.name)); }; rd.readAsText(fl); });
+  $("#t-own").addEventListener("click",()=>{ const d={}; Object.entries(currentProgress()).forEach(([k,v])=>{ if(!LEAD_KEYS.includes(k)){ try{ d[k]=JSON.parse(v); }catch(e){} } }); renderStudentFile(d,"the work on this device"); });
+})();
+
+/* ---------- workspace on a phone: the passage and the question are one tap apart, and each keeps its place ---------- */
+(function(){ const bar=$("#ws-bar"); if(!bar) return; const Y={p:null,q:null};
+  const top=q=>$(q).getBoundingClientRect().top+window.scrollY, off=()=>{ const n=document.querySelector(".nav"); return (n?n.offsetHeight:0)+10; };
+  const paneAt=y=>y+off()+60>=top("#w-progress")||y+window.innerHeight>=document.documentElement.scrollHeight-4?"q":"p", where=()=>paneAt(window.scrollY);
+  const mark=()=>{ const w=where(); bar.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.p===w))); };
+  bar.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{ const cur=where(), to=b.dataset.p; Y[cur]=window.scrollY;
+    const home=top(to==="q"?"#w-progress":"#w-passage")-off(); const y=to!==cur&&Y[to]!=null&&paneAt(Y[to])===to?Y[to]:home; window.scrollTo({top:Math.max(0,y)}); setTimeout(mark,80); }));
+  let tk=null; window.addEventListener("scroll",()=>{ if(tk) return; tk=setTimeout(()=>{ tk=null; if(!$("#v-workspace").hidden) mark(); },120); },{passive:true});
+  window.wsSel=t=>{ $("#ws-sel").textContent=t; };
+})();
 
 route();
 </script>
