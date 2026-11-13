@@ -17,8 +17,10 @@ This repository holds the Marlow website and learning app as a single self-conta
 | The evidence coach | Rules, not a reader. The sentence pick and the multiple choice in each lesson are scored outright. The two written answers are matched by pattern and labeled provisional: the coach checks that an answer is about the passage, does not assert the cause the task questions, and does not reverse the verb it is about, and when it is unsure the student can continue with the answer saved for a tutor and not counted as passed |
 | Tutor review | There is no tutor inbox. A flagged answer is saved on the student's device and travels in the progress file the student sends. The tutor opens that file in the Tutor view, read only, to see the written reasons, the saved answers, and each lesson's record. The app never says an answer was sent |
 | The free diagnostic | A provisional screen of answer, evidence sentence, and confidence. It saves the written reasons and does not score them |
+| The offer | Three packages, each sold whole at one price: the Reading Assessment ($250, credited toward the Program), the Marlow Program ($3,980, guaranteed), and the Cohort ($1,950). Adult candidates have their own page: the Program for U.S. candidates and Verbal Edge ($5,980) for international candidates, which adds help through admissions. No hourly rates appear on the site, and a test fails if one returns |
 | Checkout | Off. Paste a payment link into `CHECKOUT` in `index.html` and that offer's button on the Programs page becomes a pay button |
-| The application form | Does not send anything by itself. It prepares an email for the visitor to send, and says so. Set `APPLY_ENDPOINT` in `index.html` to a form service or backend to turn on real delivery |
+| Capacity | Only tutors who can be booked are listed, and no seat shows as open before enrollment opens (`CAP` and `CAP_OPEN` in `index.html`) |
+| The request form | Every program button carries its program into the form; the form addresses an adult candidate as one (test, date, time zone); a free-diagnostic result can be attached with the visitor's consent. Does not send anything by itself. It prepares an email for the visitor to send, and says so. Set `APPLY_ENDPOINT` in `index.html` to a form service or backend to turn on real delivery |
 | Tutor view and the example six-week report | Illustrations with invented data, labeled as such |
 | Results | None published. The founding cohort has not run; no outcome on this site is a measured result |
 
@@ -26,7 +28,7 @@ This repository holds the Marlow website and learning app as a single self-conta
 
 | Area | Pages |
 | --- | --- |
-| Public site | Home, Method, How we work, Training, Programs, Book, International (Verbal Edge), Schools, Team, Apply, Policies |
+| Public site | Menu: Method, Programs, The book, About, Try the app. Footer: How we work, Training, Adult candidates (Verbal Edge), Schools, Tips, Policies. Plus Home and the request form |
 | Learning app | Today (the hub: routine, numbers, next step), Diagnostic, Lesson library, Workspace, Fluency track, Word banks, Worked examples, Practice sections, Sentence unpacking, Transitions and grammar drills, Long reads, Tips, Review notebook, Example report, Tutor view |
 
 ### The method

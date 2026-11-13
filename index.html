@@ -113,7 +113,45 @@ button{font:inherit;cursor:pointer}
 .cols p{font-size:1rem;color:var(--muted)}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;counter-reset:s}
 .steps>div{counter-increment:s;background:var(--paper);padding:1.4rem;border:1px solid var(--rule)}
+.steps .st-price{font-family:var(--display);font-size:1.15rem;color:var(--muted);margin:.25rem 0 .55rem}
 .steps>div::before{content:"Step " counter(s);display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);font-weight:600;margin-bottom:.6rem}
+/* packages: one price, one name, what is in the box */
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:stretch}
+.pkgs.two{grid-template-columns:repeat(2,1fr)}
+.pkg{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--ink);padding:1.9rem 1.7rem 1.7rem;min-width:0}
+.pkg.lead{border-color:var(--crimson);box-shadow:var(--shadow)}
+.pkg .pk-tag{position:absolute;top:-.85rem;left:1.6rem;background:var(--crimson);color:var(--crimson-ink);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.22rem .6rem}
+.pkg .pk-step{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--crimson)}
+.pkg h3{font-size:1.85rem;margin:.7rem 0 .4rem}
+.pkg .pk-for{color:var(--muted);font-size:1rem;margin:0;min-height:4.65em}
+.pkg .pk-price{font-family:var(--display);font-size:3.3rem;line-height:1;margin-top:1.3rem;font-weight:500}
+.pkg .pk-terms{font-size:.92rem;color:var(--muted);margin:.45rem 0 0;padding-bottom:1.2rem;border-bottom:1px solid var(--rule)}
+.pkg .pk-terms b{color:var(--ink);font-weight:600}
+.pkg ul{list-style:none;margin:1.2rem 0 0;padding:0;flex:1;display:grid;gap:.65rem;align-content:start}
+.pkg li{position:relative;padding-left:1.55rem;font-size:1rem}
+.pkg li::before{content:"";position:absolute;left:.1rem;top:.42em;width:.62rem;height:.34rem;border-left:2px solid var(--crimson);border-bottom:2px solid var(--crimson);transform:rotate(-45deg)}
+.pkg .pk-fine{font-size:.88rem;color:var(--muted);margin:1.3rem 0 0;padding-top:.9rem;border-top:1px solid var(--rule)}
+.pkg .btn{margin-top:1.3rem;text-align:center}
+.pk-note{margin-top:1.6rem;font-size:1rem;color:var(--muted);max-width:46rem}
+.inside{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);counter-reset:i}
+.inside>div{counter-increment:i;padding:1.4rem 1.6rem 1.5rem 0;border-bottom:1px solid var(--rule);font-size:1rem;color:var(--muted)}
+.inside>div::before{content:counter(i,decimal-leading-zero);display:block;font-family:var(--display);font-size:1.05rem;color:var(--crimson);margin-bottom:.5rem}
+.inside b{display:block;font-family:var(--display);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:.3rem}
+.also{border-top:1px solid var(--ink)}
+.also>div{display:grid;grid-template-columns:13rem 1fr 9rem 9.5rem;gap:.4rem 2rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.also b{font-family:var(--display);font-size:1.25rem;font-weight:500}
+.also span{color:var(--muted);font-size:1rem}
+.also .pr{font-family:var(--display);font-size:1.15rem;color:var(--ink)}
+.also .pr small{font-family:var(--body);font-size:.85rem;color:var(--muted)}
+.also a{justify-self:end;white-space:nowrap}
+.also-h{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--crimson);margin:2.4rem 0 .7rem}
+.also-h:first-child{margin-top:0}
+.cmp td:nth-child(n+2),.cmp th:nth-child(n+2){width:30%}
+.cmp .no{color:var(--muted)}
+.cmp .yes{font-weight:600}
+@media (max-width:359px){.nav nav{mask-image:linear-gradient(to right,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,#000 90%,transparent)}}
+@media (max-width:980px){.pkgs,.pkgs.two{grid-template-columns:1fr;max-width:34rem;gap:2.2rem}.pkg .pk-for{min-height:0}.inside{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.inside{grid-template-columns:1fr}.inside>div{padding-right:0}.also>div{grid-template-columns:1fr auto}.also>div span{grid-column:1/-1;grid-row:2}.also>div a{grid-column:1/-1;justify-self:start;padding:.55rem 0}.pkg .pk-price{font-size:2.9rem}}
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
 .tier{border:1px solid var(--rule);padding:1.6rem;display:flex;flex-direction:column;gap:.8rem;background:var(--paper)}
 .tier.lead{border-color:var(--crimson);box-shadow:var(--shadow)}
@@ -130,7 +168,17 @@ input,select,textarea{font:inherit;padding:.6rem .7rem;border:1px solid var(--ru
 textarea{min-height:96px;resize:vertical}
 .notice{padding:1rem 1.2rem;border-left:3px solid var(--crimson);background:var(--crimson-tint)}
 footer{border-top:1px solid var(--rule);padding-block:2rem;font-size:.9rem;color:var(--muted)}
+footer.site{background:var(--band);padding-block:3rem 1.6rem;margin-top:1rem}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem 2.5rem}
+.foot b{display:block;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:.7rem}
+.foot nav a{display:block;color:var(--muted);text-decoration:none;padding:.28rem 0;font-size:.95rem}
+.foot nav a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--crimson);text-underline-offset:3px}
+.foot .brand{color:var(--ink)}
+.foot-brand p{margin:.7rem 0 0;font-family:var(--display);font-size:1.1rem;color:var(--muted);max-width:16rem}
+.foot-legal{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:1rem;font-size:.85rem}
+@media (max-width:900px){.foot{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer.site .wrap.foot{display:grid}
 .faq details{border-top:1px solid var(--rule);padding:1rem 0}
 .faq details:last-child{border-bottom:1px solid var(--rule)}
 .faq summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between}
@@ -233,6 +281,14 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
   .ws-bar span{font-size:.85rem;color:var(--muted);text-align:center;flex:1;min-width:0}
   #v-workspace:not([hidden])~.toast{bottom:calc(5rem + env(safe-area-inset-bottom,0px))}}
 h1:focus,h2:focus{outline:none}
+.next3{list-style:none;counter-reset:n;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:0 0 2rem;padding:0;max-width:60rem}
+.next3 li{counter-increment:n;border-top:2px solid var(--rule);padding-top:.7rem;font-size:.95rem}
+.next3 li::before{content:counter(n);display:block;font-family:var(--display);font-size:1.5rem;color:var(--crimson);line-height:1;margin-bottom:.3rem}
+.next3 li b{display:block}
+.form .check-row{display:flex;align-items:center;gap:.6rem;font-weight:500}
+.form .check-row input{width:auto}
+@media (max-width:900px){.next3{grid-template-columns:1fr;gap:.7rem}}
+.focus-task #appbar .ab-top a,.focus-task #appbar .ab-sub{display:none}
 .toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:.7rem 1.1rem;border-radius:2px;font-size:.95rem;z-index:20;max-width:90vw}
 .units{display:grid;gap:1.6rem}
 .unit h3{margin-bottom:.6rem}
@@ -487,8 +543,8 @@ h1:focus,h2:focus{outline:none}
 .demo-q button:hover{border-color:var(--crimson);background:var(--crimson-tint)}
 .demo-moves button.next{border-color:var(--crimson);box-shadow:0 0 0 2px var(--crimson-tint)}
 @media (max-width:900px){.demo-wide .demo-body{grid-template-columns:1fr;gap:1.3rem}.hero-home{padding-block:2rem 2.2rem}.demo-wide{padding:1.1rem 1.1rem 1.2rem}
-  /* on a phone the passage comes straight after the headline; the pitch and the buttons follow it */
-  .hero-home .wrap{display:flex;flex-direction:column;gap:1.4rem}.hh-top{display:contents}.hh-top>div:first-child{order:1}.hero-home .demo{order:2}.hh-top>div:last-child{order:3}}
+  /* on a phone: who it is for, the offer and its buttons, then the passage to try */
+  .hh-top{grid-template-columns:1fr;gap:1rem;margin-bottom:1.6rem}.hero-home p.lede{font-size:1.05rem}}
 .prof{display:grid;grid-template-columns:1fr 1.25fr;gap:3rem;align-items:center;margin-top:3rem}
 .prof>*{min-width:0}
 .prof-say h3{font-size:clamp(1.5rem,2.4vw,2rem);margin:.5rem 0 1rem}
@@ -635,7 +691,9 @@ p,li,dd{text-wrap:pretty}
   .nav nav{mask-image:linear-gradient(to right,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,#000 90%,transparent)}
   .nav nav a.btn{display:none}
   .apply-m{display:inline-block;margin-left:auto}
-  .nav nav .sep{flex:0 0 1px}
+  .nav nav .sep{display:none}
+  .nav nav{justify-content:space-between;gap:.5rem;mask-image:none;-webkit-mask-image:none}
+  .nav nav a{font-size:.9rem}
   .appbar .wrap{flex-wrap:nowrap;overflow-x:auto;gap:1.1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .appbar .wrap::-webkit-scrollbar{display:none}
   .appbar a{white-space:nowrap}
@@ -709,20 +767,15 @@ p,li,dd{text-wrap:pretty}
 
 <header class="nav"><h1 class="sr-only" id="pagetitle">Marlow</h1><div class="wrap">
   <a class="brand" href="#home"><span class="mark">M</span>Marlow</a>
-  <a class="btn sm apply-m" href="#apply">Apply</a>
-  <nav id="nav">
+  <a class="btn sm apply-m" href="#apply" data-int="Reading Assessment">Get the assessment</a>
+  <nav id="nav" aria-label="Main">
     <a href="#method" data-v="method">Method</a>
-    <a href="#how" data-v="how">How we work</a>
-    <a href="#training" data-v="training">Training</a>
     <a href="#programs" data-v="programs">Programs</a>
-    <a href="#book" data-v="book">Book</a>
-    <a href="#international" data-v="international">International</a>
-    <a href="#schools" data-v="schools">Schools</a>
-    <a href="#team" data-v="team">Team</a>
-    <a href="#tips" data-v="tips">Resources</a>
+    <a href="#book" data-v="book">The book</a>
+    <a href="#team" data-v="team">About</a>
     <span class="sep"></span>
     <a href="#today" data-v="today">Try the app</a>
-    <a class="btn sm" href="#apply">Apply</a>
+    <a class="btn sm" href="#apply" data-int="Reading Assessment">Get the assessment</a>
   </nav>
 </div></header>
 <div class="appbar" id="appbar" hidden><nav class="wrap" aria-label="App sections">
@@ -752,11 +805,11 @@ p,li,dd{text-wrap:pretty}
       </div>
       <div>
         <p class="lede">Your student reads fluently, earns A's in English, and scores a 640. The problem is not reading; it is what to do with a sentence that contains a qualifier, a turn, or someone else's view. We teach that, measure it on texts the student has never seen, and guarantee the result.</p>
-        <div class="cta"><a class="btn" href="#programs">Start with the $250 Starter Kit</a><a class="btn ghost" href="#diagnostic">Take the free 10-minute diagnostic</a></div>
+        <div class="cta"><a class="btn" href="#programs">Start with the $250 Reading Assessment</a><a class="btn ghost" href="#diagnostic">Take the free 10-minute diagnostic</a></div>
       </div>
     </div>
     <div class="demo demo-wide" id="demo" aria-label="The method, on one short passage">
-      <div class="demo-head"><span>Three sentences. Try it before you read anything else.</span><span id="demo-name">A fast reader comes away with "the curfew worked."</span></div>
+      <div class="demo-head"><span>Three sentences. Try the method on them.</span><span id="demo-name">A fast reader comes away with "the curfew worked."</span></div>
       <div class="demo-body">
         <p class="demo-text"><span class="ds" data-s="0">Last spring the council adopted a nine o'clock curfew for the downtown parks.</span> <span class="ds" data-s="1">Nearly every town that has tried one reported fewer complaints, though few reported fewer incidents.</span> <span class="ds" data-s="2">The council called the results encouraging.</span></p>
         <div class="demo-side">
@@ -779,12 +832,12 @@ p,li,dd{text-wrap:pretty}
     <div class="avatars">
       <div class="avatar lead"><div class="eyebrow">Families</div><h3>The 640 student</h3><div class="who">Grades 9 to 11. Selective public or independent school. 600 to 680 on SAT Reading and Writing, or 26 to 30 ACT Reading.</div>
         <ul><li>"She's a good reader, she just rushes."</li><li>Tried a prep class and a tutor; the score moved 20 points</li><li>A test date or a counselor meeting on the calendar</li><li>Does not want to be the one who nags</li></ul>
-        <div class="go"><a class="btn" href="#programs">Starter Kit, $250</a></div></div>
+        <div class="go"><a class="btn" href="#programs">Reading Assessment, $250</a></div></div>
       <div class="avatar"><div class="eyebrow">Adult candidates</div><h3>The MBA or law applicant</h3><div class="who">GRE, GMAT, or LSAT inside 90 days. Verbal is the section you cannot brute-force.</div>
         <ul><li>Quant is fine; reading comprehension and critical reasoning are not</li><li>Two prep courses done, hundreds of official questions, same plateau</li><li>Wants a diagnosis and a tutor who scored higher than they need</li><li>Booth, West Point, and veteran networks first</li></ul>
-        <div class="go"><a class="btn ghost" href="#apply">Request a call</a></div></div>
+        <div class="go"><a class="btn ghost" href="#international">See the adult packages</a></div></div>
       <div class="avatar"><div class="eyebrow">International candidates</div><h3>The verbal gap</h3><div class="who">Applying from India, China, Korea, or elsewhere in Asia to a top U.S. or European program. Strong in English, still losing verbal questions.</div>
-        <ul><li>Qualifiers, reasoning verbs, and whose view a sentence reports</li><li>Stamina over 45 minutes of dense prose</li><li>Sessions in your evening, from Chicago</li><li>$299 an hour, prepaid blocks, guaranteed band</li></ul>
+        <ul><li>Qualifiers, reasoning verbs, and whose view a sentence reports</li><li>Stamina over 45 minutes of dense prose</li><li>Sessions in your evening, from Chicago</li><li>One package: verbal preparation and help through admissions</li></ul>
         <div class="go"><a class="btn ghost" href="#international">Verbal Edge for international candidates</a></div></div>
     </div>
     <div class="card mt2" style="max-width:44rem"><div class="eyebrow">Not sure which? Sixty seconds.</div><p class="small" style="margin:.4rem 0 .8rem">Check what is true. We route you, and we tell you if we are the wrong fit.</p>
@@ -806,7 +859,7 @@ p,li,dd{text-wrap:pretty}
       <p class="quote">"The passage was fine. I just picked the answer that sounded right."</p>
       <div class="prose">
         <p>That sentence is the whole problem. By 9th grade most strong students decode perfectly. What they have never been taught is what to do when a sentence contains a qualifier, when a paragraph turns against itself, or when a writer reports someone else's view without endorsing it. They choose plausible answers without checking the evidence, and the score stays put no matter how many practice tests they take.</p>
-        <p>Test-prep classes drill question types. Generic tutors reteach grammar. Neither names the specific reasoning error, so neither fixes it. The Marlow Method does one thing on every passage: find the sentence, ask how far it goes, and write down why.</p>
+        <p>Most test prep drills question types or reteaches grammar. Neither names the specific reasoning error, so neither fixes it. The Marlow Method does one thing on every passage: find the sentence, ask how far it goes, and write down why.</p>
         <p><a class="more" href="#method">Read the method</a></p>
       </div>
     </div>
@@ -829,11 +882,12 @@ p,li,dd{text-wrap:pretty}
   <section class="section"><div class="wrap">
     <div class="head"><div class="eyebrow">How it works</div><h2>One routine, repeated until it runs without help.</h2></div>
     <div class="steps">
-      <div><h3>Starter Kit</h3><p class="small">A 45-minute diagnostic with a tutor, the book, the materials, and 30 days in the workspace. You leave with a one-page profile that names the error pattern in your student's own answers.</p></div>
-      <div><h3>The block</h3><p class="small">Ten or twenty hours with a trained tutor, remote or in person, in weekly sessions plus three 20-minute workspace sessions between. Practice test at hour 0, 10, and 20.</p></div>
-      <div><h3>Friday report</h3><p class="small">One page every Friday: oral reading speed and accuracy, the independent score on an unfamiliar text, hints used, and one thing to ask at dinner. No badges, no streaks.</p></div>
-      <div><h3>Membership</h3><p class="small">After the block, a weekly small-group session and the workspace keep the gains. Most families stay four months; cancel any time.</p></div>
+      <div><h3>The Reading Assessment</h3><div class="st-price num">$250</div><p class="small">A 45-minute live assessment with a tutor, the book, the materials, and 30 days in the workspace. You leave with a one-page profile that names the error pattern in your student's own answers. The $250 comes off the Program.</p></div>
+      <div><h3>The Marlow Program</h3><div class="st-price num">$3,980</div><p class="small">Twenty weeks, one price. A weekly session with a trained tutor, remote or in person, and three 20-minute workspace sessions between. A practice test at the start, the midpoint, and the end, with the guarantee behind it.</p></div>
+      <div><h3>Friday report</h3><div class="st-price">Included</div><p class="small">One page every Friday: oral reading speed and accuracy, the independent score on an unfamiliar text, hints used, and one thing to ask at dinner. No badges, no streaks.</p></div>
+      <div><h3>Membership</h3><div class="st-price num">$199 a month</div><p class="small">After the Program, a weekly small-group session and the workspace keep the gains. It is planned as a four-month step; cancel any time.</p></div>
     </div>
+    <p class="mt1"><a class="more" href="#programs">See the three packages and what is in each</a></p>
     <div class="prof">
       <div class="prof-say">
         <div class="eyebrow">What step 1 produces</div>
@@ -843,10 +897,10 @@ p,li,dd{text-wrap:pretty}
           <li><b>The evidence for each line.</b> The answer chosen, the sentence pointed to, and what the passage said.</li>
           <li><b>Where the work starts.</b> The first lesson, the weekly rhythm, and what the checkpoint will measure.</li>
         </ul>
-        <p><a class="more" href="#programs">What is in the Starter Kit</a></p>
+        <p><a class="more" href="#programs">What is in the Reading Assessment</a></p>
       </div>
       <figure class="prof-page">
-        <header><div><div class="eyebrow">Reading profile · Starter Kit diagnostic</div><h3>Maya R., grade 10</h3></div><span class="pill quiet">Example · invented student</span></header>
+        <header><div><div class="eyebrow">Reading profile · from the Reading Assessment</div><h3>Maya R., grade 10</h3></div><span class="pill quiet">Example · invented student</span></header>
         <div class="prof-nums"><div><b>5 of 8</b>right answers</div><div><b>3 of 8</b>with the right sentence</div><div><b>2</b>misses marked certain</div></div>
         <dl>
           <dt>Pattern 1</dt><dd><b>Overlooks qualifying language</b> · 3 items<span class="prof-q">The sentence: "<mark>Most</mark> of the clinics reported shorter waits." Her answer: "Waits fell at every clinic."</span></dd>
@@ -895,16 +949,16 @@ p,li,dd{text-wrap:pretty}
     <div class="head"><div class="eyebrow">Questions parents ask</div><h2>Before you book.</h2></div>
     <div class="faq">
       <details><summary>Is this test prep?</summary><p>It is reading instruction measured with tests. The skills are the ones SAT Reading and Writing, ACT Reading, AP Language, and college seminars all reward, so the score moves. We do not teach tricks, and we do not drill question types for their own sake.</p></details>
-      <details><summary>What if my student has a reading difficulty?</summary><p>The Starter Kit diagnostic includes a short read-aloud fluency screen. If it suggests an unresolved decoding or fluency need, we say so and refer you to a specialist rather than enrolling. This method does not fix those needs, and enrolling those students would misrepresent our results.</p></details>
+      <details><summary>What if my student has a reading difficulty?</summary><p>The Reading Assessment includes a short read-aloud fluency screen. If it suggests an unresolved decoding or fluency need, we say so and refer you to a specialist rather than enrolling. This method does not fix those needs, and enrolling those students would misrepresent our results.</p></details>
       <details><summary>Who are the tutors?</summary><p>Graduate students and professionals with a 760 or higher SAT verbal or 165 or higher GRE verbal, who have taught or coached teenagers, and who have passed a graded teach-back on the method. Every tutor records sessions; the founder reviews two per month against a checklist. You can see the roster and capacity on the Programs page.</p></details>
       <details><summary>Does the AI give my student answers?</summary><p>No. The workspace's evidence coach never supplies an answer. It names the reasoning error in what the student wrote, offers up to three hints, and logs each one so the Friday report can separate assisted from independent work. Ambiguous cases go to the tutor, and the student can flag feedback they disagree with.</p></details>
       <details><summary>Are sessions recorded?</summary><p>Yes, with written consent at enrollment. Recordings are used for tutor quality review and are deleted on request. No one-on-one session is unrecorded. The full policy is on the Policies page.</p></details>
-      <details><summary>Is there anything free?</summary><p>Yes. The <a href="#diagnostic">diagnostic</a>, all 24 lessons in the <a href="#library">library</a>, the <a href="#vocab">word banks</a> for SAT, ACT, AP Language, AP Literature, and GRE, ten <a href="#examples">worked examples</a>, the timed <a href="#practice">practice section</a>, the <a href="#sentences">sentence drills</a>, the <a href="#writing">transitions and grammar drills</a>, the <a href="#reads">long-read log</a>, the <a href="#friday">Friday report</a> on your own work, and the <a href="#tips">tips and pacing tools</a> are open to anyone. The Starter Kit adds a 45-minute diagnostic with a tutor, the book and materials, and a one-page profile of your student's error pattern.</p></details>
+      <details><summary>Is there anything free?</summary><p>Yes. The <a href="#diagnostic">diagnostic</a>, all 24 lessons in the <a href="#library">library</a>, the <a href="#vocab">word banks</a> for SAT, ACT, AP Language, AP Literature, and GRE, ten <a href="#examples">worked examples</a>, the timed <a href="#practice">practice section</a>, the <a href="#sentences">sentence drills</a>, the <a href="#writing">transitions and grammar drills</a>, the <a href="#reads">long-read log</a>, the <a href="#friday">Friday report</a> on your own work, and the <a href="#tips">tips and pacing tools</a> are open to anyone. The Reading Assessment adds a 45-minute live session with a tutor, the book and materials, and a one-page profile of your student's error pattern.</p></details>
       <details><summary>Where do the reading passages come from?</summary><p>Every passage in the diagnostic, the lessons, and the book was written for this program, or is a public-domain text published before 1929 with its source named. No copyrighted material from other publishers appears anywhere in the site or the materials.</p></details>
     </div>
   </div></section>
 
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC · Chicago, Illinois</span><span><a href="#policies">Policies</a> · All passages original to this site · hello@marlowreading.com</span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ METHOD ============ -->
@@ -927,14 +981,14 @@ p,li,dd{text-wrap:pretty}
       </div>
     </div>
     <div class="cols three mt3">
-      <div><h3>Strong listening, weak oral reading</h3><p>A decoding problem. We do not fix it, and we will not pretend to. The intake screen catches it and refers you to a structured-literacy specialist; the kit fee is refunded.</p></div>
+      <div><h3>Strong listening, weak oral reading</h3><p>A decoding problem. We do not fix it, and we will not pretend to. The intake screen catches it and refers you to a structured-literacy specialist; the assessment fee is refunded.</p></div>
       <div><h3>Strong oral reading, weak listening</h3><p>A language and knowledge problem. This is our student. The fix is vocabulary by root, knowledge in coherent domains, syntax unpacked, inference checked against the line.</p></div>
       <div><h3>Both weak</h3><p>Decoding first, because it unlocks the volume that builds everything else. A referral, with a note to come back when oral reading is automatic.</p></div>
     </div>
     <h3 class="mt3">The foundation: automaticity, measured and built</h3>
     <div class="split mt1">
       <div class="prose"><p>We do not teach phonics. We do build and measure automaticity, because comprehension instruction is wasted on a reader whose attention is still going to the words. Every student takes a one-minute oral reading checkpoint every week: words per minute, accuracy, and phrasing on a passage never used in lessons. Every lesson opens with a timed read-aloud of its first paragraph.</p><p style="margin-top:.9rem">Readers who are accurate but slow get ten minutes of every session on the three drills that move speed: repeated reading of the same paragraph, phrase-cued reading for prosody, and multisyllabic word attack for the long academic words that stall older readers. Readers below 90% accuracy are referred; the text is too hard or decoding is not automatic, and practicing errors makes it worse.</p></div>
-      <div class="bench" style="grid-template-columns:1fr"><div class="good"><b>Automatic</b>150 wpm or more at 97% accuracy, phrasing 3 of 4. The whole session is comprehension.</div><div><b>Accurate but slow</b>95% or better, under 150 wpm. Fluency track, ten minutes a session, alongside comprehension.</div><div><b>Below 90% accuracy</b>Referral to a structured-literacy specialist; kit refunded.</div></div>
+      <div class="bench" style="grid-template-columns:1fr"><div class="good"><b>Automatic</b>150 wpm or more at 97% accuracy, phrasing 3 of 4. The whole session is comprehension.</div><div><b>Accurate but slow</b>95% or better, under 150 wpm. Fluency track, ten minutes a session, alongside comprehension.</div><div><b>Below 90% accuracy</b>Referral to a structured-literacy specialist; assessment fee refunded.</div></div>
     </div>
     <h3 class="mt3">What the model changes in the program</h3>
     <div class="tabwrap mt1"><table>
@@ -998,7 +1052,7 @@ p,li,dd{text-wrap:pretty}
       <div><h3>Blind second scoring</h3><p>A second educator scores a sample of written responses from each cohort without knowing which came from week 1 and which from week 6.</p></div>
     </div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ HOW WE WORK ============ -->
@@ -1034,7 +1088,7 @@ p,li,dd{text-wrap:pretty}
     <div class="cols">
       <div><h3>For the student</h3><p>Replay the moment the tutor named the error in your own sentence. Tag it. The tagged moments become the review notebook's "watch this again" list before a test.</p></div>
       <div><h3>For the parent</h3><p>Any session, any time, with the Friday report's timestamps pointing to the three minutes worth watching. No summary stands between you and what happened.</p></div>
-      <div><h3>For quality</h3><p>The founder reviews two recordings per tutor per month against the QA checklist. One miss is coaching; two is replacement. The standard is what gets tolerated, so nothing is tolerated twice.</p></div>
+      <div><h3>For quality</h3><p>The founder reviews two recordings per tutor per month against the QA checklist. A miss is coached that week and checked again on the next recording. The standard is the same for every tutor, the founder included.</p></div>
       <div><h3>For the method</h3><p>Recordings are how the playbook was written and how it gets rewritten: a hint that worked three times becomes the hint; an explanation that confused two students gets cut.</p></div>
     </div>
     <p class="small mt2">Written consent at enrollment, retained 12 months, deleted on request, never used to train anything outside the program. No unrecorded one-on-one sessions. <a class="more" href="#policies">Recording policy</a></p>
@@ -1068,7 +1122,7 @@ p,li,dd{text-wrap:pretty}
   <section class="pillar" id="how-sop"><div class="wrap">
     <div class="head" style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:1.6rem"><div class="eyebrow">5 · By procedure</div><h2>Runbooks, teach-backs, after-action reviews, and a training calendar. The way an artillery battery, a plebe year, and a track season are run.</h2></div>
     <div class="split">
-      <div class="prose"><p>Talent does not scale; procedure does. Every recurring thing in the program has a written standard, an owner, and a check. A tutor is certified by teaching a lesson back against the playbook, not by résumé. Every cohort ends with an after-action review: what was supposed to happen, what happened, why, and what changes in the playbook. The playbook is versioned.</p><p class="mt1">The student's plan is periodized like an athlete's season: a base phase for fluency and sentences, a build phase for the harder reasoning units, a peak phase on full timed sections and unfamiliar texts, and a taper in the last week. Enter a test date and the plan lays itself out. The ten principles behind it, from gun crews to track seasons, are on the <a href="#training">Training page</a>.</p>
+      <div class="prose"><p>Talent does not scale; procedure does. Every recurring thing in the program has a written standard, an owner, and a check. A tutor is certified by teaching a lesson back against the playbook, not by résumé. Every cohort ends with an after-action review: what was supposed to happen, what happened, why, and what changes in the playbook. The playbook is versioned.</p><p class="mt1">The student's plan is periodized like an athlete's season: a base phase for fluency and sentences, a build phase for the harder reasoning units, a peak phase on full timed sections and unfamiliar texts, and a taper in the last week. Enter a test date and the plan lays itself out. The ten principles behind it, from crew drills to track seasons, are on the <a href="#training">Training page</a>.</p>
         <div class="card mt2"><div class="eyebrow">Periodization planner</div><div class="row mt1"><label class="small" style="font-weight:600">Test date <input type="date" id="pp-date" style="width:auto;display:inline-block;margin-left:.4rem"></label><button class="btn sm" type="button" id="pp-go">Plan it</button></div><div id="pp-out"></div></div>
       </div>
       <div>
@@ -1112,12 +1166,12 @@ p,li,dd{text-wrap:pretty}
   </div></section>
 
   <section class="pillar" id="how-metrics"><div class="wrap">
-    <div class="head" style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:1.6rem"><div class="eyebrow">7 · Metrics that matter</div><h2>One number, three leading indicators, four business gates, and a list of what we refuse to report.</h2></div>
+    <div class="head" style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:1.6rem"><div class="eyebrow">7 · Metrics that matter</div><h2>One number, three leading indicators, what we hold ourselves to, and a list of what we refuse to report.</h2></div>
     <div class="metric-tiers">
       <div><b>North star</b><ul><li>Independent score on an unfamiliar text, blind-scored, before and after</li></ul><p class="small mt1">The only outcome. Everything else predicts it or pays for it.</p></div>
       <div><b>Leading indicators</b><ul><li>Hints per task, falling</li><li>Practice completion, above 80%</li><li>Oral reading: 150 wpm at 97%, phrasing 3 of 4</li></ul><p class="small mt1">Move these in week two and the north star moves in week six.</p></div>
-      <div><b>Business gates</b><ul><li>CAC under one-third of first-purchase gross profit</li><li>Referral share of new families above 40%</li><li>Founder hours per $1k revenue, falling</li><li>Guarantee payouts under 10% of blocks</li></ul></div>
-      <div><b>Tutor quality</b><ul><li>QA checklist misses, zero tolerated twice</li><li>Flagged feedback resolved within one session</li><li>Student retention through the block</li></ul></div>
+      <div><b>Program health</b><ul><li>Students who finish the Program</li><li>New families who come by referral</li><li>Students who needed the guarantee, counted every cohort</li><li>Students per tutor, capped at ten</li></ul></div>
+      <div><b>Tutor quality</b><ul><li>QA checklist misses, each one coached and rechecked</li><li>Flagged feedback resolved within one session</li><li>Students who stay through the Program</li></ul></div>
     </div>
     <h3 style="margin:1.6rem 0 .6rem;font-size:1.15rem">What we refuse to report</h3>
     <div class="metric-tiers ignore">
@@ -1127,7 +1181,7 @@ p,li,dd{text-wrap:pretty}
       <div><b>Testimonials without data</b>No quote appears on this site until the number it describes has been blind-scored.</div>
     </div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ TRAINING ============ -->
@@ -1147,7 +1201,7 @@ p,li,dd{text-wrap:pretty}
     <div class="head"><div class="eyebrow">Ten principles</div><h2>What elite teams do to learn, and what each one looks like on a Tuesday night with a passage.</h2></div>
     <div class="princ">
       <div><div class="from">Commander's intent</div><b>Intent</b>One sentence that says what success is, so every decision under it needs no asking.<div class="ap">The stated score band on the stated date, and this week's pattern, said aloud at the top of every session.</div></div>
-      <div><div class="from">A gun crew's checklist</div><b>Checklist</b>Everything that recurs has a written standard, and the standard is on paper.<div class="ap">The 20-minute routine, the three oral-reading bars, the eight errors, evidence before answer.</div></div>
+      <div><div class="from">A crew's checklist</div><b>Checklist</b>Everything that recurs has a written standard, and the standard is on paper.<div class="ap">The 20-minute routine, the three oral-reading bars, the eight errors, evidence before answer.</div></div>
       <div><div class="from">Battle drills</div><b>Drills</b>Actions rehearsed until they happen under stress without a decision.<div class="ap">Finger on the sentence; circle the small word; speaker above the verb. Hundreds of reps on easy passages, spent on hard ones.</div></div>
       <div><div class="from">No practice easier than the game</div><b>Scrimmage at game speed</b>Train under the conditions you will compete in.<div class="ap">Checkpoints are unfamiliar texts, timed, hints off. The gap between lesson and checkpoint scores is reported weekly. <a href="#practice">Try the timed practice section.</a></div></div>
       <div><div class="from">A track season</div><b>Season</b>Base, build, peak, taper. Never peak early; the hard session is only as good as the recovery after it.<div class="ap">The 90-day plan has four phases. The routine is capped at 20 minutes. The taper week has nothing new.</div></div>
@@ -1155,7 +1209,7 @@ p,li,dd{text-wrap:pretty}
       <div><div class="from">After-action review</div><b>Review without blame</b>What was supposed to happen, what happened, why, what changes. Blameless, so it is honest.<div class="ap">The weekly certain-and-wrong audit for the student; the cohort AAR for the tutor, which rewrites the playbook.</div></div>
       <div><div class="from">Document, demonstrate, duplicate</div><b>You know it when you can teach it</b>The last step of Army training is doing it until it matches, and the strongest form is teaching.<div class="ap">Cohort students explain passages to each other; alone, the explain-it-aloud drill to a timer.</div></div>
       <div><div class="from">Splits, not the next lane</div><b>Measure against yourself</b>A sprinter knows her splits to the hundredth and does not know what the next lane ran in practice.<div class="ap">Six numbers every Friday, two that matter, compared only with last week. No percentiles, no streaks.</div></div>
-      <div><div class="from">The team enforces it</div><b>Standards are held sideways</b>What a group tolerates is its standard; good teams enforce it peer to peer before the coach speaks.<div class="ap">Six students ask each other for the sentence. Tutors are reviewed on tape twice a month. Nothing is tolerated twice.</div></div>
+      <div><div class="from">The team keeps it</div><b>Standards are held together</b>A standard lasts when the group keeps it, not only the coach. Good teams remind each other before the coach has to.<div class="ap">Six students ask each other for the sentence. Tutors are reviewed on tape twice a month, and every miss is coached.</div></div>
     </div>
   </div></section>
 
@@ -1191,7 +1245,7 @@ p,li,dd{text-wrap:pretty}
       <div><h3>What changes</h3><p>One change for next week, written down. Not five. Teams get good by running the standard, not by redesigning it weekly.</p></div>
     </div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ PROGRAMS ============ -->
@@ -1199,67 +1253,79 @@ p,li,dd{text-wrap:pretty}
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap">
     <div class="eyebrow">Programs and pricing</div>
     <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Priced on outcomes, not hours. Prices do not move.</h1>
-    <p class="lede">Every family starts with the Starter Kit. Most continue to a block. Membership keeps the gains. A payment plan is available on any block; a discount is not.</p>
+    <p class="lede" style="max-width:40rem">Three packages, each sold whole at one price. Every family starts with the Reading Assessment, and its fee comes off the Program. A payment plan is available on the Program; a discount is not.</p>
   </div></section>
   <section class="section"><div class="wrap">
-    <h2 class="sr-only">Plans and prices</h2>
-    <div class="tiers">
-      <div class="tier lead"><div class="eyebrow">Start here</div><h3>Starter Kit</h3><div class="price num">$250</div>
-        <ul><li>45-minute diagnostic with a tutor, remote or in person</li><li><i>Reading the Hard Stuff</i>, the book, in print</li><li>The materials: 90-day plan, sentence-unpacking drills, parent guide</li><li>30 days in the workspace</li><li>A one-page instructional profile and a 20-minute parent call</li></ul>
-        <a class="btn" href="#apply" data-pay="starter" data-paylabel="Buy the Starter Kit">Book a Starter Kit</a></div>
-      <div class="tier"><div class="eyebrow">The core</div><h3>Marlow Method block</h3><div class="price num">$199<small> per hour · 10 or 20 hours</small></div>
-        <ul><li>Weekly session with a trained tutor plus three workspace sessions between</li><li>Weekly oral reading checkpoint; fluency track if needed</li><li>Practice tests at hour 0, 10, and 20</li><li>Friday parent report</li><li>Guarantee applies to 20-hour blocks</li><li>In person adds $30 an hour for the room</li></ul>
-        <a class="btn ghost" href="#apply">Reserve a seat</a></div>
-      <div class="tier"><div class="eyebrow">Keep the gains</div><h3>Membership</h3><div class="price num">$199<small> per month · cancel any time</small></div>
-        <ul><li>Weekly 60-minute small-group session, six students</li><li>Full workspace and review notebook</li><li>Friday report continues</li><li>One free month for each enrolled family you refer</li></ul>
-        <a class="btn ghost" href="#apply">Join after a block</a></div>
+    <h2 class="sr-only">The three packages</h2>
+    <div class="pkgs">
+      <div class="pkg"><div class="pk-step">Step 1 · Start here</div><h3>The Reading Assessment</h3><p class="pk-for">Find out exactly why the score is stuck, in your student's own answers.</p>
+        <div class="pk-price num">$250</div><p class="pk-terms">One price · <b>credited in full toward the Program</b></p>
+        <ul><li>A 45-minute live assessment with a tutor, remote or in person</li><li>A one-page profile that names the error pattern</li><li>A 20-minute parent call and a 90-day plan</li><li><i>Reading the Hard Stuff</i>, in print, with the drills and the parent guide</li><li>30 days in the workspace</li></ul>
+        <p class="pk-fine">If the fluency screen points to a decoding need, we refer you to a specialist and refund the fee.</p>
+        <a class="btn" href="#apply" data-int="Reading Assessment" data-pay="starter" data-paylabel="Buy the Reading Assessment">Request the assessment</a></div>
+      <div class="pkg lead"><div class="pk-tag">Guaranteed</div><div class="pk-step">Step 2 · The core</div><h3>The Marlow Program</h3><p class="pk-for">Twenty weeks from the pattern on the profile to a score that has moved, or we keep working.</p>
+        <div class="pk-price num">$3,980</div><p class="pk-terms">One price · <b>$3,730 after the assessment credit</b></p>
+        <ul><li>Twenty private sessions with a trained tutor, one a week</li><li>Three 20-minute workspace sessions a week between, with the evidence coach</li><li>A weekly oral reading checkpoint, and a fluency track if needed</li><li>Practice tests at the start, the midpoint, and the end</li><li>A one-page report to parents every Friday</li><li>The guarantee: +80 on SAT Reading and Writing or +3 on ACT Reading, or we continue at no charge</li></ul>
+        <p class="pk-fine">Also as a ten-session Program for $1,990, without the guarantee. In person adds $600 for the room, or $300 for ten sessions. Payment plan available.</p>
+        <a class="btn" href="#apply" data-int="The Marlow Program">Request a place</a></div>
+      <div class="pkg"><div class="pk-step">Or · In a group of six</div><h3>The Cohort</h3><p class="pk-for">The same method in six weeks before a test date, with five other students.</p>
+        <div class="pk-price num">$1,950</div><p class="pk-terms">One price per student · six seats</p>
+        <ul><li>Twelve hours of small-group sessions over six weeks</li><li>Start dates set by the SAT and ACT calendar</li><li>The workspace and the Friday report included</li><li>Led by the founder in 2027</li></ul>
+        <p class="pk-fine">The founding cohort, January 2027, is $750 to $1,000 in exchange for consent to publish anonymized outcomes.</p>
+        <a class="btn ghost" href="#apply" data-int="The Cohort, January 2027" data-pay="cohort" data-paylabel="Reserve a founding seat">Request a cohort seat</a></div>
     </div>
-    <div class="tiers mt2">
-      <div class="tier"><div class="eyebrow">Before a test date</div><h3>Six-week cohort</h3><div class="price num">$1,950<small> per student · 6 students, 12 hours</small></div>
-        <ul><li>Fixed start dates tied to SAT and ACT dates</li><li>Founder-led in 2027; founding cohort at $750 to $1,000 in exchange for consent to publish anonymized outcomes</li><li>Workspace included</li></ul>
-        <a class="btn ghost" href="#apply" data-pay="cohort" data-paylabel="Reserve a founding seat">Join the January cohort</a></div>
-      <div class="tier"><div class="eyebrow">Self-directed</div><h3>Site license</h3><div class="price num">$495<small> one time · lifetime access</small></div>
-        <ul><li>Diagnostic, the lesson library (all 24 lessons), evidence coach, review notebook, portfolio</li><li>The book and materials included</li><li>No tutor; upgrade to a block any time with the $495 credited</li></ul>
-        <a class="btn ghost" href="#apply" data-pay="license" data-paylabel="Buy the site license">Join the waitlist</a></div>
-      <div class="tier"><div class="eyebrow">Alumni</div><h3>Workspace only</h3><div class="price num">$39<small> per month</small></div>
-        <ul><li>Retrieval practice and new unfamiliar-text checkpoints</li><li>For students who finished a block or cohort</li></ul>
-        <a class="btn ghost" href="#apply">Request access</a></div>
-    </div>
-    <div class="tiers mt2">
-      <div class="tier"><div class="eyebrow">Adults</div><h3>GRE, GMAT, LSAT verbal</h3><div class="price num">$199<small> per hour · 10 or 20 hours · U.S. candidates</small></div>
-        <ul><li>Same method, adult passage sets, test-date pacing</li><li>Booth, West Point, and veteran networks first</li><li>Checkpoints on official practice sections</li></ul>
-        <a class="btn ghost" href="#apply">Request a call</a></div>
-      <div class="tier lead"><div class="eyebrow">International candidates</div><h3>Verbal Edge</h3><div class="price num">$299<small> per hour · 12 or 20 hours · remote, your evening</small></div>
-        <ul><li>For candidates applying from outside the U.S.</li><li>Reading-in-English baseline at intake; roots and near-neighbor vocabulary work</li><li>Guaranteed band on an official practice section</li></ul>
-        <a class="btn" href="#international">See the lane</a></div>
-      <div class="tier"><div class="eyebrow">Next step</div><h3>College essay coaching</h3><div class="price num">$199<small> per hour · from fall 2027</small></div>
-        <ul><li>The writing half of the method with a new prompt</li><li>Same tutor, same family, drafts kept</li><li>Opens to program alumni first</li></ul>
-        <a class="btn ghost" href="#apply">Join the waitlist</a></div>
-    </div>
+    <p class="pk-note">Preparing for the GRE, GMAT, or LSAT? The adult packages, including Verbal Edge for international candidates, are on <a href="#international">their own page</a>.</p>
   </div></section>
   <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">Capacity</div><h2>Ten students per tutor. Published, not promised.</h2></div>
-    <div class="cap" id="p-cap"></div>
-    <p class="small mt1">Seats for the January 2027 start. Updated weekly once enrollment opens.</p>
+    <div class="head"><div class="eyebrow">Inside the Program</div><h2>You are buying a system that ends in a number, not a stack of hours.</h2></div>
+    <div class="inside">
+      <div><b>The profile</b>The Reading Assessment names which of eight errors your student makes, and on how many items. The Program starts on that page, not on chapter one.</div>
+      <div><b>The sessions</b>Twenty, one a week, each on a passage built to trigger the pattern. Every session is recorded, and the recording belongs to the student first.</div>
+      <div><b>The workspace</b>Three 20-minute sessions a week between: read, choose the sentence, write the claim, revise. The <a href="#workspace">evidence coach</a> names the error and never gives the answer.</div>
+      <div><b>The checkpoints</b>A passage the student has not seen, every week, with hints off, and a full practice test at the start, the midpoint, and the end.</div>
+      <div><b>The Friday report</b>One page: this week against last week, the pattern seen most, and one thing to ask at dinner. <a href="#report">See an example.</a></div>
+      <div><b>The guarantee</b>If the independent score has not moved by the stated band at the end, with 80% of the practice done, we keep working at no charge until it has.</div>
+    </div>
   </div></section>
   <section class="section"><div class="wrap">
-    <div class="head"><div class="eyebrow">What is in the Starter Kit</div><h2>Everything a family needs to understand the problem before paying for the fix.</h2></div>
+    <div class="head"><div class="eyebrow">What is in the Reading Assessment</div><h2>Everything a family needs to understand the problem before paying for the fix.</h2></div>
     <div class="kit">
-      <div><b>The diagnostic</b>All three terms of reading: a one-minute oral reading checkpoint (speed, accuracy, phrasing), a listening passage with the text hidden, and two reading passages with four items each capturing answer, evidence, reasoning, and confidence. Reviewed by a tutor before the parent call.</div>
+      <div><b>The live assessment</b>All three terms of reading: a one-minute oral reading checkpoint (speed, accuracy, phrasing), a listening passage with the text hidden, and two reading passages with four items each capturing answer, evidence, reasoning, and confidence. Reviewed by a tutor before the parent call.</div>
       <div><b>The book</b><i>Reading the Hard Stuff</i>, 37 chapters in nine parts, every passage original, the method in the founder's own words. Print and Kindle; the draft is free to read on the <a href="#book">Book page</a>.</div>
       <div><b>The 90-day plan</b>Week by week, what is worked on and what the checkpoint measures, matched to the student's profile.</div>
       <div><b>The parent guide</b>One page, drawn from chapter 30. What to ask at dinner, what not to say, and how to read the Friday report.</div>
       <div><b>Sentence-unpacking drills</b>Thirty sentences with qualifiers, negation, and embedded clauses, with the unpacking worked on the facing page. Also in the <a href="#sentences">app</a>, three steps each.</div>
       <div><b>30 days in the workspace</b>The first unit of lessons, the evidence coach, and the review notebook.</div>
     </div>
+    <p class="pk-note">Go on to the Program and the $250 comes off its price. Stop here and you keep the profile, the plan, the book, and the drills.</p>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <section class="section band"><div class="wrap">
+    <div class="head"><div class="eyebrow">Capacity</div><h2>Ten students per tutor. Published, not promised.</h2></div>
+    <div class="cap" id="p-cap"></div>
+    <p class="small mt1">The first cohort is small and taught by the founder. Enrollment for the January 2027 start has not opened; when it does, seats taken are updated here weekly. A request now holds your place in line, not a seat. Further tutors are listed when they are hired, not before.</p>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <div class="head"><div class="eyebrow">After, and other ways in</div><h2>Three packages are the whole offer. These sit around them.</h2></div>
+    <div class="also-h">After the Program</div>
+    <div class="also">
+      <div><b>Membership</b><span>A weekly 60-minute session in a group of six, the full workspace, and the Friday report. One free month for each enrolled family you refer.</span><div class="pr num">$199 <small>a month</small></div><a class="more" href="#apply" data-int="Membership">Ask about membership</a></div>
+      <div><b>Workspace only</b><span>Retrieval practice and new unfamiliar-text checkpoints, for students who finished the Program or a Cohort.</span><div class="pr num">$39 <small>a month</small></div><a class="more" href="#apply" data-int="Workspace only (alumni)">Request access</a></div>
+    </div>
+    <div class="also-h">Other ways in</div>
+    <div class="also">
+      <div><b>Adult candidates</b><span>GRE, GMAT, and LSAT verbal. Verbal Edge, for international candidates, adds help through admissions.</span><div class="pr num">From $3,980</div><a class="more" href="#international">See the adult packages</a></div>
+      <div><b>Self-study license</b><span>The diagnostic, all 24 lessons, the evidence coach, the notebook, and the book, with no tutor. The $495 is credited if you move to the Program.</span><div class="pr num">$495 <small>one time</small></div><a class="more" href="#apply" data-int="Self-study license waitlist" data-pay="license" data-paylabel="Buy the self-study license">Join the waitlist</a></div>
+      <div><b>College essay coaching</b><span>The writing half of the method with a new prompt. Opens to Program alumni first.</span><div class="pr num">Fall 2027</div><a class="more" href="#apply" data-int="College essay coaching waitlist">Join the waitlist</a></div>
+      <div><b>Schools</b><span>The method, the lessons, tutor training, and parent reporting under your own roof, from late 2027.</span><div class="pr num">$300 <small>a student a year</small></div><a class="more" href="#schools">For schools</a></div>
+    </div>
+  </div></section>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ BOOK ============ -->
 <main id="v-book" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 37 chapters and nine parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, a part for tutors, the digital SAT up close, and the long reads. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the 283-word banks, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Starter Kit.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply">Get it in the Starter Kit</a></div></div>
+    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 37 chapters and nine parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, a part for tutors, the digital SAT up close, and the long reads. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the 283-word banks, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Reading Assessment.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply" data-int="Reading Assessment">Get it with the Reading Assessment</a></div></div>
     <div class="plate" style="font-size:1.3rem">"Every hard sentence has one word doing most of the work. Usually it is a small one: nearly, unless, rather than, alone. Find that word and the sentence opens."<br><span class="small" style="color:inherit;opacity:.8">From chapter 2</span></div>
   </div></section>
   <section class="section"><div class="wrap">
@@ -1287,13 +1353,13 @@ p,li,dd{text-wrap:pretty}
       </article>
     </div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ TEAM ============ -->
 <main id="v-team" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">Team</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">A method learned the hard way, taught for ten years, now measured.</h1><p class="lede">One founder, one subject, a record of teaching reading and writing to people unlike himself. Advisors and tutors are added as the plan below says, not before.</p></div>
+    <div><div class="eyebrow">About</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">A method learned the hard way, taught for ten years, now measured.</h1><p class="lede">One founder, one subject, a record of teaching reading and writing to people unlike himself. Advisors and tutors are added as the work calls for them, not before.</p></div>
     <div class="stats">
       <div class="stat"><b class="num">99th</b><span>Percentile: 800 SAT verbal. 760 writing, 98th or above</span></div>
       <div class="stat"><b class="num">95th</b><span>Percentile: 165 GRE verbal. Analytical writing 5.0, 93rd</span></div>
@@ -1319,29 +1385,29 @@ p,li,dd{text-wrap:pretty}
     </div>
   </div></section>
   <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">Who joins, and when</div><h2>Added for the constraint, not for the slide.</h2></div>
+    <div class="head"><div class="eyebrow">Who joins, and when</div><h2>Added when the work calls for them, not before.</h2></div>
     <div class="cols">
-      <div><h3>Literacy specialist, advisor</h3><p>Month 7. Instructional sequencing, the fluency screen, the referral line. Paid advisor, not a cofounder.</p></div>
-      <div><h3>Tutors, 1 to 4</h3><p>Month 6, 10, then year 2. 760 plus SAT verbal or 165 plus GRE verbal, teach-back graded against the playbook, 50/50 split.</p></div>
-      <div><h3>Booth faculty and a North Shore counselor, advisors</h3><p>Before the NVC feasibility round. Marketing or entrepreneurship faculty; an independent-school college counselor who sees the avatar weekly.</p></div>
-      <div><h3>Quant co-founder</h3><p>After year 2, for the math bundle. Booth or MIT. Same architecture, their rubrics.</p></div>
+      <div><h3>Literacy specialist, advisor</h3><p>In the first year. Instructional sequencing, the fluency screen, and the referral line.</p></div>
+      <div><h3>Tutors</h3><p>From the second half of the first year. A 760 or higher SAT verbal or 165 or higher GRE verbal, and a teach-back graded against the playbook before they meet a student.</p></div>
+      <div><h3>Faculty and counselor advisors</h3><p>Booth faculty in marketing or entrepreneurship, and an independent-school college counselor who works with these students every week.</p></div>
+      <div><h3>A quantitative lead</h3><p>Later, for a math program on the same architecture, with their own rubrics.</p></div>
     </div>
     <div class="row mt2"><a class="btn" href="#programs">See the programs</a><a class="btn ghost" href="#method">Read the method</a></div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ INTERNATIONAL ============ -->
 <main id="v-international" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">Verbal Edge, for international GRE and GMAT candidates</div>
+    <div><div class="eyebrow">Adult candidates · Verbal Edge, for international GRE and GMAT applicants</div>
       <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Your quant is fine. Your verbal is the gap. Close it from Chicago, in your evening.</h1>
-      <p class="lede">For candidates applying from India, China, Korea, and elsewhere in Asia to top U.S. and European programs. You read English well and still lose questions to small words, reasoning verbs, and the 45th minute. We name the pattern in your own answers and fix it, with a guaranteed band.</p>
-      <div class="cta"><a class="btn" href="#apply">Request a call</a><a class="btn ghost" href="#diagnostic">Take the free diagnostic first</a></div></div>
+      <p class="lede">For candidates applying from India, China, Korea, and elsewhere in Asia to top U.S. and European programs. You read English well and still lose questions to small words, reasoning verbs, and the 45th minute. We name the pattern in your own answers and fix it, with a guaranteed band, and we help with the rest of the application.</p>
+      <div class="cta"><a class="btn" href="#apply" data-int="Verbal Edge, international GRE or GMAT">Request a call</a><a class="btn ghost" href="#diagnostic">Take the free diagnostic first</a></div><p class="small mt1">Applying from the U.S.? <a href="#adult-packages">The adult Program is below.</a></p></div>
     <div class="stats">
       <div class="stat"><b class="num">95th</b><span>Percentile: founder's 165 GRE verbal. Analytical writing 5.0, 93rd percentile</span></div>
       <div class="stat"><b class="num">23</b><span>GMAT Focus verbal questions in 45 minutes: reading comprehension and critical reasoning only</span></div>
-      <div class="stat"><b class="num">$299</b><span>Per hour, prepaid 12- or 20-hour blocks, remote, guaranteed band</span></div>
+      <div class="stat"><b class="num">1</b><span>Package, one price: the verbal work, a guaranteed band, and help through admissions</span></div>
     </div>
   </div></section>
   <section class="section"><div class="wrap">
@@ -1352,33 +1418,69 @@ p,li,dd{text-wrap:pretty}
     </div>
   </div></section>
   <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">The block</div><h2>Twelve or twenty hours. Ninety minutes a week, three short sessions between.</h2></div>
+    <div class="head"><div class="eyebrow">The verbal work</div><h2>Ninety minutes a week in your evening, three short sessions between.</h2></div>
     <div class="steps">
       <div><h3>Intake</h3><p class="small">The diagnostic, a 20-minute reading-in-English baseline, and one official practice section. You get a profile naming the three patterns to fix and a 90-day plan.</p></div>
-      <div><h3>Weekly session</h3><p class="small">Ninety minutes with the founder or a lane tutor, in your evening. GRE and GMAT passage sets built to trigger your patterns. Every session recorded for you.</p></div>
+      <div><h3>Weekly session</h3><p class="small">Ninety minutes with the founder or a trained tutor with a 165 or higher GRE verbal, in your evening. GRE and GMAT passage sets built to trigger your patterns. Every session recorded for you.</p></div>
       <div><h3>Between sessions</h3><p class="small">Three 20-minute workspace sessions: read, support two answers, write a claim, revise, retrieve vocabulary. Hints are logged so we both know what you can do alone.</p></div>
-      <div><h3>Checkpoints</h3><p class="small">Official practice sections at hour 0, 10, and 20. If the stated band is not met at 20 hours with 80% practice completion, we continue at no charge.</p></div>
+      <div><h3>Checkpoints</h3><p class="small">Official practice sections at the start, the midpoint, and the end. If the stated band is not met at the end of the full package with 80% practice completion, we continue at no charge.</p></div>
     </div>
   </div></section>
   <section class="section"><div class="wrap">
+    <div class="head"><div class="eyebrow">Through admissions</div><h2>The score gets the application read. Verbal Edge helps with what the reader finds next.</h2></div>
+    <div class="split">
+      <div class="prose"><p>After the score comes a résumé, a story, and often an interview or a recorded video answer, all of it in a second language and judged by a reader with a few minutes. The founder went through MBA admissions recently and is now at Chicago Booth. His help with each part is in the package, not billed beside it.</p></div>
+      <div class="notice"><b>What this is not.</b> We advise and rehearse. We do not write essays or rewrite them into another voice, and no one can promise an admission. The guarantee covers the verbal band only.</div>
+    </div>
+    <div class="inside mt2">
+      <div><b>Résumé review</b>Line-by-line comments on a one-page U.S.-style résumé: what to cut, what to put a number on, and which lines a reader skims past. Two rounds.</div>
+      <div><b>Telling your story</b>A working session on why this degree, why now, and why this school, until you can say it in three sentences and the essays have a spine.</div>
+      <div><b>Interview preparation</b>Two mock interviews, recorded, with feedback in the method's own terms: the claim, the evidence, and how far it goes.</div>
+      <div><b>Recorded video questions</b>Some schools ask for short timed answers on camera. You practice in that format, watch the recording back, and repeat until the timer stops mattering.</div>
+      <div><b>The process itself</b>School list, timeline, recommenders, and what to ask a current student, from someone who did it recently.</div>
+      <div><b>Questions as they come up</b>Answers by message through the application round you are in, so a small question does not wait for the next session.</div>
+    </div>
+  </div></section>
+  <section class="section band"><div class="wrap">
     <div class="head"><div class="eyebrow">Scheduling</div><h2>Sessions in your evening. Weekends in Chicago.</h2></div>
     <div class="tz">
       <div><b>India</b>7:00 to 10:30 pm IST<div class="small">7:30 to 11:00 am Chicago</div></div>
       <div><b>China, Singapore, Hong Kong</b>8:00 to 11:00 pm Beijing time<div class="small">6:00 to 9:00 am Chicago, Saturday and Sunday first</div></div>
       <div><b>Korea, Japan</b>8:00 to 11:00 pm KST<div class="small">5:00 to 8:00 am Chicago, Saturday and Sunday</div></div>
     </div>
-    <p class="small mt1">Times shown for Chicago standard time; they shift by an hour during U.S. daylight saving. Payment in U.S. dollars by card, prepaid. The guarantee's condition is stated in writing at intake.</p>
+    <p class="small mt1">Times shown for Chicago standard time; they shift by an hour during U.S. daylight saving. The guarantee's condition is stated in writing at intake.</p>
   </div></section>
-  <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">Pricing</div><h2>Priced above the big prep companies, for a reason they cannot offer.</h2></div>
-    <div class="tiers">
-      <div class="tier lead"><div class="eyebrow">Verbal Edge</div><h3>Lane tutor</h3><div class="price num">$299<small> per hour · 12 or 20 hours</small></div><ul><li>Tutor with a 165 plus GRE verbal or equivalent GMAT score</li><li>Full word banks with roots; GRE and GMAT passage sets</li><li>Checkpoints at hour 0, 10, 20; guaranteed band</li></ul><a class="btn" href="#apply">Request a call</a></div>
-      <div class="tier"><div class="eyebrow">Verbal Edge</div><h3>Founder block</h3><div class="price num">$350<small> per hour · 12 hours · 6 seats</small></div><ul><li>Taught by the founder (165 verbal, 5.0 AW)</li><li>Same checkpoints and guarantee</li><li>Opens to Booth classmates and incoming admits first</li></ul><a class="btn ghost" href="#apply">Join the waitlist</a></div>
-      <div class="tier"><div class="eyebrow">Bolt-ons</div><h3>Writing and interview</h3><div class="price num">$299<small> per hour</small></div><ul><li>GRE analytical writing or MBA essay coaching on the same method</li><li>Interview and oral-defense drill using the say-aloud module</li></ul><a class="btn ghost" href="#apply">Ask about bolt-ons</a></div>
+  <section class="section" id="adult-packages"><div class="wrap">
+    <div class="head"><div class="eyebrow">The adult packages</div><h2>Two packages, each sold whole. The difference is what an international application needs.</h2></div>
+    <div class="pkgs two">
+      <div class="pkg lead"><div class="pk-tag">Guaranteed band</div><div class="pk-step">International candidates</div><h3>Verbal Edge</h3><p class="pk-for">GRE or GMAT verbal, and help through the application, for candidates applying from outside the U.S.</p>
+        <div class="pk-price num">$5,980</div><p class="pk-terms">One price · <b>about fourteen weeks</b> · remote</p>
+        <ul><li>Twenty hours of live verbal sessions, ninety minutes a week, in your evening</li><li>Three 20-minute workspace sessions a week between</li><li>A reading-in-English baseline at intake, with roots and near-neighbor vocabulary</li><li>Official practice sections at the start, the midpoint, and the end</li><li>A guaranteed verbal band, stated in writing at intake</li><li>Help through admissions: résumé, story, interviews, recorded video questions, and the process</li></ul>
+        <p class="pk-fine">Also as a twelve-hour package for $3,588, with the same admissions help and without the score guarantee. Paid in U.S. dollars by card.</p>
+        <a class="btn" href="#apply" data-int="Verbal Edge, international GRE or GMAT">Request a call</a></div>
+      <div class="pkg"><div class="pk-step">U.S. candidates</div><h3>The Marlow Program, for adults</h3><p class="pk-for">GRE, GMAT, or LSAT verbal for candidates applying from the U.S.</p>
+        <div class="pk-price num">$3,980</div><p class="pk-terms">One price · <b>twenty weeks</b> · remote or in Chicago</p>
+        <ul><li>Twenty private sessions, one a week, paced to your test date</li><li>Three 20-minute workspace sessions a week between</li><li>Adult passage sets for the GRE, GMAT, and LSAT</li><li>Official practice sections at the start, the midpoint, and the end</li><li>Booth, West Point, and veteran networks first</li></ul>
+        <p class="pk-fine">Also as a ten-session Program for $1,990.</p>
+        <a class="btn ghost" href="#apply" data-int="Adult GRE, GMAT, or LSAT verbal">Request a call</a></div>
     </div>
-    <p class="small mt2">For comparison, large prep companies list private GMAT tutoring from about $167 to $250 plus an hour without an outcome guarantee. We charge more because the outcome is measured and the tutor's own score is on the page.</p>
+    <h3 style="margin:2.6rem 0 .8rem">What the difference buys</h3>
+    <div class="tabwrap"><table class="cmp">
+      <tr><th>In the package</th><th>The Program, for adults</th><th>Verbal Edge</th></tr>
+      <tr><td>Live verbal sessions</td><td>Twenty, one hour each</td><td>Twenty hours, in ninety-minute sessions</td></tr>
+      <tr><td>Workspace sessions and practice sections</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+      <tr><td>Scheduled in your evening, across time zones</td><td class="no">Not needed</td><td class="yes">Included</td></tr>
+      <tr><td>Reading-in-English baseline, idiom, roots, and near-neighbor vocabulary</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+      <tr><td>Guaranteed verbal band</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+      <tr><td>Résumé review, two rounds</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+      <tr><td>A working session on your story</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+      <tr><td>Two recorded mock interviews</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+      <tr><td>Practice for recorded video questions</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+      <tr><td>Guidance through the admissions process, by message</td><td class="no">Not included</td><td class="yes">Included</td></tr>
+    </table></div>
+    <p class="small mt2">For comparison, large prep companies list private GMAT tutoring from about $167 to $250 plus an hour, without an outcome guarantee and without admissions help. Verbal Edge is sold as one package because the outcome is measured, the tutor's own score is on the page, and the application is part of the job.</p>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ SCHOOLS ============ -->
@@ -1397,28 +1499,36 @@ p,li,dd{text-wrap:pretty}
         <div><h3>What we ask</h3><p>Tutors pass the teach-back before delivering. Checkpoints are run as written, so your outcomes are comparable to ours and can be published alongside them. Recording and consent policies match the ones on this site.</p></div>
       </div>
     </div>
-    <div class="notice mt2" style="max-width:44rem">Licensing opens after the founding cohorts publish outcomes. <a href="#apply">Leave your details</a> and select "School or tutoring company" to be notified first.</div>
+    <div class="notice mt2" style="max-width:44rem">Licensing opens after the founding cohorts publish outcomes. <a href="#apply" data-int="School or tutoring company">Leave your details</a> and select "School or tutoring company" to be notified first.</div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ APPLY ============ -->
 <main id="v-apply" hidden>
   <section class="section"><div class="wrap">
-    <div class="head"><div class="eyebrow">Apply</div><h2>Tell us about the student. We reply within two business days.</h2></div>
+    <div class="head"><div class="eyebrow">Request</div><h2 id="apply-h">Tell us about the student. We reply within two business days.</h2></div>
+    <ol class="next3" aria-label="What happens next">
+      <li><b>You send this request.</b> It asks for nothing you would need to look up, and it books nothing yet.</li>
+      <li><b>We reply within two business days</b> with times for a 20-minute call and answers to anything you asked.</li>
+      <li><b>You decide after the call.</b> No payment is taken on this page, and none is arranged until you choose to go ahead.</li>
+    </ol>
     <form class="form" id="apply">
       <label>Your name (parent, guardian, or adult student)<input id="a-name" required></label>
       <label>Email<input id="a-email" type="email" required></label>
-      <label>Who is the reader<select id="a-grade"><option>Grade 9</option><option selected>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Adult, GRE or GMAT or LSAT</option><option>International candidate, GRE or GMAT</option><option>Other</option></select></label>
-      <label>Interest<select id="a-int"><option>Starter Kit</option><option>Founding cohort, January 2027</option><option>Marlow Method block</option><option>Private tutoring with the founder</option><option>Verbal Edge, international GRE or GMAT</option><option>Adult GRE, GMAT, or LSAT verbal</option><option>Site license waitlist</option><option>School or tutoring company</option></select></label>
+      <label><span id="a-grade-l">Who is the reader</span><select id="a-grade"><option>Grade 9</option><option selected>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Adult, GRE or GMAT or LSAT</option><option>International candidate, GRE or GMAT</option><option>Other</option></select></label>
+      <label>Interest<select id="a-int"><option>Reading Assessment</option><option>The Marlow Program</option><option>The Cohort, January 2027</option><option>Verbal Edge, international GRE or GMAT</option><option>Adult GRE, GMAT, or LSAT verbal</option><option>Self-study license waitlist</option><option>Membership</option><option>Workspace only (alumni)</option><option>College essay coaching waitlist</option><option>A tutor's review of my free diagnostic</option><option>School or tutoring company</option></select></label>
       <label>Location<select id="a-loc"><option>Remote, U.S.</option><option>Chicago North Shore or Loop</option><option>Cambridge or Greater Boston</option><option>Providence or Rhode Island</option><option>Remote, India</option><option>Remote, China, Singapore, or Hong Kong</option><option>Remote, Korea or Japan</option><option>Remote, elsewhere</option></select></label>
-      <label>Most recent score, if any<input id="a-score" placeholder="e.g. 640 SAT R&W, 28 ACT Reading"></label>
-      <label class="full">What happens when the student reads something hard?<textarea id="a-note" placeholder="Finishes the passage but cannot say the main point. Picks the answer that sounds right. Scores well in class, not on tests."></textarea></label>
-      <div class="full row"><button class="btn" type="submit">Send application</button><span class="small">No payment is taken at this step. Nothing leaves this page until you send it.</span></div>
+      <label><span id="a-score-l">Most recent score, if any</span><input id="a-score" placeholder="e.g. 640 SAT R&W, 28 ACT Reading"></label>
+      <label class="adult-only" hidden>Test and test date<input id="a-test" placeholder="e.g. GRE, March 14"></label>
+      <label class="adult-only" hidden>Your time zone<input id="a-tz" placeholder="e.g. Asia/Kolkata"></label>
+      <label class="full"><span id="a-note-l">What happens when the student reads something hard?</span><textarea id="a-note" placeholder="Finishes the passage but cannot say the main point. Picks the answer that sounds right. Scores well in class, not on tests."></textarea></label>
+      <label class="full check-row" id="a-diag-row" hidden><input type="checkbox" id="a-diag" checked> <span id="a-diag-l">Include my diagnostic answers in this request</span></label>
+      <div class="full row"><button class="btn" type="submit">Send request</button><span class="small">No payment is taken at this step. Nothing leaves this page until you send it.</span></div>
     </form>
     <div class="notice mt1" id="apply-done" role="status" aria-live="polite" hidden style="max-width:44rem"></div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span><a href="#policies">Policies</a></span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ POLICIES ============ -->
@@ -1431,10 +1541,11 @@ p,li,dd{text-wrap:pretty}
       <div><h3>Child safety</h3><p>Every tutor passes a background check before meeting a student. No unrecorded one-on-one sessions. In-person pods meet in public library rooms or staffed co-working space, never in homes. A parent can join any session. Concerns go to the founder directly and are answered within one business day.</p></div>
       <div><h3>Data</h3><p>We store diagnostic responses, workspace work, hint logs, and checkpoint scores to produce the Friday report and the coach report. Families can download or delete all of it on request. We do not sell data or use it to train models outside the program. This demo site stores your work in your own browser and sends none of it to us or to anyone else. The page does load its typefaces from Google Fonts, which is a request to Google like any web font, and an application is sent only when you send the email yourself.</p></div>
       <div><h3>Accessibility</h3><p>The workspace offers adjustable text size and line spacing, keyboard access to the lessons, the diagnostic, the practice section, and the drills, including choosing a sentence as evidence, and typed alternatives to spoken explanation. We have not yet run a full screen-reader review; tell us where it fails. When a support changes what an assessment measures, the report says so.</p></div>
-      <div><h3>Fit and referral</h3><p>The Starter Kit includes a read-aloud fluency screen. If it suggests an unresolved decoding or fluency need, we recommend a specialist instead of enrolling, and the kit fee is refunded.</p></div>
+      <div><h3>Packages and payment</h3><p>Each package is sold whole at one published price. The Reading Assessment fee is credited in full toward the Program. A payment plan is available on the Program; a discount is not. The score guarantee applies to the full Program and the full Verbal Edge package, with 80% of the workspace practice completed, and its terms are given in writing before you pay.</p></div>
+      <div><h3>Fit and referral</h3><p>The Reading Assessment includes a read-aloud fluency screen. If it suggests an unresolved decoding or fluency need, we recommend a specialist instead of enrolling, and the assessment fee is refunded.</p></div>
     </div>
   </div></section>
-  <footer class="site"><div class="wrap"><span>© 2026 Marlow Reading LLC</span><span>hello@marlowreading.com</span></div></footer>
+  <footer class="site"></footer>
 </main>
 
 <!-- ============ DIAGNOSTIC ============ -->
@@ -1460,7 +1571,7 @@ p,li,dd{text-wrap:pretty}
 
 <main id="v-diagnostic" hidden>
   <div class="wrap" id="d-choose" style="padding-block:2.5rem">
-    <div class="eyebrow">Free diagnostic: one passage to start, three in all, about 10 minutes each</div>
+    <div class="eyebrow">Free diagnostic: one passage takes about 10 minutes; all three take about 30</div>
     <h2 style="margin:.5rem 0 .6rem">Pick a passage. Answer four questions. Get the profile.</h2>
     <p class="muted prose">Each question asks for an answer, the sentence that supports it, your reasoning, and your confidence. The profile names the pattern in your answers, which is what a tutor works from. All three passages were written for this diagnostic. One passage gives a first profile; each one you add brings four more items, so a pattern that shows up three times is a pattern and not one miss.</p>
     <div class="choose choose3 mt2">
@@ -1536,7 +1647,7 @@ p,li,dd{text-wrap:pretty}
 <main id="v-report" hidden><div class="wrap" style="padding-block:2.5rem">
   <div class="eyebrow">What a six-week report looks like</div>
   <h2 style="margin:.5rem 0 .6rem">Maya R., grade 10 (an illustration)</h2>
-  <p class="muted" style="max-width:44rem">Invented data, shown so a family can see what the tutor sends at the end of a block. Your own numbers are on the <a class="more" href="#friday">Friday report</a>, built from this device's log.</p>
+  <p class="muted" style="max-width:44rem">Invented data, shown so a family can see what the tutor sends at the end of the Program. Your own numbers are on the <a class="more" href="#friday">Friday report</a>, built from this device's log.</p>
   <div class="desk" style="padding-block:2rem 0">
     <div>
       <div class="card"><h3>Independent performance on unfamiliar texts</h3><div class="skills" id="r-skills"></div><p class="small mt1">Grey: week 1. Crimson: week 6. Scored out of 4 on texts the student had not seen, no hints available.</p></div>
@@ -1577,7 +1688,7 @@ p,li,dd{text-wrap:pretty}
       <div class="card"><h3>Flagged feedback queue</h3><p class="small" style="margin-bottom:.8rem">Students can disagree with the evidence coach. Each flag shows the response, the feedback, and a decision for the tutor.</p><div id="t-flags"></div></div>
     </div>
     <div>
-      <div class="card"><h3>Session QA checklist</h3><p class="small" style="margin-bottom:.8rem">The founder reviews two recordings per tutor per month against this list. One miss is coaching; two is replacement.</p>
+      <div class="card"><h3>Session QA checklist</h3><p class="small" style="margin-bottom:.8rem">The founder reviews two recordings per tutor per month against this list. A miss is coached that week and checked again on the next recording.</p>
         <div class="check">
           <label><input type="checkbox" id="qa0">Weekly oral reading checkpoint recorded: wpm, accuracy, phrasing</label>
           <label><input type="checkbox" id="qa1">Opened with the student's independent checkpoint, not the homework</label>
@@ -1604,7 +1715,7 @@ p,li,dd{text-wrap:pretty}
   <div class="bench">
     <div class="good"><b>Automatic</b>150 words per minute or more, 97% accuracy or better, phrasing in meaningful chunks. Comprehension work is the whole session.</div>
     <div><b>Accurate but slow</b>95% accuracy or better, under 150 words per minute. This track runs ten minutes of every session until the bar is met; comprehension work continues alongside.</div>
-    <div><b>Below 90% accuracy</b>The reader is practicing errors, and the text is too hard or decoding is not automatic. We refer to a structured-literacy specialist and refund the kit; we do not teach phonics.</div>
+    <div><b>Below 90% accuracy</b>The reader is practicing errors, and the text is too hard or decoding is not automatic. We refer to a structured-literacy specialist and refund the assessment fee; we do not teach phonics.</div>
   </div>
 
   <div class="desk" style="padding-block:2rem 0">
@@ -1870,7 +1981,7 @@ function svProfile(d){
   const decodeWeak=f&&f.acc<0.9; const slowNote=f&&!decodeWeak&&orfBand(f).k!=="good"?" Oral reading was accurate but under the program's bar of 150 words a minute at 97% accuracy, so the fluency track runs alongside, ten minutes a session.":""; const listenWeak=l&&l.score<=0; const listenStrong=l&&l.score===2;
   if(f&&l){
     if(decodeWeak&&listenWeak) return {k:"warn",t:"Both terms look weak on this screen",b:"Decoding first, because it unlocks the volume that builds everything else. A tutor repeats both checks live at intake; if they hold, we refer you to a structured-literacy specialist rather than enroll."};
-    if(decodeWeak&&!listenWeak) return {k:"warn",t:"Listening comprehension stronger than oral reading",b:"That is the decoding profile. This program starts after decoding, so the right next step is a specialist, not us. The live screen at intake confirms it, and the kit fee is refunded if we refer you."};
+    if(decodeWeak&&!listenWeak) return {k:"warn",t:"Listening comprehension stronger than oral reading",b:"That is the decoding profile. This program starts after decoding, so the right next step is a specialist, not us. The live screen at intake confirms it, and the assessment fee is refunded if we refer you."};
     if(!decodeWeak&&(listenWeak||readPct<0.75)) return {k:"good",t:"Oral reading in range on this screen; comprehension is where points were lost",b:"Oral reading is in range and the comprehension items are where points were lost. That is our student: vocabulary by root, knowledge in coherent domains, syntax unpacked, inference checked against the line."+slowNote};
     return {k:"good",t:"Both terms in range on this screen",b:"Oral reading and listening are fine, and reading comprehension is strong. The remaining gains are in calibration, test craft, and stamina, which the lessons and worked examples cover."+slowNote};
   }
@@ -3300,20 +3411,23 @@ const APPGROUP={today:"today",diagnostic:"learn",library:"learn",workspace:"lear
 document.documentElement.lang="en";
 function markScroll(){ document.querySelectorAll(".tabwrap").forEach(t=>t.classList.toggle("scrolls",t.scrollWidth>t.clientWidth+2)); }
 window.addEventListener("resize",()=>{ clearTimeout(window.__ms); window.__ms=setTimeout(markScroll,150); });
+/* Pages that left the menu still light up the menu item they belong under. */
+const NAV_FOR={how:"method",training:"method",international:"programs",schools:"programs",apply:"programs",policies:"team"};
 function route(){
   let h=(location.hash||"#home").slice(1); if(h==="founder") h="team"; let v=h.split("-")[0]; if(!VIEWS.includes(v)) v="home";
   VIEWS.forEach(x=>$("#v-"+x).hidden = x!==v); if(v==="book"&&window.needBook) window.needBook();
   $("#appbar").hidden=!APP.includes(v);
-  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Verbal Edge for international candidates",schools:"For schools",team:"Team",apply:"Apply",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",writing:"Transitions and grammar",reads:"Long reads",tips:"Tips and resources",review:"Review notebook",report:"Example report",tutor:"Tutor view"};
+  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Adult candidates",schools:"For schools",team:"About",apply:"Request",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",writing:"Transitions and grammar",reads:"Long reads",tips:"Tips and resources",review:"Review notebook",report:"Example report",tutor:"Tutor view"};
   $("#pagetitle").textContent=PT[v]||"Marlow"; $("#pagetitle").hidden=!!$("#v-"+v).querySelector("h1"); document.title=(PT[v]&&v!=="home"?PT[v]+" · Marlow":"Marlow · Read harder texts. Prove what they say.");
   setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar .ab-sub a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
-  document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>{ const on=a.dataset.v===v || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips"); a.classList.toggle("on",on); if(a.closest("#appbar")){ if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); } });
+  document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>{ const on=a.dataset.v===v || (a.closest("#nav") && NAV_FOR[v]===a.dataset.v) || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips"); a.classList.toggle("on",on); if(a.closest("#appbar")){ if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); } });
   const grp=APPGROUP[v]; document.querySelectorAll("#appbar a[data-g]").forEach(a=>a.classList.toggle("on",a.dataset.g===grp)); document.querySelectorAll("#appbar .ab-sub").forEach(d=>d.hidden=d.dataset.g!==grp);
   if(v==="workspace"){ const id=h.split("-")[1]; openLesson(LESSONS[id]?id:(load("pr-current","l5"))); }
   if(v==="review") renderReview();
   if(v==="report") renderLive();
   if(v==="tutor") renderTutor();
-  if(v==="diagnostic") renderDiagHome();
+  if(v==="diagnostic") renderDiagHome(); else document.body.classList.remove("focus-task");
+  if(v==="apply"&&typeof adaptApply==="function") adaptApply();
   if(v==="today") renderToday();
   if(v==="friday") renderFriday();
   if(v==="vocab") renderVocabBank();
@@ -3981,14 +4095,14 @@ const TIPS={score:[
   ["Track independent, not assisted","A right answer after three hints is a different fact from a right answer cold. Know which you are producing.","Hint logs and the coach report."],
   ["Change the mode when stuck","If reading a sentence three times has not opened it, listen to it, map it, or say it. A different channel often works where repetition does not.","Learning modes above."],
   ["Read whole things","Passages train the moves; books train the stamina. One real book per unit, read without a question set.","Each unit's assigned long read."],
-  ["Sleep is a study method","Memory consolidates in sleep. A late session traded for an hour of sleep is usually a bad trade the week of a test.","The parent guide in the Starter Kit."],
+  ["Sleep is a study method","Memory consolidates in sleep. A late session traded for an hour of sleep is usually a bad trade the week of a test.","The parent guide that comes with the Reading Assessment."],
   ["Keep decoding automatic","One minute of timed oral reading a week, and three reads of the same paragraph when speed lags. If attention goes to the words, none is left for the meaning.","The fluency track and every lesson's warm-up."],
   ["Read at the edge","Choose texts slightly above comfort, where new words arrive with enough context to infer them. Comfortable reading maintains; edge reading builds.","Each unit's long read; lesson levels by syntax complexity."],
   ["Skim to decide, read to understand","Reading for understanding usually runs 200 to 400 words a minute, and going much faster costs comprehension. Skimming is a different skill: deciding what deserves full attention. Use it on the question and the first and last sentences, never on the sentence that answers.","Lesson 24 and the test-day tips."],
   ["Cluster by domain","Three texts on one subject beat ten on ten. The second is easier than the first and the third is easier still, because the schema is loaded and the vocabulary recurs.","Every unit in the library."],
   ["Write two sentences after every section","Close the text. What did it show, what could it not show. Writing about reading has one of the largest effects in the research because it forces you to resolve what you only half understood.","The closed-book summary at the end of every lesson."]],
  day:[
-  ["The night before","Pack, lay out, and stop. Flip cards for twenty minutes if you must. No new material; it will not be there in the morning and the worry will.","Starter Kit test-date calendar."],
+  ["The night before","Pack, lay out, and stop. Flip cards for twenty minutes if you must. No new material; it will not be there in the morning and the worry will.","The test-date calendar that comes with the Reading Assessment."],
   ["First five minutes","Do the first two questions slowly and correctly. A clean start sets the pace; a rushed miss sets the mood.","Pacing calculator: your per-question number."],
   ["When a passage is hard","Read the first and last sentence of each paragraph, find the author's own line, then go to the questions. Come back for detail only when a question demands it.","Lesson 24: the unfamiliar text."],
   ["When you are between two answers","Find the seam in each. If one has no seam, it is right. If both do, pick the one that claims less and move on.","Worked examples."],
@@ -4013,8 +4127,9 @@ function renderTips(){
 
 /* ---------- public pages ---------- */
 $("#m-patterns").innerHTML=Object.entries(PATTERNS).map(([k,p])=>`<div class="pattern"><b>${esc(p.name)}</b><span class="small">Fixed in lesson ${LESSONS[LESSON_FOR[k]]?LESSONS[LESSON_FOR[k]].n:UNITS.flatMap(u=>u.lessons).find(l=>l.id===LESSON_FOR[k]).n}</span><div class="ex">${esc(p.ex)}</div></div>`).join("");
-const CAP=[["James Placco · founder","Chicago, in person and remote",0],["Tutor 1 · hiring","Chicago, remote",0],["Tutor 2 · 2028","Cambridge",0],["Tutor 3 · 2028","Providence, remote",0]];
-$("#p-cap").innerHTML=CAP.map(([n,w,used])=>`<div><b>${esc(n)}</b><div class="small">${esc(w)}</div><div class="bar"><i style="width:${used*10}%"></i></div><div class="small num">${used?`${used} of 10 seats filled`:"10 seats open"}${used>=10?" · waitlist":""}</div></div>`).join("");
+/* Only tutors who can be booked are listed. A tutor is added here when hired, not when planned. */
+const CAP=[["James Placco · founder","Chicago, in person and remote",0]]; const CAP_OPEN=false;
+$("#p-cap").innerHTML=CAP.map(([n,w,used])=>`<div><b>${esc(n)}</b><div class="small">${esc(w)}</div><div class="bar"><i style="width:${used*10}%"></i></div><div class="small num">${!CAP_OPEN?"10 seats for the January 2027 start · enrollment not yet open":used?`${used} of 10 seats filled`:"10 seats open"}${used>=10?" · waitlist":""}</div></div>`).join(""); if(CAP.length===1) $("#p-cap").style.gridTemplateColumns="minmax(0,26rem)";
 /* The application form. APPLY_ENDPOINT is a form service or backend URL that accepts a JSON POST and answers 2xx only when it has stored the application.
    While it is empty, the page says plainly that it cannot send anything and hands the visitor an email to send instead. */
 const APPLY_ENDPOINT="";
@@ -4023,42 +4138,65 @@ const APPLY_ENDPOINT="";
 const CHECKOUT={starter:"",cohort:"",license:""};
 document.querySelectorAll("[data-pay]").forEach(a=>{ const url=CHECKOUT[a.dataset.pay]; if(!/^https:\/\//.test(url||"")) return; a.href=url; a.target="_blank"; a.rel="noopener"; a.textContent=a.dataset.paylabel; a.classList.remove("ghost"); });
 const APPLY_EMAIL="hello@marlowreading.com";
-function applyFields(){ const g=id=>($("#"+id).value||"").trim(); return {name:g("a-name"),email:g("a-email"),reader:g("a-grade"),interest:g("a-int"),location:g("a-loc"),score:g("a-score"),note:g("a-note")}; }
-function applyText(f){ return `Marlow application\n\nName: ${f.name}\nEmail: ${f.email}\nReader: ${f.reader}\nInterest: ${f.interest}\nLocation: ${f.location}\nMost recent score: ${f.score||"none given"}\n\nWhat happens when the student reads something hard:\n${f.note||"(left blank)"}\n`; }
-function applyMailto(f){ return `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Marlow application: "+f.interest)}&body=${encodeURIComponent(applyText(f))}`; }
+const ADULT_INT=/^(Adult GRE|Verbal Edge)/, ADULT_WHO=/^(Adult|International)/;
+function isAdultApply(){ return ADULT_INT.test($("#a-int").value)||ADULT_WHO.test($("#a-grade").value); }
+/* The form speaks to the person filling it in: an adult candidate is asked about a test and a time zone, not about "the student". */
+function adaptApply(from){ const int=$("#a-int").value, who=$("#a-grade");
+  if(from==="int"&&ADULT_INT.test(int)){ who.value=/^Verbal Edge/.test(int)?"International candidate, GRE or GMAT":"Adult, GRE or GMAT or LSAT"; if(/^Verbal Edge/.test(int)&&$("#a-loc").value==="Remote, U.S.") $("#a-loc").value="Remote, elsewhere"; }
+  if(from==="int"&&!ADULT_INT.test(int)&&ADULT_WHO.test(who.value)&&/^(Reading Assessment|The Marlow Program|The Cohort|Membership)/.test(int)) who.value="Grade 10";
+  const adult=isAdultApply(); document.querySelectorAll("#apply .adult-only").forEach(x=>x.hidden=!adult);
+  $("#apply-h").textContent=adult?"Tell us about your test. We reply within two business days.":"Tell us about the student. We reply within two business days.";
+  $("#a-grade-l").textContent=adult?"You are":"Who is the reader"; $("#a-score-l").textContent=adult?"Current score and target":"Most recent score, if any"; $("#a-score").placeholder=adult?"e.g. GRE verbal 155, target 162":"e.g. 640 SAT R&W, 28 ACT Reading";
+  $("#a-note-l").textContent=adult?"What happens when you read something hard under time?":"What happens when the student reads something hard?";
+  $("#a-note").placeholder=adult?"I finish the passage and cannot choose between the last two answers. Reading comprehension costs me more time than the rest of the section.":"Finishes the passage but cannot say the main point. Picks the answer that sounds right. Scores well in class, not on tests.";
+  if(adult&&!$("#a-tz").value){ try{ $("#a-tz").value=Intl.DateTimeFormat().resolvedOptions().timeZone||""; }catch(e){} }
+  const dg=load("pr-diag",null), n=dg&&dg.passages?Object.values(dg.passages).filter(x=>x&&Array.isArray(x.items)).length:0; $("#a-diag-row").hidden=!n; if(n) $("#a-diag-l").textContent=`Include my diagnostic answers in this request (${n} passage${n===1?"":"s"}: answers, evidence, confidence, and written reasons)`; }
+$("#a-int").addEventListener("change",()=>adaptApply("int")); $("#a-grade").addEventListener("change",()=>adaptApply("who"));
+/* A button that leads to the form carries its program with it. */
+function applyWith(int){ const sel=$("#a-int"); if(int&&[...sel.options].some(o=>o.value===int)){ sel.value=int; adaptApply("int"); } }
+document.addEventListener("click",e=>{ const a=e.target.closest&&e.target.closest('a[href="#apply"][data-int]'); if(a) applyWith(a.dataset.int); });
+/* The diagnostic, as text a tutor can read. short=true trims each written reason so the whole request still fits in an email link. */
+function diagText(short){ const dg=load("pr-diag",null); if(!dg||!dg.passages) return ""; const CONF=["","guess","unsure","fairly sure","certain"]; const out=[];
+  Object.entries(dg.passages).forEach(([k,p])=>{ if(!DIAG[k]||!p) return; const fl=Object.entries(p.flags||{}).filter(([q])=>PATTERNS[q]).map(([q,n])=>`${PATTERNS[q].name} (${n})`).join("; "); out.push(`${DIAG[k].title}: ${+p.correct||0} of 4${fl?`. Flagged: ${fl}`:""}`);
+    (Array.isArray(p.items)?p.items:[]).forEach((it,i)=>{ const why=String(it.why||"").replace(/\s+/g," ").trim(); out.push(`  ${i+1}. ${it.skill}: ${it.right?"right":"wrong"}${short?"":` ("${it.choiceText}")`}; evidence ${(it.ev||[]).map(x=>x+1).join(", ")||"none"} ${it.evOk?"matches":"does not match"}; ${CONF[it.conf]||""}.${why?` Reason: ${short?why.slice(0,90)+(why.length>90?"...":""):why}`:""}`); }); });
+  return out.length?"Free diagnostic, as saved on my device\n"+out.join("\n")+"\n":""; }
+function applyFields(){ const g=id=>($("#"+id).value||"").trim(); const adult=isAdultApply(); return {name:g("a-name"),email:g("a-email"),reader:g("a-grade"),interest:g("a-int"),location:g("a-loc"),score:g("a-score"),note:g("a-note"),adult,test:adult?g("a-test"):"",tz:adult?g("a-tz"):"",diag:!$("#a-diag-row").hidden&&$("#a-diag").checked}; }
+function applyText(f,short){ const d=f.diag?diagText(short):""; return `Marlow request\n\nName: ${f.name}\nEmail: ${f.email}\nReader: ${f.reader}\nInterest: ${f.interest}\nLocation: ${f.location}\n${f.adult?`Test and date: ${f.test||"not given"}\nTime zone: ${f.tz||"not given"}\nCurrent score and target`:"Most recent score"}: ${f.score||"none given"}\n\n${f.adult?"What happens when I read something hard under time":"What happens when the student reads something hard"}:\n${f.note||"(left blank)"}\n${d?"\n"+d:""}`; }
+/* Mail apps cut long links short, so the email carries the trimmed diagnostic, or only its scores if that is still too long; Copy carries all of it. */
+function applyMailto(f){ const head=`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Marlow request: "+f.interest)}&body=`; let body=encodeURIComponent(applyText(f,true)); if(body.length>1800&&f.diag){ const dg=load("pr-diag",{passages:{}}); const brief="Free diagnostic: "+Object.entries(dg.passages||{}).filter(([k])=>DIAG[k]).map(([k,p])=>`${DIAG[k].title} ${+p.correct||0} of 4`).join("; ")+". Full answers: paste them from Copy my answers."; body=encodeURIComponent(applyText({...f,diag:false})+"\n"+brief+"\n"); } return head+body; }
 function applyFallback(f,lead){ const d=$("#apply-done"); d.hidden=false;
-  d.innerHTML=`<b>${esc(lead)}</b> Your answers are still in the form above. To apply, send them to <a href="${applyMailto(f)}">${esc(APPLY_EMAIL)}</a>: the button opens an email with everything filled in, and it is sent only when you press send in your own mail app. We reply within two business days of receiving it.<div class="row mt1"><a class="btn sm" id="apply-mail" href="${applyMailto(f)}">Open the email, ready to send</a><button class="btn ghost sm" type="button" id="apply-copy">Copy my answers</button></div><p class="small mt1">While you wait, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.</p>`;
+  d.innerHTML=`<b>${esc(lead)}</b> Your answers are still in the form above. To send the request, email them to <a href="${applyMailto(f)}">${esc(APPLY_EMAIL)}</a>: the button opens an email with everything filled in, and it is sent only when you press send in your own mail app. We reply within two business days of receiving it.<div class="row mt1"><a class="btn sm" id="apply-mail" href="${applyMailto(f)}">Open the email, ready to send</a><button class="btn ghost sm" type="button" id="apply-copy">Copy my answers</button></div><p class="small mt1">While you wait, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.</p>`;
   $("#apply-copy").onclick=async()=>{ try{ await navigator.clipboard.writeText(applyText(f)); toast("Copied. Paste it into an email to "+APPLY_EMAIL+"."); }catch(e){ toast("Copy is blocked here. Use the email button."); } }; }
-{ const b=document.querySelector("#apply button[type=submit]"); if(b&&!APPLY_ENDPOINT) b.textContent="Prepare my application"; }
+{ const b=document.querySelector("#apply button[type=submit]"); if(b&&!APPLY_ENDPOINT) b.textContent="Prepare my request"; }
 $("#apply").addEventListener("submit",async e=>{
   e.preventDefault(); const f=applyFields(); const d=$("#apply-done"); const btn=document.querySelector("#apply button[type=submit]");
   store("pr-apply",{...f,at:Date.now()});
-  if(!APPLY_ENDPOINT) return applyFallback(f,"This page cannot send your application by itself yet, and nothing has been sent.");
+  if(!APPLY_ENDPOINT) return applyFallback(f,"This page cannot send your request by itself yet, and nothing has been sent.");
   let id=""; try{ const key="marlow-apply-id:"+f.email+"|"+f.interest; id=sessionStorage.getItem(key)||(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)); sessionStorage.setItem(key,id); }catch(err){ id=String(Date.now()); }
-  d.hidden=false; d.textContent="Sending your application. Please keep this page open."; btn.disabled=true;
+  d.hidden=false; d.textContent="Sending your request. Please keep this page open."; btn.disabled=true;
   const ctl=new AbortController(); const timer=setTimeout(()=>ctl.abort(),15000);
-  try{ const r=await fetch(APPLY_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({...f,submissionId:id,sentAt:new Date().toISOString()}),signal:ctl.signal});
+  try{ const r=await fetch(APPLY_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({...f,diagnostic:f.diag?diagText(false):"",submissionId:id,sentAt:new Date().toISOString()}),signal:ctl.signal});
     if(!r.ok) throw new Error("status "+r.status);
-    d.innerHTML=`<b>Application received.</b> Thank you, ${esc(f.name||"there")}. Your reference is <span class="num">${esc(id.slice(0,8))}</span>. We will reply to ${esc(f.email)} within two business days about ${esc(f.interest)}. In the meantime, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.`;
-  }catch(err){ applyFallback(f,err.name==="AbortError"?"We could not confirm that your application arrived. It may or may not have been received.":"Your application did not go through."); }
+    d.innerHTML=`<b>Request received.</b> Thank you, ${esc(f.name||"there")}. Your reference is <span class="num">${esc(id.slice(0,8))}</span>. We will reply to ${esc(f.email)} within two business days about ${esc(f.interest)}. In the meantime, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.`;
+  }catch(err){ applyFallback(f,err.name==="AbortError"?"We could not confirm that your request arrived. It may or may not have been received.":"Your request did not go through."); }
   finally{ clearTimeout(timer); btn.disabled=false; } });
 $("#lane-go").addEventListener("click",()=>{
   const on=[...document.querySelectorAll("#lane input:checked")].map(i=>i.value); const out=$("#lane-out"); let r;
-  if(on.includes("decode")) r={k:"warn",t:"Probably not us, and we would rather say so now",b:"Slow or effortful word reading points to a decoding or fluency need. This program starts after decoding. Book a Starter Kit only if you want the fluency screen done live and a referral to a specialist; the kit fee is refunded if we refer you out."};
+  if(on.includes("decode")) r={k:"warn",t:"Probably not us, and we would rather say so now",b:"Slow or effortful word reading points to a decoding or fluency need. This program starts after decoding. Request the Reading Assessment only if you want the fluency screen done live and a referral to a specialist; the fee is refunded if we refer you out."};
   else if(on.includes("young")) r={k:"warn",t:"Not yet",b:"Grades 6 to 8 open after the founding cohorts publish outcomes. Leave your details on the apply page and select Other; we will tell you when."};
-  else if(on.includes("intl")) r={k:"good",t:"Verbal Edge for international candidates",b:"Remote, in your evening, $299 an hour with a guaranteed band. Start with the free diagnostic, then request a call.",go:"#international",cta:"See the lane"};
-  else if(on.includes("adult")) r={k:"good",t:"Adult GRE, GMAT, or LSAT verbal",b:"Same method, adult passage sets, $199 an hour for U.S. candidates. Take the diagnostic, then request a call and tell us your test date.",go:"#apply",cta:"Request a call"};
-  else if(on.includes("hs")&&(on.includes("fluent")||on.includes("plateau"))) r={k:"good",t:"The Starter Kit is the right first step",b:"A fluent reader in high school whose score has stalled is exactly who the method is built for. The kit gives you the profile, the book, and 30 days in the workspace for $250.",go:"#programs",cta:"See the Starter Kit"};
-  else if(on.includes("hs")) r={k:"good",t:"Start with the free diagnostic",b:"One passage, four questions, about ten minutes, and a profile that names the pattern. Then decide whether the Starter Kit makes sense.",go:"#diagnostic",cta:"Take the diagnostic"};
+  else if(on.includes("intl")) r={k:"good",t:"Verbal Edge for international candidates",b:"Remote, in your evening: one package of verbal preparation and help through admissions, with a guaranteed band. Start with the free diagnostic, then request a call.",go:"#international",cta:"See the adult packages"};
+  else if(on.includes("adult")) r={k:"good",t:"Adult GRE, GMAT, or LSAT verbal",b:"Same method, adult passage sets, sold as one package for U.S. candidates. Take the diagnostic, then request a call and tell us your test date.",go:"#apply",cta:"Request a call",int:"Adult GRE, GMAT, or LSAT verbal"};
+  else if(on.includes("hs")&&(on.includes("fluent")||on.includes("plateau"))) r={k:"good",t:"The Reading Assessment is the right first step",b:"A fluent reader in high school whose score has stalled is exactly who the method is built for. For $250 you get a live session, the one-page profile, the book, and 30 days in the workspace, and the fee is credited if you go on to the Program.",go:"#programs",cta:"See the Reading Assessment"};
+  else if(on.includes("hs")) r={k:"good",t:"Start with the free diagnostic",b:"One passage, four questions, about ten minutes, and a profile that names the pattern. Then decide whether the Reading Assessment makes sense.",go:"#diagnostic",cta:"Take the diagnostic"};
   else r={k:"warn",t:"Check at least one",b:"Tell us who the reader is and we will route you."};
-  out.innerHTML=fbHtml(r,r.go?`<div class="row" style="margin-top:.6rem"><a class="btn sm" href="${r.go}">${esc(r.cta)}</a></div>`:"");
+  out.innerHTML=fbHtml(r,r.go?`<div class="row" style="margin-top:.6rem"><a class="btn sm" href="${r.go}"${r.int?` data-int="${esc(r.int)}"`:""}>${esc(r.cta)}</a></div>`:"");
 });
 
 /* ---------- diagnostic ---------- */
 let dState=null;
 const dRoot=$("#d-passage");
 function renderDiagHome(){
-  $("#d-choose").hidden=false; $("#d-desk").hidden=true;
+  $("#d-choose").hidden=false; $("#d-desk").hidden=true; document.body.classList.remove("focus-task");
   const prev=load("pr-diag",null); const box=$("#d-prev");
   const dr=load("pr-diagdraft",null); const drNote=dr&&DIAG[dr.key]?`<p class="small mt1"><b>Unfinished:</b> ${esc(DIAG[dr.key].title)}, question ${Math.min(4,(dr.i|0)+1)} of 4. Choose that passage to pick up where you left off.</p>`:"";
   if(drNote&&!(prev&&prev.passages&&Object.keys(prev.passages).length)){ box.hidden=false; box.innerHTML=drNote; }
@@ -4070,7 +4208,7 @@ function startDiag(key){
   const P=DIAG[key]; const dr=load("pr-diagdraft",null); const resume=dr&&dr.key===key&&Array.isArray(dr.answers)&&dr.answers.length<=4;
   dState=resume?{key,i:Math.max(0,Math.min(3,dr.i|0)),picks:dr.picks&&typeof dr.picks==="object"?dr.picks:{},answers:dr.answers,cur:dr.cur||null}:{key,i:0,picks:{},answers:[],cur:null};
   if(resume&&(dState.i||dState.cur||Object.keys(dState.picks).length)) toast("Picked up where you left off.");
-  $("#d-choose").hidden=true; $("#d-desk").hidden=false; $("#d-item").hidden=false; $("#d-result").hidden=true;
+  $("#d-choose").hidden=true; $("#d-desk").hidden=false; $("#d-item").hidden=false; $("#d-result").hidden=true; document.body.classList.add("focus-task");
   $("#d-eyebrow").textContent=P.eyebrow; $("#d-title").textContent=P.title;
   renderPassage(dRoot,P,(i,s)=>{ const cur=dState.picks[dState.i]||[]; if(cur.includes(i)){ dState.picks[dState.i]=cur.filter(x=>x!==i); s.classList.remove("pick"); } else { if(cur.length>=2){ toast("Pick at most two sentences."); return; } dState.picks[dState.i]=[...cur,i]; s.classList.add("pick"); } const n=$("#d-evn"); if(n) n.textContent=(dState.picks[dState.i]||[]).map(x=>x+1).join(", ")||"none yet"; saveDraft(); });
   renderDiagItem();
@@ -4118,6 +4256,7 @@ function scoreAnswers(P, answers){
   return {correct,flags};
 }
 function finishDiag(){
+  document.body.classList.remove("focus-task");
   const P=DIAG[dState.key]; const res=scoreAnswers(P,dState.answers);
   const prev=load("pr-diag",{passages:{}}); prev.passages=prev.passages||{}; prev.passages[dState.key]={v:2,correct:res.correct,flags:res.flags,at:Date.now(),items:dState.answers.map((a,k)=>{ const it=P.items[k]; return {skill:it.skill,choice:a.choice,choiceText:it.opts[a.choice],right:a.choice===it.ans,ev:a.ev,evOk:a.ev.some(e=>it.ev.includes(e)),why:String(a.why||"").slice(0,1200),conf:a.conf}; })};
   try{ localStorage.removeItem("pr-diagdraft"); }catch(e){}
@@ -4134,11 +4273,11 @@ function finishDiag(){
     <p class="small" style="margin-bottom:.8rem">A score is the least useful line here. The patterns below, across ${Object.keys(prev.passages).length} passage${Object.keys(prev.passages).length>1?"s":""}, are what a tutor works from. Each count is out of ${4*Object.keys(prev.passages).length} items, so one miss is one observation and not a diagnosis.</p>
     ${list.length?`<table>${list.map(([k,n])=>`<tr><td>${esc(PATTERNS[k].name)}</td><td class="num" style="text-align:right">${n} of ${4*Object.keys(prev.passages).length} items</td></tr>`).join("")}</table>`:`<div class="fb good"><b>No recurring pattern on this screen.</b> The answers were right, the evidence sentences matched, and confidence was in line with both. Your written reasons were saved and were not scored.</div>`}
     <dl class="kv mt1"><dt>Starting priority</dt><dd>${esc(prev.priority)}</dd><dt>First lesson</dt><dd>${esc(prev.nextLessonTitle)}</dd></dl>
-    <div class="fb mt1"><b>What this is, and what happens next</b> Your answers, evidence, confidence, and written reasons are saved on this device. This screen scores the answer, the evidence sentence, and confidence; of a written reason it checks only that it is long enough and about the passage. A tutor reads the reasoning at the Starter Kit diagnostic: save your progress file from the Friday page and send it. Four questions cannot establish a reading level or diagnose a difficulty.</div>
+    <div class="fb mt1"><b>What this is, and what happens next</b> Your answers, evidence, confidence, and written reasons are saved on this device. This screen scores the answer, the evidence sentence, and confidence; of a written reason it checks only that it is long enough and about the passage. A tutor reads the reasoning. To ask for that, use the button below: it carries these answers into a request, with your consent, and nothing is sent until you send it. Four questions cannot establish a reading level or diagnose a difficulty.</div>
     <div class="card mt1" style="background:var(--band)"><div class="eyebrow">Decoding term: 1-minute read-aloud</div><p class="small mt1">Read the passage aloud from sentence 1. Press start when you begin and stop when you finish, then count the words you misread or skipped. This is a screen, not a test; a tutor repeats it live at intake.</p><div class="row mt1"><span class="timer num" id="fl-time">0:00</span><button class="btn sm" type="button" id="fl-btn">Start</button></div><div id="fl-out"></div></div>
     <div class="card mt1" style="background:var(--band)"><div class="eyebrow">Language term: listening check</div><p class="small mt1">A short passage is read aloud with the text hidden, then two questions. If you understand it better by ear than by eye, that tells us something; if the reverse, that tells us something else.</p><div class="row mt1"><button class="btn sm" type="button" id="li-play">▶ Play the passage</button><button class="btn ghost sm" type="button" id="li-done" hidden>I have listened; show the questions</button></div><div id="li-q"></div></div>
     <div class="card mt1" id="sv-box" hidden></div><p class="small mt1">The read-aloud is self-timed and self-scored, and the listening check is two questions on a different passage. Both are prompts for a live check with a tutor, not findings.</p>
-    <div class="row mt1">${other?`<button class="btn" type="button" id="d-other">Take the ${esc(DIAG[other].title)} passage</button>`:""}<a class="btn ${other?"ghost":""}" href="#workspace-${LESSONS[nextId]?nextId:"l5"}">Open the first lesson</a><a class="btn ghost" href="#apply">Book a Starter Kit</a></div>
+    <div class="row mt1">${other?`<button class="btn" type="button" id="d-other">Take the ${esc(DIAG[other].title)} passage</button>`:""}<a class="btn ${other?"ghost":""}" href="#workspace-${LESSONS[nextId]?nextId:"l5"}">Open the first lesson</a><a class="btn ghost" href="#apply" data-int="A tutor's review of my free diagnostic">Ask a tutor to review this</a></div>
   </div>`;
   if(other) $("#d-other").addEventListener("click",()=>startDiag(other));
   const showSV=()=>{ const r=svProfile(prev); const box=$("#sv-box"); if(!r){ box.hidden=true; return; } box.hidden=false; box.innerHTML=`<div class="eyebrow">Simple View profile · Decoding × Language comprehension</div><dl class="kv mt1"><dt>Oral reading</dt><dd class="num">${prev.fluency.wpm} wpm · ${Math.round(prev.fluency.acc*100)}% accuracy</dd><dt>Listening comprehension</dt><dd class="num">${prev.listening.score} of 2</dd><dt>Reading comprehension</dt><dd class="num">${Object.values(prev.passages).reduce((a,p)=>a+p.correct,0)} of ${4*Object.keys(prev.passages).length}</dd></dl>${fbHtml(r)}`; };
@@ -4712,11 +4851,11 @@ function sentenceSummary(){
   d.querySelectorAll(".demo-moves button").forEach(b=>b.addEventListener("click",()=>{ const m=b.dataset.m; d.querySelectorAll(".demo-moves button").forEach(x=>{ x.classList.toggle("on",x===b); if(x===b) x.classList.add("seen"); }); steps[m].render(); name.textContent=steps[m].name; out.innerHTML=steps[m].html; out.classList.add("on"); }));
   out.innerHTML=`Answer the question above, or tap <b>1</b> to go straight to the method.`;
   const ask=$("#demo-ask"); const SAID=[
-    `<b>That is the answer that sounds right.</b> One sentence takes it back. Tap <b>1</b> to find it.`,
-    `<b>Right, and it is the least exciting answer of the three.</b> A test asks you to show which sentence and which words. Tap <b>1</b>.`,
-    `<b>The passage never judges the council.</b> "Encouraging" is the council's word, reported. Tap <b>1</b> to see what the passage does say.`];
+    `<b>That is the answer that sounds right.</b> One sentence takes it back.<span class="demo-cue"> Tap <b>1</b> to find it.</span>`,
+    `<b>Right, and it is the least exciting answer of the three.</b> A test asks you to show which sentence and which words.<span class="demo-cue"> Tap <b>1</b>.</span>`,
+    `<b>The passage never judges the council.</b> "Encouraging" is the council's word, reported.<span class="demo-cue"> Tap <b>1</b> to see what the passage does say.</span>`];
   if(ask) ask.querySelectorAll(".demo-q button").forEach(b=>b.addEventListener("click",()=>{ ask.innerHTML=SAID[+b.dataset.a]; ask.classList.add("done"); const one=d.querySelector('.demo-moves button[data-m="1"]'); one.classList.add("next"); one.focus({preventScroll:true}); }));
-  d.querySelectorAll(".demo-moves button").forEach(b=>b.addEventListener("click",()=>d.querySelectorAll(".demo-moves button.next").forEach(x=>x.classList.remove("next"))));
+  d.querySelectorAll(".demo-moves button").forEach(b=>b.addEventListener("click",()=>{ d.querySelectorAll(".demo-moves button.next").forEach(x=>x.classList.remove("next")); d.querySelectorAll(".demo-cue").forEach(x=>x.remove()); }));
   const mf=$("#mfig"), slot=$("#method-fig"); if(mf&&slot){ const c=mf.cloneNode(true); c.removeAttribute("id"); slot.appendChild(c); }
 })();
 
@@ -5101,6 +5240,14 @@ function renderStudentFile(d,label){
   let tk=null; window.addEventListener("scroll",()=>{ if(tk) return; tk=setTimeout(()=>{ tk=null; if(!$("#v-workspace").hidden) mark(); },120); },{passive:true});
   window.wsSel=t=>{ $("#ws-sel").textContent=t; };
 })();
+
+/* ---------- one footer, on every public page: everything that left the menu lives here ---------- */
+document.querySelectorAll("footer.site").forEach(ft=>{ ft.innerHTML=`<div class="wrap foot">
+  <div class="foot-brand"><a class="brand" href="#home"><span class="mark">M</span>Marlow</a><p>Read harder texts. Prove what they say.</p></div>
+  <nav aria-label="Programs"><b>Programs</b><a href="#programs">The three packages</a><a href="#international">Adult candidates</a><a href="#schools">Schools</a><a href="#apply" data-int="Reading Assessment">Request an assessment</a></nav>
+  <nav aria-label="The method"><b>The method</b><a href="#method">The Marlow Method</a><a href="#book">The book</a><a href="#diagnostic">Free diagnostic</a><a href="#today">The app</a><a href="#tips">Tips and resources</a></nav>
+  <nav aria-label="Company"><b>Company</b><a href="#team">About</a><a href="#how">How we work</a><a href="#training">Training</a><a href="#policies">Policies</a><a href="mailto:hello@marlowreading.com">hello@marlowreading.com</a></nav>
+  <div class="foot-legal">© 2026 Marlow Reading LLC · Chicago, Illinois · Every passage on this site was written for it.</div></div>`; });
 
 route();
 </script>
