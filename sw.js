@@ -1,6 +1,6 @@
 /* Marlow service worker: network first, cache fallback, so the app opens offline and updates on the next online load.
    It touches only caches whose names begin with "marlow-", so other projects on the same host keep theirs. */
-const PREFIX = "marlow-", CACHE = PREFIX + "v15";
+const PREFIX = "marlow-", CACHE = PREFIX + "v16";
 const ASSETS = ["./", "./index.html", "./content/book.js", "./manifest.webmanifest", "./icon.svg"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith(PREFIX) && k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
