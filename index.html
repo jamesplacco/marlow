@@ -265,6 +265,12 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 .t-rev .t-item:first-of-type{border-top:0}
 .t-rev .t-dec button[aria-pressed="true"]{background:var(--crimson);color:var(--crimson-ink);border-color:var(--crimson)}
 .t-rev td{font-size:.92rem}
+.c-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);margin-top:1rem}
+.c-tiles>div{padding:.9rem 1rem .9rem 0;border-bottom:1px solid var(--rule);font-size:.9rem;color:var(--muted)}
+.c-tiles b{display:block;font-family:var(--display);font-size:1.5rem;font-weight:500;color:var(--ink);line-height:1.2}
+.c-tiles i{font-style:normal;color:var(--muted);font-size:1rem}
+.c-chg{white-space:nowrap}
+@media (max-width:800px){.c-tiles{grid-template-columns:1fr 1fr}}
 .t-rev .why{font-family:var(--display);font-size:1rem;min-width:14rem}
 .t-rev .t-sum{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:.8rem 0 0;font-size:.95rem}
 .t-rev .t-sum b{font-family:var(--display);font-size:1.25rem;font-weight:500;margin-right:.3rem}
@@ -913,7 +919,7 @@ p,li,dd{text-wrap:pretty}
   </div></section>
 
   <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">The guarantee</div><h2>If the independent score has not moved by the stated band after 20 hours, we keep working at no charge until it has.</h2></div>
+    <div class="head"><div class="eyebrow">The guarantee</div><h2>If the independent score has not moved by the stated band at the end of the Program, we keep working at no charge until it has.</h2></div>
     <div class="split">
       <div class="plate">+80 on SAT Reading and Writing, or +3 on ACT Reading, measured on texts the student has never seen.</div>
       <div class="prose">
@@ -1193,7 +1199,7 @@ p,li,dd{text-wrap:pretty}
     <div class="stats">
       <div class="stat"><b class="num">36</b><span>Workspace sessions in a 12-week season, 20 minutes each</span></div>
       <div class="stat"><b class="num">100</b><span>Passages read, 70 claims written, 12 oral reading checkpoints</span></div>
-      <div class="stat"><b class="num">3.5</b><span>Hours a week, none over an hour at a stretch, one day that is only reading</span></div>
+      <div class="stat"><b class="num">4</b><span>Hours a week at most, none over an hour at a stretch, one day that is only reading</span></div>
     </div>
   </div></section>
 
@@ -1214,7 +1220,7 @@ p,li,dd{text-wrap:pretty}
   </div></section>
 
   <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">A training week</div><h2>Three and a half hours. Pick how many workspace days fit.</h2></div>
+    <div class="head"><div class="eyebrow">A training week</div><h2>About four hours. Pick how many workspace days fit.</h2></div>
     <div class="modes" style="margin-bottom:1rem"><span class="small">Workspace days</span><button type="button" data-d="3" class="on">3</button><button type="button" data-d="4">4</button><button type="button" data-d="5">5</button></div>
     <div class="week" id="tw-week"></div>
     <p class="small mt1" id="tw-note"></p>
@@ -1325,7 +1331,7 @@ p,li,dd{text-wrap:pretty}
 <!-- ============ BOOK ============ -->
 <main id="v-book" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 37 chapters and nine parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, a part for tutors, the digital SAT up close, and the long reads. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the 283-word banks, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Reading Assessment.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply" data-int="Reading Assessment">Get it with the Reading Assessment</a></div></div>
+    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 37 chapters and nine parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, a part for tutors, the digital SAT up close, and the long reads. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the word banks of 283 words, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Reading Assessment.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply" data-int="Reading Assessment">Get it with the Reading Assessment</a></div></div>
     <div class="plate" style="font-size:1.3rem">"Every hard sentence has one word doing most of the work. Usually it is a small one: nearly, unless, rather than, alone. Find that word and the sentence opens."<br><span class="small" style="color:inherit;opacity:.8">From chapter 2</span></div>
   </div></section>
   <section class="section"><div class="wrap">
@@ -1499,7 +1505,15 @@ p,li,dd{text-wrap:pretty}
         <div><h3>What we ask</h3><p>Tutors pass the teach-back before delivering. Checkpoints are run as written, so your outcomes are comparable to ours and can be published alongside them. Recording and consent policies match the ones on this site.</p></div>
       </div>
     </div>
-    <div class="notice mt2" style="max-width:44rem">Licensing opens after the founding cohorts publish outcomes. <a href="#apply" data-int="School or tutoring company">Leave your details</a> and select "School or tutoring company" to be notified first.</div>
+  </div></section>
+  <section class="section band"><div class="wrap">
+    <div class="head"><div class="eyebrow">See it before you ask</div><h2>The platform a licensee runs is the one on this site. Open it.</h2></div>
+    <div class="inside">
+      <div><b>What a student does</b>The ten-minute diagnostic, 24 lessons, and an evidence coach that names the reasoning error and never gives the answer. <a href="#today">Open the app.</a></div>
+      <div><b>What a tutor sees</b>Each student's written reasons, the answers saved for review, hint use, and every lesson session, read from the student's own file. <a href="#tutor">Open the tutor view.</a></div>
+      <div><b>What a department head sees</b>The whole group on one screen: who is practising, whose first answers are improving, and who needs a conversation this week. <a href="#tutor-cohort">Load the sample cohort.</a></div>
+    </div>
+    <div class="notice mt2" style="max-width:46rem"><b>Pilot conversations are open now.</b> Licensing opens after the founding cohorts publish outcomes, and pilot sites for the 2027 to 2028 school year are chosen before then. <a href="#apply" data-int="School or tutoring company">Request a 20-minute call</a> to see the platform with your own students in mind.</div>
   </div></section>
   <footer class="site"></footer>
 </main>
@@ -1513,7 +1527,7 @@ p,li,dd{text-wrap:pretty}
       <li><b>We reply within two business days</b> with times for a 20-minute call and answers to anything you asked.</li>
       <li><b>You decide after the call.</b> No payment is taken on this page, and none is arranged until you choose to go ahead.</li>
     </ol>
-    <form class="form" id="apply">
+    <form class="form" id="apply-form">
       <label>Your name (parent, guardian, or adult student)<input id="a-name" required></label>
       <label>Email<input id="a-email" type="email" required></label>
       <label><span id="a-grade-l">Who is the reader</span><select id="a-grade"><option>Grade 9</option><option selected>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Adult, GRE or GMAT or LSAT</option><option>International candidate, GRE or GMAT</option><option>Other</option></select></label>
@@ -1555,7 +1569,7 @@ p,li,dd{text-wrap:pretty}
     <div class="row"><label class="small" style="font-weight:600">Student <input id="fr-name" placeholder="First name" style="width:11rem;display:inline-block;margin-left:.4rem"></label><button class="btn ghost sm" type="button" id="fr-copy">Copy as text</button><button class="btn sm" type="button" id="fr-print">Print</button></div></div>
   <article class="report card" id="fr-report"></article>
   <div class="card mt2 noprint"><h3>Since the start</h3><p class="small" style="margin:.3rem 0 .8rem">The first measurement against the latest, on the same measure. This is the evidence that the method is working for this student, or is not.</p><div id="fr-out"></div></div>
-  <div class="card mt2 noprint" id="friday-keep"><h3>Your progress, kept</h3><p class="small" style="margin:.3rem 0 .8rem">Everything the app knows about this student is stored in this browser, on this device, and nowhere else. Clearing the browser's data erases it. Save it to a file to keep it, move it to another device, or hand it to a tutor. A file is checked before it is loaded, and what was here is kept as a backup you can restore.</p><p class="small" id="fr-saved" style="margin-bottom:.6rem"></p><div class="row"><button class="btn ghost sm" type="button" id="fr-export">Save progress to a file</button><label class="btn ghost sm" style="cursor:pointer">Load a progress file<input type="file" id="fr-import" accept="application/json" hidden></label><button class="btn ghost sm" type="button" id="fr-reset">Start over</button></div><p class="small mt1" id="fr-io"></p></div>
+  <div class="card mt2 noprint" id="friday-keep"><h3>Your progress, kept</h3><p class="small" style="margin:.3rem 0 .8rem">Everything the app knows about this student is stored in this browser, on this device, and nowhere else. Clearing the browser's data erases it. Save it to a file to keep it, move it to another device, or hand it to a tutor. A file is checked before it is loaded, and what was here is kept as a backup you can restore.</p><p class="small" id="fr-saved" style="margin-bottom:.6rem"></p><div class="row"><button class="btn sm" type="button" id="fr-share" hidden>Send my progress to my tutor</button><button class="btn ghost sm" type="button" id="fr-export">Save progress to a file</button><label class="btn ghost sm" style="cursor:pointer">Load a progress file<input type="file" id="fr-import" accept=".json,.txt,application/json,text/plain" hidden></label><button class="btn ghost sm" type="button" id="fr-reset">Start over</button></div><p class="small mt1" id="fr-io"></p></div>
 </div></main>
 
 <!-- ============ TODAY ============ -->
@@ -1680,8 +1694,12 @@ p,li,dd{text-wrap:pretty}
   <p class="muted prose">Illustrative roster for one tutor. Flags come from the workspace: feedback a student disagreed with, hint use above two per task, or a checkpoint due.</p>
   <div class="card mt2" id="t-open"><h3>Review a student's work</h3>
     <p class="small" style="margin:.4rem 0 .8rem;max-width:46rem">A student saves a progress file on the Friday page and sends it to you. Open it here to read the written reasons from the diagnostic, the answers saved for you, and the record of every lesson. The file is only read: nothing is added to this device's own progress, and nothing is sent anywhere.</p>
-    <div class="row"><button class="btn sm" type="button" id="t-pick">Open a progress file</button><input type="file" id="t-file" accept="application/json" hidden><button class="btn ghost sm" type="button" id="t-own">Try it with the work on this device</button></div>
+    <div class="row"><button class="btn sm" type="button" id="t-pick">Open a progress file</button><input type="file" id="t-file" accept=".json,.txt,application/json,text/plain" hidden><button class="btn ghost sm" type="button" id="t-own">Try it with the work on this device</button></div>
     <div id="t-review" class="t-rev" aria-live="polite"></div></div>
+  <div class="card mt2" id="tutor-cohort"><h3>Cohort outcomes</h3>
+    <p class="small" style="margin:.4rem 0 .8rem;max-width:46rem">Open every student's progress file at once to see the group: who is practising, whose first answers are getting more accurate, and what changed between each student's early sessions and recent ones. The files are read in memory. Nothing is stored on this device and nothing is sent anywhere.</p>
+    <div class="row"><button class="btn sm" type="button" id="c-pick">Open several progress files</button><input type="file" id="c-file" accept=".json,.txt,application/json,text/plain" multiple hidden><button class="btn ghost sm" type="button" id="c-sample">Load the sample cohort</button></div>
+    <div id="c-out" class="t-rev" aria-live="polite"></div></div>
   <div class="card mt2"><h3>Roster</h3><div class="tabwrap"><table class="roster" id="t-roster"></table></div></div>
   <div class="desk" style="padding-block:1rem 0">
     <div>
@@ -3409,7 +3427,8 @@ const APP=["today","friday","diagnostic","library","workspace","fluency","vocab"
 const VIEWS=PUBLIC.concat(APP);
 const APPGROUP={today:"today",diagnostic:"learn",library:"learn",workspace:"learn",examples:"learn",practice:"practice",sentences:"practice",writing:"practice",fluency:"build",vocab:"build",reads:"build",review:"track",friday:"track",tips:"more",report:"more",tutor:"more"};
 document.documentElement.lang="en";
-function markScroll(){ document.querySelectorAll(".tabwrap").forEach(t=>t.classList.toggle("scrolls",t.scrollWidth>t.clientWidth+2)); }
+/* A table that scrolls sideways must be reachable from the keyboard, so it takes focus only while it scrolls. */
+function markScroll(){ document.querySelectorAll(".tabwrap").forEach(t=>{ const sc=t.scrollWidth>t.clientWidth+2; t.classList.toggle("scrolls",sc); if(sc){ t.tabIndex=0; t.setAttribute("role","group"); if(!t.getAttribute("aria-label")) t.setAttribute("aria-label","Table, scrolls sideways"); } else if(t.getAttribute("aria-label")==="Table, scrolls sideways"){ t.removeAttribute("tabindex"); t.removeAttribute("role"); t.removeAttribute("aria-label"); } }); }
 window.addEventListener("resize",()=>{ clearTimeout(window.__ms); window.__ms=setTimeout(markScroll,150); });
 /* Pages that left the menu still light up the menu item they belong under. */
 const NAV_FOR={how:"method",training:"method",international:"programs",schools:"programs",apply:"programs",policies:"team"};
@@ -3422,12 +3441,13 @@ function route(){
   setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar .ab-sub a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
   document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>{ const on=a.dataset.v===v || (a.closest("#nav") && NAV_FOR[v]===a.dataset.v) || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips"); a.classList.toggle("on",on); if(a.closest("#appbar")){ if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); } });
   const grp=APPGROUP[v]; document.querySelectorAll("#appbar a[data-g]").forEach(a=>a.classList.toggle("on",a.dataset.g===grp)); document.querySelectorAll("#appbar .ab-sub").forEach(d=>d.hidden=d.dataset.g!==grp);
-  if(v==="workspace"){ const id=h.split("-")[1]; openLesson(LESSONS[id]?id:(load("pr-current","l5"))); }
+  if(v==="workspace"){ const id=h.split("-")[1]; openLesson(LESSONS[id]?id:(load("pr-current","l1"))); }
   if(v==="review") renderReview();
   if(v==="report") renderLive();
   if(v==="tutor") renderTutor();
   if(v==="diagnostic") renderDiagHome(); else document.body.classList.remove("focus-task");
   if(v==="apply"&&typeof adaptApply==="function") adaptApply();
+  { const adultPg=v==="international"; document.querySelectorAll('.nav a.btn[href="#apply"]').forEach(a=>{ a.textContent=adultPg?"Request a call":"Get the assessment"; a.dataset.int=adultPg?"Verbal Edge, international GRE or GMAT":"Reading Assessment"; }); }
   if(v==="today") renderToday();
   if(v==="friday") renderFriday();
   if(v==="vocab") renderVocabBank();
@@ -4144,11 +4164,13 @@ function isAdultApply(){ return ADULT_INT.test($("#a-int").value)||ADULT_WHO.tes
 function adaptApply(from){ const int=$("#a-int").value, who=$("#a-grade");
   if(from==="int"&&ADULT_INT.test(int)){ who.value=/^Verbal Edge/.test(int)?"International candidate, GRE or GMAT":"Adult, GRE or GMAT or LSAT"; if(/^Verbal Edge/.test(int)&&$("#a-loc").value==="Remote, U.S.") $("#a-loc").value="Remote, elsewhere"; }
   if(from==="int"&&!ADULT_INT.test(int)&&ADULT_WHO.test(who.value)&&/^(Reading Assessment|The Marlow Program|The Cohort|Membership)/.test(int)) who.value="Grade 10";
-  const adult=isAdultApply(); document.querySelectorAll("#apply .adult-only").forEach(x=>x.hidden=!adult);
+  const org=/^School or tutoring company/.test(int); if(from==="int"&&org) who.value="Other";
+  const adult=!org&&isAdultApply(); document.querySelectorAll("#apply-form .adult-only").forEach(x=>x.hidden=!adult);
   $("#apply-h").textContent=adult?"Tell us about your test. We reply within two business days.":"Tell us about the student. We reply within two business days.";
   $("#a-grade-l").textContent=adult?"You are":"Who is the reader"; $("#a-score-l").textContent=adult?"Current score and target":"Most recent score, if any"; $("#a-score").placeholder=adult?"e.g. GRE verbal 155, target 162":"e.g. 640 SAT R&W, 28 ACT Reading";
   $("#a-note-l").textContent=adult?"What happens when you read something hard under time?":"What happens when the student reads something hard?";
   $("#a-note").placeholder=adult?"I finish the passage and cannot choose between the last two answers. Reading comprehension costs me more time than the rest of the section.":"Finishes the passage but cannot say the main point. Picks the answer that sounds right. Scores well in class, not on tests.";
+  if(org){ $("#apply-h").textContent="Tell us about your school or company. We reply within two business days."; $("#a-grade-l").textContent="You are"; $("#a-score-l").textContent="Students and grades"; $("#a-score").placeholder="e.g. 40 students, grades 10 and 11"; $("#a-note-l").textContent="What do you want your students to be able to do that they cannot do now?"; $("#a-note").placeholder="Our juniors read the passage and cannot defend an answer. We want a shared method our tutors can teach and a report parents can read."; }
   if(adult&&!$("#a-tz").value){ try{ $("#a-tz").value=Intl.DateTimeFormat().resolvedOptions().timeZone||""; }catch(e){} }
   const dg=load("pr-diag",null), n=dg&&dg.passages?Object.values(dg.passages).filter(x=>x&&Array.isArray(x.items)).length:0; $("#a-diag-row").hidden=!n; if(n) $("#a-diag-l").textContent=`Include my diagnostic answers in this request (${n} passage${n===1?"":"s"}: answers, evidence, confidence, and written reasons)`; }
 $("#a-int").addEventListener("change",()=>adaptApply("int")); $("#a-grade").addEventListener("change",()=>adaptApply("who"));
@@ -4163,7 +4185,7 @@ function diagText(short){ const dg=load("pr-diag",null); if(!dg||!dg.passages) r
     (Array.isArray(p.items)?p.items:[]).forEach((it,i)=>{ const why=String(it.why||"").replace(/\s+/g," ").trim(); out.push(`  ${i+1}. ${it.skill}: ${it.right?"right":"wrong"}${short?"":` ("${it.choiceText}")`}; evidence ${(it.ev||[]).map(x=>x+1).join(", ")||"none"} ${it.evOk?"matches":"does not match"}; ${CONF[it.conf]||""}.${why?` Reason: ${short?shortWhy(why):why}`:""}`); }); });
   return out.length?"Free diagnostic, as saved on my device\n"+out.join("\n")+"\n":""; }
 function applyFields(){ const g=id=>($("#"+id).value||"").trim(); const adult=isAdultApply(); return {name:g("a-name"),email:g("a-email"),reader:g("a-grade"),interest:g("a-int"),location:g("a-loc"),score:g("a-score"),note:g("a-note"),adult,test:adult?g("a-test"):"",tz:adult?g("a-tz"):"",diag:!$("#a-diag-row").hidden&&$("#a-diag").checked}; }
-function applyText(f,short){ const d=f.diag?diagText(short):""; return `Marlow request\n\nName: ${f.name}\nEmail: ${f.email}\nReader: ${f.reader}\nInterest: ${f.interest}\nLocation: ${f.location}\n${f.adult?`Test and date: ${f.test||"not given"}\nTime zone: ${f.tz||"not given"}\nCurrent score and target`:"Most recent score"}: ${f.score||"none given"}\n\n${f.adult?"What happens when I read something hard under time":"What happens when the student reads something hard"}:\n${f.note||"(left blank)"}\n${d?"\n"+d:""}`; }
+function applyText(f,short){ const d=f.diag?diagText(short):"", org=/^School or tutoring company/.test(f.interest||""); return `Marlow request\n\nName: ${f.name}\nEmail: ${f.email}\n${org?"":`Reader: ${f.reader}\n`}Interest: ${f.interest}\nLocation: ${f.location}\n${f.adult?`Test and date: ${f.test||"not given"}\nTime zone: ${f.tz||"not given"}\nCurrent score and target`:org?"Students and grades":"Most recent score"}: ${f.score||"none given"}\n\n${f.adult?"What happens when I read something hard under time":org?"What we want our students to be able to do":"What happens when the student reads something hard"}:\n${f.note||"(left blank)"}\n${d?"\n"+d:""}`; }
 /* Mail apps cut long links short. The email carries the trimmed diagnostic; if that is too long, only its scores;
    if it is still too long, the written note is cut, by whole characters, until the link fits, and says so. Copy carries all of it. */
 function applyMailto(f){ const head=`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Marlow request: "+f.interest)}&body=`, LIM=1800;
@@ -4174,12 +4196,12 @@ function applyMailto(f){ const head=`mailto:${APPLY_EMAIL}?subject=${encodeURICo
   const fit=n=>encodeURIComponent(applyText({...g,note:chars.slice(0,n).join("").trimEnd()+MARK})+tail);
   while(lo<hi){ const mid=Math.ceil((lo+hi)/2); if(fit(mid).length<=LIM) lo=mid; else hi=mid-1; }
   return head+fit(lo); }
-function applyFallback(f,lead){ const d=$("#apply-done"); d.hidden=false;
+function applyFallback(f,lead){ const d=$("#apply-done"); d.hidden=false; setTimeout(()=>d.scrollIntoView({behavior:"smooth",block:"center"}),30);
   d.innerHTML=`<b>${esc(lead)}</b> Your answers are still in the form above. To send the request, email them to <a href="${applyMailto(f)}">${esc(APPLY_EMAIL)}</a>: the button opens an email with everything filled in, and it is sent only when you press send in your own mail app. We reply within two business days of receiving it.<div class="row mt1"><a class="btn sm" id="apply-mail" href="${applyMailto(f)}">Open the email, ready to send</a><button class="btn ghost sm" type="button" id="apply-copy">Copy my answers</button></div><p class="small mt1">While you wait, the diagnostic takes ten minutes: <a href="#diagnostic">start it here</a>.</p>`;
   $("#apply-copy").onclick=async()=>{ try{ await navigator.clipboard.writeText(applyText(f)); toast("Copied. Paste it into an email to "+APPLY_EMAIL+"."); }catch(e){ toast("Copy is blocked here. Use the email button."); } }; }
-{ const b=document.querySelector("#apply button[type=submit]"); if(b&&!APPLY_ENDPOINT) b.textContent="Prepare my request"; }
-$("#apply").addEventListener("submit",async e=>{
-  e.preventDefault(); const f=applyFields(); const d=$("#apply-done"); const btn=document.querySelector("#apply button[type=submit]");
+{ const b=document.querySelector("#apply-form button[type=submit]"); if(b&&!APPLY_ENDPOINT) b.textContent="Prepare my request"; }
+$("#apply-form").addEventListener("submit",async e=>{
+  e.preventDefault(); const f=applyFields(); const d=$("#apply-done"); const btn=document.querySelector("#apply-form button[type=submit]");
   store("pr-apply",{...f,at:Date.now()});
   if(!APPLY_ENDPOINT) return applyFallback(f,"This page cannot send your request by itself yet, and nothing has been sent.");
   let id=""; try{ const key="marlow-apply-id:"+f.email+"|"+f.interest; id=sessionStorage.getItem(key)||(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)); sessionStorage.setItem(key,id); }catch(err){ id=String(Date.now()); }
@@ -4880,6 +4902,7 @@ function renderToday(){
   let phase=""; if(plan&&plan.date){ const r=planPeriods(plan.date); if(r&&!r.short){ const p=r.phases.find(x=>x.now); if(p) phase=`${p.name} phase, ${r.days} days to the test. `; } else if(r&&r.short) phase=`${r.days} days to the test: taper. `; }
   const nm=load("pr-name",""); $("#td-title").textContent=nm?`Today, ${nm}`:"Today";
   const wk=Object.values(lessons).filter(l=>now-l.at<7*864e5).length+prac.filter(p=>now-p.at<7*864e5).length; const dots=[0,1,2].map(i=>`<i class="${i<wk?"on":""}"></i>`).join(""); $("#td-sub").innerHTML=`${esc(dateStr)}. ${esc(phase)}${doneIds.length?`${doneIds.length} of ${playable.length} lessons done. `:""}<span class="wkdots" title="Sessions this week, of three">${dots}</span> ${wk>=3?"Three sessions this week; that is the standard.":`${wk} of 3 sessions this week.`}`;
+  if(!diag&&!doneIds.length) $("#td-cta").innerHTML=`<a class="btn" href="#diagnostic">Take the 10-minute diagnostic</a><a class="btn ghost" href="#workspace-${curL.id}">Or start Lesson ${curL.n}</a>`; else
   $("#td-cta").innerHTML=(curL?`<a class="btn" href="#workspace-${curL.id}">${doneIds.includes(curL.id)?"Repeat":doneIds.length?"Continue":"Start"} Lesson ${curL.n}: ${esc(curL.title)}</a>`:"")+`<a class="btn ghost" href="#friday">Friday report</a>`;
   const items=[
     {t:"Warm up aloud",s:"Paragraph 1 of today's lesson, timed. Sixty seconds.",done:warmToday,href:`#workspace-${curL.id}`,cta:"Start"},
@@ -4887,7 +4910,7 @@ function renderToday(){
     {t:"One claim with evidence",s:"The coach names one error. Revise once.",done:claimToday,href:`#workspace-${curL.id}`,cta:"Write"},
     {t:"Closed-book summary",s:"Two sentences: what it showed, what it could not show.",done:sumToday,href:`#workspace-${curL.id}`,cta:"Write"},
     {t:due?`Vocabulary due: ${due} word${due===1?"":"s"}`:"Vocabulary due: none",s:due?"Retrieve before you look.":"Add words from the banks and they come back on schedule.",done:!due&&Object.keys(vocab).length>0,href:due?"#review":"#vocab",cta:due?"Review":"Add words"}];
-  const orient=!diag&&!doneIds.length?`<li class="orient"><span class="mk">1</span><span class="t"><b>How this works</b><small>Take the ten-minute diagnostic. It picks your first lesson. Do the routine three times a week. Read your Friday report.</small></span><a class="btn sm" href="#diagnostic">Start</a></li>`:"";
+  const orient=!diag&&!doneIds.length?`<li class="orient"><span class="mk">1</span><span class="t"><b>How this works</b><small>The diagnostic picks your first lesson. Then do the routine below three times a week, and read your Friday report.</small></span></li>`:"";
   $("#td-routine").innerHTML=orient+items.map(i=>`<li class="${i.done?"done":""}"><span class="mk">${i.done?"✓":""}</span><span class="t"><b>${esc(i.t)}</b><small>${esc(i.s)}</small></span><a class="btn ghost sm" href="${i.href}">${i.cta}</a></li>`).join("");
   const tot=sessions(); const tasks=tot.reduce((a,s)=>a+s.done,0), hints=tot.reduce((a,s)=>a+s.hints,0);
   const cps=orf.filter(e=>e.src==="checkpoint"); const lastCp=cps[cps.length-1]||orf[orf.length-1]; const lastPr=prac[prac.length-1]; const sn=Object.keys(sents).length;
@@ -5122,7 +5145,12 @@ function renderFriday(){
   { const fs=$("#fr-saved"); if(fs) fs.textContent=!SAVE.ok?"This browser is refusing to store progress. Save a file now.":SAVE.at?`Last saved on this device at ${new Date(SAVE.at).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}.`:"Nothing has been saved in this visit yet."; }
   $("#fr-print").onclick=()=>window.print();
   $("#fr-copy").onclick=async()=>{ const t=$("#fr-report").innerText.replace(/\n{3,}/g,"\n\n"); try{ await navigator.clipboard.writeText(t); toast("Report copied as text."); }catch(e){ toast("Copy is not available here; select the report and copy it."); } };
-  $("#fr-export").onclick=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } Object.entries(UNSAVED).forEach(([k,v])=>{ if(k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)) out[k]=v; }); const blob=new Blob([JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`marlow-progress-${(load("pr-name","student")||"student").toLowerCase().replace(/[^a-z0-9]+/g,"-")}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); $("#fr-io").textContent="Saved. The file holds learning records only; a request form you filled in is not in it. Keep the file; load it on any device to continue."; };
+  const progressFile=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } Object.entries(UNSAVED).forEach(([k,v])=>{ if(k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)) out[k]=v; }); return {json:JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1),name:`marlow-progress-${(load("pr-name","student")||"student").toLowerCase().replace(/[^a-z0-9]+/g,"-")}-${new Date().toISOString().slice(0,10)}`}; };
+  /* Phones can hand a file straight to mail or messages. Some only share plain text files, so the same JSON goes as .txt there; the tutor view reads either. */
+  { const sh=$("#fr-share"); const asFile=()=>{ const p=progressFile(); const tries=[new File([p.json],p.name+".json",{type:"application/json"}),new File([p.json],p.name+".txt",{type:"text/plain"})]; return tries.find(f=>{ try{ return navigator.canShare&&navigator.canShare({files:[f]}); }catch(e){ return false; } })||null; };
+    let can=false; try{ can=!!(navigator.share&&asFile()); }catch(e){} sh.hidden=!can;
+    sh.onclick=async()=>{ const f=asFile(); if(!f) return; try{ await navigator.share({files:[f],title:"Marlow progress",text:"My Marlow progress file. Open it in the Tutor view."}); $("#fr-io").textContent="Handed to the app you chose. The file holds learning records only."; }catch(e){ if(e&&e.name!=="AbortError") $("#fr-io").textContent="Sharing did not work here. Save the file and attach it to an email."; } }; }
+  $("#fr-export").onclick=()=>{ const p=progressFile(); const blob=new Blob([p.json],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=p.name+".json"; document.body.appendChild(a); a.click(); a.remove(); $("#fr-io").textContent="Saved. The file holds learning records only; a request form you filled in is not in it. Keep the file; load it on any device to continue."; };
   $("#fr-import").onchange=e=>{ const file=e.target.files[0]; e.target.value=""; if(!file) return; const io=$("#fr-io");
     if(file.size>3e6){ io.textContent="That file is larger than any Marlow progress file. Nothing was changed."; return; }
     const rd=new FileReader(); rd.onerror=()=>{ io.textContent="The file could not be read. Nothing was changed."; };
@@ -5229,7 +5257,7 @@ function renderStudentFile(d,label){
   h+=`<h4>Practice sections</h4>`+(prac.length?`<div class="tabwrap"><table><tr><th>Date</th><th>Set</th><th>Mode</th><th>Score</th><th>With evidence</th><th>Certain and wrong</th><th>Time</th><th>Conditions</th></tr>${prac.slice(-12).reverse().map(x=>{ x=O(x); const sec=N(x.secs); return `<tr><td>${day(x.at)}</td><td>${S(x.set||"A")}</td><td>${x.mode==="timed"?"Timed":"Untimed"}</td><td class="num">${N(x.score)} of 10</td><td class="num">${N(x.evScore)} of 10</td><td class="num">${N(x.cw)}</td><td class="num">${Math.floor(sec/60)}:${String(sec%60).padStart(2,"0")}</td><td>${N(x.attempt)>1?`attempt ${N(x.attempt)} at this set`:"first recorded attempt"}${x.exposed?"; the book's key had been opened":""}</td></tr>`; }).join("")}</table></div>`:`<p class="small">No practice sections yet.</p>`);
   h+=`<h4>Recent claims and summaries</h4>`+(claims.length?claims.slice(0,8).map(x=>{ x=O(x); return `<div class="t-item"><div class="small">${S(x.title)}${x.at?` · ${day(x.at)}`:""}${x.ev?` · evidence: ${S(typeof x.ev==="number"?"sentence "+x.ev:x.ev)}`:""}</div><div class="sample mt1">${S(x.text)}</div></div>`; }).join(""):`<p class="small">No accepted claims yet.</p>`);
   h+=`<h4>Oral reading</h4>`+(orf.length?`<div class="tabwrap"><table><tr><th>Date</th><th>Source</th><th>Words a minute</th><th>Accuracy</th></tr>${orf.slice(-6).reverse().map(x=>{ x=O(x); return `<tr><td>${day(x.at)}</td><td>${S({checkpoint:"Checkpoint",warmup:"Lesson warm-up",diagnostic:"Diagnostic screen"}[x.src]||"Reading")}</td><td class="num">${N(x.wpm)}</td><td class="num">${Math.round(N(x.acc)*100)}%</td></tr>`; }).join("")}</table></div><p class="small mt1">Self-timed and self-scored unless you ran the checkpoint yourself.</p>`:`<p class="small">No readings recorded.</p>`);
-  const box=$("#t-review"); box.innerHTML=h; const dec={};
+  const box=$("#t-review"); box.innerHTML=h; markScroll(); const dec={};
   box.querySelectorAll(".t-dec button").forEach(b=>b.addEventListener("click",()=>{ const i=b.closest(".t-item").dataset.f; const on=b.getAttribute("aria-pressed")==="true"; b.parentNode.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false")); if(on) delete dec[i]; else { b.setAttribute("aria-pressed","true"); dec[i]=b.dataset.d; } }));
   const cp=$("#t-copy"); if(cp) cp.addEventListener("click",()=>{ const lines=flags.map((x,i)=>`${x.lesson||"Lesson"} · ${x.task||"task"}: ${dec[i]||"not yet decided"}.\n  You wrote: "${String(x.response||"").slice(0,400)}"\n  The coach said: ${x.fb||""}`); const txt=`Review notes for ${name}, ${new Date().toLocaleDateString()}\n\n${lines.join("\n\n")}`; const ta=$("#t-notes"); ta.hidden=false; ta.value=txt; const done=()=>{ $("#t-copied").textContent="Copied. Paste it into your reply to the student."; }; if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done,()=>{ ta.select(); $("#t-copied").textContent="Select the text below and copy it."; }); else { ta.select(); $("#t-copied").textContent="Select the text below and copy it."; } });
 }
@@ -5238,6 +5266,68 @@ function renderStudentFile(d,label){
   file.addEventListener("change",e=>{ const fl=e.target.files[0]; e.target.value=""; if(!fl) return; if(fl.size>3e6) return say("That file is larger than any Marlow progress file.");
     const rd=new FileReader(); rd.onerror=()=>say("The file could not be read."); rd.onload=()=>{ let j; try{ j=JSON.parse(rd.result); }catch(err){ return say("That file is not valid JSON, so it is not a Marlow progress file."); } const errs=validateProgress(j); if(errs.length) return say(errs.join(" ")); renderStudentFile(j.data,(j.saved?"saved "+new Date(j.saved).toLocaleDateString():fl.name)); }; rd.readAsText(fl); });
   $("#t-own").addEventListener("click",()=>{ const d={}; Object.entries(currentProgress()).forEach(([k,v])=>{ if(!LEAD_KEYS.includes(k)){ try{ d[k]=JSON.parse(v); }catch(e){} } }); renderStudentFile(d,"the work on this device"); });
+})();
+
+/* ---------- tutor: a cohort, read from several progress files ---------- */
+/* The numbers a school, a tutoring company, or a judge asks for first: is the group practising, and are first answers getting better.
+   Every figure is computed from the files in memory and labeled for what it is: a record the workspace kept, not an independent test. */
+function cohortRow(d,label){ const A=x=>Array.isArray(x)?x:[], O=x=>x&&typeof x==="object"&&!Array.isArray(x)?x:{}, N=x=>Number.isFinite(+x)?+x:0;
+  const byAt=(a,b)=>N(a.at)-N(b.at);
+  const log=(A(d["pr-lessonlog"]).length?A(d["pr-lessonlog"]):Object.entries(O(d["pr-lessons"])).map(([id,x])=>({id,...O(x)}))).map(O).filter(x=>N(x.at)).sort(byAt);
+  const keyed=log.filter(x=>x.v===2&&N(x.keyed)>0), half=Math.floor(keyed.length/2), split=keyed.length>=4;
+  const rate=ls=>{ const k=ls.reduce((a,x)=>a+N(x.keyed),0); return k?Math.round(ls.reduce((a,x)=>a+Math.min(N(x.keyedFirst),N(x.keyed)),0)/k*100):null; };
+  const hints=ls=>{ const t=ls.reduce((a,x)=>a+N(x.done),0); return t?Math.round(ls.reduce((a,x)=>a+N(x.hints),0)/t*10)/10:null; };
+  const hl=log.length>=4, hh=Math.floor(log.length/2);
+  const prac=A(d["pr-practice"]).map(O).filter(x=>N(x.at)).sort(byAt), orf=A(d["pr-orf"]).map(O).filter(x=>N(x.at)&&N(x.wpm)).sort(byAt);
+  const flags=A(d["pr-flags"]).filter(x=>x&&typeof x==="object"&&!x.decision).length;
+  const times=[...log,...prac,...orf].map(x=>N(x.at)); const first=times.length?Math.min(...times):0, last=times.length?Math.max(...times):0;
+  const nm=typeof d["pr-name"]==="string"&&d["pr-name"].trim()?d["pr-name"].trim().slice(0,40):"";
+  const p1=prac.length>1?prac[prac.length-1]:null;
+  return {name:nm,label:label||"",data:d,sessions:log.length,weeks:first?Math.max(1,Math.round((last-first)/6048e5)):0,last,
+    fr0:split?rate(keyed.slice(0,half)):null,fr1:split?rate(keyed.slice(half)):null,frAll:rate(keyed),
+    h0:hl?hints(log.slice(0,hh)):null,h1:hl?hints(log.slice(hh)):null,hAll:hints(log),
+    p0:prac.length?N(prac[0].evScore):null,p1:p1?N(p1.evScore):null,pRepeat:!!(p1&&(N(p1.attempt)>1||p1.exposed)),
+    w0:orf.length?N(orf[0].wpm):null,w1:orf.length>1?N(orf[orf.length-1].wpm):null,flags}; }
+function cohortNote(r,now){ const days=r.last?Math.floor((now-r.last)/864e5):null;
+  if(!r.sessions) return ["warn","No lessons finished yet"];
+  if(days!==null&&days>=14) return ["crit",`No session in ${days} days`];
+  if(days!==null&&days>=7) return ["warn",`No session in ${days} days`];
+  if(r.flags>=3) return ["warn",`${r.flags} answers waiting for review`];
+  if(r.h1!==null&&r.h1>=2) return ["warn","Still two or more hints per task"];
+  if(r.fr0!==null&&r.fr1!==null&&r.fr1<=r.fr0) return ["warn","First answers not improving"];
+  return ["good","On track"]; }
+function renderCohort(rows,opts){ opts=opts||{}; const box=$("#c-out"), now=Date.now(); if(!rows.length){ box.innerHTML=""; return; }
+  const med=a=>{ const v=a.filter(x=>x!==null&&x!==undefined).sort((x,y)=>x-y); if(!v.length) return null; const m=Math.floor(v.length/2); return v.length%2?v[m]:Math.round((v[m-1]+v[m])/2*10)/10; };
+  const rnd=(v,u)=>u==="%"&&v!==null?Math.round(v):v; const pair=(a,b)=>rows.filter(r=>r[a]!==null&&r[b]!==null), up=(a,b,less)=>pair(a,b).filter(r=>less?r[b]<r[a]:r[b]>r[a]).length;
+  const show=(v,u)=>v===null?"n/a":v+(u||""), chg=(a,b,u,less)=>a===null?"n/a":b===null?show(a,u):`<span class="c-chg">${show(a,u)} → <b>${show(b,u)}</b></span>${b===a?"":` <span class="pill ${(less?b<a:b>a)?"good":"warn"}">${b>a?"+":"−"}${Math.round(Math.abs(b-a)*10)/10}</span>`}`;
+  const tile=(a,b,u,less,lbl)=>{ const n=pair(a,b).length; return `<div><b>${n?`${show(rnd(med(pair(a,b).map(r=>r[a])),u),u)} <i>→</i> ${show(rnd(med(pair(a,b).map(r=>r[b])),u),u)}`:"n/a"}</b>${lbl}${n?`, median. ${less?"Lower":"Higher"} for ${up(a,b,less)} of ${n} students.`:". Not enough sessions yet."}</div>`; };
+  const anon=!!opts.anon, nameOf=(r,i)=>anon||!r.name?`Student ${String.fromCharCode(65+i%26)}${i>=26?Math.floor(i/26):""}`:r.name;
+  const total=rows.reduce((a,r)=>a+r.sessions,0);
+  let h=`<div class="eyebrow" style="margin-top:1.4rem">${opts.sample?`Sample cohort <span class="pill quiet">Invented data</span>`:`Cohort of ${rows.length}`}</div>`+(opts.sample?`<p class="small" style="margin:.3rem 0 0">Six invented students, written to show the view. None of this is a result.</p>`:"")+
+    `<div class="c-tiles"><div><b>${rows.length}</b>student${rows.length===1?"":"s"}, ${total} lesson session${total===1?"":"s"} recorded</div>${tile("fr0","fr1","%",false,"Right on the first check, early sessions to recent")}${tile("h0","h1","",true,"Hints per task, early to recent")}${tile("p0","p1","",false,"Practice section with evidence, of 10, first to latest")}</div>
+    <div class="row mt1"><label class="small" style="display:flex;gap:.4rem;align-items:center;white-space:nowrap"><input type="checkbox" id="c-anon"${anon?" checked":""}> Hide names</label><button class="btn ghost sm" type="button" id="c-copy">Copy as a table</button><button class="btn ghost sm" type="button" id="c-csv">Download CSV</button><span class="small" id="c-msg"></span></div>
+    <div class="tabwrap mt1"><table class="roster" id="c-table"><thead><tr><th>Student</th><th>Sessions</th><th>Weeks</th><th>First check</th><th>Hints / task</th><th>Practice, evidence</th><th>Oral reading</th><th>Waiting</th><th>Attention</th><th><span class="sr-only">Open the file</span></th></tr></thead>`+
+    rows.map((r,i)=>{ const [k,t]=cohortNote(r,now); return `<tr><td data-l="Student">${esc(nameOf(r,i))}</td><td class="num" data-l="Sessions">${r.sessions}</td><td class="num" data-l="Weeks">${r.weeks||"n/a"}</td><td data-l="First check">${r.fr0===null?show(r.frAll,"%"):chg(r.fr0,r.fr1,"%")}</td><td data-l="Hints / task">${r.h0===null?show(r.hAll):chg(r.h0,r.h1,"",true)}</td><td data-l="Practice, evidence">${chg(r.p0,r.p1)}${r.pRepeat?` <span class="small">repeat</span>`:""}</td><td data-l="Oral reading">${chg(r.w0,r.w1," wpm")}</td><td class="num" data-l="Waiting">${r.flags}</td><td data-l="Attention"><span class="pill ${k}">${k==="good"?"OK":k==="crit"?"Act":"Watch"}</span> ${esc(t)}</td><td><button class="btn ghost sm" type="button" data-open="${i}" aria-label="Open ${esc(nameOf(r,i))}'s file">Open</button></td></tr>`; }).join("")+`</table></div>
+    <p class="small mt1"><b>What these numbers are.</b> A record the workspace kept while each student worked: early sessions are the first half of a student's lessons and recent sessions the second half, for students with four or more. They are not an independent test, there is no comparison group, and a group this size shows a direction, not an effect. A practice section marked repeat was a second attempt at a set or was taken after its key was opened. Publish scores from tests the student had not seen, and use this to decide whom to help this week.</p>`;
+  box.innerHTML=h; markScroll();
+  const flat=()=>[["Student","Sessions","Weeks","First check early %","First check recent %","Hints per task early","Hints per task recent","Practice evidence first","Practice evidence latest","Oral reading first wpm","Oral reading latest wpm","Answers waiting","Attention"]].concat(rows.map((r,i)=>[nameOf(r,i),r.sessions,r.weeks,r.fr0??r.frAll,r.fr1,r.h0??r.hAll,r.h1,r.p0,r.p1,r.w0,r.w1,r.flags,cohortNote(r,now)[1]].map(v=>v===null||v===undefined?"":v)));
+  $("#c-anon").addEventListener("change",e=>renderCohort(rows,{...opts,anon:e.target.checked}));
+  $("#c-copy").addEventListener("click",()=>{ const txt=flat().map(l=>l.join("\t")).join("\n"); const ok=()=>{ $("#c-msg").textContent="Copied. Paste it into a spreadsheet."; }; if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok,()=>{ $("#c-msg").textContent="Copying was blocked. Use Download CSV."; }); else $("#c-msg").textContent="Copying is not available here. Use Download CSV."; });
+  $("#c-csv").addEventListener("click",()=>{ const csv=flat().map(l=>l.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\r\n"); const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"})); a.download=`marlow-cohort-${new Date().toISOString().slice(0,10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); $("#c-msg").textContent="Saved as a CSV file."; });
+  box.querySelectorAll("button[data-open]").forEach(b=>b.addEventListener("click",()=>{ const r=rows[+b.dataset.open]; renderStudentFile(r.data,opts.sample?"sample cohort, invented":r.label); $("#t-review").scrollIntoView({behavior:"smooth",block:"start"}); })); }
+/* Six invented students for the sample view. Fixed numbers, so the view is the same on every visit; not every student improves. */
+function sampleCohort(){ const now=Date.now(), L=UNITS.flatMap(u=>u.lessons).filter(l=>l.play);
+  const mk=(nm,start,gap,kf,hn,pr,wp,nf)=>{ const log=kf.map((k,i)=>{ const l=L[i%L.length]; return {v:2,id:l.id,n:l.n,title:l.title,done:4,hints:hn[i],passed:4,first:Math.min(4,k+1),keyed:3,keyedFirst:k,review:0,flagged:0,at:now-(start-i*gap)*864e5}; });
+    const last=log[log.length-1].at, t0=log[0].at;
+    return {"pr-name":nm,"pr-lessonlog":log,"pr-practice":pr.map((e,i)=>({set:i?"B":"A",mode:"timed",score:Math.min(10,e+1),evScore:e,cw:i?1:3,secs:700+i*20,attempt:1,at:i?last:t0})),"pr-orf":wp.map((w,i)=>({wpm:w,acc:.97,src:"checkpoint",at:i?last:t0})),
+      "pr-flags":Array.from({length:nf},(x,i)=>({kind:"review",lesson:log[i].title,lessonId:log[i].id,task:"Write a claim with evidence",response:"The change probably helped, since the numbers moved after it.",fb:"Saved for a tutor to read",at:last}))}; };
+  return [mk("Sample A",41,3.5,[1,1,2,1,2,2,2,3,2,3,3,3],[5,4,4,3,3,2,2,1,2,1,1,0],[5,8],[142,156],0),mk("Sample B",38,4,[2,1,2,2,2,2,3,2,3,3],[3,3,2,2,2,1,1,1,0,1],[6,8],[150,158],1),mk("Sample C",40,4.6,[1,1,1,2,1,2,2,2,2],[9,8,8,8,9,8,8,9,8],[4,6],[128,139],0),
+    mk("Sample D",30,4.5,[1,2,1,2],[4,4,5,4],[5],[136],0),mk("Sample E",40,3.8,[2,2,2,3,2,3,3,2,3,3,3],[2,2,1,1,1,0,1,0,0,0,0],[7,9],[160,168],0),mk("Sample F",36,4.6,[2,2,1,2,2,1,2,2],[3,3,3,4,3,3,3,3],[6,6],[151,150],3)].map((d,i)=>cohortRow(d,"sample")); }
+(function(){ const pick=$("#c-pick"), file=$("#c-file"), box=$("#c-out"); if(!pick) return;
+  pick.addEventListener("click",()=>file.click()); $("#c-sample").addEventListener("click",()=>renderCohort(sampleCohort(),{sample:true}));
+  file.addEventListener("change",async e=>{ const fs=[...e.target.files].slice(0,60); e.target.value=""; if(!fs.length) return; const rows=[], bad=[];
+    for(const fl of fs){ if(fl.size>3e6){ bad.push(`${fl.name}: larger than any Marlow progress file`); continue; } let j; try{ j=JSON.parse(await fl.text()); }catch(err){ bad.push(`${fl.name}: not a Marlow progress file`); continue; } const errs=validateProgress(j); if(errs.length){ bad.push(`${fl.name}: ${errs[0]}`); continue; } rows.push(cohortRow(j.data,j.saved?"saved "+new Date(j.saved).toLocaleDateString():fl.name)); }
+    renderCohort(rows,{}); if(bad.length) box.insertAdjacentHTML("afterbegin",`<div class="fb warn mt1"><b>${bad.length} file${bad.length===1?"":"s"} not opened</b>${bad.map(esc).join("; ")}</div>`); });
 })();
 
 /* ---------- workspace on a phone: the passage and the question are one tap apart, and each keeps its place ---------- */
