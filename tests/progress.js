@@ -11,7 +11,7 @@ const TARGET = process.env.MARLOW || path.resolve(__dirname, '..', 'index.html')
   const snap = () => p.evaluate(() => JSON.stringify(Object.keys(localStorage).filter(k => k.startsWith('pr-')).sort().map(k => [k, localStorage.getItem(k)])));
   const now = Date.now(), day = 864e5;
   const seed = { 'pr-name': 'Test', 'pr-orf': [{ wpm: 128, acc: 0.95, pros: 2, at: now - 20 * day, src: 'checkpoint' }, { wpm: 151, acc: 0.98, pros: 3, at: now - day, src: 'checkpoint' }], 'pr-practice': [{ evScore: 5, score: 7, cw: 1, secs: 700, set: 'A', mode: 'untimed', at: now - 15 * day }, { evScore: 8, score: 9, cw: 0, secs: 640, set: 'B', mode: 'timed', at: now - 2 * day }], 'pr-lessons': { l1: { n: 1, done: 4, passed: 2, hints: 7, at: now - 18 * day }, l2: { n: 2, done: 4, passed: 4, hints: 1, at: now - 3 * day } } };
-  await p.goto('file://' + TARGET + '#friday'); await p.waitForTimeout(300);
+  await p.goto('file://' + TARGET + '#friday'); await p.evaluate(() => { localStorage.setItem('marlow-access', JSON.stringify({ h: '173adlfn5je', at: 1 })); }); await p.waitForTimeout(300);
   await p.evaluate(s => { Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, JSON.stringify(v))); }, seed);
   await p.evaluate(() => renderFriday()); const before = await snap();
 
@@ -29,7 +29,7 @@ const TARGET = process.env.MARLOW || path.resolve(__dirname, '..', 'index.html')
 
   await t('application form does not claim receipt', async () => { await p.goto('file://' + TARGET + '#apply'); await p.waitForTimeout(200); await p.fill('#a-name', 'Pat Lee'); await p.fill('#a-email', 'pat@example.com'); await p.fill('#a-note', 'Reads fluently and misses the qualifier.'); await p.click('#apply-form button[type=submit]'); await p.waitForTimeout(150); const txt = await p.textContent('#apply-done'); must(!/(Application|Request) received/.test(txt), 'claims receipt'); must(/nothing has been sent/.test(txt), 'does not say nothing was sent'); const href = await p.getAttribute('#apply-mail', 'href'); must(/^mailto:[^?]+\?subject=/.test(href) && /Pat%20Lee/.test(href) && /qualifier/.test(href), 'email is not prefilled'); must(await p.inputValue('#a-name') === 'Pat Lee', 'form was cleared'); return href.slice(0, 40); });
 
-  await t('pay buttons fall back to the form until a link is set', async () => { await p.goto('file://' + TARGET + '#programs'); await p.waitForTimeout(200); const hrefs = await p.evaluate(() => [...document.querySelectorAll('[data-pay]')].map(a => a.getAttribute('href'))); must(hrefs.length === 3 && hrefs.every(h => h === '#apply'), 'unexpected: ' + hrefs.join(',')); return hrefs.length + ' buttons'; });
+  await t('pay buttons fall back to the form until a link is set', async () => { await p.goto('file://' + TARGET + '#programs'); await p.waitForTimeout(200); const hrefs = await p.evaluate(() => [...document.querySelectorAll('[data-pay]')].map(a => a.getAttribute('href'))); must(hrefs.length === 4 && hrefs.every(h => h === '#apply' || h === '#unlock') && hrefs.filter(h => h === '#unlock').length === 1, 'unexpected: ' + hrefs.join(',')); return hrefs.length + ' buttons'; });
   await t('the book loads', async () => { await p.goto('file://' + TARGET + '#book'); await p.waitForSelector('#bk-toc button', { state: 'attached' }); const n = await p.evaluate(() => document.querySelectorAll('#bk-toc button').length); must(n >= 50, 'only ' + n + ' sections'); return n + ' sections'; });
 
   console.log('errors:', errs); await b.close(); fs.rmSync(tmp, { recursive: true, force: true }); process.exit(fails || errs.length ? 1 : 0);

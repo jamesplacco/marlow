@@ -265,12 +265,23 @@ th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut
 .t-rev .t-item:first-of-type{border-top:0}
 .t-rev .t-dec button[aria-pressed="true"]{background:var(--crimson);color:var(--crimson-ink);border-color:var(--crimson)}
 .t-rev td{font-size:.92rem}
-.c-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);margin-top:1rem}
+.exam fieldset{border:0;border-top:1px solid var(--rule);margin:0;padding:1.3rem 0 1.1rem;min-width:0}
+.exam legend{float:left;width:100%;font-weight:600;margin-bottom:.5rem;padding:0}
+.exam .ex-part{display:block;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);font-weight:600;margin-bottom:.3rem}
+.exam .ex-text{clear:both;font-family:var(--display);font-size:1.12rem;border-left:3px solid var(--rule);padding-left:.9rem;margin:.3rem 0 .5rem;max-width:44rem}
+.exam .ex-stu{margin:0 0 .6rem;max-width:44rem}
+.exam label{display:flex;gap:.65rem;align-items:flex-start;padding:.45rem 0;max-width:44rem;cursor:pointer;clear:both}
+.exam input[type=radio]{width:1.1rem;height:1.1rem;min-height:0;padding:0;margin:.3rem 0 0;border:0;accent-color:var(--crimson);flex:none}
+.exam label span{flex:1;min-width:0}
+#certify-exam,#international-packages,#tutor-cohort{scroll-margin-top:5rem}
+.exam .ex-fb{margin-top:.5rem;font-size:.95rem;max-width:44rem}
+.exam fieldset.ok .ex-fb{color:var(--good,inherit)} .exam fieldset.miss{border-top-color:var(--crimson)}
+.c-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--ink);margin-top:1rem}
 .c-tiles>div{padding:.9rem 1rem .9rem 0;border-bottom:1px solid var(--rule);font-size:.9rem;color:var(--muted)}
 .c-tiles b{display:block;font-family:var(--display);font-size:1.5rem;font-weight:500;color:var(--ink);line-height:1.2}
 .c-tiles i{font-style:normal;color:var(--muted);font-size:1rem}
 .c-chg{white-space:nowrap}
-@media (max-width:800px){.c-tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:1000px){.c-tiles{grid-template-columns:1fr 1fr}}
 .t-rev .why{font-family:var(--display);font-size:1rem;min-width:14rem}
 .t-rev .t-sum{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:.8rem 0 0;font-size:.95rem}
 .t-rev .t-sum b{font-family:var(--display);font-size:1.25rem;font-weight:500;margin-right:.3rem}
@@ -773,15 +784,15 @@ p,li,dd{text-wrap:pretty}
 
 <header class="nav"><h1 class="sr-only" id="pagetitle">Marlow</h1><div class="wrap">
   <a class="brand" href="#home"><span class="mark">M</span>Marlow</a>
-  <a class="btn sm apply-m" href="#apply" data-int="Reading Assessment">Get the assessment</a>
+  <a class="btn sm apply-m" href="#diagnostic">Start free</a>
   <nav id="nav" aria-label="Main">
     <a href="#method" data-v="method">Method</a>
-    <a href="#programs" data-v="programs">Programs</a>
-    <a href="#book" data-v="book">The book</a>
+    <a href="#programs" data-v="programs">Pricing</a>
+    <a href="#schools" data-v="schools">For teams</a>
     <a href="#team" data-v="team">About</a>
     <span class="sep"></span>
-    <a href="#today" data-v="today">Try the app</a>
-    <a class="btn sm" href="#apply" data-int="Reading Assessment">Get the assessment</a>
+    <a href="#today" data-v="today">Open the app</a>
+    <a class="btn sm" href="#diagnostic">Start free</a>
   </nav>
 </div></header>
 <div class="appbar" id="appbar" hidden><nav class="wrap" aria-label="App sections">
@@ -811,7 +822,7 @@ p,li,dd{text-wrap:pretty}
       </div>
       <div>
         <p class="lede">Your student reads fluently, earns A's in English, and scores a 640. The problem is not reading; it is what to do with a sentence that contains a qualifier, a turn, or someone else's view. We teach that, measure it on texts the student has never seen, and guarantee the result.</p>
-        <div class="cta"><a class="btn" href="#programs">Start with the $250 Reading Assessment</a><a class="btn ghost" href="#diagnostic">Take the free 10-minute diagnostic</a></div>
+        <div class="cta"><a class="btn" href="#diagnostic">Start free: the 10-minute diagnostic</a><a class="btn ghost" href="#programs">See pricing, from $495</a></div>
       </div>
     </div>
     <div class="demo demo-wide" id="demo" aria-label="The method, on one short passage">
@@ -838,7 +849,7 @@ p,li,dd{text-wrap:pretty}
     <div class="avatars">
       <div class="avatar lead"><div class="eyebrow">Families</div><h3>The 640 student</h3><div class="who">Grades 9 to 11. Selective public or independent school. 600 to 680 on SAT Reading and Writing, or 26 to 30 ACT Reading.</div>
         <ul><li>"She's a good reader, she just rushes."</li><li>Tried a prep class and a tutor; the score moved 20 points</li><li>A test date or a counselor meeting on the calendar</li><li>Does not want to be the one who nags</li></ul>
-        <div class="go"><a class="btn" href="#programs">Reading Assessment, $250</a></div></div>
+        <div class="go"><a class="btn" href="#programs">Marlow, from $495</a></div></div>
       <div class="avatar"><div class="eyebrow">Adult candidates</div><h3>The MBA or law applicant</h3><div class="who">GRE, GMAT, or LSAT inside 90 days. Verbal is the section you cannot brute-force.</div>
         <ul><li>Quant is fine; reading comprehension and critical reasoning are not</li><li>Two prep courses done, hundreds of official questions, same plateau</li><li>Wants a diagnosis and a tutor who scored higher than they need</li><li>Booth, West Point, and veteran networks first</li></ul>
         <div class="go"><a class="btn ghost" href="#international">See the adult packages</a></div></div>
@@ -888,15 +899,15 @@ p,li,dd{text-wrap:pretty}
   <section class="section"><div class="wrap">
     <div class="head"><div class="eyebrow">How it works</div><h2>One routine, repeated until it runs without help.</h2></div>
     <div class="steps">
-      <div><h3>The Reading Assessment</h3><div class="st-price num">$250</div><p class="small">A 45-minute live assessment with a tutor, the book, the materials, and 30 days in the workspace. You leave with a one-page profile that names the error pattern in your student's own answers. The $250 comes off the Program.</p></div>
-      <div><h3>The Marlow Program</h3><div class="st-price num">$3,980</div><p class="small">Twenty weeks, one price. A weekly session with a trained tutor, remote or in person, and three 20-minute workspace sessions between. A practice test at the start, the midpoint, and the end, with the guarantee behind it.</p></div>
-      <div><h3>Friday report</h3><div class="st-price">Included</div><p class="small">One page every Friday: oral reading speed and accuracy, the independent score on an unfamiliar text, hints used, and one thing to ask at dinner. No badges, no streaks.</p></div>
-      <div><h3>Membership</h3><div class="st-price num">$199 a month</div><p class="small">After the Program, a weekly small-group session and the workspace keep the gains. It is planned as a four-month step; cancel any time.</p></div>
+      <div><h3>The diagnostic</h3><div class="st-price">Free</div><p class="small">Ten minutes on one passage. It names which of eight errors shows up in your student's own answers and picks the first lesson.</p></div>
+      <div><h3>Marlow</h3><div class="st-price num">$495</div><p class="small">Twenty-four lessons, three 20-minute sessions a week. The student picks the sentence and writes the claim; the coach names the error and never gives the answer.</p></div>
+      <div><h3>Friday report</h3><div class="st-price">Included</div><p class="small">One page every Friday: right on the first check, hints used, the pattern seen most, and one thing to ask at dinner. No badges, no streaks.</p></div>
+      <div><h3>Add a coach</h3><div class="st-price num">$3,980</div><p class="small">The Marlow Program: a certified coach for twenty weeks, a practice test at the start, the midpoint, and the end, and the guarantee. What you paid for Marlow comes off.</p></div>
     </div>
-    <p class="mt1"><a class="more" href="#programs">See the three packages and what is in each</a></p>
+    <p class="mt1"><a class="more" href="#programs">See pricing and what is in each</a></p>
     <div class="prof">
       <div class="prof-say">
-        <div class="eyebrow">What step 1 produces</div>
+        <div class="eyebrow">What the Reading Assessment produces</div>
         <h3>One page that names the pattern, in your student's own answers.</h3>
         <ul>
           <li><b>The pattern, named.</b> Not "careless" or "rushes": which of eight errors, and on how many items.</li>
@@ -1257,44 +1268,50 @@ p,li,dd{text-wrap:pretty}
 <!-- ============ PROGRAMS ============ -->
 <main id="v-programs" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap">
-    <div class="eyebrow">Programs and pricing</div>
+    <div class="eyebrow">Pricing</div>
     <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Priced on outcomes, not hours. Prices do not move.</h1>
-    <p class="lede" style="max-width:40rem">Three packages, each sold whole at one price. Every family starts with the Reading Assessment, and its fee comes off the Program. A payment plan is available on the Program; a discount is not.</p>
+    <p class="lede" style="max-width:42rem">Marlow is software that teaches the method and measures it. Buy it on its own, add a coach and a guaranteed score, or license it by the seat. The diagnostic and your first three lessons are free.</p>
   </div></section>
   <section class="section"><div class="wrap">
-    <h2 class="sr-only">The three packages</h2>
+    <h2 class="sr-only">Three ways to buy Marlow</h2>
     <div class="pkgs">
-      <div class="pkg"><div class="pk-step">Step 1 · Start here</div><h3>The Reading Assessment</h3><p class="pk-for">Find out exactly why the score is stuck, in your student's own answers.</p>
-        <div class="pk-price num">$250</div><p class="pk-terms">One price · <b>credited in full toward the Program</b></p>
-        <ul><li>A 45-minute live assessment with a tutor, remote or in person</li><li>A one-page profile that names the error pattern</li><li>A 20-minute parent call and a 90-day plan</li><li><i>Reading the Hard Stuff</i>, in print, with the drills and the parent guide</li><li>30 days in the workspace</li></ul>
-        <p class="pk-fine">If the fluency screen points to a decoding need, we refer you to a specialist and refund the fee.</p>
-        <a class="btn" href="#apply" data-int="Reading Assessment" data-pay="starter" data-paylabel="Buy the Reading Assessment">Request the assessment</a></div>
-      <div class="pkg lead"><div class="pk-tag">Guaranteed</div><div class="pk-step">Step 2 · The core</div><h3>The Marlow Program</h3><p class="pk-for">Twenty weeks from the pattern on the profile to a score that has moved, or we keep working.</p>
-        <div class="pk-price num">$3,980</div><p class="pk-terms">One price · <b>$3,730 after the assessment credit</b></p>
-        <ul><li>Twenty private sessions with a trained tutor, one a week</li><li>Three 20-minute workspace sessions a week between, with the evidence coach</li><li>A weekly oral reading checkpoint, and a fluency track if needed</li><li>Practice tests at the start, the midpoint, and the end</li><li>A one-page report to parents every Friday</li><li>The guarantee: +80 on SAT Reading and Writing or +3 on ACT Reading, or we continue at no charge</li></ul>
-        <p class="pk-fine">Also as a ten-session Program for $1,990, without the guarantee. In person adds $600 for the room, or $300 for ten sessions. Payment plan available.</p>
+      <div class="pkg"><div class="pk-step">The platform · Start here</div><h3>Marlow</h3><p class="pk-for">The whole method as software, for a student working alone, three short sessions a week.</p>
+        <div class="pk-price num">$495</div><p class="pk-terms">One time · <b>three lessons free first</b></p>
+        <ul><li>The 10-minute diagnostic and a profile of the errors it finds</li><li>All 24 lessons, each on a passage written to trigger one error</li><li>The evidence coach: it names the error and never gives the answer</li><li>Three practice sections, scored with the evidence behind each answer</li><li>Word banks, sentence drills, a review notebook, and a report every Friday</li><li><i>Reading the Hard Stuff</i>, the full book</li></ul>
+        <p class="pk-fine">The $495 is credited in full toward the Program if you add a coach later.</p>
+        <a class="btn" href="#unlock" data-int="Marlow, self-study" data-pay="license" data-paylabel="Buy Marlow">Get Marlow</a></div>
+      <div class="pkg lead"><div class="pk-tag">Guaranteed</div><div class="pk-step">Marlow, with a coach</div><h3>The Marlow Program</h3><p class="pk-for">Everything in Marlow, a certified coach for twenty weeks, and a score that moves or we keep working.</p>
+        <div class="pk-price num">$3,980</div><p class="pk-terms">One price · <b>what you paid for Marlow comes off</b></p>
+        <ul><li>Everything in Marlow</li><li>A live Reading Assessment and a 90-day plan to begin</li><li>A certified coach every week for twenty weeks</li><li>Practice tests at the start, the midpoint, and the end</li><li>A one-page report to parents every Friday</li><li>The guarantee: +80 on SAT Reading and Writing or +3 on ACT Reading, or we continue at no charge</li></ul>
+        <p class="pk-fine">Start with the Reading Assessment alone for $250, credited in full toward the Program. Also as ten weeks for $1,990 without the guarantee, and as a six-student Cohort at $1,950 a seat. In person adds $600. Payment plan available.</p>
         <a class="btn" href="#apply" data-int="The Marlow Program">Request a place</a></div>
-      <div class="pkg"><div class="pk-step">Or · In a group of six</div><h3>The Cohort</h3><p class="pk-for">The same method in six weeks before a test date, with five other students.</p>
-        <div class="pk-price num">$1,950</div><p class="pk-terms">One price per student · six seats</p>
-        <ul><li>Twelve hours of small-group sessions over six weeks</li><li>Start dates set by the SAT and ACT calendar</li><li>The workspace and the Friday report included</li><li>Led by the founder in 2027</li></ul>
-        <p class="pk-fine">The founding cohort, January 2027, is $750 to $1,000 in exchange for consent to publish anonymized outcomes.</p>
-        <a class="btn ghost" href="#apply" data-int="The Cohort, January 2027" data-pay="cohort" data-paylabel="Reserve a founding seat">Request a cohort seat</a></div>
+      <div class="pkg"><div class="pk-step">For tutoring companies and schools</div><h3>Marlow for Teams</h3><p class="pk-for">The platform, the method, and certification, for the people who already have the students.</p>
+        <div class="pk-price num">$300</div><p class="pk-terms">A student a year · <b>$3,000 site minimum</b></p>
+        <ul><li>A full Marlow seat for every student</li><li>A tutor view of each student's reasons, hints, and answers waiting</li><li>Cohort outcomes on one screen, with names hidden for sharing</li><li>Certification for your tutors: the course and a graded exam</li><li>A weekly report your parents can read</li></ul>
+        <p class="pk-fine">Pilot sites for the 2027 to 2028 school year are being chosen now.</p>
+        <a class="btn ghost" href="#apply" data-int="School or tutoring company">Request a pilot call</a><a class="more" href="#schools" style="margin-top:.8rem;text-align:center">See the platform</a></div>
     </div>
     <p class="pk-note">Preparing for the GRE, GMAT, or LSAT? The adult packages, including Verbal Edge for international candidates, are on <a href="#international">their own page</a>.</p>
   </div></section>
   <section class="section band"><div class="wrap">
-    <div class="head"><div class="eyebrow">Inside the Program</div><h2>You are buying a system that ends in a number, not a stack of hours.</h2></div>
+    <div class="head"><div class="eyebrow">Inside Marlow</div><h2>The software does the teaching. Every package starts with it.</h2></div>
     <div class="inside">
-      <div><b>The profile</b>The Reading Assessment names which of eight errors your student makes, and on how many items. The Program starts on that page, not on chapter one.</div>
-      <div><b>The sessions</b>Twenty, one a week, each on a passage built to trigger the pattern. Every session is recorded, and the recording belongs to the student first.</div>
-      <div><b>The workspace</b>Three 20-minute sessions a week between: read, choose the sentence, write the claim, revise. The <a href="#workspace">evidence coach</a> names the error and never gives the answer.</div>
-      <div><b>The checkpoints</b>A passage the student has not seen, every week, with hints off, and a full practice test at the start, the midpoint, and the end.</div>
+      <div><b>The diagnostic</b>Ten minutes. Each item takes the answer, the sentence behind it, a written reason, and a confidence mark, so a lucky right answer does not pass as a skill. <a href="#diagnostic">Take it free.</a></div>
+      <div><b>The lessons</b>Twenty-four, each on an original passage built to trigger one of eight errors: a qualifier, a negation, a reporting verb, a cause that is only a sequence.</div>
+      <div><b>The evidence coach</b>The student picks the sentence and writes the claim. The <a href="#workspace">coach</a> names what went wrong, offers up to three hints, and never gives the answer.</div>
+      <div><b>The measure</b>Right on the first check, hints per task, and answers with the right sentence behind them. What the student can do without help is the number that counts.</div>
       <div><b>The Friday report</b>One page: this week against last week, the pattern seen most, and one thing to ask at dinner. <a href="#report">See an example.</a></div>
-      <div><b>The guarantee</b>If the independent score has not moved by the stated band at the end, with 80% of the practice done, we keep working at no charge until it has.</div>
+      <div><b>The book</b><i>Reading the Hard Stuff</i>: 37 chapters, every passage original, the method in the founder's own words. <a href="#book">Read the draft.</a></div>
     </div>
   </div></section>
   <section class="section"><div class="wrap">
-    <div class="head"><div class="eyebrow">What is in the Reading Assessment</div><h2>Everything a family needs to understand the problem before paying for the fix.</h2></div>
+    <div class="head"><div class="eyebrow">What a coach adds</div><h2>The Program is Marlow plus a person who is accountable for the number.</h2></div>
+    <div class="inside">
+      <div><b>A live Reading Assessment</b>Forty-five minutes with a coach: a read-aloud fluency screen, a listening passage, and two reading passages. You leave with a one-page profile, a parent call, and a 90-day plan.</div>
+      <div><b>A certified coach, weekly</b>Twenty weeks on the errors the software found, with every session recorded. Coaches pass a written exam and a graded teach-back before they meet a student. <a href="#certify">See the certification.</a></div>
+      <div><b>The guarantee</b>If the independent score has not moved by the stated band at the end, with 80% of the practice done, we keep working at no charge until it has.</div>
+    </div>
+    <div class="faq mt2"><details><summary>What is in the Reading Assessment, $250</summary>
     <div class="kit">
       <div><b>The live assessment</b>All three terms of reading: a one-minute oral reading checkpoint (speed, accuracy, phrasing), a listening passage with the text hidden, and two reading passages with four items each capturing answer, evidence, reasoning, and confidence. Reviewed by a tutor before the parent call.</div>
       <div><b>The book</b><i>Reading the Hard Stuff</i>, 37 chapters in nine parts, every passage original, the method in the founder's own words. Print and Kindle; the draft is free to read on the <a href="#book">Book page</a>.</div>
@@ -1303,7 +1320,7 @@ p,li,dd{text-wrap:pretty}
       <div><b>Sentence-unpacking drills</b>Thirty sentences with qualifiers, negation, and embedded clauses, with the unpacking worked on the facing page. Also in the <a href="#sentences">app</a>, three steps each.</div>
       <div><b>30 days in the workspace</b>The first unit of lessons, the evidence coach, and the review notebook.</div>
     </div>
-    <p class="pk-note">Go on to the Program and the $250 comes off its price. Stop here and you keep the profile, the plan, the book, and the drills.</p>
+    <p class="small mt1">Go on to the Program and the $250 comes off its price. Stop there and you keep the profile, the plan, the book, and the drills. <a href="#apply" data-int="Reading Assessment" data-pay="starter" data-paylabel="Buy the Reading Assessment">Request the assessment</a></p></details></div>
   </div></section>
   <section class="section band"><div class="wrap">
     <div class="head"><div class="eyebrow">Capacity</div><h2>Ten students per tutor. Published, not promised.</h2></div>
@@ -1311,18 +1328,17 @@ p,li,dd{text-wrap:pretty}
     <p class="small mt1">The first cohort is small and taught by the founder. Enrollment for the January 2027 start has not opened; when it does, seats taken are updated here weekly. A request now holds your place in line, not a seat. Further tutors are listed when they are hired, not before.</p>
   </div></section>
   <section class="section"><div class="wrap">
-    <div class="head"><div class="eyebrow">After, and other ways in</div><h2>Three packages are the whole offer. These sit around them.</h2></div>
-    <div class="also-h">After the Program</div>
+    <div class="head"><div class="eyebrow">Also</div><h2>Three ways to buy are the whole offer. These sit around them.</h2></div>
+    <div class="also-h">With a coach</div>
     <div class="also">
-      <div><b>Membership</b><span>A weekly 60-minute session in a group of six, the full workspace, and the Friday report. One free month for each enrolled family you refer.</span><div class="pr num">$199 <small>a month</small></div><a class="more" href="#apply" data-int="Membership">Ask about membership</a></div>
-      <div><b>Workspace only</b><span>Retrieval practice and new unfamiliar-text checkpoints, for students who finished the Program or a Cohort.</span><div class="pr num">$39 <small>a month</small></div><a class="more" href="#apply" data-int="Workspace only (alumni)">Request access</a></div>
-    </div>
-    <div class="also-h">Other ways in</div>
-    <div class="also">
+      <div><b>The Cohort</b><span>The Program's method in six weeks before a test date, in a group of six. The founding cohort, January 2027, is $750 to $1,000 for consent to publish anonymized outcomes.</span><div class="pr num">$1,950 <small>a seat</small></div><a class="more" href="#apply" data-int="The Cohort, January 2027" data-pay="cohort" data-paylabel="Reserve a founding seat">Request a cohort seat</a></div>
+      <div><b>Membership</b><span>After the Program: a weekly 60-minute session in a group of six and the Friday report. One free month for each enrolled family you refer.</span><div class="pr num">$199 <small>a month</small></div><a class="more" href="#apply" data-int="Membership">Ask about membership</a></div>
       <div><b>Adult candidates</b><span>GRE, GMAT, and LSAT verbal. Verbal Edge, for international candidates, adds help through admissions.</span><div class="pr num">From $3,980</div><a class="more" href="#international">See the adult packages</a></div>
-      <div><b>Self-study license</b><span>The diagnostic, all 24 lessons, the evidence coach, the notebook, and the book, with no tutor. The $495 is credited if you move to the Program.</span><div class="pr num">$495 <small>one time</small></div><a class="more" href="#apply" data-int="Self-study license waitlist" data-pay="license" data-paylabel="Buy the self-study license">Join the waitlist</a></div>
+    </div>
+    <div class="also-h">For tutors</div>
+    <div class="also">
+      <div><b>Tutor certification</b><span>The course, a written exam you can take now, and a graded teach-back. Included for every tutor at a licensed site.</span><div class="pr num">$295 <small>a tutor</small></div><a class="more" href="#certify">See the course and exam</a></div>
       <div><b>College essay coaching</b><span>The writing half of the method with a new prompt. Opens to Program alumni first.</span><div class="pr num">Fall 2027</div><a class="more" href="#apply" data-int="College essay coaching waitlist">Join the waitlist</a></div>
-      <div><b>Schools</b><span>The method, the lessons, tutor training, and parent reporting under your own roof, from late 2027.</span><div class="pr num">$300 <small>a student a year</small></div><a class="more" href="#schools">For schools</a></div>
     </div>
   </div></section>
   <footer class="site"></footer>
@@ -1331,7 +1347,7 @@ p,li,dd{text-wrap:pretty}
 <!-- ============ BOOK ============ -->
 <main id="v-book" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
-    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 37 chapters and nine parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, a part for tutors, the digital SAT up close, and the long reads. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the word banks of 283 words, a 12-week plan, and a glossary. Read the whole draft here, free. Included in print with every Reading Assessment.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#apply" data-int="Reading Assessment">Get it with the Reading Assessment</a></div></div>
+    <div><div class="eyebrow">The book, first draft</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Reading the Hard Stuff</h1><p class="lede">The Marlow Method in 37 chapters and nine parts: the moves, what moves the needle, applications, structure and voice, reading by domain, a part for parents, a part for tutors, the digital SAT up close, and the long reads. The appendix holds the method on one page, every drill answer, two practice sections with each wrong choice explained, thirty sentences to unpack, every question family by test with the move for it, the full root table, the word banks of 283 words, a 12-week plan, and a glossary. Read the whole draft here, free. Included with Marlow, and in print with every Reading Assessment.</p><div class="cta"><a class="btn" href="#book-reader">Read the book</a><a class="btn ghost" href="#programs">It comes with Marlow</a></div></div>
     <div class="plate" style="font-size:1.3rem">"Every hard sentence has one word doing most of the work. Usually it is a small one: nearly, unless, rather than, alone. Find that word and the sentence opens."<br><span class="small" style="color:inherit;opacity:.8">From chapter 2</span></div>
   </div></section>
   <section class="section"><div class="wrap">
@@ -1363,6 +1379,56 @@ p,li,dd{text-wrap:pretty}
 </main>
 
 <!-- ============ TEAM ============ -->
+<main id="v-certify" hidden>
+  <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap">
+    <div class="eyebrow">Tutor certification</div>
+    <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Teach the method the way it was written. Then prove you can.</h1>
+    <p class="lede" style="max-width:44rem">A Marlow Certified tutor has passed a written exam on the eight errors and a graded teach-back on a real passage. Certification is included for every tutor at a licensed site and open to independent tutors at $295.</p>
+    <div class="cta"><a class="btn" href="#certify-exam">Take the written exam</a><a class="btn ghost" href="#apply" data-int="Tutor certification">Ask about certification</a></div>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <div class="head"><div class="eyebrow">The course</div><h2>Six parts, all of them already on this site.</h2></div>
+    <div class="inside">
+      <div><b>The three moves</b>Find the sentence that matters, ask how far it goes, write down why. Chapters 1 to 12 of <a href="#book">the book</a>, and the first twelve <a href="#library">lessons</a> as a student would do them.</div>
+      <div><b>The eight errors</b>The names you will use with every student, an example of each, and the lesson that fixes it. They are the vocabulary the coach, the tutor, and the report share.</div>
+      <div><b>Coaching without the answer</b>Name the error, send the student back to the text, and stop talking. Part Seven of the book and the session checklist in the <a href="#tutor">tutor view</a>.</div>
+      <div><b>Measuring independence</b>Right on the first check, hints per task, evidence, and confidence. How to read one student's file and a whole <a href="#tutor-cohort">cohort</a>.</div>
+      <div><b>The parent conversation</b>What the Friday report says, what it does not, and how to answer "is she improving?" Part Six of the book and the <a href="#report">example report</a>.</div>
+      <div><b>The teach-back</b>Twenty minutes with a passage you have not seen, recorded and graded against the session checklist. It is scheduled once the written exam is passed.</div>
+    </div>
+  </div></section>
+  <section class="section band" id="certify-exam"><div class="wrap">
+    <div class="head"><div class="eyebrow">The written exam</div><h2>Twelve questions. Ten to pass. Open book.</h2></div>
+    <p class="muted" style="max-width:44rem;margin-bottom:1rem">Eight ask you to name the error in a student's answer. Four ask what a coach says next. Nothing is sent anywhere; your result stays on this device until you choose to share it.</p>
+    <form class="exam" id="ce-form"></form>
+    <div id="ce-result" role="status"></div>
+  </div></section>
+  <footer class="site"></footer>
+</main>
+
+<main id="v-unlock" hidden>
+  <section class="hero" style="padding-block:3.5rem 2rem"><div class="wrap">
+    <div class="eyebrow">Get Marlow</div>
+    <h1 style="font-size:clamp(2rem,4.5vw,3.2rem)" id="ul-h">Three lessons are free. The other twenty-one are Marlow.</h1>
+    <p class="lede" id="ul-lede" style="max-width:42rem">The diagnostic, any three lessons, and the book are open to anyone. Marlow opens all 24 lessons and the three practice sections on this device.</p>
+  </div></section>
+  <section class="section" style="padding-top:1rem"><div class="wrap">
+    <h2 class="sr-only">Buy Marlow, or enter an access code</h2>
+    <div class="pkgs two">
+      <div class="pkg lead"><div class="pk-step">The platform</div><h3>Marlow</h3><p class="pk-for" style="min-height:0">The whole method as software, for a student working alone.</p>
+        <div class="pk-price num">$495</div><p class="pk-terms">One time · <b>credited in full toward the Program</b></p>
+        <ul><li>All 24 lessons and the evidence coach</li><li>Three practice sections, scored with evidence</li><li>Word banks, drills, the review notebook, and the Friday report</li><li><i>Reading the Hard Stuff</i>, the full book</li></ul>
+        <a class="btn" href="#apply" data-int="Marlow, self-study" data-pay="license" data-paylabel="Buy Marlow, $495">Request Marlow</a></div>
+      <div class="pkg"><div class="pk-step">Already have it</div><h3>Enter your access code</h3><p class="pk-for" style="min-height:0">A code comes with a purchase, with the Program, and with a seat at a licensed school or tutoring company.</p>
+        <form class="form" id="ul-form" style="margin-top:1.2rem"><label>Access code<input id="ul-code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="MARLOW-XXXX-XXXX"></label><button class="btn" type="submit">Unlock Marlow</button></form>
+        <p class="small mt1" id="ul-msg" role="status"></p>
+        <p class="pk-fine">The code opens Marlow on this device. Your progress stays on this device too; move it with a progress file from the <a href="#friday-keep">Friday page</a>.</p></div>
+    </div>
+    <p class="pk-note"><a href="#programs">See all three ways to buy</a>, including the Program with a coach and Marlow for Teams.</p>
+  </div></section>
+  <footer class="site"></footer>
+</main>
+
 <main id="v-team" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap grid">
     <div><div class="eyebrow">About</div><h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">A method learned the hard way, taught for ten years, now measured.</h1><p class="lede">One founder, one subject, a record of teaching reading and writing to people unlike himself. Advisors and tutors are added as the work calls for them, not before.</p></div>
@@ -1492,17 +1558,18 @@ p,li,dd{text-wrap:pretty}
 <!-- ============ SCHOOLS ============ -->
 <main id="v-schools" hidden>
   <section class="hero" style="padding-block:3.5rem 2.5rem"><div class="wrap">
-    <div class="eyebrow">For independent schools and tutoring companies</div>
+    <div class="eyebrow">Marlow for Teams · tutoring companies and independent schools</div>
     <h1 style="font-size:clamp(2rem,4.5vw,3.4rem)">Run the method under your own roof.</h1>
-    <p class="lede">From late 2027, licensees get the diagnostic, the lesson library, the evidence coach, tutor training, and parent reporting, with a quarterly training day on site. Your tutors, your families, our method and measurement.</p>
+    <p class="lede">Marlow for Teams is the platform your tutors teach from: the diagnostic, 24 lessons, the evidence coach, a tutor view, cohort outcomes, certification for your tutors, and a weekly report your parents can read. Your tutors, your families, our method and measurement. Full licensing opens in late 2027, and pilot sites are being chosen now.</p>
+    <div class="cta"><a class="btn" href="#apply" data-int="School or tutoring company">Request a pilot call</a><a class="btn ghost" href="#tutor-cohort">See a sample cohort</a></div>
   </div></section>
   <section class="section"><div class="wrap">
     <h2 class="sr-only">Site license</h2>
     <div class="split">
-      <div><div class="price" style="font-family:var(--display);font-size:2.2rem"><span class="num">$300</span><span class="small"> per student per year</span></div><div class="small">$3,000 site minimum. Pilot sites in the 2027 to 2028 school year at the minimum.</div></div>
+      <div><div class="price" style="font-family:var(--display);font-size:2.2rem"><span class="num">$300</span><span class="small"> per student per year</span></div><div class="small">A full Marlow seat for each student. $3,000 site minimum. Pilot sites in the 2027 to 2028 school year at the minimum.</div></div>
       <div class="cols two">
         <div><h3>What you get</h3><p>A tenant on the platform with your roster; the 24 lessons and checkpoint passages; the evidence coach and hint logs; the Friday report under your name; the tutor playbook, recorded demonstrations, and the QA checklist; one training day per quarter.</p></div>
-        <div><h3>What we ask</h3><p>Tutors pass the teach-back before delivering. Checkpoints are run as written, so your outcomes are comparable to ours and can be published alongside them. Recording and consent policies match the ones on this site.</p></div>
+        <div><h3>What we ask</h3><p>Tutors earn <a href="#certify">Marlow certification</a>, a written exam and a graded teach-back, before delivering. Checkpoints are run as written, so your outcomes are comparable to ours and can be published alongside them. Recording and consent policies match the ones on this site.</p></div>
       </div>
     </div>
   </div></section>
@@ -1531,7 +1598,7 @@ p,li,dd{text-wrap:pretty}
       <label>Your name (parent, guardian, or adult student)<input id="a-name" required></label>
       <label>Email<input id="a-email" type="email" required></label>
       <label><span id="a-grade-l">Who is the reader</span><select id="a-grade"><option>Grade 9</option><option selected>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Adult, GRE or GMAT or LSAT</option><option>International candidate, GRE or GMAT</option><option>Other</option></select></label>
-      <label>Interest<select id="a-int"><option>Reading Assessment</option><option>The Marlow Program</option><option>The Cohort, January 2027</option><option>Verbal Edge, international GRE or GMAT</option><option>Adult GRE, GMAT, or LSAT verbal</option><option>Self-study license waitlist</option><option>Membership</option><option>Workspace only (alumni)</option><option>College essay coaching waitlist</option><option>A tutor's review of my free diagnostic</option><option>School or tutoring company</option></select></label>
+      <label>Interest<select id="a-int"><option>Marlow, self-study</option><option>The Marlow Program</option><option>Reading Assessment</option><option>The Cohort, January 2027</option><option>Verbal Edge, international GRE or GMAT</option><option>Adult GRE, GMAT, or LSAT verbal</option><option>Membership</option><option>College essay coaching waitlist</option><option>A tutor's review of my free diagnostic</option><option>School or tutoring company</option><option>Tutor certification</option></select></label>
       <label>Location<select id="a-loc"><option>Remote, U.S.</option><option>Chicago North Shore or Loop</option><option>Cambridge or Greater Boston</option><option>Providence or Rhode Island</option><option>Remote, India</option><option>Remote, China, Singapore, or Hong Kong</option><option>Remote, Korea or Japan</option><option>Remote, elsewhere</option></select></label>
       <label><span id="a-score-l">Most recent score, if any</span><input id="a-score" placeholder="e.g. 640 SAT R&W, 28 ACT Reading"></label>
       <label class="adult-only" hidden>Test and test date<input id="a-test" placeholder="e.g. GRE, March 14"></label>
@@ -1555,7 +1622,7 @@ p,li,dd{text-wrap:pretty}
       <div><h3>Child safety</h3><p>Every tutor passes a background check before meeting a student. No unrecorded one-on-one sessions. In-person pods meet in public library rooms or staffed co-working space, never in homes. A parent can join any session. Concerns go to the founder directly and are answered within one business day.</p></div>
       <div><h3>Data</h3><p>We store diagnostic responses, workspace work, hint logs, and checkpoint scores to produce the Friday report and the coach report. Families can download or delete all of it on request. We do not sell data or use it to train models outside the program. This demo site stores your work in your own browser and sends none of it to us or to anyone else. The page does load its typefaces from Google Fonts, which is a request to Google like any web font, and a request is sent only when you send the email yourself.</p></div>
       <div><h3>Accessibility</h3><p>The workspace offers adjustable text size and line spacing, keyboard access to the lessons, the diagnostic, the practice section, and the drills, including choosing a sentence as evidence, and typed alternatives to spoken explanation. We have not yet run a full screen-reader review; tell us where it fails. When a support changes what an assessment measures, the report says so.</p></div>
-      <div><h3>Packages and payment</h3><p>Each package is sold whole at one published price. The Reading Assessment fee is credited in full toward the Program. A payment plan is available on the Program; a discount is not. The score guarantee applies to the full Program and the full Verbal Edge package, with 80% of the workspace practice completed, and its terms are given in writing before you pay.</p></div>
+      <div><h3>Packages and payment</h3><p>Each package is sold whole at one published price. What you pay for Marlow or for the Reading Assessment is credited in full toward the Program. A payment plan is available on the Program; a discount is not. The score guarantee applies to the full Program and the full Verbal Edge package, with 80% of the workspace practice completed, and its terms are given in writing before you pay.</p></div>
       <div><h3>Fit and referral</h3><p>The Reading Assessment includes a read-aloud fluency screen. If it suggests an unresolved decoding or fluency need, we recommend a specialist instead of enrolling, and the assessment fee is refunded.</p></div>
     </div>
   </div></section>
@@ -3401,6 +3468,26 @@ function saveState(){ const el=document.getElementById("savestate"); if(!el) ret
 const UNSAVED={};
 function store(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); delete UNSAVED[k]; if(!SAVE.ok){ SAVE.ok=true; saveState(); } SAVE.at=Date.now(); return true; }catch(e){ UNSAVED[k]=v; if(SAVE.ok){ SAVE.ok=false; saveState(); toast("This browser could not save your progress. Your work is still on this page: save a progress file from the Friday report before you close it."); } return false; } }
 function load(k,d){ if(k in UNSAVED) return UNSAVED[k]; try{ const v=JSON.parse(localStorage.getItem(k)); return v===null||v===undefined?d:v; }catch(e){ return d; } }
+/* ---------- access: three lessons free, the rest is Marlow ---------- */
+/* A gate in the page, not a lock. It runs in the browser, so it keeps an honest visitor honest and stops nobody who reads the source.
+   It exists so the product can be sold before accounts exist; real enforcement arrives with a server. Codes are stored as hashes
+   (tools/codehash.js prints one). Access and the free-lesson count sit outside the pr- records, so a progress file never carries them
+   and erasing progress does not erase a purchase. */
+const GATE={on:true,free:3};
+const ACCESS=["173adlfn5je","1qg8trben3y"];
+function codeHash(c){ c=String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,""); let h1=0xdeadbeef,h2=0x41c6ce57; for(let i=0;i<c.length;i++){ const ch=c.charCodeAt(i); h1=Math.imul(h1^ch,2654435761); h2=Math.imul(h2^ch,1597334677); } h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909); h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909); return (4294967296*(2097151&h2)+(h1>>>0)).toString(36); }
+function hasAccess(){ if(!GATE.on) return true; const r=load("marlow-access",null); return !!(r&&typeof r==="object"&&ACCESS.includes(r.h)); }
+function freeLessons(){ const a=load("marlow-free",[]); return (Array.isArray(a)?a:[]).filter(x=>typeof x==="string"&&LESSONS[x]).slice(0,GATE.free); }
+function lessonOpen(id){ if(hasAccess()) return true; const f=freeLessons(); return f.includes(id)||f.length<GATE.free; }
+function claimLesson(id){ if(hasAccess()) return true; const f=freeLessons(); if(f.includes(id)) return true; if(f.length>=GATE.free) return false; f.push(id); store("marlow-free",f); return true; }
+function tryCode(c){ const h=codeHash(c); if(!String(c||"").trim()||!ACCESS.includes(h)) return false; store("marlow-access",{h,at:Date.now()}); return true; }
+function renderUnlock(h){ const rest=(h||"").split("-").slice(1), want=rest[0]==="code"?null:rest[0], msg=$("#ul-msg");
+  if(rest[0]==="code"&&rest.length>1){ const ok=tryCode(rest.slice(1).join("-")); msg.textContent=ok?"":"That code was not recognized. Check it and enter it below."; history.replaceState(null,"","#unlock"); }
+  const open=hasAccess(), used=freeLessons().length, L2=want&&LESSONS[want];
+  $("#ul-h").textContent=open?"Marlow is unlocked on this device.":want==="practice"?"The practice sections are part of Marlow.":"Three lessons are free. The other twenty-one are Marlow.";
+  $("#ul-lede").innerHTML=open?`All 24 lessons and the three practice sections are open. <a href="#library">Go to the lesson library</a>, or pick up on <a href="#today">Today</a>.`:L2?`You have used your ${GATE.free} free lessons, and Lesson ${L2.n}, <i>${esc(L2.title)}</i>, is the next one. Marlow opens all 24 lessons and the three practice sections on this device.`:`The diagnostic, any ${GATE.free} lessons, and the book are open to anyone${used?`; you have opened ${used} of your ${GATE.free}`:""}. Marlow opens all 24 lessons and the three practice sections on this device.`;
+  $("#ul-form").hidden=open; if(open&&!msg.textContent) msg.textContent="This device is unlocked.";
+  $("#ul-form").onsubmit=e=>{ e.preventDefault(); if(tryCode($("#ul-code").value)){ $("#ul-code").value=""; msg.textContent=""; if(L2) location.hash="#workspace-"+want; else if(want==="practice") location.hash="#practice"; else renderUnlock("unlock"); } else { msg.textContent="That code was not recognized. Codes look like MARLOW-XXXX-XXXX; check for a typing slip."; $("#ul-code").focus(); } }; }
 function words(v){ return String(v||"").split(/\s+/).filter(Boolean).length; }
 function renderPassage(root, data, onPick){
   root.innerHTML="";
@@ -3422,7 +3509,7 @@ $("#t-space").addEventListener("click",()=>{ PREFS.space=PREFS.space>1.9?1.7:+(P
 applyPrefs();
 
 /* ---------- routing ---------- */
-const PUBLIC=["home","method","how","training","programs","book","international","schools","team","apply","policies"];
+const PUBLIC=["home","method","how","training","programs","book","international","schools","certify","team","apply","policies","unlock"];
 const APP=["today","friday","diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","writing","reads","tips","review","report","tutor"];
 const VIEWS=PUBLIC.concat(APP);
 const APPGROUP={today:"today",diagnostic:"learn",library:"learn",workspace:"learn",examples:"learn",practice:"practice",sentences:"practice",writing:"practice",fluency:"build",vocab:"build",reads:"build",review:"track",friday:"track",tips:"more",report:"more",tutor:"more"};
@@ -3431,23 +3518,27 @@ document.documentElement.lang="en";
 function markScroll(){ document.querySelectorAll(".tabwrap").forEach(t=>{ const sc=t.scrollWidth>t.clientWidth+2; t.classList.toggle("scrolls",sc); if(sc){ t.tabIndex=0; t.setAttribute("role","group"); if(!t.getAttribute("aria-label")) t.setAttribute("aria-label","Table, scrolls sideways"); } else if(t.getAttribute("aria-label")==="Table, scrolls sideways"){ t.removeAttribute("tabindex"); t.removeAttribute("role"); t.removeAttribute("aria-label"); } }); }
 window.addEventListener("resize",()=>{ clearTimeout(window.__ms); window.__ms=setTimeout(markScroll,150); });
 /* Pages that left the menu still light up the menu item they belong under. */
-const NAV_FOR={how:"method",training:"method",international:"programs",schools:"programs",apply:"programs",policies:"team"};
+const NAV_FOR={how:"method",training:"method",book:"method",international:"programs",apply:"programs",unlock:"programs",certify:"schools",policies:"team"};
 function route(){
   let h=(location.hash||"#home").slice(1); if(h==="founder") h="team"; let v=h.split("-")[0]; if(!VIEWS.includes(v)) v="home";
   VIEWS.forEach(x=>$("#v-"+x).hidden = x!==v); if(v==="book"&&window.needBook) window.needBook();
   $("#appbar").hidden=!APP.includes(v);
-  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Programs and pricing",book:"The book",international:"Adult candidates",schools:"For schools",team:"About",apply:"Request",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",writing:"Transitions and grammar",reads:"Long reads",tips:"Tips and resources",review:"Review notebook",report:"Example report",tutor:"Tutor view"};
+  const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Pricing",book:"The book",international:"Adult candidates",schools:"Marlow for Teams",certify:"Tutor certification",unlock:"Get Marlow",team:"About",apply:"Request",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",writing:"Transitions and grammar",reads:"Long reads",tips:"Tips and resources",review:"Review notebook",report:"Example report",tutor:"Tutor view"};
   $("#pagetitle").textContent=PT[v]||"Marlow"; $("#pagetitle").hidden=!!$("#v-"+v).querySelector("h1"); document.title=(PT[v]&&v!=="home"?PT[v]+" · Marlow":"Marlow · Read harder texts. Prove what they say.");
   setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar .ab-sub a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
   document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>{ const on=a.dataset.v===v || (a.closest("#nav") && NAV_FOR[v]===a.dataset.v) || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips"); a.classList.toggle("on",on); if(a.closest("#appbar")){ if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); } });
   const grp=APPGROUP[v]; document.querySelectorAll("#appbar a[data-g]").forEach(a=>a.classList.toggle("on",a.dataset.g===grp)); document.querySelectorAll("#appbar .ab-sub").forEach(d=>d.hidden=d.dataset.g!==grp);
-  if(v==="workspace"){ const id=h.split("-")[1]; openLesson(LESSONS[id]?id:(load("pr-current","l1"))); }
+  if(v==="workspace"){ const id=h.split("-")[1], want=LESSONS[id]?id:load("pr-current","l1"); if(!claimLesson(want)){ location.replace("#unlock-"+want); return; } openLesson(want); }
+  if(v==="unlock") renderUnlock(h);
+  if(v==="certify") renderCert();
   if(v==="review") renderReview();
   if(v==="report") renderLive();
   if(v==="tutor") renderTutor();
   if(v==="diagnostic") renderDiagHome(); else document.body.classList.remove("focus-task");
   if(v==="apply"&&typeof adaptApply==="function") adaptApply();
-  { const adultPg=v==="international"; document.querySelectorAll('.nav a.btn[href="#apply"]').forEach(a=>{ a.textContent=adultPg?"Request a call":"Get the assessment"; a.dataset.int=adultPg?"Verbal Edge, international GRE or GMAT":"Reading Assessment"; }); }
+  { /* the header button fits the page: start free by default, a call for an adult candidate, a pilot call for a team */
+    const cta=v==="international"?["Request a call","Verbal Edge, international GRE or GMAT"]:(v==="schools"||v==="certify")?["Request a pilot call","School or tutoring company"]:null;
+    document.querySelectorAll(".nav a.btn").forEach(a=>{ a.textContent=cta?cta[0]:"Start free"; a.setAttribute("href",cta?"#apply":"#diagnostic"); if(cta) a.dataset.int=cta[1]; else delete a.dataset.int; }); }
   if(v==="today") renderToday();
   if(v==="friday") renderFriday();
   if(v==="vocab") renderVocabBank();
@@ -4163,8 +4254,8 @@ function isAdultApply(){ return ADULT_INT.test($("#a-int").value)||ADULT_WHO.tes
 /* The form speaks to the person filling it in: an adult candidate is asked about a test and a time zone, not about "the student". */
 function adaptApply(from){ const int=$("#a-int").value, who=$("#a-grade");
   if(from==="int"&&ADULT_INT.test(int)){ who.value=/^Verbal Edge/.test(int)?"International candidate, GRE or GMAT":"Adult, GRE or GMAT or LSAT"; if(/^Verbal Edge/.test(int)&&$("#a-loc").value==="Remote, U.S.") $("#a-loc").value="Remote, elsewhere"; }
-  if(from==="int"&&!ADULT_INT.test(int)&&ADULT_WHO.test(who.value)&&/^(Reading Assessment|The Marlow Program|The Cohort|Membership)/.test(int)) who.value="Grade 10";
-  const org=/^School or tutoring company/.test(int); if(from==="int"&&org) who.value="Other";
+  if(from==="int"&&!ADULT_INT.test(int)&&ADULT_WHO.test(who.value)&&/^(Marlow, self-study|Reading Assessment|The Marlow Program|The Cohort|Membership)/.test(int)) who.value="Grade 10";
+  const org=/^School or tutoring company/.test(int); if(from==="int"&&(org||/^Tutor certification/.test(int))) who.value="Other";
   const adult=!org&&isAdultApply(); document.querySelectorAll("#apply-form .adult-only").forEach(x=>x.hidden=!adult);
   $("#apply-h").textContent=adult?"Tell us about your test. We reply within two business days.":"Tell us about the student. We reply within two business days.";
   $("#a-grade-l").textContent=adult?"You are":"Who is the reader"; $("#a-score-l").textContent=adult?"Current score and target":"Most recent score, if any"; $("#a-score").placeholder=adult?"e.g. GRE verbal 155, target 162":"e.g. 640 SAT R&W, 28 ACT Reading";
@@ -4218,8 +4309,8 @@ $("#lane-go").addEventListener("click",()=>{
   else if(on.includes("young")) r={k:"warn",t:"Not yet",b:"Grades 6 to 8 open after the founding cohorts publish outcomes. Leave your details on the request form and select Other; we will tell you when."};
   else if(on.includes("intl")) r={k:"good",t:"Verbal Edge for international candidates",b:"Remote, in your evening: one package of verbal preparation and help through admissions, with a guaranteed band. Start with the free diagnostic, then request a call.",go:"#international",cta:"See the adult packages"};
   else if(on.includes("adult")) r={k:"good",t:"Adult GRE, GMAT, or LSAT verbal",b:"Same method, adult passage sets, sold as one package for U.S. candidates. Take the diagnostic, then request a call and tell us your test date.",go:"#apply",cta:"Request a call",int:"Adult GRE, GMAT, or LSAT verbal"};
-  else if(on.includes("hs")&&(on.includes("fluent")||on.includes("plateau"))) r={k:"good",t:"The Reading Assessment is the right first step",b:"A fluent reader in high school whose score has stalled is exactly who the method is built for. For $250 you get a live session, the one-page profile, the book, and 30 days in the workspace, and the fee is credited if you go on to the Program.",go:"#programs",cta:"See the Reading Assessment"};
-  else if(on.includes("hs")) r={k:"good",t:"Start with the free diagnostic",b:"One passage, four questions, about ten minutes, and a profile that names the pattern. Then decide whether the Reading Assessment makes sense.",go:"#diagnostic",cta:"Take the diagnostic"};
+  else if(on.includes("hs")&&(on.includes("fluent")||on.includes("plateau"))) r={k:"good",t:"Marlow is built for this reader",b:"A fluent reader in high school whose score has stalled is exactly who the method is for. Take the free diagnostic and three lessons. Marlow is $495; the Program adds a coach and the guarantee, and what you have paid comes off its price.",go:"#diagnostic",cta:"Start free"};
+  else if(on.includes("hs")) r={k:"good",t:"Start with the free diagnostic",b:"One passage, four questions, about ten minutes, and a profile that names the pattern. Then try three lessons free.",go:"#diagnostic",cta:"Take the diagnostic"};
   else r={k:"warn",t:"Check at least one",b:"Tell us who the reader is and we will route you."};
   out.innerHTML=fbHtml(r,r.go?`<div class="row" style="margin-top:.6rem"><a class="btn sm" href="${r.go}"${r.int?` data-int="${esc(r.int)}"`:""}>${esc(r.cta)}</a></div>`:"");
 });
@@ -4332,8 +4423,9 @@ function finishDiag(){
 /* ---------- library ---------- */
 function renderLibrary(){
   const done=load("pr-lessons",{}); const diag=load("pr-diag",null); const cur=load("pr-current",null);
-  $("#lib-units").innerHTML=UNITS.map(u=>`<div class="unit"><h3>${esc(u.name)}</h3><p class="small" style="margin-bottom:.4rem">${esc(u.about)}</p><p class="small" style="margin-bottom:.8rem"><b>Long read (public domain):</b> ${esc(u.long)}. Read whole, no question set; the tutor session opens with it.</p><div class="lessons">${u.lessons.map(l=>{
-    const st=done[l.id]?`<span class="pill good">Done, ${done[l.id].hints} hint${done[l.id].hints===1?"":"s"}</span>`:(l.play?(cur===l.id?`<span class="pill" style="color:var(--crimson)">Up next</span>`:`<span class="pill" style="color:var(--crimson)">Ready</span>`):`<span class="pill quiet">Coming</span>`);
+  const gateNote=hasAccess()?"":`<div class="notice" id="lib-gate" style="margin-bottom:1.4rem">Any ${GATE.free} lessons are free. You have opened ${freeLessons().length} of ${GATE.free}. <a href="#unlock">Get Marlow</a> to open all 24 and the practice sections.</div>`;
+  $("#lib-units").innerHTML=gateNote+UNITS.map(u=>`<div class="unit"><h3>${esc(u.name)}</h3><p class="small" style="margin-bottom:.4rem">${esc(u.about)}</p><p class="small" style="margin-bottom:.8rem"><b>Long read (public domain):</b> ${esc(u.long)}. Read whole, no question set; the tutor session opens with it.</p><div class="lessons">${u.lessons.map(l=>{
+    const st=done[l.id]?`<span class="pill good">Done, ${done[l.id].hints} hint${done[l.id].hints===1?"":"s"}</span>`:(l.play?(!lessonOpen(l.id)?`<span class="pill quiet">With Marlow</span>`:cur===l.id?`<span class="pill" style="color:var(--crimson)">Up next</span>`:`<span class="pill" style="color:var(--crimson)">Ready</span>`):`<span class="pill quiet">Coming</span>`);
     const rec=diag&&diag.nextLesson===l.id&&!done[l.id]?` <span class="small" style="color:var(--crimson)">(your diagnostic picked this)</span>`:"";
     return l.play?`<a class="lesson play" href="#workspace-${l.id}"><span class="n">Lesson ${l.n}${rec}</span><b>${esc(l.title)}</b><span class="small">${esc(l.desc)}</span><span class="st">${st}</span></a>`:`<div class="lesson"><span class="n">Lesson ${l.n}${rec}</span><b>${esc(l.title)}</b><span class="small">${esc(l.desc)}</span><span class="st">${st}</span></div>`; }).join("")}</div></div>`).join("");
 }
@@ -4762,6 +4854,7 @@ function renderPracticeHome(){
 document.querySelectorAll("#pt-home .choose button").forEach(b=>b.addEventListener("click",()=>startPractice(b.dataset.mode)));
 document.querySelectorAll("#pt-sets button").forEach(b=>b.addEventListener("click",()=>{ ptSet=b.dataset.set; document.querySelectorAll("#pt-sets button").forEach(x=>{ x.classList.toggle("on",x===b); x.setAttribute("aria-pressed",String(x===b)); }); $("#pt-tlabel").textContent=`Timed · ${setMinutes(ptSet)} minutes`; }));
 function startPractice(mode){
+  if(!hasAccess()){ location.hash="#unlock-practice"; return; }
   ptState={mode,set:ptSet,i:0,picks:{},answers:[],start:Date.now(),p:-1};
   $("#pt-home").hidden=true; $("#pt-desk").hidden=false; $("#pt-result").hidden=true;
   if(ptTimer) clearInterval(ptTimer);
@@ -5268,6 +5361,22 @@ function renderStudentFile(d,label){
   $("#t-own").addEventListener("click",()=>{ const d={}; Object.entries(currentProgress()).forEach(([k,v])=>{ if(!LEAD_KEYS.includes(k)){ try{ d[k]=JSON.parse(v); }catch(e){} } }); renderStudentFile(d,"the work on this device"); });
 })();
 
+/* ---------- tutor certification: the written exam ---------- */
+/* Twelve items written for this exam. Eight use the same eight error names as the coach and the report; four test what a coach says next.
+   The result stays on this device. A pass here is half of certification; the teach-back is graded by a person. */
+const CERT_EXAM=[{"part": "Name the error", "text": "The new bus lanes cut travel times on most weekday routes, though weekend service was unchanged.", "stu": "The student writes: The bus lanes made every trip faster.", "opts": ["reported-view", "qualifier", "unlinked", "underconf"], "ans": 1, "why": "\"Most weekday routes\" became \"every trip\". The word that limits the claim was dropped.", "kind": "err"}, {"part": "Name the error", "text": "Critics of the reservoir say it will drain the wetland within a decade. The engineers' survey found the water table stable.", "stu": "The student writes: The author argues that the reservoir will drain the wetland.", "opts": ["reported-view", "qualifier", "thin", "overconf"], "ans": 0, "why": "The critics say it. The passage reports their view and then sets the survey against it.", "kind": "err"}, {"part": "Name the error", "text": "After the library extended its hours, visits by teenagers rose 12 percent.", "stu": "The student writes: Longer hours caused teenagers to read more.", "opts": ["unlinked", "thin", "overclaim", "underconf"], "ans": 2, "why": "The sentence gives an order of events and a count of visits. Cause and reading are both additions.", "kind": "err"}, {"part": "Name the error", "text": "The orchard switched to drip irrigation in 2019, and its water use fell by a third.", "stu": "The student writes: Drip irrigation saves water because sprinklers lose so much to evaporation.", "opts": ["qualifier", "reported-view", "underconf", "unsupported"], "ans": 3, "why": "Evaporation may be true, and the passage never mentions it. The question asked what the passage says.", "kind": "err"}, {"part": "Name the error", "text": "The orchard was planted in 1962. It switched to drip irrigation in 2019, and its water use fell by a third.", "stu": "The student chooses the right answer, that water use fell after the switch, and highlights the first sentence as the evidence.", "opts": ["overconf", "unlinked", "qualifier", "reported-view"], "ans": 1, "why": "The answer is right and the sentence chosen establishes something else, so the answer was recognized, not reasoned.", "kind": "err"}, {"part": "Name the error", "text": "", "stu": "In one session a student marks Certain on three items and misses all three.", "opts": ["thin", "underconf", "overconf", "unlinked"], "ans": 2, "why": "The student does not yet know what they do not know. Confidence is part of the record for this reason.", "kind": "err"}, {"part": "Name the error", "text": "", "stu": "A student answers correctly, highlights the sentence that supports the answer, and marks Guess.", "opts": ["underconf", "overconf", "unlinked", "thin"], "ans": 0, "why": "The skill is there and the trust in it is not. That is a different conversation from a wrong answer.", "kind": "err"}, {"part": "Name the error", "text": "", "stu": "Asked why the answer is right, the student writes: Because that is what it says.", "opts": ["qualifier", "overclaim", "unsupported", "thin"], "ans": 3, "why": "Nothing in the reason points at the passage, so nobody can tell whether the answer was reasoned.", "kind": "err"}, {"part": "The coach's next line", "text": "", "stu": "The student wrote \"every trip faster\" about the bus-lane sentence. What do you say next?", "opts": ["It says most weekday routes, not every trip, so the answer is B.", "Good effort. Let's move to the next one.", "One word in that sentence limits the claim. Find it, then tell me how far the sentence goes.", "Bus lanes usually help commuters most on weekdays, which is why the passage says that."], "ans": 2, "why": "It names the move and sends the student back to the text. The first gives the answer, the second skips the error, and the fourth explains from outside the passage.", "kind": "say"}, {"part": "The coach's next line", "text": "", "stu": "A student is right on the first check, with the right sentence, and marks Guess. What do you say?", "opts": ["You were right, and your sentence supports it. Which word made you unsure? Show me.", "Great job!", "Next time, mark Certain.", "Let me explain why that answer is correct."], "ans": 0, "why": "The answer needs no fixing; the doubt does. Ask where it came from, in the text.", "kind": "say"}, {"part": "The coach's next line", "text": "", "stu": "A student has used all three hints on every task for two sessions. What do you change?", "opts": ["Give the answer sooner, so the session covers more passages.", "Move the student to easier lessons for the rest of the term.", "Add a fourth hint to each task.", "Before the first check, the student writes one line: which sentence, and how far it goes. Then the check."], "ans": 3, "why": "The hints have become the method. An attempt before any help is what the measure counts, so that is what the session must produce.", "kind": "say"}, {"part": "The coach's next line", "text": "", "stu": "A parent asks, \"Is she improving?\" On lessons her first answers were right 40% of the time and are now right 70%. She has not yet read a passage she had not seen.", "opts": ["Yes. Her score will go up 80 points.", "On lessons her first answers are right more often, 40% to 70%. That is practice, not proof. Thursday's checkpoint on a new passage will tell us.", "It is too early to say anything.", "She has finished every lesson I assigned."], "ans": 1, "why": "It gives the number, says what the number is, and names when the real measure arrives.", "kind": "say"}];
+const CERT_PASS=10;
+function renderCert(){ const form=$("#ce-form"); if(!form||form.dataset.ready) return; form.dataset.ready="1";
+  form.innerHTML=CERT_EXAM.map((q,i)=>`<fieldset id="ce-q${i}"><legend><span class="ex-part">${i+1} of ${CERT_EXAM.length} · ${esc(q.part)}</span></legend>${q.text?`<p class="ex-text">${esc(q.text)}</p>`:""}<p class="ex-stu">${esc(q.stu)}</p>${q.opts.map((o,k)=>`<label><input type="radio" name="ce${i}" value="${k}"> <span>${esc(q.kind==="err"?PATTERNS[o].name:o)}</span></label>`).join("")}<div class="ex-fb" id="ce-fb${i}"></div></fieldset>`).join("")+`<div class="row mt2"><button class="btn" type="submit">Grade my exam</button><span class="small" id="ce-left"></span></div>`;
+  const prev=load("marlow-cert",null); if(prev&&prev.passed) $("#ce-result").innerHTML=`<div class="fb good"><b>You passed the written exam</b>${prev.score} of ${CERT_EXAM.length}, on ${new Date(prev.at).toLocaleDateString()}. You can take it again below.</div>`;
+  form.addEventListener("submit",e=>{ e.preventDefault(); const picks=CERT_EXAM.map((q,i)=>{ const c=form.querySelector(`input[name="ce${i}"]:checked`); return c?+c.value:null; }), blank=picks.filter(x=>x===null).length;
+    if(blank){ $("#ce-left").textContent=`${blank} question${blank===1?" is":"s are"} unanswered.`; const first=picks.indexOf(null); $("#ce-q"+first).scrollIntoView({behavior:"smooth",block:"center"}); return; }
+    $("#ce-left").textContent=""; let score=0;
+    CERT_EXAM.forEach((q,i)=>{ const ok=picks[i]===q.ans; if(ok) score++; const fs=$("#ce-q"+i); fs.classList.toggle("ok",ok); fs.classList.toggle("miss",!ok); const right=q.kind==="err"?PATTERNS[q.opts[q.ans]].name:q.opts[q.ans]; $("#ce-fb"+i).innerHTML=`<b>${ok?"Right.":"Not this one."}</b> ${ok?"":`The answer: ${esc(right)} `}${esc(q.why)}`; });
+    const passed=score>=CERT_PASS; store("marlow-cert",{score,total:CERT_EXAM.length,passed,at:Date.now()});
+    $("#ce-result").innerHTML=`<div class="fb ${passed?"good":"warn"} mt2"><b>${score} of ${CERT_EXAM.length}. ${passed?"You passed the written exam.":`${CERT_PASS} passes.`}</b>${passed?`The second half is the teach-back: twenty minutes on a passage you have not seen, recorded and graded against the session checklist. <a href="#apply" data-int="Tutor certification">Request the teach-back</a>, and bring this score.`:`Read the note under each question you missed, go back to the part of the course it names, and take it again. There is no limit on attempts.`}</div>`;
+    $("#ce-result").scrollIntoView({behavior:"smooth",block:"center"}); }); }
+
 /* ---------- tutor: a cohort, read from several progress files ---------- */
 /* The numbers a school, a tutoring company, or a judge asks for first: is the group practising, and are first answers getting better.
    Every figure is computed from the files in memory and labeled for what it is: a record the workspace kept, not an independent test. */
@@ -5283,11 +5392,13 @@ function cohortRow(d,label){ const A=x=>Array.isArray(x)?x:[], O=x=>x&&typeof x=
   const times=[...log,...prac,...orf].map(x=>N(x.at)); const first=times.length?Math.min(...times):0, last=times.length?Math.max(...times):0;
   const nm=typeof d["pr-name"]==="string"&&d["pr-name"].trim()?d["pr-name"].trim().slice(0,40):"";
   const p1=prac.length>1?prac[prac.length-1]:null;
+  const v2=log.filter(x=>x.v===2), tasks=v2.reduce((a,x)=>a+N(x.done),0), needTutor=v2.reduce((a,x)=>a+N(x.review),0);
   return {name:nm,label:label||"",data:d,sessions:log.length,weeks:first?Math.max(1,Math.round((last-first)/6048e5)):0,last,
     fr0:split?rate(keyed.slice(0,half)):null,fr1:split?rate(keyed.slice(half)):null,frAll:rate(keyed),
     h0:hl?hints(log.slice(0,hh)):null,h1:hl?hints(log.slice(hh)):null,hAll:hints(log),
     p0:prac.length?N(prac[0].evScore):null,p1:p1?N(p1.evScore):null,pRepeat:!!(p1&&(N(p1.attempt)>1||p1.exposed)),
-    w0:orf.length?N(orf[0].wpm):null,w1:orf.length>1?N(orf[orf.length-1].wpm):null,flags}; }
+    w0:orf.length?N(orf[0].wpm):null,w1:orf.length>1?N(orf[orf.length-1].wpm):null,flags,
+    tasks,needTutor,auto:tasks?Math.round((tasks-Math.min(needTutor,tasks))/tasks*100):null}; }
 function cohortNote(r,now){ const days=r.last?Math.floor((now-r.last)/864e5):null;
   if(!r.sessions) return ["warn","No lessons finished yet"];
   if(days!==null&&days>=14) return ["crit",`No session in ${days} days`];
@@ -5304,25 +5415,25 @@ function renderCohort(rows,opts){ opts=opts||{}; const box=$("#c-out"), now=Date
   const anon=!!opts.anon, nameOf=(r,i)=>anon||!r.name?`Student ${String.fromCharCode(65+i%26)}${i>=26?Math.floor(i/26):""}`:r.name;
   const total=rows.reduce((a,r)=>a+r.sessions,0);
   let h=`<div class="eyebrow" style="margin-top:1.4rem">${opts.sample?`Sample cohort <span class="pill quiet">Invented data</span>`:`Cohort of ${rows.length}`}</div>`+(opts.sample?`<p class="small" style="margin:.3rem 0 0">Six invented students, written to show the view. None of this is a result.</p>`:"")+
-    `<div class="c-tiles"><div><b>${rows.length}</b>student${rows.length===1?"":"s"}, ${total} lesson session${total===1?"":"s"} recorded</div>${tile("fr0","fr1","%",false,"Right on the first check, early sessions to recent")}${tile("h0","h1","",true,"Hints per task, early to recent")}${tile("p0","p1","",false,"Practice section with evidence, of 10, first to latest")}</div>
+    `<div class="c-tiles"><div><b>${rows.length}</b>student${rows.length===1?"":"s"}, ${total} lesson session${total===1?"":"s"} recorded</div>${tile("fr0","fr1","%",false,"Right on the first check, early sessions to recent")}${tile("h0","h1","",true,"Hints per task, early to recent")}${tile("p0","p1","",false,"Practice section with evidence, of 10, first to latest")}${(()=>{ const T=rows.reduce((a,r)=>a+r.tasks,0), R=rows.reduce((a,r)=>a+Math.min(r.needTutor,r.tasks),0), wk=rows.reduce((a,r)=>a+(r.tasks?r.weeks:0),0); return `<div id="c-auto"><b>${T?Math.round((T-R)/T*100)+"%":"n/a"}</b>of lesson tasks decided by the coach with no tutor${T&&wk?`. Answers that needed a tutor: ${Math.round(R/wk*10)/10} per student per week.`:"."}</div>`; })()}</div>
     <div class="row mt1"><label class="small" style="display:flex;gap:.4rem;align-items:center;white-space:nowrap"><input type="checkbox" id="c-anon"${anon?" checked":""}> Hide names</label><button class="btn ghost sm" type="button" id="c-copy">Copy as a table</button><button class="btn ghost sm" type="button" id="c-csv">Download CSV</button><span class="small" id="c-msg"></span></div>
-    <div class="tabwrap mt1"><table class="roster" id="c-table"><thead><tr><th>Student</th><th>Sessions</th><th>Weeks</th><th>First check</th><th>Hints / task</th><th>Practice, evidence</th><th>Oral reading</th><th>Waiting</th><th>Attention</th><th><span class="sr-only">Open the file</span></th></tr></thead>`+
-    rows.map((r,i)=>{ const [k,t]=cohortNote(r,now); return `<tr><td data-l="Student">${esc(nameOf(r,i))}</td><td class="num" data-l="Sessions">${r.sessions}</td><td class="num" data-l="Weeks">${r.weeks||"n/a"}</td><td data-l="First check">${r.fr0===null?show(r.frAll,"%"):chg(r.fr0,r.fr1,"%")}</td><td data-l="Hints / task">${r.h0===null?show(r.hAll):chg(r.h0,r.h1,"",true)}</td><td data-l="Practice, evidence">${chg(r.p0,r.p1)}${r.pRepeat?` <span class="small">repeat</span>`:""}</td><td data-l="Oral reading">${chg(r.w0,r.w1," wpm")}</td><td class="num" data-l="Waiting">${r.flags}</td><td data-l="Attention"><span class="pill ${k}">${k==="good"?"OK":k==="crit"?"Act":"Watch"}</span> ${esc(t)}</td><td><button class="btn ghost sm" type="button" data-open="${i}" aria-label="Open ${esc(nameOf(r,i))}'s file">Open</button></td></tr>`; }).join("")+`</table></div>
-    <p class="small mt1"><b>What these numbers are.</b> A record the workspace kept while each student worked: early sessions are the first half of a student's lessons and recent sessions the second half, for students with four or more. They are not an independent test, there is no comparison group, and a group this size shows a direction, not an effect. A practice section marked repeat was a second attempt at a set or was taken after its key was opened. Publish scores from tests the student had not seen, and use this to decide whom to help this week.</p>`;
+    <div class="tabwrap mt1"><table class="roster" id="c-table"><thead><tr><th>Student</th><th>Sessions</th><th>Weeks</th><th>First check</th><th>Hints / task</th><th>Coach alone</th><th>Practice, evidence</th><th>Oral reading</th><th>Waiting</th><th>Attention</th><th><span class="sr-only">Open the file</span></th></tr></thead>`+
+    rows.map((r,i)=>{ const [k,t]=cohortNote(r,now); return `<tr><td data-l="Student">${esc(nameOf(r,i))}</td><td class="num" data-l="Sessions">${r.sessions}</td><td class="num" data-l="Weeks">${r.weeks||"n/a"}</td><td data-l="First check">${r.fr0===null?show(r.frAll,"%"):chg(r.fr0,r.fr1,"%")}</td><td data-l="Hints / task">${r.h0===null?show(r.hAll):chg(r.h0,r.h1,"",true)}</td><td class="num" data-l="Coach alone">${show(r.auto,"%")}</td><td data-l="Practice, evidence">${chg(r.p0,r.p1)}${r.pRepeat?` <span class="small">repeat</span>`:""}</td><td data-l="Oral reading">${chg(r.w0,r.w1," wpm")}</td><td class="num" data-l="Waiting">${r.flags}</td><td data-l="Attention"><span class="pill ${k}">${k==="good"?"OK":k==="crit"?"Act":"Watch"}</span> ${esc(t)}</td><td><button class="btn ghost sm" type="button" data-open="${i}" aria-label="Open ${esc(nameOf(r,i))}'s file">Open</button></td></tr>`; }).join("")+`</table></div>
+    <p class="small mt1"><b>What these numbers are.</b> A record the workspace kept while each student worked: early sessions are the first half of a student's lessons and recent sessions the second half, for students with four or more. They are not an independent test, there is no comparison group, and a group this size shows a direction, not an effect. Coach alone is the share of lesson tasks the software decided without saving the answer for a tutor to read. A practice section marked repeat was a second attempt at a set or was taken after its key was opened. Publish scores from tests the student had not seen, and use this to decide whom to help this week.</p>`;
   box.innerHTML=h; markScroll();
-  const flat=()=>[["Student","Sessions","Weeks","First check early %","First check recent %","Hints per task early","Hints per task recent","Practice evidence first","Practice evidence latest","Oral reading first wpm","Oral reading latest wpm","Answers waiting","Attention"]].concat(rows.map((r,i)=>[nameOf(r,i),r.sessions,r.weeks,r.fr0??r.frAll,r.fr1,r.h0??r.hAll,r.h1,r.p0,r.p1,r.w0,r.w1,r.flags,cohortNote(r,now)[1]].map(v=>v===null||v===undefined?"":v)));
+  const flat=()=>[["Student","Sessions","Weeks","First check early %","First check recent %","Hints per task early","Hints per task recent","Tasks decided by the coach alone %","Answers that needed a tutor","Practice evidence first","Practice evidence latest","Oral reading first wpm","Oral reading latest wpm","Answers waiting","Attention"]].concat(rows.map((r,i)=>[nameOf(r,i),r.sessions,r.weeks,r.fr0??r.frAll,r.fr1,r.h0??r.hAll,r.h1,r.auto,r.needTutor,r.p0,r.p1,r.w0,r.w1,r.flags,cohortNote(r,now)[1]].map(v=>v===null||v===undefined?"":v)));
   $("#c-anon").addEventListener("change",e=>renderCohort(rows,{...opts,anon:e.target.checked}));
   $("#c-copy").addEventListener("click",()=>{ const txt=flat().map(l=>l.join("\t")).join("\n"); const ok=()=>{ $("#c-msg").textContent="Copied. Paste it into a spreadsheet."; }; if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok,()=>{ $("#c-msg").textContent="Copying was blocked. Use Download CSV."; }); else $("#c-msg").textContent="Copying is not available here. Use Download CSV."; });
   $("#c-csv").addEventListener("click",()=>{ const csv=flat().map(l=>l.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\r\n"); const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"})); a.download=`marlow-cohort-${new Date().toISOString().slice(0,10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); $("#c-msg").textContent="Saved as a CSV file."; });
   box.querySelectorAll("button[data-open]").forEach(b=>b.addEventListener("click",()=>{ const r=rows[+b.dataset.open]; renderStudentFile(r.data,opts.sample?"sample cohort, invented":r.label); $("#t-review").scrollIntoView({behavior:"smooth",block:"start"}); })); }
 /* Six invented students for the sample view. Fixed numbers, so the view is the same on every visit; not every student improves. */
 function sampleCohort(){ const now=Date.now(), L=UNITS.flatMap(u=>u.lessons).filter(l=>l.play);
-  const mk=(nm,start,gap,kf,hn,pr,wp,nf)=>{ const log=kf.map((k,i)=>{ const l=L[i%L.length]; return {v:2,id:l.id,n:l.n,title:l.title,done:4,hints:hn[i],passed:4,first:Math.min(4,k+1),keyed:3,keyedFirst:k,review:0,flagged:0,at:now-(start-i*gap)*864e5}; });
+  const mk=(nm,start,gap,kf,hn,pr,wp,nf,rv)=>{ const log=kf.map((k,i)=>{ const l=L[i%L.length]; return {v:2,id:l.id,n:l.n,title:l.title,done:4,hints:hn[i],passed:4,first:Math.min(4,k+1),keyed:3,keyedFirst:k,review:rv&&i%rv===rv-1?1:0,flagged:0,at:now-(start-i*gap)*864e5}; });
     const last=log[log.length-1].at, t0=log[0].at;
     return {"pr-name":nm,"pr-lessonlog":log,"pr-practice":pr.map((e,i)=>({set:i?"B":"A",mode:"timed",score:Math.min(10,e+1),evScore:e,cw:i?1:3,secs:700+i*20,attempt:1,at:i?last:t0})),"pr-orf":wp.map((w,i)=>({wpm:w,acc:.97,src:"checkpoint",at:i?last:t0})),
       "pr-flags":Array.from({length:nf},(x,i)=>({kind:"review",lesson:log[i].title,lessonId:log[i].id,task:"Write a claim with evidence",response:"The change probably helped, since the numbers moved after it.",fb:"Saved for a tutor to read",at:last}))}; };
-  return [mk("Sample A",41,3.5,[1,1,2,1,2,2,2,3,2,3,3,3],[5,4,4,3,3,2,2,1,2,1,1,0],[5,8],[142,156],0),mk("Sample B",38,4,[2,1,2,2,2,2,3,2,3,3],[3,3,2,2,2,1,1,1,0,1],[6,8],[150,158],1),mk("Sample C",40,4.6,[1,1,1,2,1,2,2,2,2],[9,8,8,8,9,8,8,9,8],[4,6],[128,139],0),
-    mk("Sample D",30,4.5,[1,2,1,2],[4,4,5,4],[5],[136],0),mk("Sample E",40,3.8,[2,2,2,3,2,3,3,2,3,3,3],[2,2,1,1,1,0,1,0,0,0,0],[7,9],[160,168],0),mk("Sample F",36,4.6,[2,2,1,2,2,1,2,2],[3,3,3,4,3,3,3,3],[6,6],[151,150],3)].map((d,i)=>cohortRow(d,"sample")); }
+  return [mk("Sample A",41,3.5,[1,1,2,1,2,2,2,3,2,3,3,3],[5,4,4,3,3,2,2,1,2,1,1,0],[5,8],[142,156],0),mk("Sample B",38,4,[2,1,2,2,2,2,3,2,3,3],[3,3,2,2,2,1,1,1,0,1],[6,8],[150,158],1),mk("Sample C",40,4.6,[1,1,1,2,1,2,2,2,2],[9,8,8,8,9,8,8,9,8],[4,6],[128,139],0,3),
+    mk("Sample D",30,4.5,[1,2,1,2],[4,4,5,4],[5],[136],0),mk("Sample E",40,3.8,[2,2,2,3,2,3,3,2,3,3,3],[2,2,1,1,1,0,1,0,0,0,0],[7,9],[160,168],0),mk("Sample F",36,4.6,[2,2,1,2,2,1,2,2],[3,3,3,4,3,3,3,3],[6,6],[151,150],3,2)].map((d,i)=>cohortRow(d,"sample")); }
 (function(){ const pick=$("#c-pick"), file=$("#c-file"), box=$("#c-out"); if(!pick) return;
   pick.addEventListener("click",()=>file.click()); $("#c-sample").addEventListener("click",()=>renderCohort(sampleCohort(),{sample:true}));
   file.addEventListener("change",async e=>{ const fs=[...e.target.files].slice(0,60); e.target.value=""; if(!fs.length) return; const rows=[], bad=[];
@@ -5344,7 +5455,7 @@ function sampleCohort(){ const now=Date.now(), L=UNITS.flatMap(u=>u.lessons).fil
 /* ---------- one footer, on every public page: everything that left the menu lives here ---------- */
 document.querySelectorAll("footer.site").forEach(ft=>{ ft.innerHTML=`<div class="wrap foot">
   <div class="foot-brand"><a class="brand" href="#home"><span class="mark">M</span>Marlow</a><p>Read harder texts. Prove what they say.</p></div>
-  <nav aria-label="Programs"><b>Programs</b><a href="#programs">The three packages</a><a href="#international">Adult candidates</a><a href="#schools">Schools</a><a href="#apply" data-int="Reading Assessment">Request an assessment</a></nav>
+  <nav aria-label="Product"><b>Product</b><a href="#programs">Pricing</a><a href="#schools">Marlow for Teams</a><a href="#certify">Tutor certification</a><a href="#international">Adult candidates</a><a href="#apply" data-int="Reading Assessment">Request an assessment</a></nav>
   <nav aria-label="The method"><b>The method</b><a href="#method">The Marlow Method</a><a href="#book">The book</a><a href="#diagnostic">Free diagnostic</a><a href="#today">The app</a><a href="#tips">Tips and resources</a></nav>
   <nav aria-label="Company"><b>Company</b><a href="#team">About</a><a href="#how">How we work</a><a href="#training">Training</a><a href="#policies">Policies</a><a href="mailto:hello@marlowreading.com">hello@marlowreading.com</a></nav>
   <div class="foot-legal">© 2026 Marlow Reading LLC · Chicago, Illinois · Every passage on this site was written for it.</div></div>`; });

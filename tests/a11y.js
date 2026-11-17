@@ -3,7 +3,7 @@ const {chromium}=require('playwright');const fs=require('fs');
 (async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1280,height:900}});
 const path=require('path'); const TARGET=process.env.MARLOW||path.resolve(__dirname,'..','index.html');
 const axe=fs.readFileSync(require.resolve('axe-core/axe.min.js'),'utf8');
-const views=["home","method","how","training","programs","book","international","schools","team","apply","policies","diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","writing","reads","today","friday","tips","review","report","tutor"];
+const views=["home","method","how","training","programs","book","international","schools","certify","unlock","team","apply","policies","diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","writing","reads","today","friday","tips","review","report","tutor"];
 const agg={};
 for(const v of views){ await p.goto('file://'+TARGET+'#'+v); await p.waitForTimeout(400); await p.addScriptTag({content:axe});
   const r=await p.evaluate(async()=>{ const res=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','best-practice']}}); return res.violations.map(x=>({id:x.id,impact:x.impact,n:x.nodes.length,help:x.help,ex:x.nodes.slice(0,3).map(n=>n.target.join(' ')+' :: '+(n.html||'').slice(0,120))})); });

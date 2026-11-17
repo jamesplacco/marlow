@@ -5,7 +5,7 @@ const TARGET = process.env.MARLOW || path.resolve(__dirname, '..', 'index.html')
 (async () => {
   const fx = JSON.parse(fs.readFileSync(path.join(__dirname, 'coach-fixture.json'), 'utf8')).cases;
   const b = await chromium.launch(); const p = await b.newPage();
-  await p.goto('file://' + TARGET + '#today'); await p.waitForTimeout(300);
+  await p.goto('file://' + TARGET + '#today'); await p.waitForTimeout(300); await p.evaluate(() => { localStorage.setItem('marlow-access', JSON.stringify({ h: '173adlfn5je', at: 1 })); });
   const got = await p.evaluate(cases => cases.map(c => { openLesson(c.lesson); wState.pick = c.pick; const r = checkTask(LESSONS[c.lesson].tasks[c.task], c.response); return { k: r.k, t: r.t }; }), fx);
   await b.close();
   let fa = 0, fr = 0, unsure = 0, known = 0, bad = 0;

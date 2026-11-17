@@ -4,7 +4,7 @@ const TARGET = process.env.MARLOW || path.resolve(__dirname, '..', 'index.html')
 (async()=>{
 const b=await chromium.launch(); const p=await b.newPage({viewport:{width:1280,height:900}});
 const errs=[]; p.on('pageerror',e=>errs.push(e.message));
-await p.goto('file://'+TARGET);
+await p.goto('file://'+TARGET); /* the suite runs as a buyer; the gate has its own test */ await p.evaluate(()=>{ localStorage.setItem('marlow-access', JSON.stringify({ h: '173adlfn5je', at: 1 })); });
 const go=async h=>{ await p.evaluate(x=>location.hash=x,h); await p.waitForTimeout(150); };
 const t=async (name,fn)=>{ try{ const r=await fn(); console.log('PASS',name,r===undefined?'':'| '+r); }catch(e){ fails++; console.log('FAIL',name,'|',e.message.split('\n')[0]); } };
 // nav highlighting
