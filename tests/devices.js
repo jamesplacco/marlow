@@ -1,7 +1,7 @@
 // Nine device profiles: fails on horizontal overflow; small tap targets are listed for review.
 const path=require('path'); const TARGET=process.env.MARLOW||path.resolve(__dirname,'..','index.html');
 const {chromium,devices}=require('playwright');
-const views=["home","method","how","training","programs","book","international","schools","certify","unlock","team","apply","policies","diagnostic","library","workspace","fluency","vocab","examples","practice","sentences","writing","reads","today","friday","tips","review","report","tutor"];
+const views=["home","method","how","training","programs","book","international","schools","certify","unlock","team","apply","policies","diagnostic","library","workspace","fluency","vocab","examples","practice","recall","imitate","compete","sentences","writing","reads","today","friday","tips","review","report","tutor"];
 const profiles=[["iPhone SE",devices['iPhone SE']],["iPhone 13",devices['iPhone 13']],["iPhone 14 Pro Max",devices['iPhone 14 Pro Max']],["iPhone 13 landscape",devices['iPhone 13 landscape']],["iPad Mini",devices['iPad Mini']],["iPad Pro 11",devices['iPad Pro 11']],["iPad Pro 11 landscape",devices['iPad Pro 11 landscape']],["laptop 1366",{viewport:{width:1366,height:768}}],["desktop 1920",{viewport:{width:1920,height:1080}}]];
 (async()=>{const b=await chromium.launch();const problems=[];let overflow=0;
 for(const [name,prof] of profiles){ const ctx=await b.newContext(prof); const p=await ctx.newPage();
