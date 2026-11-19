@@ -213,7 +213,8 @@ footer.site .wrap.foot{display:grid}
 .passage .s:focus-visible{outline:2px solid var(--crimson);outline-offset:1px}
 .passage .s:hover{background:var(--sel)}
 .passage .s.pick{background:var(--hl);color:var(--hl-ink)}
-.passage .s.focus{outline:2px solid var(--crimson);outline-offset:1px}
+.passage .s.focus{background:var(--crimson-tint);box-shadow:inset 0 -2px 0 var(--crimson)}
+.passage .s.focus.pick{background:var(--hl)}
 .passage sup{font-family:var(--body);font-size:.6em;color:var(--muted);margin-right:.15em}
 .card{border:1px solid var(--rule);padding:1.3rem;background:var(--paper)}
 .card+.card{margin-top:1rem}
@@ -780,6 +781,7 @@ p,li,dd{text-wrap:pretty}
 @media (max-width:560px){.rd-week{grid-template-columns:1fr}.sent.wr{font-size:1.15rem}}
 .sop>div{min-width:0}.sop div span:first-child{min-width:0}@media (max-width:400px){.sop div{flex-wrap:wrap;gap:.2rem 1rem}}
 .split>*,.tabwrap{min-width:0}
+@media (max-width:700px){.in-app #nav{display:none}}
 </style>
 </head>
 <body>
@@ -3507,7 +3509,9 @@ function renderPassage(root, data, onPick){
 }
 function clearPicks(root){ root.querySelectorAll(".s").forEach(s=>s.classList.remove("pick","focus")); }
 function fbHtml(r, extra){ return `<div class="fb ${r.k}"><b>${esc(r.t)}</b>${esc(r.b)}${extra||""}</div>`; }
-function daysAgo(ts){ return Math.floor((Date.now()-ts)/864e5); }
+/* Calendar days in the student's own time zone: something done last night is "1 day ago" this morning. Noon on both sides keeps a daylight-saving change from moving the count. */
+function daysAgo(ts){ const a=new Date(ts), b=new Date(); a.setHours(12,0,0,0); b.setHours(12,0,0,0); return Math.round((b-a)/864e5); }
+function localDate(d){ d=d||new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; }
 
 /* ---------- text controls ---------- */
 const PREFS=load("pr-prefs",{size:1.22,space:1.7});
@@ -3533,10 +3537,10 @@ function route(){
   let h=(location.hash||"#home").slice(1); if(h==="founder") h="team"; let v=h.split("-")[0]; if(!VIEWS.includes(v)) v="home";
   if(v!==lastView){ stopTimers(); if(typeof ptPause==="function"){ if(v==="practice") ptResume(); else ptPause(); } } lastView=v;
   VIEWS.forEach(x=>$("#v-"+x).hidden = x!==v); if(v==="book"&&window.needBook) window.needBook();
-  $("#appbar").hidden=!APP.includes(v);
+  $("#appbar").hidden=!APP.includes(v); document.body.classList.toggle("in-app",APP.includes(v));
   const PT={home:"Marlow",method:"The Marlow Method",how:"How we work",training:"Training",programs:"Pricing",book:"The book",international:"Adult candidates",schools:"Marlow for Teams",certify:"Tutor certification",unlock:"Get Marlow",team:"About",apply:"Request",policies:"Policies",diagnostic:"Diagnostic",library:"Lesson library",workspace:"Workspace",fluency:"Fluency track",vocab:"Word banks",examples:"Worked examples",today:"Today",friday:"Friday report",practice:"Practice section",sentences:"Sentence unpacking",writing:"Transitions and grammar",reads:"Long reads",tips:"Tips and resources",review:"Review notebook",report:"Example report",tutor:"Tutor view"};
   $("#pagetitle").textContent=PT[v]||"Marlow"; $("#pagetitle").hidden=!!$("#v-"+v).querySelector("h1"); document.title=(PT[v]&&v!=="home"?PT[v]+" · Marlow":"Marlow · Read harder texts. Prove what they say.");
-  setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar .ab-sub a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"center"}); },0);
+  setTimeout(()=>{ document.querySelectorAll(".tabwrap:not([tabindex])").forEach(t=>{ t.tabIndex=0; }); markScroll(); const on=document.querySelector("#appbar .ab-sub a.on"); if(on&&on.scrollIntoView&&window.innerWidth<700) on.scrollIntoView({block:"nearest",inline:"nearest"}); },0);
   document.querySelectorAll("#nav a[data-v],#appbar a[data-v]").forEach(a=>{ const on=a.dataset.v===v || (a.closest("#nav") && NAV_FOR[v]===a.dataset.v) || (a.dataset.v==="today" && a.closest("#nav") && APP.includes(v) && v!=="tips"); a.classList.toggle("on",on); if(a.closest("#appbar")){ if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); } });
   const grp=APPGROUP[v]; document.querySelectorAll("#appbar a[data-g]").forEach(a=>a.classList.toggle("on",a.dataset.g===grp)); document.querySelectorAll("#appbar .ab-sub").forEach(d=>d.hidden=d.dataset.g!==grp);
   if(v==="workspace"){ const id=h.split("-")[1], want=LESSONS[id]?id:curLessonId(); if(!claimLesson(want)){ location.replace("#unlock-"+want); return; } openLesson(want); }
@@ -4073,11 +4077,14 @@ function planPeriods(dateStr){
   const end=new Date(dateStr+"T12:00:00"); if(isNaN(end)) return null; const now=new Date(); now.setHours(12,0,0,0);
   const days=Math.round((end-now)/864e5); if(days<7) return {short:true,days};
   const fmt=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric"}); let cursor=new Date(now); const out=[];
-  PHASES.forEach((p,i)=>{ const len=i===PHASES.length-1?Math.max(3,Math.round(days*p.share)):Math.max(5,Math.round(days*p.share)); const start=new Date(cursor); const stop=new Date(Math.min(end, cursor.getTime()+ (len-1)*864e5)); out.push({...p,start,stop,weeks:+((stop-start)/864e5/7+1/7).toFixed(1),label:`${fmt(start)} to ${fmt(stop)}`,now:now>=start&&now<=stop}); cursor=new Date(stop.getTime()+864e5); });
+  /* The phases share the days that remain, today through test day, and never claim more: each gets at least one day. */
+  const total=days+1, lens=PHASES.map(p=>Math.max(1,Math.round(total*p.share)));
+  let diff=total-lens.reduce((a,n)=>a+n,0); while(diff!==0){ if(diff>0){ lens[0]++; diff--; } else { const i=lens.indexOf(Math.max(...lens)); lens[i]--; diff++; } }
+  PHASES.forEach((p,i)=>{ const len=lens[i]; const start=new Date(cursor); const stop=new Date(Math.min(end, cursor.getTime()+ (len-1)*864e5)); out.push({...p,start,stop,weeks:+((stop-start)/864e5/7+1/7).toFixed(1),label:`${fmt(start)} to ${fmt(stop)}`,now:now>=start&&now<=stop}); cursor=new Date(stop.getTime()+864e5); });
   out[out.length-1].stop=end; out[out.length-1].label=`${fmt(out[out.length-1].start)} to ${fmt(end)} (test)`;
   return {days,phases:out};
 }
-(function(){ const btn=$("#pp-go"); if(!btn) return; const d=new Date(); d.setDate(d.getDate()+84); $("#pp-date").value=d.toISOString().slice(0,10);
+(function(){ const btn=$("#pp-go"); if(!btn) return; const d=new Date(); d.setDate(d.getDate()+84); $("#pp-date").value=localDate(d);
   const run=(save)=>{ const r=planPeriods($("#pp-date").value); const out=$("#pp-out"); if(!r){ out.innerHTML=`<p class="small mt1">Pick a date.</p>`; return; } if(r.short){ out.innerHTML=fbHtml({k:"warn",t:`${r.days} days is a taper, not a plan`,b:"Under a week out, the right move is one short timed section, vocabulary due, and sleep. Book the next test date for the real plan."}); return; }
     out.innerHTML=`<p class="small mt1">${r.days} days. ${r.days<42?"Compressed: base and build overlap; fluency checkpoints weekly regardless.":r.days>120?"Long runway: the base phase includes two long reads and a second diagnostic at the midpoint.":"A standard 12-week cycle."}</p><div class="phases">${r.phases.map(p=>`<div class="phase ${p.now?"now":""}"><b>${esc(p.name)}</b><div class="dates">${esc(p.label)}</div><div><b style="font-family:var(--body);font-size:.9rem">${esc(p.focus)}</b></div><div class="small" style="margin-top:.3rem">${esc(p.do)}</div></div>`).join("")}</div>`; if(save) store("pr-plan",{date:$("#pp-date").value,at:Date.now()}); };
   btn.addEventListener("click",()=>run(true)); const saved=load("pr-plan",null); if(saved&&saved.date){ $("#pp-date").value=saved.date; } run(false); })();
@@ -5314,7 +5321,7 @@ function renderFriday(){
   { const fs=$("#fr-saved"); if(fs) fs.textContent=!SAVE.ok?`This browser has not stored ${Object.keys(UNSAVED).length} of your records. They are still on this page and are included in the file you save. Save a file now, or press the red status in the bar to try again.`:SAVE.at?`Last saved on this device at ${new Date(SAVE.at).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}.`:"Nothing has been saved in this visit yet."; }
   $("#fr-print").onclick=()=>window.print();
   $("#fr-copy").onclick=async()=>{ const t=$("#fr-report").innerText.replace(/\n{3,}/g,"\n\n"); try{ await navigator.clipboard.writeText(t); toast("Report copied as text."); }catch(e){ toast("Copy is not available here; select the report and copy it."); } };
-  const progressFile=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } Object.entries(UNSAVED).forEach(([k,v])=>{ if(k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)) out[k]=v; }); return {json:JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1),name:`marlow-progress-${(studentName("student").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"student")}-${new Date().toISOString().slice(0,10)}`}; };
+  const progressFile=()=>{ const out={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)){ try{ out[k]=JSON.parse(localStorage.getItem(k)); }catch(e){ out[k]=localStorage.getItem(k); } } } Object.entries(UNSAVED).forEach(([k,v])=>{ if(k.startsWith("pr-")&&!LEAD_KEYS.includes(k)&&!DRAFT_KEYS.includes(k)) out[k]=v; }); return {json:JSON.stringify({app:"marlow",version:1,saved:new Date().toISOString(),data:out},null,1),name:`marlow-progress-${(studentName("student").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"student")}-${localDate()}`}; };
   /* Phones can hand a file straight to mail or messages. Some only share plain text files, so the same JSON goes as .txt there; the tutor view reads either. */
   { const sh=$("#fr-share"); const asFile=()=>{ const p=progressFile(); const tries=[new File([p.json],p.name+".json",{type:"application/json"}),new File([p.json],p.name+".txt",{type:"text/plain"})]; return tries.find(f=>{ try{ return navigator.canShare&&navigator.canShare({files:[f]}); }catch(e){ return false; } })||null; };
     let can=false; try{ can=!!(navigator.share&&asFile()); }catch(e){} sh.hidden=!can;
@@ -5407,7 +5414,7 @@ function outcomeRows(){
 function renderOutcomes(){ const box=$("#fr-out"); if(!box) return; const rows=outcomeRows();
   if(!rows.length){ box.innerHTML=`<p class="small">Nothing to compare yet. This fills in from the diagnostic, the weekly oral reading, the practice sections, and the lessons, and it always compares the student with their own start.</p>`; return; }
   box.innerHTML=`<div class="tabwrap"><table><tr><th>Measure</th><th>At the start</th><th>Now</th><th>Change</th></tr>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td class="num">${esc(r[1])}</td><td class="num">${esc(r[2])}</td><td class="small">${esc(r[3])}</td></tr>`).join("")}</table></div><p class="small mt1">Lesson figures are assisted work, with hints available, and first-check figures cover only the two tasks in each lesson with one right answer. A practice set is a first look only the first time, and both sets are printed in the book. The tutor's weekly checkpoint, on passages kept out of the app and the book, is the independent measure; only that counts toward the guarantee.</p><div class="row mt1"><button class="btn ghost sm" type="button" id="fr-outcopy">Copy this log, without the name</button></div>`;
-  $("#fr-outcopy").onclick=async()=>{ const t="Marlow outcome log, "+new Date().toISOString().slice(0,10)+"\n"+rows.map(r=>`${r[0]}: start ${r[1]||"n/a"}; now ${r[2]||"n/a"}; ${r[3]}`).join("\n"); try{ await navigator.clipboard.writeText(t); toast("Outcome log copied."); }catch(e){ toast("Copy is blocked here. Select the table and copy it."); } }; }
+  $("#fr-outcopy").onclick=async()=>{ const t="Marlow outcome log, "+localDate()+"\n"+rows.map(r=>`${r[0]}: start ${r[1]||"n/a"}; now ${r[2]||"n/a"}; ${r[3]}`).join("\n"); try{ await navigator.clipboard.writeText(t); toast("Outcome log copied."); }catch(e){ toast("Copy is blocked here. Select the table and copy it."); } }; }
 
 /* ---------- tutor view ---------- */
 const ROSTER=[
@@ -5524,7 +5531,7 @@ function renderCohort(rows,opts){ opts=opts||{}; const box=$("#c-out"), now=Date
   const flat=()=>[["Student","Sessions","Weeks","First check early %","First check recent %","Hints per task early","Hints per task recent","Tasks decided by the coach alone %","Answers that needed a tutor","Practice evidence first","Practice evidence latest","Oral reading first wpm","Oral reading latest wpm","Answers waiting","Attention"]].concat(rows.map((r,i)=>[nameOf(r,i),r.sessions,r.weeks,r.fr0??r.frAll,r.fr1,r.h0??r.hAll,r.h1,r.auto,r.needTutor,r.p0,r.p1,r.w0,r.w1,r.flags,cohortNote(r,now)[1]].map(v=>v===null||v===undefined?"":cell(v))));
   $("#c-anon").addEventListener("change",e=>renderCohort(rows,{...opts,anon:e.target.checked}));
   $("#c-copy").addEventListener("click",()=>{ const txt=flat().map(l=>l.join("\t")).join("\n"); const ok=()=>{ $("#c-msg").textContent="Copied. Paste it into a spreadsheet."; }; if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok,()=>{ $("#c-msg").textContent="Copying was blocked. Use Download CSV."; }); else $("#c-msg").textContent="Copying is not available here. Use Download CSV."; });
-  $("#c-csv").addEventListener("click",()=>{ const csv=flat().map(l=>l.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\r\n"); const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"})); a.download=`marlow-cohort-${new Date().toISOString().slice(0,10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); $("#c-msg").textContent="Saved as a CSV file."; });
+  $("#c-csv").addEventListener("click",()=>{ const csv=flat().map(l=>l.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")).join("\r\n"); const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"})); a.download=`marlow-cohort-${localDate()}.csv`; document.body.appendChild(a); a.click(); a.remove(); $("#c-msg").textContent="Saved as a CSV file."; });
   box.querySelectorAll("button[data-open]").forEach(b=>b.addEventListener("click",()=>{ const r=rows[+b.dataset.open]; renderStudentFile(r.data,opts.sample?"sample cohort, invented":r.label); $("#t-review").scrollIntoView({behavior:"smooth",block:"start"}); })); }
 /* Six invented students for the sample view. Fixed numbers, so the view is the same on every visit; not every student improves. */
 function sampleCohort(){ const now=Date.now(), L=UNITS.flatMap(u=>u.lessons).filter(l=>l.play);

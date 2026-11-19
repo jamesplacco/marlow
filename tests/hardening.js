@@ -105,5 +105,22 @@ const TARGET = process.env.MARLOW || path.resolve(__dirname, '..', 'index.html')
     const w = await p.evaluate(() => Math.min(...[...document.querySelectorAll('#v-home dl.kv dt')].map(d => d.getBoundingClientRect().width))); must(w >= 120, 'label column ' + Math.round(w) + 'px'); return Math.round(w) + 'px';
   });
 
+  // 10. The planner never gives a phase an end before its start, and covers today through test day without a gap.
+  await t('planner phases fit any test date a week or more out', async () => {
+    const bad = await p.evaluate(() => { const out = []; for (const days of [7, 8, 10, 12, 15, 19, 20, 30, 84, 200]) { const d = new Date(); d.setDate(d.getDate() + days); const r = planPeriods(localDate(d)); if (!r || r.short) { out.push(days + ': no plan'); continue; }
+      const ph = r.phases, day = x => Math.round(x / 864e5); if (ph.length !== 4) out.push(days + ': ' + ph.length + ' phases');
+      ph.forEach((x, i) => { if (x.stop < x.start) out.push(`${days}: ${x.name} ${x.label}`); if (i && day(x.start - ph[i - 1].stop) !== 1) out.push(`${days}: gap before ${x.name}`); });
+      if (!ph[0].now) out.push(days + ': today is in no phase'); if (localDate(ph[3].stop) !== localDate(d)) out.push(days + ': does not end on the test'); } return out; });
+    must(!bad.length, bad.slice(0, 4).join(' | ')); return '10 dates, 7 to 200 days';
+  });
+
+  // 11. "Today" is the calendar day where the student is, and the planner's default date is local.
+  await t('today is a calendar day, not the last 24 hours', async () => {
+    const q = await page(); await q.clock.install({ time: new Date(2026, 10, 18, 7, 30) }); await q.goto(URL + '#today'); await q.waitForTimeout(200);
+    const r = await q.evaluate(() => ({ lastNight: daysAgo(new Date(2026, 10, 17, 23, 0).getTime()), thisMorning: daysAgo(new Date(2026, 10, 18, 0, 5).getTime()), weekAgo: daysAgo(new Date(2026, 10, 11, 23, 0).getTime()), local: localDate(new Date(2026, 10, 18, 23, 30)) }));
+    await q.context().close();
+    must(r.lastNight === 1 && r.thisMorning === 0 && r.weekAgo === 7, JSON.stringify(r)); must(r.local === '2026-11-18', 'local date ' + r.local);
+  });
+
   console.log('errors:', errs); await b.close(); fs.rmSync(tmp, { recursive: true, force: true }); process.exit(fails || errs.length ? 1 : 0);
 })();
