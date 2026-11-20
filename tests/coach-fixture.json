@@ -693,7 +693,8 @@
    "expect": "withhold",
    "response": "In the county trial, flowering plants were probably less abundant on the once-mowed verges by July.",
    "why": "Direction reversed, hedged.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l23-number",
@@ -704,7 +705,8 @@
    "expect": "withhold",
    "response": "On the once-mowed verges in the trial, bee visits were roughly 13 times as frequent by July.",
    "why": "13 is not in the passage.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l23-attribution",
@@ -715,7 +717,9 @@
    "expect": "withhold",
    "response": "In the trial, the beekeepers counted about four times as many flowering plants on the once-mowed verges.",
    "why": "A university team counted, not the beekeepers.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20",
+   "knownLimit": true
   },
   {
    "id": "held-l24-date",
@@ -726,7 +730,8 @@
    "expect": "withhold",
    "response": "Nine of the eleven beams were felled between 1495 and 1510.",
    "why": "Both years are a century off.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l24-attribution",
@@ -737,7 +742,9 @@
    "expect": "withhold",
    "response": "The local historian concludes the roof is essentially medieval, since nine of the eleven beams were felled between 1395 and 1410.",
    "why": "The archaeologist concludes that; the historian argues the opposite.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20",
+   "knownLimit": true
   },
   {
    "id": "held-l5-moved-hedge",
@@ -748,7 +755,8 @@
    "expect": "withhold",
    "response": "The counselor's calls led to the drop in absences, although the weather may have been mild that spring.",
    "why": "A cause asserted flat, with a doubt about the weather.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l5-reversed",
@@ -759,7 +767,9 @@
    "expect": "withhold",
    "response": "Absences may have risen after the later bell, though the report could not separate the two changes.",
    "why": "Absences fell.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20",
+   "knownLimit": true
   },
   {
    "id": "held-l5-entity",
@@ -770,7 +780,8 @@
    "expect": "withhold",
    "response": "Absences fell at Lincoln High, but the report could not say whether the bell or the calls did it.",
    "why": "The school is Harlow.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l19-invented-past",
@@ -781,7 +792,8 @@
    "expect": "withhold",
    "response": "Tomas gave the bench to his sisters and locked the garage after his daughter broke the clock.",
    "why": "None of this happens.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l19-invented-present",
@@ -792,7 +804,9 @@
    "expect": "withhold",
    "response": "The bench means nothing to Tomas, who sells it to pay for the funeral.",
    "why": "Invented, in the present tense.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20",
+   "knownLimit": true
   },
   {
    "id": "held-l19-valid",
@@ -803,7 +817,9 @@
    "expect": "accept",
    "response": "At first the bench is a thing he protects from use, and by the end he works at it with his daughter, so it has become part of his own life.",
    "why": "A sound reading.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20",
+   "knownLimit": true
   },
   {
    "id": "held-l5-valid",
@@ -814,7 +830,8 @@
    "expect": "accept",
    "response": "The drop in absences cannot be credited to the later bell alone, because the outreach calls started in the same semester.",
    "why": "A sound claim.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l24-valid",
@@ -825,7 +842,8 @@
    "expect": "accept",
    "response": "The roof is probably medieval in the main, because nine of the eleven sampled beams were felled between 1395 and 1410, although two beams are later.",
    "why": "A sound claim.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   },
   {
    "id": "held-l23-valid",
@@ -836,7 +854,9 @@
    "expect": "accept",
    "response": "The trial suggests that mowing once left more flowers and more bee visits on those forty miles, but it cannot show what would happen in other counties.",
    "why": "A sound claim.",
-   "set": "heldout"
+   "set": "regression",
+   "heldOutUntil": "2026-11-20"
   }
- ]
+ ],
+ "note": "The cases marked regression were held out until 2026-11-20, when an outside audit and the fix for it used them. Five are known limits of the pattern check: four wrong answers it passes and one right answer it abstains on. None of them can be labeled correct, because no written answer can. There is no held-out set at present; one must be written by someone who has not read the checker's rules and frozen before it is run."
 }
