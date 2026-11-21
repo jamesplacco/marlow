@@ -31,3 +31,6 @@ The repo is the source of truth. The site has no build step: edit `index.html`, 
 - Use the metric dictionary (`firstRate`, `cleanRate`, `sessCells`): keyed first check, keyed no hint, written check passed. Do not add a figure that mixes keyed and written tasks.
 - A causal answer key states its assumption. "Rules out" is for what cannot be true (timing); everything else weakens, on an assumption the feedback names.
 - A new stored record needs a schema in `REC_OK` and a test that a malformed one is refused.
+- Recovery order is fixed: copy the original to a `marlow-q-` key, read it back, and only then write the repaired record. Never remove or overwrite a stored record whose copy has not been verified, and never clip a recovery copy.
+- `FILE_MAX` and `ATT_BUDGET` are the only size limits. Any new record that can grow needs a cap that keeps a saved file under `FILE_MAX`, and a test that its own backup reloads.
+- A passed pattern check ends in the comparison step, never in a Next button.
